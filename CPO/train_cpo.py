@@ -1,5 +1,5 @@
 import os
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 import bullet_safety_gym
 import gymnasium as gym
 try:
@@ -61,9 +61,18 @@ TASK_TO_CFG = {
     "SafetyHumanoidVelocityGymnasium-v1": Mujoco20MCfg,
 }
 
+# Make my own config params
+@dataclass
+class MyCfg(TrainCfg):
+    # task: str = "SafetyDroneCircle-v0"
+    task: str = 'SafetyPointGoal1Gymnasium-v0'
+    epoch: int = 10
+    lr: float = 0.001
+    render: bool = True
+    render_mode: str = 'human'
 
 @pyrallis.wrap()
-def train(args: TrainCfg):
+def train(args: MyCfg):
     task = args.task
     default_cfg = TASK_TO_CFG[task]() if task in TASK_TO_CFG else TrainCfg()
     # use the default configs instead of the input args.
