@@ -73,7 +73,6 @@ class MyCfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: MyCfg):
-
     task = args.task
     default_cfg = TASK_TO_CFG[task]() if task in TASK_TO_CFG else TrainCfg()
     # use the default configs instead of the input args.
