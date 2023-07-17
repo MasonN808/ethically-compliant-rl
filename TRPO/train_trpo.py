@@ -1,5 +1,5 @@
 import os
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 
 
 try:
@@ -61,9 +61,18 @@ TASK_TO_CFG = {
     "SafetyHumanoidVelocityGymnasium-v1": Mujoco20MCfg,
 }
 
+# Make my own config params
+@dataclass
+class MyCfg(TrainCfg):
+    # task: str = "SafetyDroneCircle-v0"
+    task: str = 'SafetyPointGoal1Gymnasium-v0'
+    epoch: int = 10
+    lr: float = 0.001
+    render: bool = True
+    render_mode: str = 'human'
 
 @pyrallis.wrap()
-def train(args: TrainCfg):
+def train(args: MyCfg):
 
     task = args.task
     default_cfg = TASK_TO_CFG[task]() if task in TASK_TO_CFG else TrainCfg()
@@ -87,12 +96,12 @@ def train(args: TrainCfg):
         args.group = args.task + "-cost-" + str(int(args.cost_limit))
     if args.logdir is not None:
         args.logdir = os.path.join(args.logdir, args.project, args.group)
-    # logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)
-    logger = TensorboardLogger(args.logdir, log_txt=True, name=args.name)
+    logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)
+    # logger = TensorboardLogger(args.logdir, log_txt=True, name=args.name)
     logger.save_config(cfg, verbose=args.verbose)
 
-    demo_env = gym.make('SafetyCarCircle-v0')
-    # demo_env = gym.make(args.task)
+    # demo_env = safety_gymnasium.make('SafetyPointGoal1-v0')
+    demo_env = gym.make(args.task)
 
     agent = TRPOLagAgent(
         env=demo_env,

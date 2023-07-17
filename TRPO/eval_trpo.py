@@ -19,12 +19,13 @@ from fsrl.utils.exp_util import auto_name, load_config_and_model, seed_all
 
 @dataclass
 class EvalConfig:
-    path: str = "logs"
+    path: str = "/Users/masonnakamura/Local-Git/ethically-compliant-rl/logs"
     best: bool = False
     eval_episodes: int = 20
     parallel_eval: bool = True
     device: str = "cpu"
-    render: bool = False
+    render: bool = True
+    render_mode: str = "human"
     train_mode: bool = False
 
 
