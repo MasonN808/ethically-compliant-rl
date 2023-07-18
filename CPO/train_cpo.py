@@ -71,8 +71,8 @@ class MyCfg(TrainCfg):
     task: str = 'SafetyPointGoal1Gymnasium-v0'
     epoch: int = 10
     lr: float = 0.01
-    render: float = .01
-    render_mode: str = 'human'
+    render: float = .001
+    render_mode: str = "human"
 
 @pyrallis.wrap()
 def train(args: MyCfg):
@@ -103,7 +103,7 @@ def train(args: MyCfg):
     logger.save_config(cfg, verbose=args.verbose)
     # logger = BaseLogger()
 
-    demo_env = gym.make(args.task)
+    demo_env = gym.make(args.task, render_mode=args.render_mode)
 
     agent = CPOAgent(
         env=demo_env,
@@ -156,7 +156,7 @@ def train(args: MyCfg):
     if __name__ == "__main__":
         # Let's watch its performance!
         from fsrl.data import FastCollector
-        env = gym.make(args.task)
+        env = gym.make(args.task, render_mode=args.render_mode)
         agent.policy.eval()
         collector = FastCollector(agent.policy, env)
         result = collector.collect(n_episode=10, render=args.render)
