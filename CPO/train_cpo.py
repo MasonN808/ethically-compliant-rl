@@ -10,6 +10,9 @@ except ImportError:
 import pyrallis
 from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv
 
+# To render the environemnt and agent
+import matplotlib.pyplot as plt
+
 from fsrl.agent import CPOAgent
 from fsrl.config.cpo_cfg import (
     Bullet1MCfg,
@@ -67,8 +70,8 @@ class MyCfg(TrainCfg):
     # task: str = "SafetyDroneCircle-v0"
     task: str = 'SafetyPointGoal1Gymnasium-v0'
     epoch: int = 10
-    lr: float = 0.001
-    render: bool = True
+    lr: float = 0.01
+    render: float = .01
     render_mode: str = 'human'
 
 @pyrallis.wrap()
