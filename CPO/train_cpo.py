@@ -72,6 +72,7 @@ class MyCfg(TrainCfg):
     # render: float = .001
     render: float = None
     render_mode: str = "human"
+    device: str = "gpu"
 
 @pyrallis.wrap()
 def train(args: MyCfg):
