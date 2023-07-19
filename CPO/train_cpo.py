@@ -67,9 +67,10 @@ TASK_TO_CFG = {
 class MyCfg(TrainCfg):
     # task: str = "SafetyDroneCircle-v0"
     task: str = "SafetyPointGoal2Gymnasium-v0"
-    epoch: int = 100
+    epoch: int = 10
     lr: float = 0.001
-    render: float = .001
+    # render: float = .001
+    render: float = None
     render_mode: str = "human"
 
 @pyrallis.wrap()
