@@ -19,13 +19,16 @@ from fsrl.utils.exp_util import auto_name, load_config_and_model, seed_all
 
 @dataclass
 class EvalConfig:
-    path: str = "logs"
-    best: bool = False
+    # Need to get relative path of the experiment that you'd like to evaluate
+    path: str = "logs/fast-safe-rl/SafetyCarCircle2Gymnasium-v0-cost-10/cpo_cost10_step_per_epoch10000-1e42"
+    best: bool = True
     eval_episodes: int = 20
-    parallel_eval: bool = True
+    parallel_eval: bool = False
     device: str = "cpu"
-    render: bool = False
+    # This was originally a bool; must be changed to float
+    render: float = .001
     train_mode: bool = False
+    render_mode: str = "human"
 
 
 @pyrallis.wrap()
@@ -33,7 +36,7 @@ def eval(args: EvalConfig):
     cfg, model = load_config_and_model(args.path, args.best)
 
     task = cfg["task"]
-    demo_env = gym.make(task)
+    demo_env = gym.make(task, render_mode=args.render_mode)
 
     agent = CPOAgent(
         env=demo_env,
@@ -49,10 +52,10 @@ def eval(args: EvalConfig):
 
     if args.parallel_eval:
         test_envs = ShmemVectorEnv(
-            [lambda: gym.make(task) for _ in range(args.eval_episodes)]
+            [lambda: gym.make(task, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
         )
     else:
-        test_envs = gym.make(task)
+        test_envs = gym.make(task, render_mode=args.render_mode)
 
     rews, lens, cost = agent.evaluate(
         test_envs=test_envs,
