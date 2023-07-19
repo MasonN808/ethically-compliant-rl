@@ -77,7 +77,7 @@ class MyCfg(TrainCfg):
     render: float = None
     render_mode: str = "human"
     device: str = "cuda"
-    thread: int = 20 # If use CPU to train
+    # thread: int = 20 # If use CPU to train
 
 @pyrallis.wrap()
 def train(args: MyCfg):
