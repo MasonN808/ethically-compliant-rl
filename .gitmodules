@@ -1,3 +1,4 @@
 [submodule "safety-gymnasium"] 
   path = safety-gymnasium
   url =  git://github.com/MasonN808/safety-gymnasium.git
+  branch = main
