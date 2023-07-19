@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 from dataclasses import asdict, dataclass
 import bullet_safety_gym
