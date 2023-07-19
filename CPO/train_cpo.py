@@ -26,8 +26,6 @@ from fsrl.config.cpo_cfg import (
 )
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name
-# env = safety_gymnasium.vector.make("SafetyCarGoal1-v0", render_mode="human", num_envs=8)
-env = safety_gymnasium.make("SafetyCarGoal1-v0", render_mode="human")
 
 TASK_TO_CFG = {
     # bullet safety gym tasks
@@ -68,9 +66,9 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     # task: str = "SafetyDroneCircle-v0"
-    task: str = 'SafetyPointGoal1Gymnasium-v0'
-    epoch: int = 10
-    lr: float = 0.01
+    task: str = "SafetyPointGoal2Gymnasium-v0"
+    epoch: int = 100
+    lr: float = 0.001
     render: float = .001
     render_mode: str = "human"
 
@@ -103,7 +101,8 @@ def train(args: MyCfg):
     logger.save_config(cfg, verbose=args.verbose)
     # logger = BaseLogger()
 
-    demo_env = gym.make(args.task, render_mode=args.render_mode)
+    # demo_env = gym.make(args.task, render_mode=args.render_mode)
+    demo_env = gym.make(args.task)
 
     agent = CPOAgent(
         env=demo_env,
