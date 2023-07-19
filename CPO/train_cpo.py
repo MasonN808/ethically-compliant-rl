@@ -62,6 +62,8 @@ TASK_TO_CFG = {
     "SafetyAntVelocityGymnasium-v1": Mujoco10MCfg,
     "SafetyHumanoidVelocityGymnasium-v1": Mujoco20MCfg,
 }
+import os
+os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 
 # Make my own config params
 @dataclass
