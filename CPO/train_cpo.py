@@ -78,7 +78,7 @@ class MyCfg(TrainCfg):
     render_mode: str = "human"
     device: str = "cpu"
     thread: int = 20 # If use CPU to train
-    step_per_epoch = 20000
+    step_per_epoch = 10000
 
 @pyrallis.wrap()
 def train(args: MyCfg):
