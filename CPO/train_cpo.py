@@ -64,20 +64,21 @@ TASK_TO_CFG = {
 }
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1" 
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0,1" 
 
 # Make my own config params
 @dataclass
 class MyCfg(TrainCfg):
     # task: str = "SafetyDroneCircle-v0"
-    task: str = "SafetyPointGoal2Gymnasium-v0"
-    epoch: int = 10
+    task: str = "SafetyCarGoal1Gymnasium-v0"
+    epoch: int = 200
     lr: float = 0.001
     # render: float = .001
     render: float = None
     render_mode: str = "human"
-    device: str = "cuda"
-    # thread: int = 20 # If use CPU to train
+    device: str = "cpu"
+    thread: int = 20 # If use CPU to train
+    step_per_epoch = 20000
 
 @pyrallis.wrap()
 def train(args: MyCfg):
