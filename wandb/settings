@@ -1,0 +1,5 @@
+[default]
+entity = ecrl
+project = fast-safe-rl
+base_url = https://api.wandb.ai
+

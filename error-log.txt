@@ -1,0 +1,1 @@
+slurmstepd: error: execve(): /nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py: Permission denied
