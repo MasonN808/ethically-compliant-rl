@@ -20,9 +20,9 @@ from fsrl.utils.exp_util import auto_name, load_config_and_model, seed_all
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/fast-safe-rl/SafetyCarCircle2Gymnasium-v0-cost-10/cpo_cost10_step_per_epoch10000-1e42"
+    path: str = "logs/fast-safe-rl-slurm/SafetyCarGoal1Gymnasium-v0-cost-10/cpo_cost10_step_per_epoch10000-426f"
     best: bool = True
-    eval_episodes: int = 20
+    eval_episodes: int = 2
     parallel_eval: bool = False
     device: str = "cpu"
     # This was originally a bool; must be changed to float
