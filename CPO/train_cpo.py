@@ -74,8 +74,9 @@ class MyCfg(TrainCfg):
     epoch: int = 10
     lr: float = 0.001
     # render: float = .001
-    render: float = None
-    render_mode: str = "human"
+    render: float = None # The rate at which it renders
+    # render_mode: str = "human"
+    render_mode: str = None # If you don't want renders after training
     device: str = "cpu"
     thread: int = 160 # If use CPU to train
     step_per_epoch = 10000
