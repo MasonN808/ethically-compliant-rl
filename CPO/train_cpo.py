@@ -14,7 +14,7 @@ from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv
 
 # To render the environemnt and agent
 import matplotlib.pyplot as plt
-sys.path.append("FSRL")
+# sys.path.append("FSRL")
 from fsrl.agent import CPOAgent
 from fsrl.config.cpo_cfg import (
     Bullet1MCfg,
