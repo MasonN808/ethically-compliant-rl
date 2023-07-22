@@ -3,6 +3,6 @@
   url =  git://github.com/MasonN808/safety-gymnasium.git
   branch = main
 [submodule "FSRL"] 
-  path = safety-gymnasium
-  url =  git://github.com/MasonN808/FSRL.git
+	path = FSRL
+	url = https://github.com/MasonN808/FSRL.git
   branch = main
