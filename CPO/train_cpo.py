@@ -77,7 +77,7 @@ class MyCfg(TrainCfg):
     render: float = None # The rate at which it renders
     # render_mode: str = "human"
     render_mode: str = None # If you don't want renders after training
-    device: str = "cpu"
+    device: str = "cuda"
     thread: int = 160 # If use CPU to train
     step_per_epoch = 10000
     project: str = "fast-safe-rl-slurm"
