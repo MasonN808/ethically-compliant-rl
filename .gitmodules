@@ -2,7 +2,7 @@
   path = safety-gymnasium
   url =  git://github.com/MasonN808/safety-gymnasium.git
   branch = main
-[submodule "fsrl"] 
+[submodule "FSRL"] 
   path = safety-gymnasium
   url =  git://github.com/MasonN808/FSRL.git
   branch = main
