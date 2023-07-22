@@ -4,5 +4,5 @@
   branch = main
 [submodule "FSRL"] 
 	path = FSRL
-	url = https://github.com/MasonN808/FSRL.git
+	url = git://github.com/MasonN808/FSRL.git
   branch = main
