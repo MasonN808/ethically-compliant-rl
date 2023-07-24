@@ -6,3 +6,7 @@
 	path = FSRL
 	url = git://github.com/MasonN808/FSRL.git
   branch = main
+[submodule "HighwayEnv"] 
+	path = HighwayEnv
+	url = https://github.com/MasonN808/HighwayEnv.git
+  branch = master
