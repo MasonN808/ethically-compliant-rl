@@ -3,6 +3,7 @@ import os
 from dataclasses import asdict, dataclass
 import sys
 import bullet_safety_gym
+import highway_env
 import gymnasium as gym
 try:
     import safety_gymnasium
@@ -26,6 +27,8 @@ from fsrl.config.cpo_cfg import (
     MujocoBaseCfg,
     TrainCfg,
 )
+# To specify the actions and observations for a Highway environment
+from env_configs.highway_env_cfg import HighwayEnvCfg
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name
 
@@ -62,7 +65,14 @@ TASK_TO_CFG = {
     "SafetyWalker2dVelocityGymnasium-v1": Mujoco10MCfg,
     "SafetyAntVelocityGymnasium-v1": Mujoco10MCfg,
     "SafetyHumanoidVelocityGymnasium-v1": Mujoco20MCfg,
+    # HighwayEnv tasks
+    "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
+
+HIGHWAY_ENV_TO_CFG = {
+    "roundabout-v0": HighwayEnvCfg,
+}
+
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
@@ -71,7 +81,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 @dataclass
 class MyCfg(TrainCfg):
     # task: str = "SafetyDroneCircle-v0"
-    task: str = "SafetyCarGoal1Gymnasium-v0"
+    task: str = "roundabout-v0"
     epoch: int = 5
     lr: float = 0.001
     # render: float = .001
@@ -81,10 +91,33 @@ class MyCfg(TrainCfg):
     device: str = "cuda"
     thread: int = 160 # If use CPU to train
     step_per_epoch = 100
-    project: str = "fast-safe-rl-slurm"
+    project: str = "fast-safe-rl"
+
+@dataclass
+class MyHighwayEnvCfg(HighwayEnvCfg):
+    {
+        "observation": {
+            "type": "TimeToCollision"
+        },
+        "action": {
+            "type": "ContinuousAction"
+        },
+        "incoming_vehicle_destination": None,
+        "duration": 11, # [s] If the environment runs for 11 seconds and still hasn't done(vehicle is crashed), it will be truncated. "Second" is expressed as the variable "time", equal to "the number of calls to the step method" / policy_frequency.
+        "simulation_frequency": 15,  # [Hz]
+        "policy_frequency": 1,  # [Hz]
+        "other_vehicles_type": "highway_env.vehicle.behavior.IDMVehicle",
+        "screen_width": 600,  # [px] width of the pygame window
+        "screen_height": 600,  # [px] height of the pygame window
+        "centering_position": [0.5, 0.6],  # The smaller the value, the more southeast the displayed area is. K key and M key can change centering_position[0].
+        "scaling": 5.5,
+        "show_trajectories": False,
+        "render_agent": True,
+        "offscreen_rendering": False
+    }
 
 @pyrallis.wrap()
-def train(args: MyCfg):
+def train(args: MyCfg, env_args: MyHighwayEnvCfg):
     task = args.task
     default_cfg = TASK_TO_CFG[task]() if task in TASK_TO_CFG else TrainCfg()
     # use the default configs instead of the input args.
@@ -114,6 +147,8 @@ def train(args: MyCfg):
 
     # demo_env = gym.make(args.task, render_mode=args.render_mode)
     demo_env = gym.make(args.task)
+    demo_env.configure(env_args)
+    demo_env.reset()
 
     agent = CPOAgent(
         env=demo_env,
