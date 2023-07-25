@@ -2,8 +2,8 @@
 import os
 from dataclasses import asdict, dataclass
 import sys
-import bullet_safety_gym
 import highway_env
+import bullet_safety_gym
 import gymnasium as gym
 try:
     import safety_gymnasium
@@ -75,32 +75,50 @@ HIGHWAY_ENV_TO_CFG = {
 
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
 
 # Make my own config params
 @dataclass
 class MyCfg(TrainCfg):
-    # task: str = "SafetyDroneCircle-v0"
-    task: str = "roundabout-v0"
+    task: str = "SafetyPointCircle1Gymnasium-v0"
+    # task: str = "roundabout-v0"
     epoch: int = 5
     lr: float = 0.001
     # render: float = .001
     render: float = None # The rate at which it renders
-    # render_mode: str = "human"
-    render_mode: str = None # If you don't want renders after training
-    device: str = "cuda"
+    render_mode: str = "human"
+    # render_mode: str = None # If you don't want renders after training
+    device: str = "cpu"
     thread: int = 160 # If use CPU to train
     step_per_epoch = 100
     project: str = "fast-safe-rl"
+    slurm: bool = False
 
-@dataclass
-class MyHighwayEnvCfg(HighwayEnvCfg):
-    {
+
+MY_HIGHWAY_ENV_CFG = {
+        # "observation": {
+        #     "type": "Kinematics",
+        #     "vehicles_count": 15,
+        #     "features": ["presence", "x", "y", "vx", "vy", "cos_h", "sin_h"],
+        #     "features_range": {
+        #         "x": [-100, 100],
+        #         "y": [-100, 100],
+        #         "vx": [-20, 20],
+        #         "vy": [-20, 20]
+        #     },
+        #     "absolute": False,
+        #     "order": "sorted"
+        # },
         "observation": {
-            "type": "TimeToCollision"
+            "type": "GrayscaleObservation",
+            "observation_shape": (128, 64),
+            "stack_size": 4,
+            "weights": [0.2989, 0.5870, 0.1140],  # weights for RGB conversion
+            "scaling": 1.75,
         },
         "action": {
-            "type": "ContinuousAction"
+            "type": "DiscreteAction"
+            # "type": "ContinuousAction"
         },
         "incoming_vehicle_destination": None,
         "duration": 11, # [s] If the environment runs for 11 seconds and still hasn't done(vehicle is crashed), it will be truncated. "Second" is expressed as the variable "time", equal to "the number of calls to the step method" / policy_frequency.
@@ -117,7 +135,7 @@ class MyHighwayEnvCfg(HighwayEnvCfg):
     }
 
 @pyrallis.wrap()
-def train(args: MyCfg, env_args: MyHighwayEnvCfg):
+def train(args: MyCfg):
     task = args.task
     default_cfg = TASK_TO_CFG[task]() if task in TASK_TO_CFG else TrainCfg()
     # use the default configs instead of the input args.
@@ -147,8 +165,11 @@ def train(args: MyCfg, env_args: MyHighwayEnvCfg):
 
     # demo_env = gym.make(args.task, render_mode=args.render_mode)
     demo_env = gym.make(args.task)
-    demo_env.configure(env_args)
-    demo_env.reset()
+    print(demo_env.observation_space)
+
+    if args.task in HIGHWAY_ENV_TO_CFG:
+        demo_env.configure(MY_HIGHWAY_ENV_CFG)
+        print(demo_env.observation_space)
 
     agent = CPOAgent(
         env=demo_env,
@@ -174,10 +195,15 @@ def train(args: MyCfg, env_args: MyHighwayEnvCfg):
         deterministic_eval=args.deterministic_eval,
         action_scaling=args.action_scaling,
         action_bound_method=args.action_bound_method,
+        slurm=args.slurm,
     )
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
+    # if args.task in HIGHWAY_ENV_TO_CFG:
+    #     # train_envs = worker([lambda: gym.make(args.task).configure(MY_HIGHWAY_ENV_CFG) for _ in range(training_num)])
+    #     # test_envs = worker([lambda: gym.make(args.task).configure(MY_HIGHWAY_ENV_CFG) for _ in range(args.testing_num)])
+    # else:
     train_envs = worker([lambda: gym.make(args.task) for _ in range(training_num)])
     test_envs = worker([lambda: gym.make(args.task) for _ in range(args.testing_num)])
 
@@ -202,6 +228,8 @@ def train(args: MyCfg, env_args: MyHighwayEnvCfg):
         # Let's watch its performance!
         from fsrl.data import FastCollector
         env = gym.make(args.task, render_mode=args.render_mode)
+        if args.task in HIGHWAY_ENV_TO_CFG:
+            env.configure(MY_HIGHWAY_ENV_CFG)
         agent.policy.eval()
         collector = FastCollector(agent.policy, env)
         result = collector.collect(n_episode=10, render=args.render)
