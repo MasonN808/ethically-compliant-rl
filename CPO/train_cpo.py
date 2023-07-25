@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 import os
 from dataclasses import asdict, dataclass
+import pickle
+import ast
 import sys
 import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning) 
 import highway_env
 import bullet_safety_gym
 import gymnasium as gym
@@ -29,12 +32,11 @@ from fsrl.config.cpo_cfg import (
     MujocoBaseCfg,
     TrainCfg,
 )
-# To specify the actions and observations for a Highway environment
-from env_configs.highway_env_cfg import HighwayEnvCfg
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name
 
-from rl_agents.agents.common.factory import load_agent, load_environment
+# from rl_agents.agents.common.factory import load_agent, load_environment
+from utils.utils import load_environment
 
 TASK_TO_CFG = {
     # bullet safety gym tasks
@@ -73,10 +75,10 @@ TASK_TO_CFG = {
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
 
-HIGHWAY_ENV_TO_CFG = {
-    "roundabout-v0": HighwayEnvCfg,
-    "parking-v0": HighwayEnvCfg,
-}
+# HIGHWAY_ENV_TO_CFG = {
+#     "roundabout-v0": HighwayEnvCfg,
+#     "parking-v0": HighwayEnvCfg,
+# }
 
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
@@ -87,72 +89,32 @@ os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 class MyCfg(TrainCfg):
     # task: str = "SafetyPointCircle1Gymnasium-v0"
     task: str = "parking-v0"
-    epoch: int = 5
-    lr: float = 0.001
+    epoch: int = 2
+    lr: float = 0.01
     # render: float = .001
     render: float = None # The rate at which it renders
-    render_mode: str = "human"
+    render_mode: str = "rgb_array"
     # render_mode: str = None # If you don't want renders after training
     thread: int = 160 # If use CPU to train
     step_per_epoch = 100
     project: str = "fast-safe-rl"
     slurm: bool = False
     # Decide which device to use based on availability
-    device = (
-            "cuda"
-            if torch.cuda.is_available()
-            else "mps"
-            if torch.backends.mps.is_available()
-            else "cpu"
-        )
+    # device = (
+    #         "cuda"
+    #         if torch.cuda.is_available()
+    #         else "mps"
+    #         if torch.backends.mps.is_available()
+    #         else "cpu"
+    #     )
+    device = "cpu"
 
+ENV_CONFIG_FILE = 'configs/ParkingEnv/env-image.txt'
+with open(ENV_CONFIG_FILE) as f:
+    data = f.read()
+# reconstructing the data as a dictionary
+ENV_CONFIG = ast.literal_eval(data)
 
-MY_HIGHWAY_ENV_CFG = {
-        # "observation": {
-        #     "type": "Kinematics",
-        #     "vehicles_count": 15,
-        #     "features": ["presence", "x", "y", "vx", "vy", "cos_h", "sin_h"],
-        #     "features_range": {
-        #         "x": [-100, 100],
-        #         "y": [-100, 100],
-        #         "vx": [-20, 20],
-        #         "vy": [-20, 20]
-        #     },
-        #     "absolute": False,
-        #     "order": "sorted"
-        # },
-        "observation": {
-            "type": "KinematicsGoal",
-            "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
-            "scales": [100, 100, 5, 5, 1, 1],
-            "normalize": False
-        },
-        # "observation": {
-        #     "type": "GrayscaleObservation",
-        #     "observation_shape": (128, 64),
-        #     "stack_size": 4,
-        #     "weights": [0.2989, 0.5870, 0.1140],  # weights for RGB conversion
-        #     "scaling": 1.75,
-        # },
-        "action": {
-            "type": "DiscreteAction"
-            # "type": "ContinuousAction"
-        },
-        "incoming_vehicle_destination": None,
-        "duration": 11, # [s] If the environment runs for 11 seconds and still hasn't done(vehicle is crashed), it will be truncated. "Second" is expressed as the variable "time", equal to "the number of calls to the step method" / policy_frequency.
-        "simulation_frequency": 15,  # [Hz]
-        "policy_frequency": 1,  # [Hz]
-        "other_vehicles_type": "highway_env.vehicle.behavior.IDMVehicle",
-        "screen_width": 600,  # [px] width of the pygame window
-        "screen_height": 600,  # [px] height of the pygame window
-        "centering_position": [0.5, 0.6],  # The smaller the value, the more southeast the displayed area is. K key and M key can change centering_position[0].
-        "scaling": 5.5,
-        "show_trajectories": False,
-        "render_agent": True,
-        "offscreen_rendering": False
-    }
-
-env_config = 'configs/ParkingEnv/env.json'
 
 @pyrallis.wrap()
 def train(args: MyCfg):
@@ -184,13 +146,12 @@ def train(args: MyCfg):
     # logger = BaseLogger()
 
     # demo_env = gym.make(args.task, render_mode=args.render_mode)
-    # demo_env = gym.make(args.task)
-    demo_env = load_environment(env_config)
+    demo_env = load_environment(ENV_CONFIG)
+
+    # Some config testing
     print("Observation Space: {}".format(demo_env.observation_space))
     print("Action Space: {}".format(demo_env.action_space))
-    
-    if args.task in HIGHWAY_ENV_TO_CFG:
-        demo_env.configure(MY_HIGHWAY_ENV_CFG)
+    print("Render Mode: {}".format(demo_env.render_mode))
 
     agent = CPOAgent(
         env=demo_env,
@@ -221,12 +182,10 @@ def train(args: MyCfg):
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
-    if args.task in HIGHWAY_ENV_TO_CFG:
-        train_envs = worker([lambda: gym.make(args.task).configure(MY_HIGHWAY_ENV_CFG) for _ in range(training_num)])
-        test_envs = worker([lambda: gym.make(args.task).configure(MY_HIGHWAY_ENV_CFG) for _ in range(args.testing_num)])
-    else:
-        train_envs = worker([lambda: gym.make(args.task) for _ in range(training_num)])
-        test_envs = worker([lambda: gym.make(args.task) for _ in range(args.testing_num)])
+    train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
+    test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
+    #     train_envs = worker([lambda: gym.make(args.task) for _ in range(training_num)])
+    #     test_envs = worker([lambda: gym.make(args.task) for _ in range(args.testing_num)])
 
     # start training
     agent.learn(
@@ -248,9 +207,7 @@ def train(args: MyCfg):
     if __name__ == "__main__":
         # Let's watch its performance!
         from fsrl.data import FastCollector
-        env = gym.make(args.task, render_mode=args.render_mode)
-        if args.task in HIGHWAY_ENV_TO_CFG:
-            env.configure(MY_HIGHWAY_ENV_CFG)
+        env = load_environment(ENV_CONFIG, render_mode='human')
         agent.policy.eval()
         collector = FastCollector(agent.policy, env)
         result = collector.collect(n_episode=10, render=args.render)
