@@ -2,6 +2,7 @@
 import os
 from dataclasses import asdict, dataclass
 import sys
+import warnings
 import highway_env
 import bullet_safety_gym
 import gymnasium as gym
@@ -10,6 +11,7 @@ try:
 except ImportError:
     print("safety_gymnasium is not found.")
 
+import torch
 import pyrallis
 from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv
 
@@ -31,6 +33,8 @@ from fsrl.config.cpo_cfg import (
 from env_configs.highway_env_cfg import HighwayEnvCfg
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name
+
+from rl_agents.agents.common.factory import load_agent, load_environment
 
 TASK_TO_CFG = {
     # bullet safety gym tasks
@@ -71,6 +75,7 @@ TASK_TO_CFG = {
 
 HIGHWAY_ENV_TO_CFG = {
     "roundabout-v0": HighwayEnvCfg,
+    "parking-v0": HighwayEnvCfg,
 }
 
 import os
@@ -80,19 +85,26 @@ os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 # Make my own config params
 @dataclass
 class MyCfg(TrainCfg):
-    task: str = "SafetyPointCircle1Gymnasium-v0"
-    # task: str = "roundabout-v0"
+    # task: str = "SafetyPointCircle1Gymnasium-v0"
+    task: str = "parking-v0"
     epoch: int = 5
     lr: float = 0.001
     # render: float = .001
     render: float = None # The rate at which it renders
     render_mode: str = "human"
     # render_mode: str = None # If you don't want renders after training
-    device: str = "cpu"
     thread: int = 160 # If use CPU to train
     step_per_epoch = 100
     project: str = "fast-safe-rl"
     slurm: bool = False
+    # Decide which device to use based on availability
+    device = (
+            "cuda"
+            if torch.cuda.is_available()
+            else "mps"
+            if torch.backends.mps.is_available()
+            else "cpu"
+        )
 
 
 MY_HIGHWAY_ENV_CFG = {
@@ -110,12 +122,18 @@ MY_HIGHWAY_ENV_CFG = {
         #     "order": "sorted"
         # },
         "observation": {
-            "type": "GrayscaleObservation",
-            "observation_shape": (128, 64),
-            "stack_size": 4,
-            "weights": [0.2989, 0.5870, 0.1140],  # weights for RGB conversion
-            "scaling": 1.75,
+            "type": "KinematicsGoal",
+            "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
+            "scales": [100, 100, 5, 5, 1, 1],
+            "normalize": False
         },
+        # "observation": {
+        #     "type": "GrayscaleObservation",
+        #     "observation_shape": (128, 64),
+        #     "stack_size": 4,
+        #     "weights": [0.2989, 0.5870, 0.1140],  # weights for RGB conversion
+        #     "scaling": 1.75,
+        # },
         "action": {
             "type": "DiscreteAction"
             # "type": "ContinuousAction"
@@ -133,6 +151,8 @@ MY_HIGHWAY_ENV_CFG = {
         "render_agent": True,
         "offscreen_rendering": False
     }
+
+env_config = 'configs/ParkingEnv/env.json'
 
 @pyrallis.wrap()
 def train(args: MyCfg):
@@ -164,12 +184,13 @@ def train(args: MyCfg):
     # logger = BaseLogger()
 
     # demo_env = gym.make(args.task, render_mode=args.render_mode)
-    demo_env = gym.make(args.task)
-    print(demo_env.observation_space)
-
+    # demo_env = gym.make(args.task)
+    demo_env = load_environment(env_config)
+    print("Observation Space: {}".format(demo_env.observation_space))
+    print("Action Space: {}".format(demo_env.action_space))
+    
     if args.task in HIGHWAY_ENV_TO_CFG:
         demo_env.configure(MY_HIGHWAY_ENV_CFG)
-        print(demo_env.observation_space)
 
     agent = CPOAgent(
         env=demo_env,
@@ -200,12 +221,12 @@ def train(args: MyCfg):
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
-    # if args.task in HIGHWAY_ENV_TO_CFG:
-    #     # train_envs = worker([lambda: gym.make(args.task).configure(MY_HIGHWAY_ENV_CFG) for _ in range(training_num)])
-    #     # test_envs = worker([lambda: gym.make(args.task).configure(MY_HIGHWAY_ENV_CFG) for _ in range(args.testing_num)])
-    # else:
-    train_envs = worker([lambda: gym.make(args.task) for _ in range(training_num)])
-    test_envs = worker([lambda: gym.make(args.task) for _ in range(args.testing_num)])
+    if args.task in HIGHWAY_ENV_TO_CFG:
+        train_envs = worker([lambda: gym.make(args.task).configure(MY_HIGHWAY_ENV_CFG) for _ in range(training_num)])
+        test_envs = worker([lambda: gym.make(args.task).configure(MY_HIGHWAY_ENV_CFG) for _ in range(args.testing_num)])
+    else:
+        train_envs = worker([lambda: gym.make(args.task) for _ in range(training_num)])
+        test_envs = worker([lambda: gym.make(args.task) for _ in range(args.testing_num)])
 
     # start training
     agent.learn(
