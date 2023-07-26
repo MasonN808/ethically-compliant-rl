@@ -84,7 +84,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 class MyCfg(TrainCfg):
     # task: str = "SafetyPointCircle1Gymnasium-v0"
     task: str = "parking-v0"
-    epoch: int = 20
+    epoch: int = 100
     lr: float = 0.001
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
