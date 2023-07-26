@@ -82,7 +82,7 @@ TASK_TO_CFG = {
 
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-# os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
+os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
 
 # Make my own config params
 @dataclass
