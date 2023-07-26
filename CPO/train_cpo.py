@@ -82,7 +82,7 @@ TASK_TO_CFG = {
 
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
+os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1" 
 
 # Make my own config params
 @dataclass
@@ -144,7 +144,6 @@ def train(args: MyCfg):
     logger.save_config(cfg, verbose=args.verbose)
     # logger = BaseLogger()
 
-    # demo_env = gym.make(args.task, render_mode=args.render_mode)
     demo_env = load_environment(ENV_CONFIG)
     # Some config testing
     print("Observation Space: {}".format(demo_env.observation_space))
@@ -182,8 +181,6 @@ def train(args: MyCfg):
     worker = eval(args.worker)
     train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
     test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
-    #     train_envs = worker([lambda: gym.make(args.task) for _ in range(training_num)])
-    #     test_envs = worker([lambda: gym.make(args.task) for _ in range(args.testing_num)])
 
     # start training
     agent.learn(
