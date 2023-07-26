@@ -100,15 +100,13 @@ class MyCfg(TrainCfg):
     project: str = "fast-safe-rl"
     slurm: bool = True
     # Decide which device to use based on availability
-    device = (
+    device: str = (
             "cuda"
             if torch.cuda.is_available()
             else "mps"
             if torch.backends.mps.is_available()
             else "cpu"
         )
-    print(device)
-    device = "cuda"
     print(torch.cuda.is_available())
 
 ENV_CONFIG_FILE = 'configs/ParkingEnv/env-image.txt'
