@@ -89,16 +89,16 @@ os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 class MyCfg(TrainCfg):
     # task: str = "SafetyPointCircle1Gymnasium-v0"
     task: str = "parking-v0"
-    epoch: int = 2
-    lr: float = 0.01
+    epoch: int = 100
+    lr: float = 0.001
     # render: float = .001
     render: float = None # The rate at which it renders
-    render_mode: str = "rgb_array"
-    # render_mode: str = None # If you don't want renders after training
+    # render_mode: str = "rgb_array"
+    render_mode: str = None # If you don't want renders after training
     thread: int = 160 # If use CPU to train
-    step_per_epoch = 100
+    step_per_epoch = 10000
     project: str = "fast-safe-rl"
-    slurm: bool = False
+    slurm: bool = True
     # Decide which device to use based on availability
     # device = (
     #         "cuda"
