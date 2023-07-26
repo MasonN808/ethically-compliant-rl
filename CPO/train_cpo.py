@@ -75,11 +75,6 @@ TASK_TO_CFG = {
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
 
-# HIGHWAY_ENV_TO_CFG = {
-#     "roundabout-v0": HighwayEnvCfg,
-#     "parking-v0": HighwayEnvCfg,
-# }
-
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1" 
@@ -91,10 +86,8 @@ class MyCfg(TrainCfg):
     task: str = "parking-v0"
     epoch: int = 20
     lr: float = 0.001
-    # render: float = .001
-    render: float = None # The rate at which it renders
-    # render_mode: str = "rgb_array"
-    render_mode: str = None # If you don't want renders after training
+    render: float = None # The rate at which it renders (e.g., .001)
+    render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 160 # If use CPU to train
     step_per_epoch = 10000
     project: str = "fast-safe-rl"
@@ -140,9 +133,7 @@ def train(args: MyCfg):
     if args.logdir is not None:
         args.logdir = os.path.join(args.logdir, args.project, args.group)
     logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)
-    # logger = TensorboardLogger(args.logdir, log_txt=True, name=args.name)
     logger.save_config(cfg, verbose=args.verbose)
-    # logger = BaseLogger()
 
     demo_env = load_environment(ENV_CONFIG)
     # Some config testing
