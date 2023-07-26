@@ -107,7 +107,6 @@ class MyCfg(TrainCfg):
             if torch.backends.mps.is_available()
             else "cpu"
         )
-    print(torch.cuda.is_available())
 
 ENV_CONFIG_FILE = 'configs/ParkingEnv/env-image.txt'
 with open(ENV_CONFIG_FILE) as f:
@@ -147,7 +146,8 @@ def train(args: MyCfg):
 
     # demo_env = gym.make(args.task, render_mode=args.render_mode)
     demo_env = load_environment(ENV_CONFIG)
-
+    print(args.device)
+    exit()
     # Some config testing
     print("Observation Space: {}".format(demo_env.observation_space))
     print("Action Space: {}".format(demo_env.action_space))
