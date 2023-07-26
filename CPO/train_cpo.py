@@ -89,14 +89,14 @@ os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 class MyCfg(TrainCfg):
     # task: str = "SafetyPointCircle1Gymnasium-v0"
     task: str = "parking-v0"
-    epoch: int = 50
+    epoch: int = 20
     lr: float = 0.001
     # render: float = .001
     render: float = None # The rate at which it renders
     # render_mode: str = "rgb_array"
     render_mode: str = None # If you don't want renders after training
     thread: int = 160 # If use CPU to train
-    step_per_epoch = 1000
+    step_per_epoch = 10000
     project: str = "fast-safe-rl"
     slurm: bool = True
     # Decide which device to use based on availability
@@ -107,7 +107,7 @@ class MyCfg(TrainCfg):
     #         if torch.backends.mps.is_available()
     #         else "cpu"
     #     )
-    device = "cuda"
+    device = "cpu"
 
 ENV_CONFIG_FILE = 'configs/ParkingEnv/env-image.txt'
 with open(ENV_CONFIG_FILE) as f:
