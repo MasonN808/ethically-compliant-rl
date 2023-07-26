@@ -107,6 +107,7 @@ class MyCfg(TrainCfg):
             if torch.backends.mps.is_available()
             else "cpu"
         )
+    print(device)
     device = "cuda"
     print(torch.cuda.is_available())
 
