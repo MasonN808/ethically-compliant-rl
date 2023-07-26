@@ -107,7 +107,8 @@ class MyCfg(TrainCfg):
             if torch.backends.mps.is_available()
             else "cpu"
         )
-    # device = "cpu"
+    device = "cuda"
+    print(torch.cuda.is_available())
 
 ENV_CONFIG_FILE = 'configs/ParkingEnv/env-image.txt'
 with open(ENV_CONFIG_FILE) as f:
