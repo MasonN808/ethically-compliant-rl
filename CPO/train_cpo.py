@@ -77,29 +77,30 @@ TASK_TO_CFG = {
 
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1" 
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1" 
 
 # Make my own config params
 @dataclass
 class MyCfg(TrainCfg):
     # task: str = "SafetyPointCircle1Gymnasium-v0"
     task: str = "parking-v0"
-    epoch: int = 40
+    epoch: int = 100
     lr: float = 0.001
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
-    thread: int = 160 # If use CPU to train
+    thread: int = 320 # If use CPU to train
     step_per_epoch = 10000
     project: str = "fast-safe-rl"
     slurm: bool = True
     # Decide which device to use based on availability
-    device: str = (
-            "cuda"
-            if torch.cuda.is_available()
-            else "mps"
-            if torch.backends.mps.is_available()
-            else "cpu"
-        )
+    # device: str = (
+    #         "cuda"
+    #         if torch.cuda.is_available()
+    #         else "mps"
+    #         if torch.backends.mps.is_available()
+    #         else "cpu"
+    #     )
+    device = "cpu"
 
 ENV_CONFIG_FILE = 'configs/ParkingEnv/env-image.txt'
 with open(ENV_CONFIG_FILE) as f:
