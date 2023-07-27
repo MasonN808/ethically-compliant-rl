@@ -92,7 +92,8 @@ class MyCfg(TrainCfg):
     step_per_epoch = 10000
     project: str = "fast-safe-rl"
     # slurm: bool = True
-    worker: str = "ShmemVectorEnv"
+    # worker: str = "ShmemVectorEnv"
+    worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
     # device: str = (
     #         "cuda"
