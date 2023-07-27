@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass
 import pickle
 import ast
 import sys
-import warnings
+import warnings # FIXME: Fix this warning eventually
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
 import highway_env
 import bullet_safety_gym
