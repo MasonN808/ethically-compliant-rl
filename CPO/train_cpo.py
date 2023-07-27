@@ -16,7 +16,7 @@ except ImportError:
 
 import torch
 import pyrallis
-from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv
+from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv, RayVectorEnv
 
 # To render the environemnt and agent
 import matplotlib.pyplot as plt
