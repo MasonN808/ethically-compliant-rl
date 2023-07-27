@@ -1,6 +1,7 @@
 import json
 import gymnasium as gym
 import logging
+import numpy as np
 logger = logging.getLogger(__name__)
 
 # From https://github.com/eleurent/rl-agents/blob/master/rl_agents/agents/common/factory.py
@@ -40,3 +41,6 @@ def load_environment(env_config, render_mode=None):
     except AttributeError as e:
         logger.info("This environment does not support configuration. {}".format(e))
     return env
+
+def seed(self, seed):
+    np.random.seed(seed)

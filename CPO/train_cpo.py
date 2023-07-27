@@ -84,14 +84,15 @@ os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 class MyCfg(TrainCfg):
     # task: str = "SafetyPointCircle1Gymnasium-v0"
     task: str = "parking-v0"
-    epoch: int = 100
-    lr: float = 0.001
+    epoch: int = 40
+    lr: float = 0.01
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
     step_per_epoch = 10000
     project: str = "fast-safe-rl"
-    slurm: bool = True
+    # slurm: bool = True
+    worker: str = "ShmemVectorEnv"
     # Decide which device to use based on availability
     # device: str = (
     #         "cuda"
@@ -100,10 +101,10 @@ class MyCfg(TrainCfg):
     #         if torch.backends.mps.is_available()
     #         else "cpu"
     #     )
-    device = "cpu"
+    device: str = "cpu"
+    env_config_file: str = 'configs/ParkingEnv/env-image.txt'
 
-ENV_CONFIG_FILE = 'configs/ParkingEnv/env-image.txt'
-with open(ENV_CONFIG_FILE) as f:
+with open(MyCfg.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
@@ -141,7 +142,6 @@ def train(args: MyCfg):
     print("Observation Space: {}".format(demo_env.observation_space))
     print("Action Space: {}".format(demo_env.action_space))
     print("Render Mode: {}".format(demo_env.render_mode))
-
     agent = CPOAgent(
         env=demo_env,
         logger=logger,
@@ -166,7 +166,6 @@ def train(args: MyCfg):
         deterministic_eval=args.deterministic_eval,
         action_scaling=args.action_scaling,
         action_bound_method=args.action_bound_method,
-        slurm=args.slurm,
     )
 
     training_num = min(args.training_num, args.episode_per_collect)
