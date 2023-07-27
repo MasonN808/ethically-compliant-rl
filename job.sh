@@ -5,4 +5,4 @@
 #SBATCH --gpus=0
 #SBATCH --time=04:00:00
 
-srun --mem=20gb --qos=high --gpus=0 -c 30 --time=4:00:00 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py"
+srun "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py"
