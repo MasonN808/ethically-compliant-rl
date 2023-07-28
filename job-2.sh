@@ -9,4 +9,4 @@
 #SBATCH --qos medium
 
 
-srun "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py"
+srun "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_2.py"
