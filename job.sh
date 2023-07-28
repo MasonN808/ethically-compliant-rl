@@ -4,7 +4,8 @@
 #SBATCH --time=20:00:00
 #SBATCH -N 2
 #SBATCH -n 2
-#SBATCH -c 10
+#SBATCH -c 5
+#SBATCH --mem-per-cpu=1G
 #SBATCH --gpus=2
 #SBATCH --qos medium
 
