@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 import os
+# Set this before everything
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 from dataclasses import asdict, dataclass
 import pickle
 import ast
@@ -77,7 +80,6 @@ TASK_TO_CFG = {
 
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1" 
 
 # Make my own config params
 @dataclass
