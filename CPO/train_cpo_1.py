@@ -2,7 +2,7 @@
 import os
 # Set this before everything
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 from dataclasses import asdict, dataclass
 import pickle
 import ast
@@ -37,8 +37,6 @@ from fsrl.config.cpo_cfg import (
 )
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name
-
-# from rl_agents.agents.common.factory import load_agent, load_environment
 from utils.utils import load_environment
 
 TASK_TO_CFG = {
