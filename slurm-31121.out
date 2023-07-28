@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py", line 9, in <module>
-    import highway_env
-ModuleNotFoundError: No module named 'highway_env'
-srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 1
