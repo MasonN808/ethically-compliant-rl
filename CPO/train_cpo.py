@@ -84,7 +84,7 @@ os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 class MyCfg(TrainCfg):
     # task: str = "SafetyPointCircle1Gymnasium-v0"
     task: str = "parking-v0"
-    epoch: int = 40
+    epoch: int = 60
     lr: float = 0.0001
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
@@ -95,14 +95,7 @@ class MyCfg(TrainCfg):
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
-    # device: str = (
-    #         "cuda"
-    #         if torch.cuda.is_available()
-    #         else "mps"
-    #         if torch.backends.mps.is_available()
-    #         else "cpu"
-    #     )
-    device: str = "cuda"
+    device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .9
     env_config_file: str = 'configs/ParkingEnv/env-image.txt'
 
