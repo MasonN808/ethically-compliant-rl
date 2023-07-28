@@ -86,19 +86,19 @@ os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 class MyCfg(TrainCfg):
     # task: str = "SafetyPointCircle1Gymnasium-v0"
     task: str = "parking-v0"
-    epoch: int = 60
-    lr: float = 0.0001
+    epoch: int = 100
+    lr: float = 0.001
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
-    step_per_epoch: int = 30000
+    step_per_epoch: int = 50000
     project: str = "fast-safe-rl"
     # slurm: bool = True
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
-    gamma: float = .9
+    gamma: float = .98
     env_config_file: str = 'configs/ParkingEnv/env-image.txt'
 
 with open(MyCfg.env_config_file) as f:
