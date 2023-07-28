@@ -1,0 +1,81 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230727_160051-b4f1a9f7-740c-4fa9-8207-6eb23990a87f
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_lr0.01-899e
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/b4f1a9f7-740c-4fa9-8207-6eb23990a87f
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_lr0.01-899e/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-image.txt",
+    "episode_per_collect":	20,
+    "epoch":	40,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.01,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_lr0.01-899e",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	10000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"RayVectorEnv"
+}
+Observation Space: Box(0, 255, (4, 128, 128), uint8)
+Action Space: Box(-1.0, 1.0, (2,), float32)
+Render Mode: None
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py", line 212, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py", line 173, in train
+    worker = eval(args.worker)
+  File "<string>", line 1, in <module>
+NameError: name 'RayVectorEnv' is not defined
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: | 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: / 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 🚀 View run cpo_lr0.01-899e at: https://wandb.ai/ecrl/fast-safe-rl/runs/b4f1a9f7-740c-4fa9-8207-6eb23990a87f
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230727_160051-b4f1a9f7-740c-4fa9-8207-6eb23990a87f/logs
+srun: error: ppo.ist.berkeley.edu: task 0: Exited with exit code 1

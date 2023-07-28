@@ -1,0 +1,196 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230727_181607-86acc18e-730f-4131-8129-d92052e11444
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_gamma0.9_lr0.0001_step_per_epoch30000-fc0d
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/86acc18e-730f-4131-8129-d92052e11444
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_gamma0.9_lr0.0001_step_per_epoch30000-fc0d/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cuda",
+    "env_config_file":	"configs/ParkingEnv/env-image.txt",
+    "episode_per_collect":	20,
+    "epoch":	60,
+    "gae_lambda":	0.95,
+    "gamma":	0.9,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_gamma0.9_lr0.0001_step_per_epoch30000-fc0d",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	30000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Observation Space: Box(0, 255, (4, 128, 128), uint8)
+Action Space: Box(-1.0, 1.0, (2,), float32)
+Render Mode: None
+Epoch #1:   0%|          | 0/30000 [00:00<?, ?it/s]Epoch #1:  33%|###3      | 10000/30000 [00:32<01:05, 306.67it/s]Epoch #1:  33%|###3      | 10000/30000 [00:50<01:05, 306.67it/s]Epoch #1:  33%|###3      | 10000/30000 [01:36<01:05, 306.67it/s, cost=0, length=500, rew=-420]Epoch #1:  67%|######6   | 20000/30000 [01:57<01:03, 158.31it/s, cost=0, length=500, rew=-420]Epoch #1:  67%|######6   | 20000/30000 [02:10<01:03, 158.31it/s, cost=0, length=500, rew=-420]Epoch #1:  67%|######6   | 20000/30000 [03:17<01:03, 158.31it/s, cost=0, length=500, rew=-388]Epoch #1: 100%|##########| 30000/30000 [03:38<00:00, 124.10it/s, cost=0, length=500, rew=-388]Epoch #1: 100%|##########| 30000/30000 [03:50<00:00, 124.10it/s, cost=0, length=500, rew=-388]Epoch #1: 100%|##########| 30000/30000 [04:28<00:00, 111.81it/s, cost=0, length=500, rew=-388]
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py", line 208, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py", line 174, in train
+    agent.learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/cpo_agent.py", line 234, in learn
+    return super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/base_agent.py", line 319, in learn
+    for epoch, _epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 205, in __next__
+    self.policy_update_fn(stats_train)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/onpolicy.py", line 102, in policy_update_fn
+    self.policy.update(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 351, in update
+    self.learn(batch, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py", line 367, in learn
+    loss_actor, stats_actor = self.policy_loss(minibatch)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py", line 303, in policy_loss
+    lam = lam.clone().detach()
+AttributeError: 'int' object has no attribute 'clone'
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py", line 208, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py", line 174, in train
+    agent.learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/cpo_agent.py", line 234, in learn
+    return super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/base_agent.py", line 319, in learn
+    for epoch, _epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 205, in __next__
+    self.policy_update_fn(stats_train)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/onpolicy.py", line 102, in policy_update_fn
+    self.policy.update(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 351, in update
+    self.learn(batch, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py", line 367, in learn
+    loss_actor, stats_actor = self.policy_loss(minibatch)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py", line 303, in policy_loss
+    lam = lam.clone().detach()
+AttributeError: 'int' object has no attribute 'clone'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: | 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: / 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:        loss/cost_loss ▁█
+wandb:          loss/entropy █▁
+wandb:               loss/kl █▁
+wandb:          loss/optim_A ▁█
+wandb:          loss/optim_B █▁
+wandb:          loss/optim_C ▁█
+wandb:          loss/optim_Q ▁█
+wandb:          loss/optim_R █▁
+wandb:          loss/optim_S █▁
+wandb:       loss/optim_case ▁▁
+wandb:         loss/optim_nu ▁▁
+wandb:         loss/rew_loss ▁█
+wandb:        loss/step_size █▁
+wandb:              loss/vf0 █▁
+wandb:              loss/vf1 █▁
+wandb:         loss/vf_total █▁
+wandb:            train/cost ▁▁
+wandb:          train/length ▁▁
+wandb:          train/reward ▁█
+wandb:       update/cum_cost ▁▁
+wandb:        update/episode ▁█
+wandb: update/gradient_steps ▁█
+wandb: 
+wandb: Run summary:
+wandb:        loss/cost_loss -9e-05
+wandb:          loss/entropy 2.83394
+wandb:               loss/kl 0.00058
+wandb:          loss/optim_A -0.0002
+wandb:          loss/optim_B -648773.9458
+wandb:          loss/optim_C -10.00009
+wandb:          loss/optim_Q -5e-05
+wandb:          loss/optim_R 0.00039
+wandb:          loss/optim_S 0.00158
+wandb:       loss/optim_case 3.0
+wandb:        loss/optim_lam nan
+wandb:         loss/optim_nu 0.0
+wandb:         loss/rew_loss 4e-05
+wandb:        loss/step_size 0.63475
+wandb:              loss/vf0 1984.89029
+wandb:              loss/vf1 100.64947
+wandb:         loss/vf_total 2085.5398
+wandb:            train/cost 0.0
+wandb:          train/length 500.0
+wandb:          train/reward -404.0501
+wandb:       update/cum_cost 0.0
+wandb:        update/episode 30.0
+wandb: update/gradient_steps 6.0
+wandb: 
+wandb: 🚀 View run cpo_gamma0.9_lr0.0001_step_per_epoch30000-fc0d at: https://wandb.ai/ecrl/fast-safe-rl/runs/86acc18e-730f-4131-8129-d92052e11444
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230727_181607-86acc18e-730f-4131-8129-d92052e11444/logs
+Exception in thread ChkStopThr:
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 954, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 892, in run
+    self._target(*self._args, **self._kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 277, in check_stop_status
+    self._loop_check_status(
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 215, in _loop_check_status
+    local_handle = request()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 787, in deliver_stop_status
+    return self._deliver_stop_status(status)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 585, in _deliver_stop_status
+    return self._deliver_record(record)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 560, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 1

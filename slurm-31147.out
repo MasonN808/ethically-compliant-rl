@@ -1,0 +1,69 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230727_170709-1551ebd5-c173-4e64-bcea-330b5fab101e
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo-b9ad
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/1551ebd5-c173-4e64-bcea-330b5fab101e
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo-b9ad/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-image.txt",
+    "episode_per_collect":	20,
+    "epoch":	45,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo-b9ad",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	10000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Observation Space: Box(0, 255, (4, 128, 128), uint8)
+Action Space: Box(-1.0, 1.0, (2,), float32)
+Render Mode: None
+slurmstepd: error: *** JOB 31147 ON gan.ist.berkeley.edu CANCELLED AT 2023-07-27T17:08:45 ***
+Epoch #1:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #1: 100%|##########| 10000/10000 [00:19<00:00, 517.60it/s]Epoch #1: 100%|##########| 10000/10000 [00:30<00:00, 517.60it/s]slurmstepd: error: *** STEP 31147.0 ON gan.ist.berkeley.edu CANCELLED AT 2023-07-27T17:08:45 ***
