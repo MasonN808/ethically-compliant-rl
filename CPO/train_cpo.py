@@ -77,7 +77,7 @@ TASK_TO_CFG = {
 
 import os
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-# os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1" 
+os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1" 
 
 # Make my own config params
 @dataclass
@@ -89,7 +89,7 @@ class MyCfg(TrainCfg):
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
-    step_per_epoch = 30000
+    step_per_epoch: int = 30000
     project: str = "fast-safe-rl"
     # slurm: bool = True
     worker: str = "ShmemVectorEnv"
