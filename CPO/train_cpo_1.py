@@ -95,7 +95,8 @@ class MyCfg(TrainCfg):
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
-    device: str = ("cuda" if torch.cuda.is_available() else "cpu")
+    # device: str = ("cuda" if torch.cuda.is_available() else "cpu")
+    device: str = "cpu"
     gamma: float = .95
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
