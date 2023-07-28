@@ -9,6 +9,6 @@
 
 
 
-srun -N 1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py" &
-srun -N 1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_2.py" &
+srun -N 1 --gpu=1"/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py" &
+srun -N 1 --gpu=1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_2.py" &
 wait
