@@ -99,7 +99,7 @@ class MyCfg(TrainCfg):
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
-    env_config_file: str = 'configs/ParkingEnv/env-image.txt'
+    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
