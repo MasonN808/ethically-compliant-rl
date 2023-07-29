@@ -4,6 +4,7 @@ import sys
 from dataclasses import asdict, dataclass
 from typing import Optional, Tuple
 import torch
+import torch.nn as nn
 import bullet_safety_gym
 import warnings # FIXME: Fix this warning eventually
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
@@ -14,6 +15,7 @@ except ImportError:
 import gymnasium as gym
 import pyrallis
 from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv
+from tianshou.utils.net.common import DataParallelNet
 sys.path.append("FSRL")
 from fsrl.agent import CPOAgent
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
@@ -25,26 +27,18 @@ from utils.utils import load_environment
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/fast-safe-rl/parking-v0-cost-10/cpo-e576"
+    path: str = "logs/fast-safe-rl/parking-v0-cost-10/cpo_gamma0.95_step_per_epoch20000-4769"
     best: bool = True
     eval_episodes: int = 100
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
-    render: float = .01
+    render: float = .001
     train_mode: bool = False
-    render_mode: str = "human"
-    # device: str = (
-    #         "cuda"
-    #         if torch.cuda.is_available()
-    #         else "mps"
-    #         if torch.backends.mps.is_available()
-    #         else "cpu"
-    #     )
+    render_mode: str = "rgb_array"
     device = "cpu"
+    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
-# TODO: put this somewhere in the config file for easier evaluation
-ENV_CONFIG_FILE = 'configs/ParkingEnv/env-image.txt'
-with open(ENV_CONFIG_FILE) as f:
+with open(EvalConfig.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
