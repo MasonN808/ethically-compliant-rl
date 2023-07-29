@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 # Set this before everything
+os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 from dataclasses import asdict, dataclass
@@ -78,14 +79,11 @@ TASK_TO_CFG = {
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
 
-import os
-os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-
 # Make my own config params
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = 100
+    epoch: int = 500
     lr: float = 0.001
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
