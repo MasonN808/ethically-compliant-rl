@@ -1,0 +1,4 @@
+srun: error: Step requested GRES but job doesn't have GRES
+srun: error: Unable to create step for job 31198: Invalid generic resource (gres) specification
+srun: error: Step requested GRES but job doesn't have GRES
+srun: error: Unable to create step for job 31198: Invalid generic resource (gres) specification

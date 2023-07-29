@@ -1,0 +1,11 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230728_163928-b1e543bb-aef3-4752-b791-bb469ab98406
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_gamma0.95_step_per_epoch20000-7da4
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/b1e543bb-aef3-4752-b791-bb469ab98406
+slurmstepd: error: *** STEP 31207.0 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-07-28T16:42:45 ***
+slurmstepd: error: *** JOB 31207 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-07-28T16:42:45 ***

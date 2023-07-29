@@ -1,0 +1,2 @@
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 13
+slurmstepd: error: execve(): /nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_2.py: Permission denied
