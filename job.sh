@@ -1,7 +1,7 @@
 #!/bin/sh
 #SBATCH --job-name=safe-rl
 #SBATCH --mem=80gb
-#SBATCH --time=20:00:00
+#SBATCH --time=30:00:00
 #SBATCH -N 2
 #SBATCH -n 2
 #SBATCH -c 5
