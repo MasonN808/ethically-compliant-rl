@@ -1,4 +1,0 @@
-srun: option '--gpu=1/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py' is ambiguous; possibilities: '--gpu-bind' '--gpu-freq' '--gpus' '--gpus-per-node' '--gpus-per-socket' '--gpus-per-task'
-Try "srun --help" for more information
-srun: option '--gpu=1' is ambiguous; possibilities: '--gpu-bind' '--gpu-freq' '--gpus' '--gpus-per-node' '--gpus-per-socket' '--gpus-per-task'
-Try "srun --help" for more information

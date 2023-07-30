@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 # Set this before everything
+os. environ['WANDB_DISABLED'] = 'true'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -82,7 +83,7 @@ TASK_TO_CFG = {
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     epoch: int = 500
-    lr: float = 0.00001 # I had to lower the lr rate to get rid of NaNs in the logits created by the actor
+    lr: float = 0.001 # I had to lower the lr rate to get rid of NaNs in the logits created by the actor
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train

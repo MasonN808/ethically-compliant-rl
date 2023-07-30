@@ -1,138 +1,0 @@
-wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
-wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.15.7 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.14.2
-wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230728_212544-cb5a5c1a-22d0-4a15-ba13-47270852b1e8
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cpo_step_per_epoch50000-32e5
-wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
-wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/cb5a5c1a-22d0-4a15-ba13-47270852b1e8
-wandb: wandb version 0.15.7 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.14.2
-wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230728_212544-e3b52039-454d-40f7-b440-619f5344b30b
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cpo_step_per_epoch50000-ea57
-wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
-wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/e3b52039-454d-40f7-b440-619f5344b30b
-[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch50000-32e5/progress.txt[0m
-[36;1mSaving config:
-[0m
-{
-    "action_bound_method":	"clip",
-    "action_scaling":	true,
-    "backtrack_coeff":	0.8,
-    "batch_size":	99999,
-    "buffer_size":	100000,
-    "cost_limit":	10,
-    "damping_coeff":	0.1,
-    "deterministic_eval":	true,
-    "device":	"cuda",
-    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal.txt",
-    "episode_per_collect":	20,
-    "epoch":	500,
-    "gae_lambda":	0.95,
-    "gamma":	0.99,
-    "group":	null,
-    "hidden_sizes":	[
-        128,
-        128
-    ],
-    "l2_reg":	0.001,
-    "last_layer_scale":	false,
-    "logdir":	"logs",
-    "lr":	0.001,
-    "max_backtracks":	100,
-    "max_batchsize":	99999,
-    "name":	"cpo_step_per_epoch50000-32e5",
-    "norm_adv":	true,
-    "optim_critic_iters":	10,
-    "prefix":	"cpo",
-    "project":	"fast-safe-rl",
-    "render":	null,
-    "render_mode":	null,
-    "repeat_per_collect":	4,
-    "resume":	false,
-    "rew_norm":	false,
-    "reward_threshold":	10000,
-    "save_ckpt":	true,
-    "save_interval":	4,
-    "seed":	10,
-    "step_per_epoch":	50000,
-    "suffix":	"",
-    "target_kl":	0.01,
-    "task":	"parking-v0",
-    "testing_num":	2,
-    "thread":	320,
-    "training_num":	20,
-    "unbounded":	false,
-    "use_default_cfg":	false,
-    "verbose":	true,
-    "worker":	"ShmemVectorEnv"
-}
-Observation Space: Dict('achieved_goal': Box(-inf, inf, (6,), float64), 'desired_goal': Box(-inf, inf, (6,), float64), 'observation': Box(-inf, inf, (6,), float64))
-Action Space: Box(-1.0, 1.0, (2,), float32)
-Render Mode: None
-[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch50000-ea57/progress.txt[0m
-[36;1mSaving config:
-[0m
-{
-    "action_bound_method":	"clip",
-    "action_scaling":	true,
-    "backtrack_coeff":	0.8,
-    "batch_size":	99999,
-    "buffer_size":	100000,
-    "cost_limit":	10,
-    "damping_coeff":	0.1,
-    "deterministic_eval":	true,
-    "device":	"cuda",
-    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal-high-reward.txt",
-    "episode_per_collect":	20,
-    "epoch":	500,
-    "gae_lambda":	0.95,
-    "gamma":	0.99,
-    "group":	null,
-    "hidden_sizes":	[
-        128,
-        128
-    ],
-    "l2_reg":	0.001,
-    "last_layer_scale":	false,
-    "logdir":	"logs",
-    "lr":	0.001,
-    "max_backtracks":	100,
-    "max_batchsize":	99999,
-    "name":	"cpo_step_per_epoch50000-ea57",
-    "norm_adv":	true,
-    "optim_critic_iters":	10,
-    "prefix":	"cpo",
-    "project":	"fast-safe-rl",
-    "render":	null,
-    "render_mode":	null,
-    "repeat_per_collect":	4,
-    "resume":	false,
-    "rew_norm":	false,
-    "reward_threshold":	10000,
-    "save_ckpt":	true,
-    "save_interval":	4,
-    "seed":	10,
-    "step_per_epoch":	50000,
-    "suffix":	"",
-    "target_kl":	0.01,
-    "task":	"parking-v0",
-    "testing_num":	2,
-    "thread":	320,
-    "training_num":	20,
-    "unbounded":	false,
-    "use_default_cfg":	false,
-    "verbose":	true,
-    "worker":	"ShmemVectorEnv"
-}
-Observation Space: Dict('achieved_goal': Box(-inf, inf, (6,), float64), 'desired_goal': Box(-inf, inf, (6,), float64), 'observation': Box(-inf, inf, (6,), float64))
-Action Space: Box(-1.0, 1.0, (2,), float32)
-Render Mode: None
-Epoch #1:   0%|          | 0/50000 [00:00<?, ?it/s]Epoch #1:   0%|          | 20/50000 [00:00<06:32, 127.26it/s]Epoch #1:   0%|          | 20/50000 [00:00<06:32, 127.26it/s, cost=0, length=1, rew=-.476]Epoch #1:   0%|          | 40/50000 [00:00<15:42, 53.01it/s, cost=0, length=1, rew=-.476] Epoch #1:   0%|          | 40/50000 [00:01<15:42, 53.01it/s, cost=0, length=1, rew=-.471]Epoch #1:   0%|          | 60/50000 [00:01<17:30, 47.53it/s, cost=0, length=1, rew=-.471]Epoch #1:   0%|          | 60/50000 [00:01<17:30, 47.53it/s, cost=0, length=1, rew=-.497]Epoch #1:   0%|          | 80/50000 [00:01<20:57, 39.71it/s, cost=0, length=1, rew=-.497]Epoch #1:   0%|          | 80/50000 [00:02<20:57, 39.71it/s, cost=0, length=1, rew=-.448]Epoch #1:   0%|          | 100/50000 [00:02<20:14, 41.10it/s, cost=0, length=1, rew=-.448]Epoch #1:   0%|          | 100/50000 [00:02<20:14, 41.10it/s, cost=0, length=1, rew=-.485]Epoch #1:   0%|          | 120/50000 [00:02<22:41, 36.64it/s, cost=0, length=1, rew=-.485]Epoch #1:   0%|          | 120/50000 [00:03<22:41, 36.64it/s, cost=0, length=1, rew=-.462]Epoch #1:   0%|          | 140/50000 [00:03<21:41, 38.31it/s, cost=0, length=1, rew=-.462]Epoch #1:   0%|          | 140/50000 [00:04<21:41, 38.31it/s, cost=0, length=1, rew=-.452]Epoch #1:   0%|          | 160/50000 [00:04<24:44, 33.58it/s, cost=0, length=1, rew=-.452]Epoch #1:   0%|          | 160/50000 [00:04<24:44, 33.58it/s, cost=0, length=1, rew=-.469]Epoch #1:   0%|          | 180/50000 [00:04<23:33, 35.25it/s, cost=0, length=1, rew=-.469]Epoch #1:   0%|          | 180/50000 [00:05<23:33, 35.25it/s, cost=0, length=1, rew=-.473]Epoch #1:   0%|          | 200/50000 [00:05<23:38, 35.12it/s, cost=0, length=1, rew=-.473]Epoch #1:   0%|          | 200/50000 [00:05<23:38, 35.12it/s, cost=0, length=1, rew=-.438]Epoch #1:   0%|          | 220/50000 [00:05<24:19, 34.11it/s, cost=0, length=1, rew=-.438]Epoch #1:   0%|          | 220/50000 [00:06<24:19, 34.11it/s, cost=0, length=1, rew=-.473]Epoch #1:   0%|          | 240/50000 [00:06<24:08, 34.35it/s, cost=0, length=1, rew=-.473]Epoch #1:   0%|          | 240/50000 [00:06<24:08, 34.35it/s, cost=0, length=1, rew=-.438]Epoch #1:   1%|          | 260/50000 [00:07<24:18, 34.11it/s, cost=0, length=1, rew=-.438]Epoch #1:   1%|          | 260/50000 [00:07<24:18, 34.11it/s, cost=0, length=1, rew=-.474]Epoch #1:   1%|          | 280/50000 [00:07<24:37, 33.65it/s, cost=0, length=1, rew=-.474]Epoch #1:   1%|          | 280/50000 [00:07<24:37, 33.65it/s, cost=0, length=1, rew=-.465]Epoch #1:   1%|          | 300/50000 [00:08<23:13, 35.67it/s, cost=0, length=1, rew=-.465]Epoch #1:   1%|          | 300/50000 [00:08<23:13, 35.67it/s, cost=0, length=1, rew=-.443]Epoch #1:   1%|          | 320/50000 [00:08<23:16, 35.59it/s, cost=0, length=1, rew=-.443]Epoch #1:   1%|          | 320/50000 [00:09<23:16, 35.59it/s, cost=0, length=1, rew=-.462]Epoch #1:   1%|          | 340/50000 [00:09<23:43, 34.88it/s, cost=0, length=1, rew=-.462]Epoch #1:   1%|          | 340/50000 [00:09<23:43, 34.88it/s, cost=0, length=1, rew=-.471]Epoch #1:   1%|          | 360/50000 [00:09<23:51, 34.67it/s, cost=0, length=1, rew=-.471]Epoch #1:   1%|          | 360/50000 [00:10<23:51, 34.67it/s, cost=0, length=1, rew=-.449]Epoch #1:   1%|          | 380/50000 [00:10<23:56, 34.55it/s, cost=0, length=1, rew=-.449]Epoch #1:   1%|          | 380/50000 [00:10<23:56, 34.55it/s, cost=0, length=1, rew=-.453]Epoch #1:   1%|          | 400/50000 [00:11<24:18, 34.00it/s, cost=0, length=1, rew=-.453]slurmstepd: error: *** STEP 31249.1 ON gail.ist.berkeley.edu CANCELLED AT 2023-07-28T21:26:28 ***
-slurmstepd: error: *** JOB 31249 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-07-28T21:26:28 ***
-Epoch #1:   0%|          | 0/50000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 31249.0 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-07-28T21:26:28 ***
-Epoch #1:   1%|          | 400/50000 [00:11<23:05, 35.80it/s, cost=0, length=1, rew=-.453]
