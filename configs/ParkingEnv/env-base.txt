@@ -2,11 +2,11 @@
     "id": "parking-v0",
     "import_module": "highway_env",
     "observation": {
-            "type": "KinematicsGoal",
-            "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
-            "scales": [100, 100, 5, 5, 1, 1],
-            "normalize": False
-        },
+        "type": "KinematicsGoal",
+        "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
+        "scales": [100, 100, 5, 5, 1, 1],
+        "normalize": False
+    },
     "action": {
         "type": "ContinuousAction"
     },
