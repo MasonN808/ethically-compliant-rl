@@ -1,0 +1,491 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230728_212650-1ed6805c-516e-4414-a2b9-491151e2e96b
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_step_per_epoch50000-377c
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/1ed6805c-516e-4414-a2b9-491151e2e96b
+wandb: wandb version 0.15.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230728_212651-f1f9e506-546a-43bc-b964-f039d13a006f
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_step_per_epoch50000-d014
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/f1f9e506-546a-43bc-b964-f039d13a006f
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch50000-377c/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cuda",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal.txt",
+    "episode_per_collect":	20,
+    "epoch":	500,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_step_per_epoch50000-377c",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	50000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Observation Space: Dict('achieved_goal': Box(-inf, inf, (6,), float64), 'desired_goal': Box(-inf, inf, (6,), float64), 'observation': Box(-inf, inf, (6,), float64))
+Action Space: Box(-1.0, 1.0, (2,), float32)
+Render Mode: None
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch50000-d014/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cuda",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal-high-reward.txt",
+    "episode_per_collect":	20,
+    "epoch":	500,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_step_per_epoch50000-d014",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	50000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Observation Space: Dict('achieved_goal': Box(-inf, inf, (6,), float64), 'desired_goal': Box(-inf, inf, (6,), float64), 'observation': Box(-inf, inf, (6,), float64))
+Action Space: Box(-1.0, 1.0, (2,), float32)
+Render Mode: None
+Epoch #1:   0%|          | 0/50000 [00:00<?, ?it/s]Epoch #1:   0%|          | 20/50000 [00:00<11:22, 73.27it/s]Epoch #1:   0%|          | 20/50000 [00:00<11:22, 73.27it/s, cost=0, length=1, rew=-.443]Epoch #1:   0%|          | 40/50000 [00:00<19:50, 41.95it/s, cost=0, length=1, rew=-.443]/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py:302: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  lam = torch.tensor(lam)
+Epoch #1:   0%|          | 40/50000 [00:01<19:50, 41.95it/s, cost=0, length=1, rew=-.44] Epoch #1:   0%|          | 60/50000 [00:01<22:23, 37.17it/s, cost=0, length=1, rew=-.44]Epoch #1:   0%|          | 60/50000 [00:01<22:23, 37.17it/s, cost=0, length=1, rew=-.421]Epoch #1:   0%|          | 80/50000 [00:02<23:09, 35.92it/s, cost=0, length=1, rew=-.421]Epoch #1:   0%|          | 80/50000 [00:02<23:09, 35.92it/s, cost=0, length=1, rew=-.479]Epoch #1:   0%|          | 100/50000 [00:02<23:43, 35.07it/s, cost=0, length=1, rew=-.479]Epoch #1:   0%|          | 100/50000 [00:03<23:43, 35.07it/s, cost=0, length=1, rew=-.477]Epoch #1:   0%|          | 120/50000 [00:03<24:20, 34.15it/s, cost=0, length=1, rew=-.477]Epoch #1:   0%|          | 120/50000 [00:03<24:20, 34.15it/s, cost=0, length=1, rew=-.458]Epoch #1:   0%|          | 140/50000 [00:03<25:39, 32.39it/s, cost=0, length=1, rew=-.458]Epoch #1:   0%|          | 140/50000 [00:04<25:39, 32.39it/s, cost=0, length=1, rew=-.461]Epoch #1:   0%|          | 160/50000 [00:04<23:48, 34.88it/s, cost=0, length=1, rew=-.461]Epoch #1:   0%|          | 160/50000 [00:04<23:48, 34.88it/s, cost=0, length=1, rew=-.442]Epoch #1:   0%|          | 180/50000 [00:05<23:48, 34.88it/s, cost=0, length=1, rew=-.442]Epoch #1:   0%|          | 180/50000 [00:05<23:48, 34.88it/s, cost=0, length=1, rew=-.424]Epoch #1:   0%|          | 200/50000 [00:05<23:03, 36.00it/s, cost=0, length=1, rew=-.424]Epoch #1:   0%|          | 200/50000 [00:06<23:03, 36.00it/s, cost=0, length=1, rew=-.478]Epoch #1:   0%|          | 220/50000 [00:06<23:31, 35.28it/s, cost=0, length=1, rew=-.478]Epoch #1:   0%|          | 220/50000 [00:06<23:31, 35.28it/s, cost=0, length=1, rew=-.438]Epoch #1:   0%|          | 240/50000 [00:06<22:49, 36.32it/s, cost=0, length=1, rew=-.438]Epoch #1:   0%|          | 240/50000 [00:07<22:49, 36.32it/s, cost=0, length=1, rew=-.475]Epoch #1:   1%|          | 260/50000 [00:07<22:45, 36.42it/s, cost=0, length=1, rew=-.475]Epoch #1:   1%|          | 260/50000 [00:07<22:45, 36.42it/s, cost=0, length=1, rew=-.456]Epoch #1:   1%|          | 280/50000 [00:07<22:52, 36.23it/s, cost=0, length=1, rew=-.456]Epoch #1:   1%|          | 280/50000 [00:08<22:52, 36.23it/s, cost=0, length=1, rew=-.424]Epoch #1:   1%|          | 300/50000 [00:08<23:19, 35.51it/s, cost=0, length=1, rew=-.424]Epoch #1:   1%|          | 300/50000 [00:08<23:19, 35.51it/s, cost=0, length=1, rew=-.454]Epoch #1:   1%|          | 320/50000 [00:08<23:38, 35.03it/s, cost=0, length=1, rew=-.454]Epoch #1:   1%|          | 320/50000 [00:09<23:38, 35.03it/s, cost=0, length=1, rew=-.467]Epoch #1:   1%|          | 340/50000 [00:09<23:53, 34.64it/s, cost=0, length=1, rew=-.467]Epoch #1:   1%|          | 340/50000 [00:09<23:53, 34.64it/s, cost=0, length=1, rew=-.472]Epoch #1:   1%|          | 360/50000 [00:10<23:31, 35.17it/s, cost=0, length=1, rew=-.472]Epoch #1:   1%|          | 360/50000 [00:10<23:31, 35.17it/s, cost=0, length=1, rew=-.487]Epoch #1:   1%|          | 380/50000 [00:10<24:16, 34.06it/s, cost=0, length=1, rew=-.487]Epoch #1:   1%|          | 380/50000 [00:11<24:16, 34.06it/s, cost=0, length=1, rew=-.461]Epoch #1:   1%|          | 400/50000 [00:11<24:18, 34.01it/s, cost=0, length=1, rew=-.461]Epoch #1:   1%|          | 400/50000 [00:11<24:18, 34.01it/s, cost=0, length=1, rew=-.476]Epoch #1:   1%|          | 420/50000 [00:11<25:14, 32.73it/s, cost=0, length=1, rew=-.476]Epoch #1:   1%|          | 420/50000 [00:12<25:14, 32.73it/s, cost=0, length=1, rew=-.437]Epoch #1:   1%|          | 440/50000 [00:12<24:59, 33.04it/s, cost=0, length=1, rew=-.437]Epoch #1:   1%|          | 440/50000 [00:13<24:59, 33.04it/s, cost=0, length=1, rew=-.442]Epoch #1:   1%|          | 460/50000 [00:13<24:46, 33.32it/s, cost=0, length=1, rew=-.442]Epoch #1:   1%|          | 460/50000 [00:13<24:46, 33.32it/s, cost=0, length=1, rew=-.447]Epoch #1:   1%|          | 480/50000 [00:13<24:09, 34.16it/s, cost=0, length=1, rew=-.447]Epoch #1:   1%|          | 480/50000 [00:14<24:09, 34.16it/s, cost=0, length=1, rew=-.449]Epoch #1:   1%|1         | 500/50000 [00:14<23:54, 34.52it/s, cost=0, length=1, rew=-.449]Epoch #1:   1%|1         | 500/50000 [00:14<23:54, 34.52it/s, cost=0, length=1, rew=-.446]Epoch #1:   1%|1         | 520/50000 [00:14<23:18, 35.39it/s, cost=0, length=1, rew=-.446]Epoch #1:   1%|1         | 520/50000 [00:15<23:18, 35.39it/s, cost=0, length=1, rew=-.441]Epoch #1:   1%|1         | 540/50000 [00:15<23:43, 34.75it/s, cost=0, length=1, rew=-.441]Epoch #1:   1%|1         | 540/50000 [00:15<23:43, 34.75it/s, cost=0, length=1, rew=-.452]Epoch #1:   1%|1         | 560/50000 [00:15<23:18, 35.35it/s, cost=0, length=1, rew=-.452]Epoch #1:   1%|1         | 560/50000 [00:16<23:18, 35.35it/s, cost=0, length=1, rew=-.458]Epoch #1:   1%|1         | 580/50000 [00:16<23:47, 34.63it/s, cost=0, length=1, rew=-.458]Epoch #1:   1%|1         | 580/50000 [00:16<23:47, 34.63it/s, cost=0, length=1, rew=-.467]Epoch #1:   1%|1         | 600/50000 [00:17<23:46, 34.63it/s, cost=0, length=1, rew=-.467]Epoch #1:   1%|1         | 600/50000 [00:17<23:46, 34.63it/s, cost=0, length=1, rew=-.487]Epoch #1:   1%|1         | 620/50000 [00:17<24:43, 33.28it/s, cost=0, length=1, rew=-.487]Epoch #1:   1%|1         | 620/50000 [00:18<24:43, 33.28it/s, cost=0, length=1, rew=-.46] Epoch #1:   1%|1         | 640/50000 [00:18<25:40, 32.05it/s, cost=0, length=1, rew=-.46]Epoch #1:   1%|1         | 640/50000 [00:18<25:40, 32.05it/s, cost=0, length=1, rew=-.474]Epoch #1:   1%|1         | 660/50000 [00:19<25:05, 32.77it/s, cost=0, length=1, rew=-.474]Epoch #1:   1%|1         | 660/50000 [00:19<23:50, 34.49it/s, cost=0, length=1, rew=-.474]
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py", line 202, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py", line 168, in train
+    agent.learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/cpo_agent.py", line 233, in learn
+    return super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/base_agent.py", line 319, in learn
+    for epoch, _epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 205, in __next__
+    self.policy_update_fn(stats_train)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/onpolicy.py", line 102, in policy_update_fn
+    self.policy.update(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 351, in update
+    self.learn(batch, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py", line 367, in learn
+    loss_actor, stats_actor = self.policy_loss(minibatch)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py", line 323, in policy_loss
+    dist = self.forward(minibatch).dist
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 180, in forward
+    dist = self.dist_fn(*logits)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/cpo_agent.py", line 183, in dist
+    return Independent(Normal(*logits), 1)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/distributions/normal.py", line 56, in __init__
+    super().__init__(batch_shape, validate_args=validate_args)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/distributions/distribution.py", line 62, in __init__
+    raise ValueError(
+ValueError: Expected parameter loc (Tensor of shape (20, 2)) of distribution Normal(loc: torch.Size([20, 2]), scale: torch.Size([20, 2])) to satisfy the constraint Real(), but found invalid values:
+tensor([[nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan]], device='cuda:0')
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py", line 202, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py", line 168, in train
+    agent.learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/cpo_agent.py", line 233, in learn
+    return super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/base_agent.py", line 319, in learn
+    for epoch, _epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 205, in __next__
+    self.policy_update_fn(stats_train)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/onpolicy.py", line 102, in policy_update_fn
+    self.policy.update(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 351, in update
+    self.learn(batch, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py", line 367, in learn
+    loss_actor, stats_actor = self.policy_loss(minibatch)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py", line 323, in policy_loss
+    dist = self.forward(minibatch).dist
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 180, in forward
+    dist = self.dist_fn(*logits)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/agent/cpo_agent.py", line 183, in dist
+    return Independent(Normal(*logits), 1)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/distributions/normal.py", line 56, in __init__
+    super().__init__(batch_shape, validate_args=validate_args)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/distributions/distribution.py", line 62, in __init__
+    raise ValueError(
+ValueError: Expected parameter loc (Tensor of shape (20, 2)) of distribution Normal(loc: torch.Size([20, 2]), scale: torch.Size([20, 2])) to satisfy the constraint Real(), but found invalid values:
+tensor([[nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan],
+        [nan, nan]], device='cuda:0')
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:        loss/cost_loss ▁▄▄▂▅▄▅▅█▇▆▅▄▃▂▂▂▂▃▄▄▄▄▄▄▄▄▄▄▄▄▄
+wandb:          loss/entropy ▄▂▁▁▃▅▆▇▇████████████▇▇▇▇▇▇▇▆▆▆▆
+wandb:               loss/kl █▇▇▅▅▅▃▃▂▂▁▁▁▁▁▁▁▁▁▁▁▁▂▂▂▂▂▂▂▂▂▂
+wandb:          loss/optim_A ▇██▇██████▁▂▄▄▄▄▅▅▅▅▅▅▅▅▆▆▆▆▆▆▆▆
+wandb:          loss/optim_B ██▅▁▄▄▆▆▇▇▇▇█████▆▆▆▇▆▆▆▆▇▇▇▇▇▇▇
+wandb:          loss/optim_C ▁▄▄▂▅▄▅▅█▇▆▅▄▃▂▂▂▂▃▄▄▄▄▄▄▄▄▄▄▄▄▄
+wandb:          loss/optim_Q ▁▂▃▁▃▄▃▂▃▃▁▃███▇▇▆▆▆▇▆▆▆▇▇▇▇▇▇▇▇
+wandb:          loss/optim_R █▆▆▇▆▇▇█▆▆▁▂▄▅▆▆▆▆▆▆▅▅▅▆▆▅▅▅▅▆▅▆
+wandb:          loss/optim_S ▆▂▂▁▄▅▃▃▆▆▆▇▇▇██▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇█
+wandb:       loss/optim_case █▁▃▅▅▆▂▃▃▄▄▅▅▅▅▅▆▆▆▆▆▆▆▆▆▆▆▇▇▇▇▇
+wandb:        loss/optim_lam ▃▆▇▁▇█▅▅▇▇                      
+wandb:         loss/optim_nu ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         loss/rew_loss ▁▃▅▃▆▆▄▄▅▅▄▅███▇▇▇▆▆▇▇▇▇▇███▇▇▇█
+wandb:        loss/step_size ▂▁▁▂▂▂▃▄▅▄██▇▇▆▆▆▆▆▅▅▅▅▅▄▄▄▄▄▄▄▄
+wandb:              loss/vf0 █▇▆▅▄▄▃▃▃▃▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              loss/vf1 █▆▅▄▃▃▃▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         loss/vf_total █▆▅▅▄▃▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            train/cost ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/length ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/reward ▅▆█▄▂▂▂▂▃▂▃▂▂▃▃▂▂▁▁▁▁▁▂▂▂▂▂▂▂▁▁▁
+wandb:       update/cum_cost ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        update/episode ▁▁▁▂▂▂▂▃▃▃▃▃▄▄▄▄▅▅▅▅▆▆▆▆▆▇▇▇▇███
+wandb: update/gradient_steps ▁▁▁▂▂▂▂▃▃▃▃▃▄▄▄▄▅▅▅▅▆▆▆▆▆▇▇▇▇███
+wandb: 
+wandb: Run summary:
+wandb:        loss/cost_loss -0.00294
+wandb:          loss/entropy 2.86442
+wandb:               loss/kl 0.0069
+wandb:          loss/optim_A 0.37732
+wandb:          loss/optim_B -178.92032
+wandb:          loss/optim_C -10.00294
+wandb:          loss/optim_Q 0.93065
+wandb:          loss/optim_R -0.09371
+wandb:          loss/optim_S 0.73396
+wandb:       loss/optim_case 2.97656
+wandb:        loss/optim_lam nan
+wandb:         loss/optim_nu 0.0
+wandb:         loss/rew_loss 0.09625
+wandb:        loss/step_size 0.12087
+wandb:              loss/vf0 0.01994
+wandb:              loss/vf1 0.00649
+wandb:         loss/vf_total 0.02643
+wandb:            train/cost 0.0
+wandb:          train/length 1.0
+wandb:          train/reward -0.45602
+wandb:       update/cum_cost 0.0
+wandb:        update/episode 330.0
+wandb: update/gradient_steps 66.0
+wandb: 
+wandb: 🚀 View run cpo_step_per_epoch50000-d014 at: https://wandb.ai/ecrl/fast-safe-rl/runs/f1f9e506-546a-43bc-b964-f039d13a006f
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230728_212651-f1f9e506-546a-43bc-b964-f039d13a006f/logs
+srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 1
+Epoch #1:   0%|          | 0/50000 [00:00<?, ?it/s]Epoch #1:  26%|##6       | 13033/50000 [00:28<01:20, 459.79it/s]Epoch #1:  26%|##6       | 13033/50000 [00:31<01:20, 459.79it/s, cost=0, length=652, rew=-722]Epoch #1:  26%|##6       | 13033/50000 [00:40<01:20, 459.79it/s, cost=0, length=652, rew=-722]Epoch #1:  54%|#####3    | 26889/50000 [01:01<00:53, 435.98it/s, cost=0, length=652, rew=-722]Epoch #1:  54%|#####3    | 26889/50000 [01:03<00:53, 435.98it/s, cost=0, length=693, rew=-576]Epoch #1:  54%|#####3    | 26889/50000 [01:20<00:53, 435.98it/s, cost=0, length=693, rew=-576]Epoch #1:  83%|########2 | 41400/50000 [01:35<00:20, 429.73it/s, cost=0, length=693, rew=-576]Epoch #1:  83%|########2 | 41400/50000 [01:36<00:20, 429.73it/s, cost=0, length=726, rew=-705]Epoch #1:  83%|########2 | 41400/50000 [01:50<00:20, 429.73it/s, cost=0, length=726, rew=-705]Epoch #1: 55051it [02:06, 431.47it/s, cost=0, length=726, rew=-705]                           Epoch #1: 55051it [02:08, 431.47it/s, cost=0, length=683, rew=-475]Epoch #1: 55051it [02:08, 427.10it/s, cost=0, length=683, rew=-475]
+-------------------------------------------------
+|              loss/cost_loss |        0.000902 |
+|                loss/entropy |            2.77 |
+|                     loss/kl |         0.00678 |
+|                loss/optim_A |        -0.00133 |
+|                loss/optim_B |       -4.18e+03 |
+|                loss/optim_C |             -10 |
+|                loss/optim_Q |        -0.00116 |
+|                loss/optim_R |        -0.00139 |
+|                loss/optim_S |          0.0265 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |             nan |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |          0.0116 |
+|              loss/step_size |           0.326 |
+|                    loss/vf0 |            89.8 |
+|                    loss/vf1 |          0.0545 |
+|               loss/vf_total |            89.9 |
+|                   test/cost |               0 |
+|                 test/length |             750 |
+|                 test/reward |            -391 |
+|                  train/cost |               0 |
+|                train/length |             688 |
+|                train/reward |            -619 |
+|             update/cum_cost |               0 |
+|             update/duration |             137 |
+|             update/env_step |        5.51e+04 |
+|              update/episode |              50 |
+|       update/gradient_steps |              10 |
+|      update/remaining_epoch |             499 |
+|           update/test_speed |             193 |
+|            update/test_time |            7.76 |
+| update/train_collector_time |             120 |
+|     update/train_model_time |            8.51 |
+|          update/train_speed |             427 |
+-------------------------------------------------
+Epoch: 1 {'duration': 136.67792510986328, 'test_time': 7.763118267059326, 'test_speed': 193.22132529718638, 'train_collector_time': 120.4018349647522, 'train_model_time': 8.512971878051758, 'train_speed': 427.0339563641285, 'remaining_epoch': 499, 'best_reward': -390.96461300751025, 'best_cost': 0.0}
+Epoch #2:   0%|          | 0/50000 [00:00<?, ?it/s]Epoch #2:  21%|##1       | 10716/50000 [00:25<01:34, 417.56it/s]Epoch #2:  21%|##1       | 10716/50000 [00:26<01:34, 417.56it/s, cost=0, length=536, rew=-346]Epoch #2:  21%|##1       | 10716/50000 [00:43<01:34, 417.56it/s, cost=0, length=536, rew=-346]Epoch #2:  46%|####5     | 22874/50000 [00:53<01:02, 431.26it/s, cost=0, length=536, rew=-346]Epoch #2:  46%|####5     | 22874/50000 [00:54<01:02, 431.26it/s, cost=0, length=608, rew=-499]Epoch #2:  46%|####5     | 22874/50000 [01:03<01:02, 431.26it/s, cost=0, length=608, rew=-499]Epoch #2:  72%|#######2  | 36214/50000 [01:22<00:31, 441.78it/s, cost=0, length=608, rew=-499]Epoch #2:  72%|#######2  | 36214/50000 [01:24<00:31, 441.78it/s, cost=0, length=667, rew=-388]Epoch #2:  72%|#######2  | 36214/50000 [01:33<00:31, 441.78it/s, cost=0, length=667, rew=-388]Epoch #2:  98%|#########8| 49244/50000 [01:52<00:01, 442.06it/s, cost=0, length=667, rew=-388]Epoch #2:  98%|#########8| 49244/50000 [01:53<00:01, 442.06it/s, cost=0, length=652, rew=-339]Epoch #2:  98%|#########8| 49244/50000 [02:03<00:01, 442.06it/s, cost=0, length=652, rew=-339]Epoch #2: 62823it [02:22, 441.56it/s, cost=0, length=652, rew=-339]                           Epoch #2: 62823it [02:24, 441.56it/s, cost=0, length=679, rew=-336]Epoch #2: 62823it [02:24, 433.62it/s, cost=0, length=679, rew=-336]
+-------------------------------------------------
+|              loss/cost_loss |        -0.00156 |
+|                loss/entropy |            2.73 |
+|                     loss/kl |         0.00664 |
+|                loss/optim_A |           -5.37 |
+|                loss/optim_B |       -6.06e+03 |
+|                loss/optim_C |             -10 |
+|                loss/optim_Q |          -0.196 |
+|                loss/optim_R |           0.143 |
+|                loss/optim_S |          0.0233 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |             nan |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |          0.0121 |
+|              loss/step_size |           0.403 |
+|                    loss/vf0 |            15.9 |
+|                    loss/vf1 |         0.00463 |
+|               loss/vf_total |            15.9 |
+|                   test/cost |               0 |
+|                 test/length |             750 |
+|                 test/reward |            -370 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             628 |
+|                train/reward |            -382 |
+|             update/cum_cost |               0 |
+|             update/duration |             290 |
+|             update/env_step |        1.18e+05 |
+|              update/episode |             140 |
+|       update/gradient_steps |              28 |
+|      update/remaining_epoch |             498 |
+|           update/test_speed |             188 |
+|            update/test_time |              16 |
+| update/train_collector_time |             257 |
+|     update/train_model_time |            16.3 |
+|          update/train_speed |             430 |
+-------------------------------------------------
+Epoch: 2 {'duration': 289.8183629512787, 'test_time': 15.995124816894531, 'test_speed': 187.55714846509417, 'train_collector_time': 257.4914002418518, 'train_model_time': 16.33183789253235, 'train_speed': 430.474786592623, 'remaining_epoch': 498, 'best_reward': -370.24376834989255, 'best_cost': 0.0}
+Epoch #3:   0%|          | 0/50000 [00:00<?, ?it/s]Epoch #3:  25%|##4       | 12288/50000 [00:27<01:25, 441.81it/s]/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py:302: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  lam = torch.tensor(lam)
+Epoch #3:  25%|##4       | 12288/50000 [00:29<01:25, 441.81it/s, cost=0, length=614, rew=-366]Epoch #3:  25%|##4       | 12288/50000 [00:40<01:25, 441.81it/s, cost=0, length=614, rew=-366]Epoch #3:  55%|#####4    | 27288/50000 [01:02<00:52, 433.43it/s, cost=0, length=614, rew=-366]Epoch #3:  55%|#####4    | 27288/50000 [01:04<00:52, 433.43it/s, cost=0, length=750, rew=-431]Epoch #3:  55%|#####4    | 27288/50000 [01:20<00:52, 433.43it/s, cost=0, length=750, rew=-431]Epoch #3:  80%|#######9  | 39941/50000 [01:31<00:23, 435.39it/s, cost=0, length=750, rew=-431]Epoch #3:  80%|#######9  | 39941/50000 [01:33<00:23, 435.39it/s, cost=0, length=633, rew=-339]Epoch #3:  80%|#######9  | 39941/50000 [01:50<00:23, 435.39it/s, cost=0, length=633, rew=-339]Epoch #3: 53634it [02:01, 442.36it/s, cost=0, length=633, rew=-339]                           Epoch #3: 53634it [02:03, 442.36it/s, cost=0, length=685, rew=-351]Epoch #3: 53634it [02:03, 434.19it/s, cost=0, length=685, rew=-351]
+-------------------------------------------------
+|              loss/cost_loss |        -0.00378 |
+|                loss/entropy |             2.7 |
+|                     loss/kl |         0.00672 |
+|                loss/optim_A |         0.00339 |
+|                loss/optim_B |       -1.55e+04 |
+|                loss/optim_C |             -10 |
+|                loss/optim_Q |         0.00406 |
+|                loss/optim_R |         0.00206 |
+|                loss/optim_S |          0.0072 |
+|             loss/optim_case |            2.94 |
+|              loss/optim_lam |            0.44 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00769 |
+|              loss/step_size |           0.155 |
+|                    loss/vf0 |            7.03 |
+|                    loss/vf1 |        0.000539 |
+|               loss/vf_total |            7.03 |
+|                   test/cost |               0 |
+|                 test/length |             750 |
+|                 test/reward |            -379 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             670 |
+|                train/reward |            -372 |
+|             update/cum_cost |               0 |
+|             update/duration |             420 |
+|             update/env_step |        1.72e+05 |
+|              update/episode |             230 |
+|       update/gradient_steps |              46 |
+|      update/remaining_epoch |             497 |
+|           update/test_speed |             199 |
+|            update/test_time |            22.6 |
+| update/train_collector_time |             374 |
+|     update/train_model_time |            23.1 |
+|          update/train_speed |             432 |
+-------------------------------------------------
+Epoch: 3 {'duration': 419.9682607650757, 'test_time': 22.590075254440308, 'test_speed': 199.2025236443371, 'train_collector_time': 374.2600829601288, 'train_model_time': 23.118102550506592, 'train_speed': 431.5989308260853, 'remaining_epoch': 497, 'best_reward': -370.24376834989255, 'best_cost': 0.0}
+Epoch #4:   0%|          | 0/50000 [00:00<?, ?it/s]Epoch #4:  25%|##5       | 12646/50000 [00:27<01:21, 457.59it/s]Epoch #4:  25%|##5       | 12646/50000 [00:29<01:21, 457.59it/s, cost=0, length=632, rew=-277]Epoch #4:  25%|##5       | 12646/50000 [00:40<01:21, 457.59it/s, cost=0, length=632, rew=-277]Epoch #4:  53%|#####3    | 26743/50000 [01:00<00:53, 438.32it/s, cost=0, length=632, rew=-277]Epoch #4:  53%|#####3    | 26743/50000 [01:02<00:53, 438.32it/s, cost=0, length=705, rew=-334]Epoch #4:  53%|#####3    | 26743/50000 [01:20<00:53, 438.32it/s, cost=0, length=705, rew=-334]Epoch #4:  76%|#######5  | 37987/50000 [01:28<00:28, 422.78it/s, cost=0, length=705, rew=-334]Epoch #4:  76%|#######5  | 37987/50000 [01:30<00:28, 422.78it/s, cost=0, length=562, rew=-262]Epoch #4:  76%|#######5  | 37987/50000 [01:40<00:28, 422.78it/s, cost=0, length=562, rew=-262]Epoch #4: 50202it [01:57, 421.00it/s, cost=0, length=562, rew=-262]                           Epoch #4: 50202it [01:59, 421.00it/s, cost=0, length=611, rew=-278]Epoch #4: 50202it [01:59, 420.45it/s, cost=0, length=611, rew=-278]
+-------------------------------------------------
+|              loss/cost_loss |        -0.00641 |
+|                loss/entropy |             2.6 |
+|                     loss/kl |         0.00677 |
+|                loss/optim_A |         0.00139 |
+|                loss/optim_B |       -2.39e+04 |
+|                loss/optim_C |             -10 |
+|                loss/optim_Q |         0.00414 |
+|                loss/optim_R |         0.00365 |
+|                loss/optim_S |         0.00493 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.449 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00777 |
+|              loss/step_size |           0.132 |
+|                    loss/vf0 |            8.91 |
+|                    loss/vf1 |         0.00016 |
+|               loss/vf_total |            8.91 |
+|                   test/cost |               0 |
+|                 test/length |             402 |
+|                 test/reward |            -243 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             627 |
+|                train/reward |            -288 |
+|             update/cum_cost |               0 |
+|             update/duration |             545 |
+|             update/env_step |        2.22e+05 |
+|              update/episode |             310 |
+|       update/gradient_steps |              62 |
+|      update/remaining_epoch |             496 |
+|           update/test_speed |             186 |
+|            update/test_time |            28.5 |
+| update/train_collector_time |             487 |
+|     update/train_model_time |              30 |
+|          update/train_speed |             429 |
+-------------------------------------------------
+Epoch: 4 {'duration': 545.3221018314362, 'test_time': 28.515486240386963, 'test_speed': 186.00419278447566, 'train_collector_time': 486.775860786438, 'train_model_time': 30.030754804611206, 'train_speed': 428.99992630016925, 'remaining_epoch': 496, 'best_reward': -242.66201092767145, 'best_cost': 0.0}
+Epoch #5:   0%|          | 0/50000 [00:00<?, ?it/s]Epoch #5:  27%|##6       | 13485/50000 [00:27<01:14, 489.63it/s]Epoch #5:  27%|##6       | 13485/50000 [00:29<01:14, 489.63it/s, cost=0, length=674, rew=-314]Epoch #5:  27%|##6       | 13485/50000 [00:44<01:14, 489.63it/s, cost=0, length=674, rew=-314]Epoch #5:  50%|####9     | 24761/50000 [00:54<00:56, 446.57it/s, cost=0, length=674, rew=-314]Epoch #5:  50%|####9     | 24761/50000 [00:56<00:56, 446.57it/s, cost=0, length=564, rew=-244]Epoch #5:  50%|####9     | 24761/50000 [01:04<00:56, 446.57it/s, cost=0, length=564, rew=-244]Epoch #5:  71%|#######1  | 35554/50000 [01:20<00:33, 433.33it/s, cost=0, length=564, rew=-244]Epoch #5:  71%|#######1  | 35554/50000 [01:22<00:33, 433.33it/s, cost=0, length=540, rew=-233]Epoch #5:  71%|#######1  | 35554/50000 [01:34<00:33, 433.33it/s, cost=0, length=540, rew=-233]Epoch #5:  92%|#########1| 45897/50000 [01:46<00:09, 416.87it/s, cost=0, length=540, rew=-233]Epoch #5:  92%|#########1| 45897/50000 [01:48<00:09, 416.87it/s, cost=0, length=517, rew=-253]Epoch #5:  92%|#########1| 45897/50000 [02:04<00:09, 416.87it/s, cost=0, length=517, rew=-253]Epoch #5: 58448it [02:17, 414.66it/s, cost=0, length=517, rew=-253]                           Epoch #5: 58448it [02:19, 414.66it/s, cost=0, length=628, rew=-291]Epoch #5: 58448it [02:19, 419.87it/s, cost=0, length=628, rew=-291]
+-------------------------------------------------
+|              loss/cost_loss |        -0.00923 |
+|                loss/entropy |            2.58 |
+|                     loss/kl |         0.00689 |
+|                loss/optim_A |         0.00142 |
+|                loss/optim_B |       -1.65e+04 |
+|                loss/optim_C |             -10 |
+|                loss/optim_Q |          0.0232 |
+|                loss/optim_R |          0.0329 |
+|                loss/optim_S |          0.0499 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.777 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00907 |
+|              loss/step_size |           0.157 |
+|                    loss/vf0 |            9.74 |
+|                    loss/vf1 |         5.9e-05 |
+|               loss/vf_total |            9.74 |
+|                   test/cost |               0 |
+|                 test/length |             750 |
+|                 test/reward |            -444 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             584 |
+|                train/reward |            -267 |
+|             update/cum_cost |               0 |
+|             update/duration |             692 |
+|             update/env_step |         2.8e+05 |
+|              update/episode |             400 |
+|       update/gradient_steps |              80 |
+|      update/remaining_epoch |             495 |
+|           update/test_speed |             189 |
+|            update/test_time |              36 |
+| update/train_collector_time |             617 |
+|     update/train_model_time |            38.7 |
+|          update/train_speed |             427 |
+-------------------------------------------------
+Epoch: 5 {'duration': 692.0482802391052, 'test_time': 36.00288414955139, 'test_speed': 188.98485942784615, 'train_collector_time': 617.3726351261139, 'train_model_time': 38.67276096343994, 'train_speed': 427.0405701646855, 'remaining_epoch': 495, 'best_reward': -242.66201092767145, 'best_cost': 0.0}
+Epoch #6:   0%|          | 0/50000 [00:00<?, ?it/s]Epoch #6:  22%|##1       | 10970/50000 [00:24<01:27, 443.82it/s]Epoch #6:  22%|##1       | 10970/50000 [00:26<01:27, 443.82it/s, cost=0, length=548, rew=-256]Epoch #6:  22%|##1       | 10970/50000 [00:37<01:27, 443.82it/s, cost=0, length=548, rew=-256]Epoch #6:  45%|####4     | 22274/50000 [00:51<01:03, 435.41it/s, cost=0, length=548, rew=-256]Epoch #6:  45%|####4     | 22274/50000 [00:53<01:03, 435.41it/s, cost=0, length=565, rew=-265]Epoch #6:  45%|####4     | 22274/50000 [01:07<01:03, 435.41it/s, cost=0, length=565, rew=-265]Epoch #6:  70%|#######   | 35056/50000 [01:21<00:34, 430.36it/s, cost=0, length=565, rew=-265]Epoch #6:  70%|#######   | 35056/50000 [01:22<00:34, 430.36it/s, cost=0, length=639, rew=-281]Epoch #6:  70%|#######   | 35056/50000 [01:37<00:34, 430.36it/s, cost=0, length=639, rew=-281]Epoch #6:  95%|#########4| 47337/50000 [01:49<00:06, 432.23it/s, cost=0, length=639, rew=-281]Epoch #6:  95%|#########4| 47337/50000 [01:50<00:06, 432.23it/s, cost=0, length=614, rew=-290]Epoch #6:  95%|#########4| 47337/50000 [02:07<00:06, 432.23it/s, cost=0, length=614, rew=-290]Epoch #6: 59298it [02:18, 424.69it/s, cost=0, length=614, rew=-290]                           Epoch #6: 59298it [02:19, 424.69it/s, cost=0, length=598, rew=-275]Epoch #6: 59298it [02:19, 423.57it/s, cost=0, length=598, rew=-275]
+slurmstepd: error: *** JOB 31250 ON gan.ist.berkeley.edu CANCELLED AT 2023-07-28T21:41:30 ***
