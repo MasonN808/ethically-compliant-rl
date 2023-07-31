@@ -82,19 +82,19 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = 500
+    epoch: int = 250
     lr: float = 0.001 # I had to lower the lr rate to get rid of NaNs in the logits created by the actor
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
     step_per_epoch: int = 50000
-    target_kl: float = 0.02
+    target_kl: float = 0.01
     project: str = "fast-safe-rl"
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
-    gamma: float = .99
+    gamma: float = .95
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
 with open(MyCfg.env_config_file) as f:
