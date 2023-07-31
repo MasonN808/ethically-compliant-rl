@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py", line 14, in <module>
+    import highway_env
+ModuleNotFoundError: No module named 'highway_env'
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
