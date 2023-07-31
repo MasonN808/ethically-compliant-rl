@@ -24,5 +24,5 @@
     "scaling": 7,
     "controlled_vehicles": 1,
     "vehicles_count": 0,
-    "add_walls": False
+    "add_walls": True
 }

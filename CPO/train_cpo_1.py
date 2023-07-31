@@ -83,7 +83,7 @@ TASK_TO_CFG = {
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     epoch: int = 250
-    lr: float = 0.001 # I had to lower the lr rate to get rid of NaNs in the logits created by the actor
+    lr: float = 0.001
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
