@@ -27,9 +27,9 @@ from utils.utils import load_environment
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/fast-safe-rl/parking-v0-cost-10/cpo_lr1e-05_step_per_epoch50000-1c9f"
+    path: str = "logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch50000_target_kl0.02-1bfe"
     best: bool = True
-    eval_episodes: int = 100
+    eval_episodes: int = 3
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
     render: float = .001
