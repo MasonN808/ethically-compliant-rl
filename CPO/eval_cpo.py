@@ -64,7 +64,7 @@ def eval(args: EvalConfig):
 
     if args.parallel_eval:
         test_envs = ShmemVectorEnv(
-            [lambda: load_environment(ENV_CONFIG) for _ in range(args.eval_episodes)]
+            [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
         )
     else:
         test_envs = load_environment(ENV_CONFIG, render_mode=args.render_mode)

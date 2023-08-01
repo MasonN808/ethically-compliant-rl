@@ -24,20 +24,25 @@ from fsrl.utils.exp_util import load_config_and_model, seed_all
 from utils.utils import load_environment
 from gymnasium.spaces.dict import Dict
 
+# For video monitoring the environment
+from gym.wrappers.monitoring.video_recorder import VideoRecorder
+
 @dataclass
 class EvalConfig:
     # Relative path to experiment
     path: str = "logs/fast-safe-rl/parking-v0-cost-10/ppol_lr0.001_step_per_epoch20000_target_kl0.01-7d4f"
     best: bool = True
-    eval_episodes: int = 3
+    eval_episodes: int = 1
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
-    render: float = .001
+    render: float = .05
     train_mode: bool = False
     render_mode: str = "rgb_array"
     device = "cpu"
     worker: BaseVectorEnv = ShmemVectorEnv
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
+    monitor_mode: bool = False
+    video_recorder: VideoRecorder = None
 
 with open(EvalConfig.env_config_file) as f:
     data = f.read()
@@ -54,7 +59,7 @@ def eval(args: EvalConfig):
     logger = BaseLogger()
 
     # model
-    env = load_environment(ENV_CONFIG, render_mode="rbg_array")
+    env = load_environment(ENV_CONFIG, render_mode=args.render_mode)
     # Get the shapes of the states and actions to be transfered to a tensor
     if isinstance(env.observation_space, Dict):
         # TODO: This is hardcoded please fix
@@ -126,12 +131,16 @@ def eval(args: EvalConfig):
     policy.load_state_dict(model["model"])
     policy.eval()
 
-    # collector
-    test_envs = args.worker(
-        [lambda: load_environment(ENV_CONFIG) for _ in range(args.eval_episodes)]
-    )
+    # test_envs = args.worker(
+    #     [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
+    # )
+
+    test_envs = load_environment(ENV_CONFIG, render_mode=args.render_mode)
+    args.video_recorder = VideoRecorder(test_envs, "./videos/ppo_train_1.mp4")
+    
+    # Collector
     eval_collector = FastCollector(policy, test_envs)
-    result = eval_collector.collect(n_episode=args.eval_episodes, render=args.render)
+    result = eval_collector.collect(n_episode=args.eval_episodes, render=args.render, video_recorder=args.video_recorder)
     rews, lens, cost = result["rew"], result["len"], result["cost"]
     print(f"Eval reward: {rews}, cost: {cost}, length: {lens}")
 
