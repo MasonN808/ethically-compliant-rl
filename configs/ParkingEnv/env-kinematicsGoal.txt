@@ -12,7 +12,7 @@
     },
     "show_trajectories": True,
     "reward_weights": [1, 0.3, 0, 0, 0.02, 0.02],
-    "success_goal_reward": 0.15,
+    "success_goal_reward": 0.12,
     "collision_reward": -5,
     "simulation_frequency": 15,
     "policy_frequency": 5,

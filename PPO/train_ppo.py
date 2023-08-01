@@ -3,55 +3,50 @@ import os
 import pprint
 import sys
 sys.path.append("FSRL")
-from fsrl.policy.sac_lag import SACLagrangian
-from fsrl.trainer.offpolicy import OffpolicyTrainer
 from fsrl.utils.net.common import ActorCritic
 # Set this before everything
 os. environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 from dataclasses import asdict, dataclass
-import pickle
 import ast
 import warnings # FIXME: Fix this warning eventually
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
 import highway_env
 import bullet_safety_gym
 import gymnasium as gym
+from gymnasium.spaces.dict import Dict
 import numpy as np
 import torch.nn as nn
-try:
-    import safety_gymnasium
-except ImportError:
-    print("safety_gymnasium is not found.")
+import safety_gymnasium
 
 import torch
+from torch.distributions import Independent, Normal
 import pyrallis
+
+from tianshou.utils.net.continuous import ActorProb
+from tianshou.utils.net.common import Net, get_dict_state_decorator, DataParallelNet
 from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv, RayVectorEnv
 from tianshou.data import VectorReplayBuffer
 
 # To render the environemnt and agent
 import matplotlib.pyplot as plt
 sys.path.append("FSRL")
-from fsrl.agent import SACLagAgent
-from fsrl.config.sacl_cfg import TrainCfg
+from fsrl.config.ppol_cfg import TrainCfg
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
-from fsrl.utils.exp_util import auto_name
-from fsrl.utils.net.continuous import DoubleCritic
-from tianshou.utils.net.common import Net, get_dict_state_decorator, DataParallelNet
-from tianshou.utils.net.continuous import ActorProb
-from utils.utils import load_environment
 from fsrl.utils.exp_util import auto_name, seed_all
-from gymnasium.spaces.dict import Dict
+from fsrl.utils.net.continuous import DoubleCritic, Critic
 from fsrl.data import FastCollector
+from fsrl.policy import PPOLagrangian
+from fsrl.trainer import OnpolicyTrainer
+from utils.utils import load_environment
 
 TASK_TO_CFG = {
     # HighwayEnv tasks
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
 
-# Make my own config params
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
@@ -74,7 +69,6 @@ with open(MyCfg.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
-
 
 @pyrallis.wrap()
 def train(args: MyCfg):
@@ -105,13 +99,13 @@ def train(args: MyCfg):
     if args.logdir is not None:
         args.logdir = os.path.join(args.logdir, args.project, args.group)
     logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)
+    # logger = TensorboardLogger(args.logdir, log_txt=True, name=args.name)
     logger.save_config(cfg, verbose=args.verbose)
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
     train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
     test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
-
 
     # model
     env = load_environment(ENV_CONFIG)
@@ -124,11 +118,11 @@ def train(args: MyCfg):
             "desired_goal": (6,)
         }
         decorator_fn, state_shape = get_dict_state_decorator(dict_state_shape, list(dict_state_shape.keys()))
-        global Net, ActorProb, DoubleCritic, DataParallelNet # Fixes UnboundLocalError
+        global Net, ActorProb, Critic, DataParallelNet # Fixes UnboundLocalError
         # Apply decorator to overwrite the forward pass in the Tensorflow module to allow for dict object
         Net = decorator_fn(Net)
         ActorProb = decorator_fn(ActorProb)
-        DoubleCritic = decorator_fn(DoubleCritic)
+        Critic = decorator_fn(Critic)
         DataParallelNet = decorator_fn(DataParallelNet)
     else: 
         state_shape = env.observation_space.shape or env.observation_space.n
@@ -139,72 +133,43 @@ def train(args: MyCfg):
     net = Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device)
     if torch.cuda.is_available():
         actor = DataParallelNet(
-            ActorProb(
-                net,
-                action_shape,
-                max_action=max_action,
-                device=None, # Set device to none with DataParallelNet Wrapper
-                conditioned_sigma=args.conditioned_sigma,
-                unbounded=args.unbounded
-            ).to(args.device)
-        )
-        critics = []
-        for i in range(2):
-            net1 = Net(
-                state_shape,
-                action_shape,
-                hidden_sizes=args.hidden_sizes,
-                concat=True,
-                device=args.device
-            )
-            net2 = Net(
-                state_shape,
-                action_shape,
-                hidden_sizes=args.hidden_sizes,
-                concat=True,
-                device=args.device
-            )
-            critics.append(DataParallelNet(DoubleCritic(net1, net2, device=None).to(args.device)))
-    else:
-        actor = ActorProb(
+                ActorProb(
                     net,
                     action_shape,
                     max_action=max_action,
-                    device=args.device,
-                    conditioned_sigma=args.conditioned_sigma,
-                    unbounded=args.unbounded
+                    unbounded=args.unbounded,
+                    device=None
                 ).to(args.device)
-        critics = []
-        for i in range(2):
-            net1 = Net(
-                state_shape,
-                action_shape,
-                hidden_sizes=args.hidden_sizes,
-                concat=True,
+        )
+        critic = [DataParallelNet(
+                        Critic(
+                            Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device),
+                            device=None
+                        ).to(args.device)
+                    ) for _ in range(2)
+        ]
+    else:
+        actor = ActorProb(
+            net,
+            action_shape,
+            max_action=max_action,
+            unbounded=args.unbounded,
+            device=args.device
+        ).to(args.device)
+        critic = [
+            Critic(
+                Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device),
                 device=args.device
-            )
-            net2 = Net(
-                state_shape,
-                action_shape,
-                hidden_sizes=args.hidden_sizes,
-                concat=True,
-                device=args.device
-            )
-            critics.append(DoubleCritic(net1, net2, device=args.device).to(args.device))
-    
-    # Optimizers
-    actor_optim = torch.optim.Adam(actor.parameters(), lr=args.actor_lr)
-    critic_optim = torch.optim.Adam(
-        nn.ModuleList(critics).parameters(), lr=args.critic_lr
-    )
+            ).to(args.device) for _ in range(2)
+        ]
 
-    actor_critic = ActorCritic(actor, critics)
+    torch.nn.init.constant_(actor.sigma_param, -0.5)
+    actor_critic = ActorCritic(actor, critic)
     # orthogonal initialization
     for m in actor_critic.modules():
         if isinstance(m, torch.nn.Linear):
             torch.nn.init.orthogonal_(m.weight)
             torch.nn.init.zeros_(m.bias)
-
     if args.last_layer_scale:
         # do last policy layer scaling, this will make initial actions have (close to)
         # 0 mean and std, and will help boost performances,
@@ -214,28 +179,35 @@ def train(args: MyCfg):
                 torch.nn.init.zeros_(m.bias)
                 m.weight.data.copy_(0.01 * m.weight.data)
 
-    if args.auto_alpha:
-        target_entropy = -np.prod(env.action_space.shape)
-        log_alpha = torch.zeros(1, requires_grad=True, device=args.device)
-        alpha_optim = torch.optim.Adam([log_alpha], lr=args.alpha_lr)
-        args.alpha = (target_entropy, log_alpha, alpha_optim)
-    
-    policy = SACLagrangian(
-        actor=actor,
-        critics=critics,
-        actor_optim=actor_optim,
-        critic_optim=critic_optim,
+    optim = torch.optim.Adam(actor_critic.parameters(), lr=args.lr)
+
+    # replace DiagGuassian with Independent(Normal) which is equivalent
+    # pass *logits to be consistent with policy.forward
+    def dist(*logits):
+        return Independent(Normal(*logits), 1)
+
+    policy = PPOLagrangian(
+        actor,
+        critic,
+        optim,
+        dist,
         logger=logger,
-        alpha=args.alpha,
-        tau=args.tau,
-        gamma=args.gamma,
-        exploration_noise=None,
-        n_step=args.n_step,
+        target_kl=args.target_kl,
+        vf_coef=args.vf_coef,
+        max_grad_norm=args.max_grad_norm,
+        gae_lambda=args.gae_lambda,
+        eps_clip=args.eps_clip,
+        dual_clip=args.dual_clip,
+        value_clip=args.value_clip,
+        advantage_normalization=args.norm_adv,
+        recompute_advantage=args.recompute_adv,
         use_lagrangian=args.use_lagrangian,
         lagrangian_pid=args.lagrangian_pid,
         cost_limit=args.cost_limit,
         rescaling=args.rescaling,
-        reward_normalization=False,
+        gamma=args.gamma,
+        max_batchsize=args.max_batchsize,
+        reward_normalization=args.rew_norm,
         deterministic_eval=args.deterministic_eval,
         action_scaling=args.action_scaling,
         action_bound_method=args.action_bound_method,
@@ -263,7 +235,7 @@ def train(args: MyCfg):
         logger.setup_checkpoint_fn(checkpoint_fn)
 
     # trainer
-    trainer = OffpolicyTrainer(
+    trainer = OnpolicyTrainer(
         policy=policy,
         train_collector=train_collector,
         test_collector=test_collector,
@@ -271,7 +243,7 @@ def train(args: MyCfg):
         batch_size=args.batch_size,
         cost_limit=args.cost_limit,
         step_per_epoch=args.step_per_epoch,
-        update_per_step=args.update_per_step,
+        repeat_per_collect=args.repeat_per_collect,
         episode_per_test=args.testing_num,
         episode_per_collect=args.episode_per_collect,
         stop_fn=stop_fn,
@@ -285,7 +257,7 @@ def train(args: MyCfg):
         logger.store(tab="train", cost_limit=args.cost_limit)
         print(f"Epoch: {epoch}")
         print(info)
-    
+
     if __name__ == "__main__":
         pprint.pprint(info)
         # Let's watch its performance!

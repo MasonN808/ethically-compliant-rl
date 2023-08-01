@@ -27,7 +27,7 @@ from utils.utils import load_environment
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch50000_target_kl0.02-1bfe"
+    path: str = "logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch20000-7669"
     best: bool = True
     eval_episodes: int = 3
     parallel_eval: bool = False
@@ -36,7 +36,7 @@ class EvalConfig:
     train_mode: bool = False
     render_mode: str = "rgb_array"
     device = "cpu"
-    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
+    env_config_file: str = 'configs/ParkingEnv/env-image.txt'
 
 with open(EvalConfig.env_config_file) as f:
     data = f.read()
