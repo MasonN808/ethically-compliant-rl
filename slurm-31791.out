@@ -1,4 +1,0 @@
-srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 2
-slurmstepd: error: execve(): /nas/ucb/mason/ethically-compliant-rl/CPO/train_ppo.py: No such file or directory
-slurmstepd: error: execve(): /nas/ucb/mason/ethically-compliant-rl/SAC/train_sac.py: No such file or directory
-srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 2
