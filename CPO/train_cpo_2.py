@@ -96,7 +96,7 @@ class MyCfg(TrainCfg):
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
     batch_size: int = 256
-    env_config_file: str = 'configs/ParkingEnv/env-default.txt'
+    env_config_file: str = 'configs/ParkingEnv//env-kinematicsGoal.txt'
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
