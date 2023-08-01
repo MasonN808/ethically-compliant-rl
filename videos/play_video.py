@@ -1,14 +1,24 @@
-from base64 import b64encode
-from IPython.display import HTML
-def render_mp4(videopath: str) -> str:
-  """
-  Gets a string containing a b4-encoded version of the MP4 video
-  at the specified path.
-  """
-  mp4 = open(videopath, 'rb').read()
-  base64_encoded_mp4 = b64encode(mp4).decode()
-  return f'<video width=400 controls><source src="data:video/mp4;' \
-         f'base64,{base64_encoded_mp4}" type="video/mp4"></video>'
+import time
+import cv2
+from moviepy.editor import VideoFileClip
+
+
+def mp4_to_gif(mp4_path: str, gif_path: str):
+    videoClip = VideoFileClip(mp4_path)
+    videoClip.write_gif(gif_path)
+
+def play_mp4(mp4_path: str, sleep_per_frame: float=.2):
+    cap = cv2.VideoCapture(mp4_path)
+    ret, frame = cap.read()
+    while(1):
+        time.sleep(sleep_per_frame)
+        ret, frame = cap.read()
+        cv2.imshow('frame',frame)
+        if cv2.waitKey(1) & 0xFF == ord('q') or ret==False :
+            cap.release()
+            cv2.destroyAllWindows()
+            break
+        cv2.imshow('frame',frame)
+
 if __name__=="__main__":
-    html = render_mp4("/Users/masonnakamura/Local-Git/ethically-compliant-rl/videos/ppo_train.mp4")
-    HTML(html)
+   play_mp4("videos/ppo_train.mp4")
