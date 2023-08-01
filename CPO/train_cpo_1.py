@@ -82,8 +82,8 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = 250
-    lr: float = 0.001
+    epoch: int = 200
+    lr: float = 5e-4
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
@@ -95,6 +95,7 @@ class MyCfg(TrainCfg):
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
+    batch_size: int = 99999
     env_config_file: str = 'configs/ParkingEnv/env-default.txt'
 
 with open(MyCfg.env_config_file) as f:
