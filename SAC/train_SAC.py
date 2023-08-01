@@ -117,7 +117,7 @@ def train(args: MyCfg):
     env = load_environment(ENV_CONFIG)
     # Get the shapes of the states and actions to be transfered to a tensor
     if isinstance(env.observation_space, Dict):
-        # TODO: This is hardcoded please fix
+        # TODO: This is hardcoded for the HighwayEnv-parking environment | FIXME
         dict_state_shape = {
             "achieved_goal": (6,),
             "observation": (6,),
@@ -175,7 +175,7 @@ def train(args: MyCfg):
                     unbounded=args.unbounded
                 ).to(args.device)
         critics = []
-        for i in range(2):
+        for _ in range(2):
             net1 = Net(
                 state_shape,
                 action_shape,
