@@ -149,7 +149,7 @@ def train(args: MyCfg):
             ).to(args.device)
         )
         critics = []
-        for i in range(2):
+        for _ in range(2):
             net1 = Net(
                 state_shape,
                 action_shape,
