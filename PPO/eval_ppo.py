@@ -40,8 +40,8 @@ class EvalConfig:
     render_mode: str = "rgb_array"
     device = "cpu"
     worker: BaseVectorEnv = ShmemVectorEnv
-    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
-    monitor_mode: bool = False
+    env_config_file: str = 'configs/ParkingEnv/env-evaluation.txt'
+    monitor_mode: bool = True
     video_recorder: VideoRecorder = None
 
 with open(EvalConfig.env_config_file) as f:
@@ -136,7 +136,7 @@ def eval(args: EvalConfig):
     # )
 
     test_envs = load_environment(ENV_CONFIG, render_mode=args.render_mode)
-    args.video_recorder = VideoRecorder(test_envs, "./videos/ppo_train_1.mp4")
+    args.video_recorder = VideoRecorder(test_envs, "./videos/ppo-7.mp4")
     
     # Collector
     eval_collector = FastCollector(policy, test_envs)
