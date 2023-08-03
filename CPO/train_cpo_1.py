@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'True'
+os. environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -82,7 +82,7 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = 200
+    epoch: int = 500
     lr: float = 5e-4
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
@@ -95,7 +95,7 @@ class MyCfg(TrainCfg):
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
-    batch_size: int = 50
+    batch_size: int = 99999
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
 with open(MyCfg.env_config_file) as f:
@@ -132,10 +132,7 @@ def train(args: MyCfg):
     logger.save_config(cfg, verbose=args.verbose)
 
     demo_env = load_environment(ENV_CONFIG)
-    # Some config testing
-    print("Observation Space: {}".format(demo_env.observation_space))
-    print("Action Space: {}".format(demo_env.action_space))
-    print("Render Mode: {}".format(demo_env.render_mode))
+    
     agent = CPOAgent(
         env=demo_env,
         logger=logger,
