@@ -1,8 +1,11 @@
 #!/bin/sh
 #SBATCH --job-name=safe-rl
-#SBATCH --mem=40gb
+#SBATCH --mem=120gb
 #SBATCH --time=40:00:00
+#SBATCH -N 3
+#SBATCH -n 3
 #SBATCH -c 8
+#SBATCH --gpus=3
 #SBATCH --qos medium
 
 
