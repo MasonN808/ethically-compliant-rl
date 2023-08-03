@@ -1,0 +1,120 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230801_171637-78417204-f504-4789-97b8-725e8e630dff
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sacl_gamma0.99_step_per_epoch20000-8f03
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/78417204-f504-4789-97b8-725e8e630dff
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/sacl_gamma0.99_step_per_epoch20000-8f03/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "actor_lr":	0.0005,
+    "alpha":	0.005,
+    "alpha_lr":	0.0003,
+    "auto_alpha":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "conditioned_sigma":	true,
+    "cost_limit":	10,
+    "critic_lr":	0.001,
+    "deterministic_eval":	true,
+    "device":	"cuda",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal.txt",
+    "episode_per_collect":	2,
+    "epoch":	250,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "n_step":	2,
+    "name":	"sacl_gamma0.99_step_per_epoch20000-8f03",
+    "prefix":	"sacl",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "rescaling":	true,
+    "resume":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "tau":	0.05,
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	10,
+    "unbounded":	false,
+    "update_per_step":	0.2,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Epoch #1:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #1:   8%|7         | 1500/20000 [00:06<01:24, 217.93it/s]Epoch #1:   8%|7         | 1500/20000 [00:06<01:24, 217.82it/s]
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/SAC/train_SAC.py", line 307, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/SAC/train_SAC.py", line 284, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 205, in __next__
+    self.policy_update_fn(stats_train)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/offpolicy.py", line 104, in policy_update_fn
+    self.policy.update(self.batch_size, self.train_collector.buffer)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 361, in update
+    batch = self.process_fn(batch, buffer, indices)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/sac_lag.py", line 150, in process_fn
+    batch = self.compute_nstep_returns(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 507, in compute_nstep_returns
+    target_q_list = target_q_fn(buffer, terminal)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/sac_lag.py", line 143, in _target_q
+    target_q, _ = self.critics_old[i].predict(batch.obs_next, act)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'new_net_class' object has no attribute 'predict'
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/SAC/train_SAC.py", line 307, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/SAC/train_SAC.py", line 284, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 205, in __next__
+    self.policy_update_fn(stats_train)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/offpolicy.py", line 104, in policy_update_fn
+    self.policy.update(self.batch_size, self.train_collector.buffer)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 361, in update
+    batch = self.process_fn(batch, buffer, indices)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/sac_lag.py", line 150, in process_fn
+    batch = self.compute_nstep_returns(
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 507, in compute_nstep_returns
+    target_q_list = target_q_fn(buffer, terminal)
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/sac_lag.py", line 143, in _target_q
+    target_q, _ = self.critics_old[i].predict(batch.obs_next, act)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'new_net_class' object has no attribute 'predict'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run sacl_gamma0.99_step_per_epoch20000-8f03 at: https://wandb.ai/ecrl/fast-safe-rl/runs/78417204-f504-4789-97b8-725e8e630dff
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230801_171637-78417204-f504-4789-97b8-725e8e630dff/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
