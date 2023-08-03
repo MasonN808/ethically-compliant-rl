@@ -1,6 +1,6 @@
 #!/bin/sh
 #SBATCH --job-name=safe-rl
-#SBATCH --mem=150gb
+#SBATCH --mem=120gb
 #SBATCH --time=40:00:00
 #SBATCH -N 3
 #SBATCH -n 3
