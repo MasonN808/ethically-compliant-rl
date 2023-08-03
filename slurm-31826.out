@@ -1,0 +1,67 @@
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id e92389ae-8c96-4fa0-84cc-28c38c4ddb84.
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/sacl_gamma0.99_step_per_epoch20000-eebd/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "actor_lr":	0.0005,
+    "alpha":	0.005,
+    "alpha_lr":	0.0003,
+    "auto_alpha":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "conditioned_sigma":	true,
+    "cost_limit":	10,
+    "critic_lr":	0.001,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal.txt",
+    "episode_per_collect":	2,
+    "epoch":	250,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "n_step":	2,
+    "name":	"sacl_gamma0.99_step_per_epoch20000-eebd",
+    "prefix":	"sacl",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "rescaling":	true,
+    "resume":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "tau":	0.05,
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	10,
+    "unbounded":	false,
+    "update_per_step":	0.2,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+slurmstepd: error: *** JOB 31826 ON sac.ist.berkeley.edu CANCELLED AT 2023-08-01T18:41:25 ***
+Epoch #1:   0%|          | 0/20000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 31826.0 ON sac.ist.berkeley.edu CANCELLED AT 2023-08-01T18:41:25 ***

@@ -1,0 +1,134 @@
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id 324c8bfd-06ab-4206-8c0c-77aad9c12237.
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230801_233704-3a19f7e1-064e-4b7b-856a-e1059d0a3ab6
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_batch_size256_lr0.0005_step_per_epoch20000-72c4
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/3a19f7e1-064e-4b7b-856a-e1059d0a3ab6
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_batch_size256_lr0.0005_step_per_epoch20000-72c4/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cuda",
+    "env_config_file":	"configs/ParkingEnv//env-kinematicsGoal.txt",
+    "episode_per_collect":	20,
+    "epoch":	200,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0005,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_batch_size256_lr0.0005_step_per_epoch20000-72c4",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Observation Space: Dict('achieved_goal': Box(-inf, inf, (6,), float64), 'desired_goal': Box(-inf, inf, (6,), float64), 'observation': Box(-inf, inf, (6,), float64))
+Action Space: Box(-1.0, 1.0, (2,), float32)
+Render Mode: None
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_lr0.0005_step_per_epoch20000-9a25/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cuda",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal.txt",
+    "episode_per_collect":	20,
+    "epoch":	200,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0005,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_lr0.0005_step_per_epoch20000-9a25",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Observation Space: Dict('achieved_goal': Box(-inf, inf, (6,), float64), 'desired_goal': Box(-inf, inf, (6,), float64), 'observation': Box(-inf, inf, (6,), float64))
+Action Space: Box(-1.0, 1.0, (2,), float32)
+Render Mode: None
+Epoch #1:   0%|          | 0/20000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 31843.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-08-01T16:37:53 ***
+slurmstepd: error: *** JOB 31843 ON airl.ist.berkeley.edu CANCELLED AT 2023-08-01T23:37:53 ***
+Epoch #1:   0%|          | 0/20000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 31843.0 ON airl.ist.berkeley.edu CANCELLED AT 2023-08-01T23:37:53 ***
+Epoch #1:   0%|          | 0/20000 [00:16<?, ?it/s]
+Epoch #1:   0%|          | 0/20000 [00:08<?, ?it/s]
