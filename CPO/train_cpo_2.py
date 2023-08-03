@@ -40,6 +40,7 @@ from fsrl.config.cpo_cfg import (
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name
 from utils.utils import load_environment
+import numpy as np
 
 TASK_TO_CFG = {
     # bullet safety gym tasks
@@ -102,7 +103,8 @@ with open(MyCfg.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
-
+# Update the steering_range since np can't be paresed in .txt file
+ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50
 
 @pyrallis.wrap()
 def train(args: MyCfg):

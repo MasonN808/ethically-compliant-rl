@@ -22,6 +22,7 @@ except ImportError:
 import torch
 import pyrallis
 from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv, RayVectorEnv
+import numpy as np
 
 # To render the environemnt and agent
 import matplotlib.pyplot as plt
@@ -102,7 +103,8 @@ with open(MyCfg.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
-
+# Update the steering_range since np can't be paresed in .txt file
+ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50
 
 @pyrallis.wrap()
 def train(args: MyCfg):
