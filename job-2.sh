@@ -2,10 +2,10 @@
 #SBATCH --job-name=safe-rl
 #SBATCH --mem=120gb
 #SBATCH --time=40:00:00
-#SBATCH -N 2
-#SBATCH -n 2
+#SBATCH -N 1
+#SBATCH -n 1
 #SBATCH -c 8
-#SBATCH --gpus=2
+#SBATCH --gpus=1
 #SBATCH --qos medium
 
 
