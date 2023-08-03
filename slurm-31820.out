@@ -1,9 +1,0 @@
-Traceback (most recent call last):
-  File "/nas/ucb/mason/ethically-compliant-rl/SAC/train_SAC.py", line 6, in <module>
-    from fsrl.policy.sac_lag import SACLagrangian
-  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/__init__.py", line 4, in <module>
-    from fsrl.policy.base_policy import BasePolicy
-  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/base_policy.py", line 4, in <module>
-    import gymnasium as gym
-ModuleNotFoundError: No module named 'gymnasium'
-srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1

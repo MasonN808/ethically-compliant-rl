@@ -1,6 +1,0 @@
-srun: error: Step requested GRES but job doesn't have GRES
-srun: error: Unable to create step for job 32875: Invalid generic resource (gres) specification
-srun: error: Step requested GRES but job doesn't have GRES
-srun: error: Step requested GRES but job doesn't have GRES
-srun: error: Unable to create step for job 32875: Invalid generic resource (gres) specification
-srun: error: Unable to create step for job 32875: Invalid generic resource (gres) specification

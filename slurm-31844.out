@@ -1,5 +1,0 @@
-slurmstepd: error: *** STEP 31844.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-08-01T16:38:22 ***
-[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_lr0.0005_step_per_epoch20000-32f3/progress.txt[0m
-slurmstepd: error: *** STEP 31844.0 ON airl.ist.berkeley.edu CANCELLED AT 2023-08-01T23:38:22 ***
-[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_batch_size256_lr0.0005_step_per_epoch20000-3b73/progress.txt[0m
-slurmstepd: error: *** JOB 31844 ON airl.ist.berkeley.edu CANCELLED AT 2023-08-01T23:38:22 ***
