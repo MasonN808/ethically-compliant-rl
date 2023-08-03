@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'False'
+os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -95,7 +95,7 @@ class MyCfg(TrainCfg):
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
-    batch_size: int = 99999
+    batch_size: int = 50
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
 with open(MyCfg.env_config_file) as f:

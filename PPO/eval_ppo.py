@@ -134,12 +134,12 @@ def eval(args: EvalConfig):
     # test_envs = args.worker(
     #     [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
     # )
-
-    test_envs = load_environment(ENV_CONFIG, render_mode=args.render_mode)
-    args.video_recorder = VideoRecorder(test_envs, "./videos/ppo-7.mp4")
+    # TODO: add large for loop here
+    test_env = load_environment(ENV_CONFIG, render_mode=args.render_mode)
+    args.video_recorder = VideoRecorder(test_env, "./videos/ppo-7.mp4")
     
     # Collector
-    eval_collector = FastCollector(policy, test_envs)
+    eval_collector = FastCollector(policy, test_env)
     result = eval_collector.collect(n_episode=args.eval_episodes, render=args.render, video_recorder=args.video_recorder)
     rews, lens, cost = result["rew"], result["len"], result["cost"]
     print(f"Eval reward: {rews}, cost: {cost}, length: {lens}")
