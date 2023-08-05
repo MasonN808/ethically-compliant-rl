@@ -27,5 +27,6 @@
     "add_walls": False,
 
     # Costs
-    "cost_delta_distance": 3
+    "cost_delta_distance": 3,
+    "quantized_line_points": 12
 }
