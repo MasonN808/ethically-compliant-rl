@@ -44,7 +44,7 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    cost_limit: float = 20 # The distance when surpassing the threshold 
+    cost_limit: float = 15 # The distance when surpassing the threshold 
     epoch: int = 300
     lr: float = 1e-3
     render: float = None # The rate at which it renders (e.g., .001)
