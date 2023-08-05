@@ -27,6 +27,7 @@
     "add_walls": False,
 
     # Costs
+    "constrained_rl": True,
     "cost_delta_distance": 3,
     "quantized_line_points": 12,
 }
