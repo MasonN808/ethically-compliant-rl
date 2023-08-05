@@ -22,59 +22,20 @@ except ImportError:
 import torch
 import pyrallis
 from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv, RayVectorEnv
+import numpy as np
 
 # To render the environemnt and agent
 import matplotlib.pyplot as plt
 sys.path.append("FSRL")
 from fsrl.agent import CPOAgent
 from fsrl.config.cpo_cfg import (
-    Bullet1MCfg,
-    Bullet5MCfg,
-    Bullet10MCfg,
-    Mujoco2MCfg,
-    Mujoco10MCfg,
-    Mujoco20MCfg,
-    MujocoBaseCfg,
     TrainCfg,
 )
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name
 from utils.utils import load_environment
-import numpy as np
 
 TASK_TO_CFG = {
-    # bullet safety gym tasks
-    "SafetyCarRun-v0": Bullet1MCfg,
-    "SafetyBallRun-v0": Bullet1MCfg,
-    "SafetyBallCircle-v0": Bullet1MCfg,
-    "SafetyCarCircle-v0": TrainCfg,
-    "SafetyDroneRun-v0": TrainCfg,
-    "SafetyAntRun-v0": TrainCfg,
-    "SafetyDroneCircle-v0": Bullet5MCfg,
-    "SafetyAntCircle-v0": Bullet10MCfg,
-    # safety gymnasium tasks
-    "SafetyPointCircle1Gymnasium-v0": Mujoco2MCfg,
-    "SafetyPointCircle2Gymnasium-v0": Mujoco2MCfg,
-    "SafetyCarCircle1Gymnasium-v0": Mujoco2MCfg,
-    "SafetyCarCircle2Gymnasium-v0": Mujoco2MCfg,
-    "SafetyPointGoal1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointGoal2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointButton1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointButton2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointPush1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointPush2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarGoal1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarGoal2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarButton1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarButton2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarPush1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarPush2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyHalfCheetahVelocityGymnasium-v1": MujocoBaseCfg,
-    "SafetyHopperVelocityGymnasium-v1": MujocoBaseCfg,
-    "SafetySwimmerVelocityGymnasium-v1": MujocoBaseCfg,
-    "SafetyWalker2dVelocityGymnasium-v1": Mujoco10MCfg,
-    "SafetyAntVelocityGymnasium-v1": Mujoco10MCfg,
-    "SafetyHumanoidVelocityGymnasium-v1": Mujoco20MCfg,
     # HighwayEnv tasks
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
@@ -83,8 +44,9 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = 500
-    lr: float = 5e-4
+    cost_limit: float = 20 # The distance when surpassing the threshold 
+    epoch: int = 300
+    lr: float = 1e-3
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
@@ -96,15 +58,16 @@ class MyCfg(TrainCfg):
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
-    # batch_size: int = 256
-    env_config_file: str = 'configs/ParkingEnv//env-default.txt'
+    batch_size: int = 50000 # As seen in CPO paper
+    l2_reg: float = 0.01
+    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
 # Update the steering_range since np can't be paresed in .txt file
-ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50
+ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50 irl
 
 @pyrallis.wrap()
 def train(args: MyCfg):

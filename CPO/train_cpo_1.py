@@ -29,13 +29,6 @@ import matplotlib.pyplot as plt
 sys.path.append("FSRL")
 from fsrl.agent import CPOAgent
 from fsrl.config.cpo_cfg import (
-    Bullet1MCfg,
-    Bullet5MCfg,
-    Bullet10MCfg,
-    Mujoco2MCfg,
-    Mujoco10MCfg,
-    Mujoco20MCfg,
-    MujocoBaseCfg,
     TrainCfg,
 )
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
@@ -52,8 +45,8 @@ TASK_TO_CFG = {
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     cost_limit: float = 30 # The distance when surpassing the threshold 
-    epoch: int = 500
-    lr: float = 5e-4
+    epoch: int = 300
+    lr: float = 1e-3
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
@@ -65,7 +58,8 @@ class MyCfg(TrainCfg):
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
-    # batch_size: int = 99999
+    batch_size: int = 50000 # As seen in CPO paper
+    l2_reg: float = 0.01
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
 with open(MyCfg.env_config_file) as f:
@@ -73,7 +67,7 @@ with open(MyCfg.env_config_file) as f:
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
 # Update the steering_range since np can't be paresed in .txt file
-ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50
+ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50 irl
 
 @pyrallis.wrap()
 def train(args: MyCfg):
