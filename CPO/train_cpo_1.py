@@ -61,6 +61,8 @@ class MyCfg(TrainCfg):
     gamma: float = .99
     batch_size: int = 50000 # As seen in CPO paper
     l2_reg: float = 0.01
+    max_backtracks: int = 200
+    gae_lambda: float = 0.92
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
 with open(MyCfg.env_config_file) as f:
