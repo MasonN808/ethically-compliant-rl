@@ -1,5 +1,6 @@
 import gymnasium as gym
 import highway_env
+import numpy as np
 
 env = gym.make("parking-v0", render_mode="human")
 env.configure({
@@ -13,6 +14,7 @@ env.configure({
     "real_time_rendering": True,
     'cost_delta_distance': 2,
     'add_walls': False,
+    "steering_range": np.deg2rad(50),
 })
 env.reset()
 done = False
