@@ -22,17 +22,18 @@ from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name, load_config_and_model, seed_all
 import ast
 from utils.utils import load_environment
+import numpy as np
 
 
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch20000-7669"
+    path: str = "logs/fast-safe-rl/parking-v0-cost-30/cpo_batch_size50000_cost30_l2_reg0.01_step_per_epoch20000-6860"
     best: bool = True
     eval_episodes: int = 3
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
-    render: float = .001
+    render: float = .01
     train_mode: bool = False
     render_mode: str = "rgb_array"
     device = "cpu"
@@ -42,6 +43,9 @@ with open(EvalConfig.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
+# Update the steering_range since np can't be paresed in .txt file
+ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50 irl
+
 
 @pyrallis.wrap()
 def eval(args: EvalConfig):
