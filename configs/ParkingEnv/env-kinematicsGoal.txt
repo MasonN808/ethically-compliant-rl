@@ -10,6 +10,7 @@
     "action": {
         "type": "ContinuousAction"
     },
+    # This determines the weights to the difference between the desired_goal and achieved_goal
     "reward_weights": [1, 0.3, 0, 0, 0.02, 0.02],
     "show_trajectories": False,
     "success_goal_reward": 0.12,
@@ -23,5 +24,8 @@
     "scaling": 7,
     "controlled_vehicles": 1,
     "vehicles_count": 0,
-    "add_walls": False
+    "add_walls": False,
+
+    # Costs
+    "cost_delta_distance": 3
 }

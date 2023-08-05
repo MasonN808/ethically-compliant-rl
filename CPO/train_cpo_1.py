@@ -43,38 +43,6 @@ from fsrl.utils.exp_util import auto_name
 from utils.utils import load_environment
 
 TASK_TO_CFG = {
-    # bullet safety gym tasks
-    "SafetyCarRun-v0": Bullet1MCfg,
-    "SafetyBallRun-v0": Bullet1MCfg,
-    "SafetyBallCircle-v0": Bullet1MCfg,
-    "SafetyCarCircle-v0": TrainCfg,
-    "SafetyDroneRun-v0": TrainCfg,
-    "SafetyAntRun-v0": TrainCfg,
-    "SafetyDroneCircle-v0": Bullet5MCfg,
-    "SafetyAntCircle-v0": Bullet10MCfg,
-    # safety gymnasium tasks
-    "SafetyPointCircle1Gymnasium-v0": Mujoco2MCfg,
-    "SafetyPointCircle2Gymnasium-v0": Mujoco2MCfg,
-    "SafetyCarCircle1Gymnasium-v0": Mujoco2MCfg,
-    "SafetyCarCircle2Gymnasium-v0": Mujoco2MCfg,
-    "SafetyPointGoal1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointGoal2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointButton1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointButton2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointPush1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyPointPush2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarGoal1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarGoal2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarButton1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarButton2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarPush1Gymnasium-v0": MujocoBaseCfg,
-    "SafetyCarPush2Gymnasium-v0": MujocoBaseCfg,
-    "SafetyHalfCheetahVelocityGymnasium-v1": MujocoBaseCfg,
-    "SafetyHopperVelocityGymnasium-v1": MujocoBaseCfg,
-    "SafetySwimmerVelocityGymnasium-v1": MujocoBaseCfg,
-    "SafetyWalker2dVelocityGymnasium-v1": Mujoco10MCfg,
-    "SafetyAntVelocityGymnasium-v1": Mujoco10MCfg,
-    "SafetyHumanoidVelocityGymnasium-v1": Mujoco20MCfg,
     # HighwayEnv tasks
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
@@ -83,6 +51,7 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
+    cost_limit: float = 30 # The distance when surpassing the threshold 
     epoch: int = 500
     lr: float = 5e-4
     render: float = None # The rate at which it renders (e.g., .001)
@@ -134,7 +103,7 @@ def train(args: MyCfg):
     logger.save_config(cfg, verbose=args.verbose)
 
     demo_env = load_environment(ENV_CONFIG)
-    
+
     agent = CPOAgent(
         env=demo_env,
         logger=logger,
