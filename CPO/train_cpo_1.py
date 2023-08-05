@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'False'
+os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -11,9 +11,9 @@ import ast
 import sys
 import warnings # FIXME: Fix this warning eventually
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
-import highway_env
-import bullet_safety_gym
 import gymnasium as gym
+import bullet_safety_gym
+import highway_env
 try:
     import safety_gymnasium
 except ImportError:
@@ -37,7 +37,8 @@ from utils.utils import load_environment
 
 TASK_TO_CFG = {
     # HighwayEnv tasks
-    "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
+    "parking-v0": TrainCfg,
+    "roundabout-v0": TrainCfg,
 }
 
 # Make my own config params

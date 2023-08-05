@@ -25,7 +25,7 @@ def load_environment(env_config, render_mode=None):
         # Save env module in order to be able to import it again
         env.import_module = env_config.get("import_module", None)
     except KeyError:
-        raise ValueError("The gym register id of the environment must be provided")
+        raise ValueError("The gym register-id of the environment must be provided")
     except gym.error.UnregisteredEnv:
         # The environment is unregistered.
         print("import_module", env_config["import_module"])
