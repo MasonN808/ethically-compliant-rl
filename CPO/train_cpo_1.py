@@ -100,7 +100,7 @@ def train(args: MyCfg):
     logger.save_config(cfg, verbose=args.verbose)
 
     demo_env = load_environment(ENV_CONFIG)
-
+    
     agent = CPOAgent(
         env=demo_env,
         logger=logger,
