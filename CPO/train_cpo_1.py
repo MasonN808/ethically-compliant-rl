@@ -39,6 +39,7 @@ from utils.utils import load_environment
 
 TASK_TO_CFG = {
     "SafetyPointCircle1Gymnasium-v0": Mujoco2MCfg,
+    "SafetyPointGoal2Gymnasium-v0": Mujoco2MCfg,
     # HighwayEnv tasks
     "parking-v0": TrainCfg,
     "roundabout-v0": TrainCfg,
@@ -47,7 +48,7 @@ TASK_TO_CFG = {
 # Make my own config params
 @dataclass
 class MyCfg(TrainCfg):
-    task: str = "SafetyPointCircle1Gymnasium-v0"
+    task: str = "SafetyPointGoal2Gymnasium-v0"
     project: str = "fast-safe-rl"
     # cost_limit: float = 30 # The distance when surpassing the threshold 
     # epoch: int = 300
