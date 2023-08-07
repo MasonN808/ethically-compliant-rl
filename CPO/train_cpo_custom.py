@@ -29,7 +29,7 @@ import pyrallis
 from tianshou.utils.net.continuous import ActorProb
 from tianshou.utils.net.common import Net, get_dict_state_decorator, DataParallelNet
 from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv, RayVectorEnv
-from tianshou.data import VectorReplayBuffer
+from tianshou.data import VectorReplayBuffer, ReplayBuffer
 
 # To render the environemnt and agent
 import matplotlib.pyplot as plt
@@ -38,7 +38,7 @@ from fsrl.config.cpo_cfg import TrainCfg
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name, seed_all
 from fsrl.utils.net.continuous import DoubleCritic, Critic
-from fsrl.data import FastCollector, ReplayBuffer, VectorReplayBuffer
+from fsrl.data import FastCollector
 from fsrl.policy import CPO
 from fsrl.trainer import OnpolicyTrainer
 from utils.utils import load_environment

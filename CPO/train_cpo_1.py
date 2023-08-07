@@ -29,13 +29,16 @@ import matplotlib.pyplot as plt
 sys.path.append("FSRL")
 from fsrl.agent import CPOAgent
 from fsrl.config.cpo_cfg import (
+    Mujoco2MCfg,
     TrainCfg,
 )
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name
+from fsrl.data import FastCollector
 from utils.utils import load_environment
 
 TASK_TO_CFG = {
+    "SafetyPointCircle1Gymnasium-v0": Mujoco2MCfg,
     # HighwayEnv tasks
     "parking-v0": TrainCfg,
     "roundabout-v0": TrainCfg,
@@ -44,33 +47,36 @@ TASK_TO_CFG = {
 # Make my own config params
 @dataclass
 class MyCfg(TrainCfg):
-    task: str = "parking-v0"
-    cost_limit: float = 30 # The distance when surpassing the threshold 
-    epoch: int = 300
-    lr: float = 1e-3
+    task: str = "SafetyPointCircle1Gymnasium-v0"
+    project: str = "fast-safe-rl"
+    # cost_limit: float = 30 # The distance when surpassing the threshold 
+    # epoch: int = 300
+    # lr: float = 1e-3
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
-    step_per_epoch: int = 20000
-    target_kl: float = 0.01
-    project: str = "fast-safe-rl"
+    # step_per_epoch: int = 20000
+    # target_kl: float = 0.01
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
-    gamma: float = .99
-    batch_size: int = 50000 # As seen in CPO paper
-    l2_reg: float = 0.01
-    max_backtracks: int = 200
-    gae_lambda: float = 0.92
-    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
+    # gamma: float = .99
+    # batch_size: int = 50000 # As seen in CPO paper
+    # l2_reg: float = 0.01
+    # max_backtracks: int = 200
+    # gae_lambda: float = 0.92
+    # env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
-with open(MyCfg.env_config_file) as f:
-    data = f.read()
-# reconstructing the data as a dictionary
-ENV_CONFIG = ast.literal_eval(data)
-# Update the steering_range since np can't be paresed in .txt file
-ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50 irl
+try:
+    with open(MyCfg.env_config_file) as f:
+        data = f.read()
+    # reconstructing the data as a dictionary
+    ENV_CONFIG = ast.literal_eval(data)
+    # Update the steering_range since np can't be paresed in .txt file
+    ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50 irl
+except:
+    pass
 
 @pyrallis.wrap()
 def train(args: MyCfg):
@@ -99,7 +105,10 @@ def train(args: MyCfg):
     logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)
     logger.save_config(cfg, verbose=args.verbose)
 
-    demo_env = load_environment(ENV_CONFIG)
+    try:
+        demo_env = load_environment(ENV_CONFIG)
+    except:
+        demo_env = gym.make(args.task, render_mode=args.render_mode)
     
     agent = CPOAgent(
         env=demo_env,
@@ -129,8 +138,12 @@ def train(args: MyCfg):
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
-    train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
-    test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
+    try:
+        train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
+        test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
+    except:
+        train_envs = worker([lambda: gym.make(args.task, render_mode=args.render_mode) for _ in range(training_num)])
+        test_envs = worker([lambda: gym.make(args.task, render_mode=args.render_mode) for _ in range(args.testing_num)])
 
     # start training
     agent.learn(
@@ -151,8 +164,11 @@ def train(args: MyCfg):
     )
     if __name__ == "__main__":
         # Let's watch its performance!
-        from fsrl.data import FastCollector
-        env = load_environment(ENV_CONFIG, render_mode='human')
+        try:
+            env = load_environment(ENV_CONFIG)
+        except:
+            env = gym.make(args.task, render_mode=args.render_mode)
+    
         agent.policy.eval()
         collector = FastCollector(agent.policy, env)
         result = collector.collect(n_episode=10, render=args.render)
