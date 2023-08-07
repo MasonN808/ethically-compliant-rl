@@ -1,7 +1,8 @@
 #!/bin/sh
 #SBATCH --job-name=safe-rl
-#SBATCH --cpus-per-task=30
-#SBATCH --mem=80gb
+#SBATCH --gpus-per-task=A6000:1
+#SBATCH --cpus-per-task=5
+#SBATCH --mem=90gb
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --time=30:00:00
@@ -9,5 +10,5 @@
 
 
 srun -n1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py" &
-srun -n1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_2.py" &
+srun -n1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" &
 wait
