@@ -178,7 +178,7 @@ def train(args: MyCfg):
             ).to(args.device) for _ in range(2)
         ]
 
-    torch.nn.init.constant_(actor.sigma_param, -0.5)
+    # torch.nn.init.constant_(actor.sigma_param, -0.5)
     actor_critic = ActorCritic(actor, critic)
     # orthogonal initialization
     for m in actor_critic.modules():
