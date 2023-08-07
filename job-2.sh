@@ -1,13 +1,11 @@
 #!/bin/sh
 #SBATCH --job-name=safe-rl
-#SBATCH --mem=100gb
-#SBATCH --time=20:00:00
-#SBATCH -c 8
-#SBATCH -n 2
-#SBATCH --gpus=2
-#SBATCH --qos=high
-#SBATCH --gpus-per-task=A6000:1
+#SBATCH --cpus-per-task=30
+#SBATCH --mem=80gb
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --time=30:00:00
+#SBATCH --qos medium
 
-srun -n1 --gpus=1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_1.py" &
-srun -n1 --gpus=1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_2.py" &
-wait
+
+srun "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py"
