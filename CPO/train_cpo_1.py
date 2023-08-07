@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'False'
+os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -29,6 +29,7 @@ import matplotlib.pyplot as plt
 sys.path.append("FSRL")
 from fsrl.agent import CPOAgent
 from fsrl.config.cpo_cfg import (
+    Mujoco2MCfg,
     TrainCfg,
 )
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
@@ -36,6 +37,7 @@ from fsrl.utils.exp_util import auto_name
 from utils.utils import load_environment
 
 TASK_TO_CFG = {
+    "SafetyPointCircle1Gymnasium-v0": Mujoco2MCfg,
     # HighwayEnv tasks
     "parking-v0": TrainCfg,
     "roundabout-v0": TrainCfg,
