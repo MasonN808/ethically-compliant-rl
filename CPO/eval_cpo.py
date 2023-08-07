@@ -28,7 +28,7 @@ import numpy as np
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/fast-safe-rl/SafetyPointCircle1Gymnasium-v0-cost-10/cpo_cost10_step_per_epoch10000-db1e"
+    path: str = "logs/fast-safe-rl/SafetyPointGoal2Gymnasium-v0-cost-10/cpo_cost10_step_per_epoch10000-2d6d"
     best: bool = True
     eval_episodes: int = 3
     parallel_eval: bool = False

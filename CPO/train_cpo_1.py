@@ -51,7 +51,7 @@ class MyCfg(TrainCfg):
     task: str = "SafetyPointGoal2Gymnasium-v0"
     project: str = "fast-safe-rl"
     # cost_limit: float = 30 # The distance when surpassing the threshold 
-    # epoch: int = 300
+    epoch: int = 400
     # lr: float = 1e-3
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
