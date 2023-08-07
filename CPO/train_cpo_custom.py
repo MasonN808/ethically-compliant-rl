@@ -216,7 +216,7 @@ def train(args: MyCfg):
         optim_critic_iters=args.optim_critic_iters,
         l2_reg=args.l2_reg,
         gae_lambda=args.gae_lambda,
-        advantage_normalization=args.advantage_normalization,
+        advantage_normalization=args.norm_adv,
         # Base Policy Common arguments
         gamma=args.gamma,
         max_batchsize=args.max_batchsize,
