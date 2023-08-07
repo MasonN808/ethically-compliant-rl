@@ -28,32 +28,36 @@ import numpy as np
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/fast-safe-rl/parking-v0-cost-30/cpo_batch_size50000_cost30_l2_reg0.01_step_per_epoch20000-6860"
+    path: str = "logs/fast-safe-rl/SafetyPointCircle1Gymnasium-v0-cost-10/cpo_cost10_step_per_epoch10000-db1e"
     best: bool = True
     eval_episodes: int = 3
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
     render: float = .01
     train_mode: bool = False
-    render_mode: str = "rgb_array"
+    render_mode: str = "human"
     device = "cpu"
-    env_config_file: str = 'configs/ParkingEnv/env-image.txt'
+    # env_config_file: str = 'configs/ParkingEnv/env-image.txt'
 
-with open(EvalConfig.env_config_file) as f:
-    data = f.read()
-# reconstructing the data as a dictionary
-ENV_CONFIG = ast.literal_eval(data)
-# Update the steering_range since np can't be paresed in .txt file
-ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50 irl
-
+try:
+    with open(EvalConfig.env_config_file) as f:
+        data = f.read()
+    # reconstructing the data as a dictionary
+    ENV_CONFIG = ast.literal_eval(data)
+    # Update the steering_range since np can't be paresed in .txt file
+    ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50 irl
+except:
+    pass
 
 @pyrallis.wrap()
 def eval(args: EvalConfig):
     cfg, model = load_config_and_model(args.path, args.best)
 
-    task = cfg["task"]
-    demo_env = load_environment(ENV_CONFIG, render_mode=args.render_mode)
-
+    try:
+        demo_env = load_environment(ENV_CONFIG)
+    except:
+        demo_env = gym.make(cfg["task"], render_mode=args.render_mode)
+    
     agent = CPOAgent(
         env=demo_env,
         logger=BaseLogger(),
@@ -66,12 +70,20 @@ def eval(args: EvalConfig):
         last_layer_scale=cfg["last_layer_scale"],
     )
 
-    if args.parallel_eval:
-        test_envs = ShmemVectorEnv(
-            [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
-        )
-    else:
-        test_envs = load_environment(ENV_CONFIG, render_mode=args.render_mode)
+    try:
+        if args.parallel_eval:
+            test_envs = ShmemVectorEnv(
+                [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
+            )
+        else:
+            test_envs = load_environment(ENV_CONFIG, render_mode=args.render_mode)
+    except: 
+        if args.parallel_eval:
+            test_envs = ShmemVectorEnv(
+                [lambda: gym.make(cfg["task"], render_mode=args.render_mode) for _ in range(args.eval_episodes)]
+            )
+        else:
+            test_envs = gym.make(cfg["task"], render_mode=args.render_mode)
 
     rews, lens, cost = agent.evaluate(
         test_envs=test_envs,
