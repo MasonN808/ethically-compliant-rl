@@ -52,7 +52,7 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = 350
+    epoch: int = 200
     lr: float = 0.001
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
