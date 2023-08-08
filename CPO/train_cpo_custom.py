@@ -297,7 +297,8 @@ def train(args: MyCfg):
         pprint.pprint(info)
         # Let's watch its performance!
         # Update the starting location
-        ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
+        if MyCfg.random_starting_locations:
+            ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
         env = load_environment(ENV_CONFIG)
         policy.eval()
         collector = FastCollector(policy, env)
