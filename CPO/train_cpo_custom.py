@@ -111,7 +111,6 @@ def train(args: MyCfg):
 
     env = load_environment(ENV_CONFIG)
 
-
     # set seed and computing
     seed_all(args.seed)
     if not torch.cuda.is_available():

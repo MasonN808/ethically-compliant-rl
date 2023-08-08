@@ -28,16 +28,17 @@ import numpy as np
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/fast-safe-rl/SafetyPointGoal2Gymnasium-v0-cost-10/cpo_cost10_step_per_epoch10000-2d6d"
+    path: str = "logs/fast-safe-rl/SafetyPointGoal2Gymnasium-v0-cost-10/cpo_cost10_step_per_epoch10000-48d3"
     best: bool = True
     eval_episodes: int = 3
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
     render: float = .01
     train_mode: bool = False
+    # render_mode: str = "rgb_array"
     render_mode: str = "human"
     device = "cpu"
-    # env_config_file: str = 'configs/ParkingEnv/env-image.txt'
+    # env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
 
 try:
     with open(EvalConfig.env_config_file) as f:
