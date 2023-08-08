@@ -110,14 +110,23 @@ def train(args: MyCfg):
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
     if MyCfg.random_starting_locations:
-        train_envs = worker([lambda: load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})) for _ in range(training_num)])
-        test_envs = worker([lambda: load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})) for _ in range(args.testing_num)])
+        # Make a list of initialized environments with different starting positions
+        env_training_list, env_testing_list = [], []
+        for _ in range(training_num):
+            ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
+            env_training_list.append(ENV_CONFIG)
+        for _ in range(args.testing_num):
+            ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
+            env_testing_list.append(ENV_CONFIG)
+
+        train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+        test_envs = worker([lambda: load_environment(env_testing_list[i]) for i in range(args.testing_num)])
     else: 
         train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
         test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
 
     # This env is used strictly to evaluate the observation and action shapes for CPO
-    env = load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)}))
+    env = load_environment(ENV_CONFIG)
 
     # set seed and computing
     seed_all(args.seed)
@@ -287,7 +296,9 @@ def train(args: MyCfg):
     if __name__ == "__main__":
         pprint.pprint(info)
         # Let's watch its performance!
-        env = load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)}))
+        # Update the starting location
+        ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
+        env = load_environment(ENV_CONFIG)
         policy.eval()
         collector = FastCollector(policy, env)
         result = collector.collect(n_episode=10, render=args.render)
