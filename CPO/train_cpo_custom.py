@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import pprint
+import random
 import sys
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
@@ -66,6 +67,8 @@ class MyCfg(TrainCfg):
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
+    # Points are around the parking lot and in the middle
+    random_starting_locations: list[list[float]] = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
@@ -106,10 +109,15 @@ def train(args: MyCfg):
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
-    train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
-    test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
+    if MyCfg.random_starting_locations:
+        train_envs = worker([lambda: load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})) for _ in range(training_num)])
+        test_envs = worker([lambda: load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})) for _ in range(args.testing_num)])
+    else: 
+        train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
+        test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
 
-    env = load_environment(ENV_CONFIG)
+    # This env is used strictly to evaluate the observation and action shapes for CPO
+    env = load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)}))
 
     # set seed and computing
     seed_all(args.seed)
@@ -279,7 +287,7 @@ def train(args: MyCfg):
     if __name__ == "__main__":
         pprint.pprint(info)
         # Let's watch its performance!
-        env = load_environment(ENV_CONFIG)
+        env = load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)}))
         policy.eval()
         collector = FastCollector(policy, env)
         result = collector.collect(n_episode=10, render=args.render)
