@@ -1,0 +1,117 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230808_112551-81aa935e-4549-4e51-b813-6b88d0665464
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_step_per_epoch20000-0df9
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/81aa935e-4549-4e51-b813-6b88d0665464
+[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch20000-0df9/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal.txt",
+    "episode_per_collect":	20,
+    "epoch":	200,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_step_per_epoch20000-0df9",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"fast-safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 305, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 113, in train
+    train_envs = worker([lambda: load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})) for _ in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 477, in __init__
+    super().__init__(env_fns, worker_fn, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in __init__
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in <listcomp>
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 475, in worker_fn
+    return SubprocEnvWorker(fn, share_memory=True)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/worker/subproc.py", line 134, in __init__
+    dummy = env_fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 48, in patched
+    env = fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 113, in <lambda>
+    train_envs = worker([lambda: load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})) for _ in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/utils/utils.py", line 17, in load_environment
+    with open(env_config) as f:
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 305, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 113, in train
+    train_envs = worker([lambda: load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})) for _ in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 477, in __init__
+    super().__init__(env_fns, worker_fn, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in __init__
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in <listcomp>
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 475, in worker_fn
+    return SubprocEnvWorker(fn, share_memory=True)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/worker/subproc.py", line 134, in __init__
+    dummy = env_fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 48, in patched
+    env = fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 113, in <lambda>
+    train_envs = worker([lambda: load_environment(ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})) for _ in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/utils/utils.py", line 17, in load_environment
+    with open(env_config) as f:
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run cpo_step_per_epoch20000-0df9 at: https://wandb.ai/ecrl/fast-safe-rl/runs/81aa935e-4549-4e51-b813-6b88d0665464
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230808_112551-81aa935e-4549-4e51-b813-6b88d0665464/logs
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 1
