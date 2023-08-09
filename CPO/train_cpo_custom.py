@@ -66,6 +66,7 @@ class MyCfg(TrainCfg):
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
+    cost_limit: float = 10
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
     # Points are around the parking lot and in the middle
     random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
@@ -113,15 +114,15 @@ def train(args: MyCfg):
         # Make a list of initialized environments with different starting positions
         env_training_list, env_testing_list = [], []
         for _ in range(training_num):
-            ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
+            ENV_CONFIG.update({"start_location": random.choice(MyCfg.random_starting_locations)})
             env_training_list.append(ENV_CONFIG)
         for _ in range(args.testing_num):
-            ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
+            ENV_CONFIG.update({"start_location": random.choice(MyCfg.random_starting_locations)})
             env_testing_list.append(ENV_CONFIG)
 
         train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
         test_envs = worker([lambda: load_environment(env_testing_list[i]) for i in range(args.testing_num)])
-    else: 
+    else:
         train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
         test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
 

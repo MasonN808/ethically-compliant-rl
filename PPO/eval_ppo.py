@@ -30,9 +30,9 @@ from gym.wrappers.monitoring.video_recorder import VideoRecorder
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/fast-safe-rl/parking-v0-cost-10/ppol_lr0.001_step_per_epoch20000_target_kl0.01-7d4f"
+    path: str = "logs/fast-safe-rl/parking-v0-cost-10/ppol_lr0.001_step_per_epoch20000_target_kl0.01-c32c"
     best: bool = True
-    eval_episodes: int = 1
+    eval_episodes: int = 10
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
     render: float = .05

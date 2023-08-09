@@ -15,6 +15,10 @@ env.configure({
     'cost_delta_distance': 2,
     'add_walls': False,
     "steering_range": np.deg2rad(50),
+    # Costs
+    "constrained_rl": True,
+    "cost_delta_distance": 7,
+    "quantized_line_points": 20,
 })
 env.reset()
 done = False

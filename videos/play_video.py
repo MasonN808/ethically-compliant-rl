@@ -24,4 +24,4 @@ if __name__=="__main__":
 #    play_mp4("videos/ppo_train.mp4")
     # for i in range(1, 5):
     #     mp4_to_gif("videos/ppo-{}.mp4".format(i), "videos/gifs/ppo-{}.gif".format(i))
-    mp4_to_gif("videos/ppo-6.mp4", "videos/gifs/ppo-5.gif")
+    mp4_to_gif("videos/ppo-7.mp4", "videos/gifs/ppo-7.gif")
