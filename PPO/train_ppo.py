@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import pprint
+import random
 import sys
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
@@ -50,7 +51,7 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = 350
+    epoch: int = 300
     lr: float = 0.001
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
@@ -64,6 +65,8 @@ class MyCfg(TrainCfg):
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
+    # Points are around the parking lot and in the middle
+    random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
@@ -104,11 +107,30 @@ def train(args: MyCfg):
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
-    train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
-    test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
+    if MyCfg.random_starting_locations:
+        # Make a list of initialized environments with different starting positions
+        env_training_list, env_testing_list = [], []
+        for _ in range(training_num):
+            ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
+            env_training_list.append(ENV_CONFIG)
+        for _ in range(args.testing_num):
+            ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
+            env_testing_list.append(ENV_CONFIG)
+
+        train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+        test_envs = worker([lambda: load_environment(env_testing_list[i]) for i in range(args.testing_num)])
+    else: 
+        train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
+        test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
 
     # model
     env = load_environment(ENV_CONFIG)
+
+    # set seed and computing
+    seed_all(args.seed)
+    if not torch.cuda.is_available():
+        torch.set_num_threads(args.thread)
+
     # Get the shapes of the states and actions to be transfered to a tensor
     if isinstance(env.observation_space, Dict):
         # TODO: This is hardcoded please fix
@@ -163,7 +185,7 @@ def train(args: MyCfg):
             ).to(args.device) for _ in range(2)
         ]
 
-    torch.nn.init.constant_(actor.sigma_param, -0.5)
+    # torch.nn.init.constant_(actor.sigma_param, -0.5)
     actor_critic = ActorCritic(actor, critic)
     # orthogonal initialization
     for m in actor_critic.modules():
@@ -260,7 +282,9 @@ def train(args: MyCfg):
 
     if __name__ == "__main__":
         pprint.pprint(info)
-        # Let's watch its performance!
+        # Let's watch its performance!# Update the starting location
+        if MyCfg.random_starting_locations:
+            ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
         env = load_environment(ENV_CONFIG)
         policy.eval()
         collector = FastCollector(policy, env)
