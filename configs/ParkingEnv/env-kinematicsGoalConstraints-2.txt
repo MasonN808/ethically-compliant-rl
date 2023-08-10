@@ -28,5 +28,10 @@
     "start_location": [30, 30],
 
     # Costs
-    "constrained_rl": False,
+    "constrained_rl": True,
+    # Cost-distance
+    "cost_delta_distance": 2,
+    "quantized_line_points": 20,
+    # Cost-speed
+    # "cost_speed_limit": 2,
 }
