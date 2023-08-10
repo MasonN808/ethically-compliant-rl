@@ -7,18 +7,37 @@ env.configure({
     "observation": {
         "type": "KinematicsGoal",
         "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
-        "scales": [100, 100, 5, 5, 1, 1], 
+        "scales": [100, 100, 5, 5, 1, 1],
         "normalize": False
     },
+    "action": {
+        "type": "ContinuousAction"
+    },
+    # This determines the weights to the difference between the desired_goal and achieved_goal
+    "reward_weights": [1, 0.3, 0, 0, 0.02, 0.02],
+    "show_trajectories": False,
+    "success_goal_reward": 0.12,
+    "collision_reward": -5,
+    "simulation_frequency": 15,
+    "policy_frequency": 5,
+    "duration": 10,
+    "screen_width": 600,
+    "screen_height": 300,
+    "centering_position": [0, 0],
+    "scaling": 7,
+    "controlled_vehicles": 1,
+    "vehicles_count": 0,
+    "add_walls": False,
+    "start_location": [0, 0],
     "manual_control": True,
-    "real_time_rendering": True,
-    'cost_delta_distance': 2,
-    'add_walls': False,
-    "steering_range": np.deg2rad(50),
+
     # Costs
     "constrained_rl": True,
+    # Cost-distance
     "cost_delta_distance": 7,
     "quantized_line_points": 20,
+    # Cost-speed
+    "cost_speed_limit": 2,
 })
 env.reset()
 done = False
