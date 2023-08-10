@@ -1,218 +1,0 @@
-wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.15.8 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.14.2
-wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230808_115033-274cb64a-e2e1-43ed-b00d-be4a8dd4f150
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cpo_step_per_epoch20000-7319
-wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
-wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/274cb64a-e2e1-43ed-b00d-be4a8dd4f150
-[32;1mLogging data to logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch20000-7319/progress.txt[0m
-[36;1mSaving config:
-[0m
-{
-    "action_bound_method":	"clip",
-    "action_scaling":	true,
-    "backtrack_coeff":	0.8,
-    "batch_size":	99999,
-    "buffer_size":	100000,
-    "cost_limit":	10,
-    "damping_coeff":	0.1,
-    "deterministic_eval":	true,
-    "device":	"cpu",
-    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal.txt",
-    "episode_per_collect":	20,
-    "epoch":	200,
-    "gae_lambda":	0.95,
-    "gamma":	0.99,
-    "group":	null,
-    "hidden_sizes":	[
-        128,
-        128
-    ],
-    "l2_reg":	0.001,
-    "last_layer_scale":	false,
-    "logdir":	"logs",
-    "lr":	0.001,
-    "max_backtracks":	100,
-    "max_batchsize":	99999,
-    "name":	"cpo_step_per_epoch20000-7319",
-    "norm_adv":	true,
-    "optim_critic_iters":	10,
-    "prefix":	"cpo",
-    "project":	"fast-safe-rl",
-    "render":	null,
-    "render_mode":	null,
-    "repeat_per_collect":	4,
-    "resume":	false,
-    "rew_norm":	false,
-    "reward_threshold":	10000,
-    "save_ckpt":	true,
-    "save_interval":	4,
-    "seed":	10,
-    "step_per_epoch":	20000,
-    "suffix":	"",
-    "target_kl":	0.01,
-    "task":	"parking-v0",
-    "testing_num":	2,
-    "thread":	320,
-    "training_num":	20,
-    "unbounded":	false,
-    "use_default_cfg":	false,
-    "verbose":	true,
-    "worker":	"ShmemVectorEnv"
-}
-Epoch #1:   0%|          | 0/20000 [00:00<?, ?it/s]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #1:  48%|####7     | 9588/20000 [00:26<00:29, 357.98it/s]/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py:302: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
-  lam = torch.tensor(lam)
-/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/logger/logger_util.py:79: RuntimeWarning: invalid value encountered in scalar add
-  self.mean += (x - self.mean) / self.count
-/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/logger/logger_util.py:79: RuntimeWarning: invalid value encountered in scalar subtract
-  self.mean += (x - self.mean) / self.count
-/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/logger/logger_util.py:80: RuntimeWarning: invalid value encountered in scalar subtract
-  self.vars += (x - prev_mean) * (x - self.mean)
-wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #1:  48%|####7     | 9588/20000 [00:40<00:29, 357.98it/s]Epoch #1:  48%|####7     | 9588/20000 [00:45<00:29, 357.98it/s, cost=27.5, length=479, rew=-479]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #1:  96%|#########5| 19154/20000 [01:12<00:03, 254.11it/s, cost=27.5, length=479, rew=-479]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #1:  96%|#########5| 19154/20000 [01:30<00:03, 254.11it/s, cost=27.5, length=479, rew=-479]Epoch #1:  96%|#########5| 19154/20000 [01:30<00:03, 254.11it/s, cost=7.47, length=478, rew=-474]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #1: 29154it [01:58, 234.15it/s, cost=7.47, length=478, rew=-474]                           Epoch #1: 29154it [02:10, 234.15it/s, cost=7.47, length=478, rew=-474]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #1: 29154it [02:17, 234.15it/s, cost=13.8, length=500, rew=-460]Epoch #1: 29154it [02:17, 211.90it/s, cost=13.8, length=500, rew=-460]
--------------------------------------------------
-|              loss/cost_loss |            16.2 |
-|                loss/entropy |            2.85 |
-|                     loss/kl |         0.00669 |
-|                loss/optim_A |          0.0274 |
-|                loss/optim_B |             nan |
-|                loss/optim_C |             nan |
-|                loss/optim_Q |          0.0224 |
-|                loss/optim_R |        0.000749 |
-|                loss/optim_S |         0.00418 |
-|             loss/optim_case |            2.83 |
-|              loss/optim_lam |           0.969 |
-|               loss/optim_nu |               0 |
-|               loss/rew_loss |          0.0131 |
-|              loss/step_size |           0.188 |
-|                    loss/vf0 |            85.5 |
-|                    loss/vf1 |            3.58 |
-|               loss/vf_total |            89.1 |
-|                   test/cost |            74.6 |
-|                 test/length |             500 |
-|                 test/reward |            -608 |
-|                  train/cost |            16.2 |
-|                train/length |             486 |
-|                train/reward |            -471 |
-|             update/cum_cost |             741 |
-|             update/duration |             145 |
-|             update/env_step |        2.92e+04 |
-|              update/episode |              40 |
-|       update/gradient_steps |               8 |
-|      update/remaining_epoch |             199 |
-|           update/test_speed |             139 |
-|            update/test_time |            7.18 |
-| update/train_collector_time |            81.6 |
-|     update/train_model_time |              56 |
-|          update/train_speed |             212 |
--------------------------------------------------
-Epoch: 1
-{'duration': 144.7887101173401, 'test_time': 7.1778576374053955, 'test_speed': 139.31733541060774, 'train_collector_time': 81.63203811645508, 'train_model_time': 55.978814363479614, 'train_speed': 211.85829078597564, 'remaining_epoch': 199, 'best_reward': -608.2389394976133, 'best_cost': 74.5956450492903}
-Epoch #2:   0%|          | 0/20000 [00:00<?, ?it/s]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #2:  50%|#####     | 10000/20000 [00:27<00:27, 365.66it/s]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #2:  50%|#####     | 10000/20000 [00:45<00:27, 365.66it/s]Epoch #2:  50%|#####     | 10000/20000 [00:45<00:27, 365.66it/s, cost=26.7, length=500, rew=-421]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #2: 100%|##########| 20000/20000 [01:12<00:00, 264.26it/s, cost=26.7, length=500, rew=-421]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #2: 100%|##########| 20000/20000 [01:25<00:00, 264.26it/s, cost=26.7, length=500, rew=-421]Epoch #2: 100%|##########| 20000/20000 [01:30<00:00, 264.26it/s, cost=66.5, length=500, rew=-383]Epoch #2: 100%|##########| 20000/20000 [01:30<00:00, 220.96it/s, cost=66.5, length=500, rew=-383]
--------------------------------------------------
-|              loss/cost_loss |            46.6 |
-|                loss/entropy |            2.82 |
-|                     loss/kl |         0.00653 |
-|                loss/optim_A |         0.00475 |
-|                loss/optim_B |             nan |
-|                loss/optim_C |             nan |
-|                loss/optim_Q |         0.00537 |
-|                loss/optim_R |        -0.00145 |
-|                loss/optim_S |         0.00449 |
-|             loss/optim_case |               3 |
-|              loss/optim_lam |             nan |
-|               loss/optim_nu |               0 |
-|               loss/rew_loss |          0.0105 |
-|              loss/step_size |           0.311 |
-|                    loss/vf0 |            26.7 |
-|                    loss/vf1 |            10.6 |
-|               loss/vf_total |            37.3 |
-|                   test/cost |             107 |
-|                 test/length |             500 |
-|                 test/reward |            -356 |
-|                  train/cost |            46.6 |
-|            train/cost_limit |              10 |
-|                train/length |             500 |
-|                train/reward |            -402 |
-|             update/cum_cost |        2.17e+03 |
-|             update/duration |             243 |
-|             update/env_step |        4.92e+04 |
-|              update/episode |              90 |
-|       update/gradient_steps |              18 |
-|      update/remaining_epoch |             198 |
-|           update/test_speed |             135 |
-|            update/test_time |            14.8 |
-| update/train_collector_time |             136 |
-|     update/train_model_time |            92.2 |
-|          update/train_speed |             215 |
--------------------------------------------------
-Epoch: 2
-{'duration': 242.9672155380249, 'test_time': 14.810529947280884, 'test_speed': 135.03905715184666, 'train_collector_time': 135.9382929801941, 'train_model_time': 92.21839261054993, 'train_speed': 215.4396653892929, 'remaining_epoch': 198, 'best_reward': -356.3654100414841, 'best_cost': 107.4652232480493}
-Epoch #3:   0%|          | 0/20000 [00:00<?, ?it/s]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #3:  50%|#####     | 10000/20000 [00:27<00:27, 369.48it/s]Epoch #3:  50%|#####     | 10000/20000 [00:44<00:27, 369.48it/s, cost=48.9, length=500, rew=-382]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #3:  50%|#####     | 10000/20000 [00:47<00:27, 369.48it/s, cost=48.9, length=500, rew=-382]Epoch #3: 100%|##########| 20000/20000 [01:11<00:00, 266.79it/s, cost=48.9, length=500, rew=-382]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #3: 100%|##########| 20000/20000 [01:27<00:00, 266.79it/s, cost=48.9, length=500, rew=-382]Epoch #3: 100%|##########| 20000/20000 [01:30<00:00, 266.79it/s, cost=70.5, length=500, rew=-316]Epoch #3: 100%|##########| 20000/20000 [01:30<00:00, 221.03it/s, cost=70.5, length=500, rew=-316]
--------------------------------------------------
-|              loss/cost_loss |            59.7 |
-|                loss/entropy |            2.82 |
-|                     loss/kl |         0.00656 |
-|                loss/optim_A |        -0.00225 |
-|                loss/optim_B |             nan |
-|                loss/optim_C |             nan |
-|                loss/optim_Q |       -0.000308 |
-|                loss/optim_R |         0.00132 |
-|                loss/optim_S |         0.00898 |
-|             loss/optim_case |               3 |
-|              loss/optim_lam |             nan |
-|               loss/optim_nu |               0 |
-|               loss/rew_loss |          0.0115 |
-|              loss/step_size |           0.472 |
-|                    loss/vf0 |            11.5 |
-|                    loss/vf1 |              13 |
-|               loss/vf_total |            24.5 |
-|                   test/cost |             199 |
-|                 test/length |             500 |
-|                 test/reward |            -249 |
-|                  train/cost |            59.7 |
-|            train/cost_limit |              10 |
-|                train/length |             500 |
-|                train/reward |            -349 |
-|             update/cum_cost |        4.52e+03 |
-|             update/duration |             341 |
-|             update/env_step |        6.92e+04 |
-|              update/episode |             130 |
-|       update/gradient_steps |              26 |
-|      update/remaining_epoch |             197 |
-|           update/test_speed |             133 |
-|            update/test_time |            22.5 |
-| update/train_collector_time |             190 |
-|     update/train_model_time |             128 |
-|          update/train_speed |             217 |
--------------------------------------------------
-Epoch: 3
-{'duration': 341.14783811569214, 'test_time': 22.47343111038208, 'test_speed': 133.49096474254375, 'train_collector_time': 190.28440499305725, 'train_model_time': 128.3900020122528, 'train_speed': 217.0051892458615, 'remaining_epoch': 197, 'best_reward': -249.0092520185505, 'best_cost': 199.2384442104669}
-Epoch #4:   0%|          | 0/20000 [00:00<?, ?it/s]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #4:  50%|#####     | 10000/20000 [00:27<00:27, 365.37it/s]Epoch #4:  50%|#####     | 10000/20000 [00:38<00:27, 365.37it/s]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #4:  50%|#####     | 10000/20000 [00:46<00:27, 365.37it/s, cost=177, length=500, rew=-291]Epoch #4:  98%|#########8| 19619/20000 [01:12<00:01, 257.18it/s, cost=177, length=500, rew=-291]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #4:  98%|#########8| 19619/20000 [01:28<00:01, 257.18it/s, cost=177, length=500, rew=-291]Epoch #4:  98%|#########8| 19619/20000 [01:30<00:01, 257.18it/s, cost=119, length=481, rew=-266]wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
-Epoch #4: 29619it [01:58, 238.69it/s, cost=119, length=481, rew=-266]                           Epoch #4: 29619it [02:08, 238.69it/s, cost=119, length=481, rew=-266]slurmstepd: error: *** STEP 34921.0 ON gan.ist.berkeley.edu CANCELLED AT 2023-08-08T11:59:06 ***
-slurmstepd: error: *** JOB 34921 ON gan.ist.berkeley.edu CANCELLED AT 2023-08-08T11:59:06 ***
