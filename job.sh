@@ -1,6 +1,6 @@
 #!/bin/sh
 #SBATCH --job-name=safe-rl
-#SBATCH --gpus-per-task=A6000:1
+#SBATCH --gpus-per-task=1
 #SBATCH --cpus-per-task=5
 #SBATCH --mem=90gb
 #SBATCH --nodes=2
