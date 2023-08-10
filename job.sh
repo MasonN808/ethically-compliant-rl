@@ -2,7 +2,7 @@
 #SBATCH --job-name=safe-rl
 #SBATCH --gpus-per-task=1
 #SBATCH --cpus-per-task=5
-#SBATCH --mem=90gb
+#SBATCH --mem=60gb
 #SBATCH --nodes=3
 #SBATCH --ntasks=3
 #SBATCH --time=30:00:00
