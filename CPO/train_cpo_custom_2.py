@@ -66,7 +66,7 @@ class MyCfg(TrainCfg):
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
-    cost_limit: float = 10
+    cost_limit: float = [10, 5]
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints-2.txt'
     # Points are around the parking lot and in the middle
     random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
