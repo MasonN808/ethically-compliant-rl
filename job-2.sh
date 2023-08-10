@@ -5,7 +5,7 @@
 #SBATCH --nodes=2
 #SBATCH --ntasks=2
 #SBATCH --time=30:00:00
-#SBATCH --qos medium
+#SBATCH --qos default
 
 
 srun -N1 -n1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" &
