@@ -1,2 +1,0 @@
-slurmstepd: error: execve(): $SCRIPT: No such file or directory
-srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 2
