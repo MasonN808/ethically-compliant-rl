@@ -60,7 +60,7 @@ class MyCfg(TrainCfg):
     thread: int = 320 # If use CPU to train
     step_per_epoch: int = 20000
     target_kl: float = 0.01
-    project: str = "safe-rl"
+    project: str = "2-constraints"
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
@@ -70,7 +70,7 @@ class MyCfg(TrainCfg):
     # cost_limit: float = 10
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
-    random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [30, -30], [0, -40]]
+    random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
