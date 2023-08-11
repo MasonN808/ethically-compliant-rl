@@ -30,7 +30,7 @@
     # Costs
     "constrained_rl": True,
     # Cost-distance
-    "cost_delta_distance": 2,
+    "cost_delta_distance": 3,
     "quantized_line_points": 20,
     # Cost-speed
     "cost_speed_limit": 2,
