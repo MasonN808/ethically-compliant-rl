@@ -1,0 +1,78 @@
+unknown option --target_kl
+usage: /nas/ucb/mason/ethically-compliant-rl/.venv/bin/python3 [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Try `python -h' for more information.
+srun: error: sac.ist.berkeley.edu: task 0: Exited with exit code 2
+unknown option --cost_limit
+usage: /nas/ucb/mason/ethically-compliant-rl/.venv/bin/python3 [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Try `python -h' for more information.
+srun: error: ppo.ist.berkeley.edu: task 0: Exited with exit code 2
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230811_153247-2606e14e-c421-422f-bd14-7a55bdff2db4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_cost3.0_3.0_step_per_epoch20000-4338
+wandb: ⭐️ View project at https://wandb.ai/ecrl/2-constraints-absolute
+wandb: 🚀 View run at https://wandb.ai/ecrl/2-constraints-absolute/runs/2606e14e-c421-422f-bd14-7a55bdff2db4
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-3-cost1-3/cpo_cost3.0_3.0_step_per_epoch20000-4338/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	[
+        3.0,
+        3.0
+    ],
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	300,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_cost3.0_3.0_step_per_epoch20000-4338",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"2-constraints-absolute",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Epoch #1:   0%|          | 0/20000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 39506.0 ON gan.ist.berkeley.edu CANCELLED AT 2023-08-11T15:33:11 ***
+slurmstepd: error: *** JOB 39506 ON gan.ist.berkeley.edu CANCELLED AT 2023-08-11T15:33:11 ***
+Epoch #1:   0%|          | 0/20000 [00:02<?, ?it/s]

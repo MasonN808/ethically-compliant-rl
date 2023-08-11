@@ -1,0 +1,307 @@
+/nas/ucb/mason/ethically-compliant-rl/.venv/bin/python3: can't open file '/nas/ucb/mason/ethically-compliant-rl/0.015': [Errno 2] No such file or directory
+srun: error: ppo.ist.berkeley.edu: task 0: Exited with exit code 2
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230811_152618-4ebe765d-57ba-4a7b-af32-7a46d4b4aca3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_cost3.0_3.0_step_per_epoch20000-6432
+wandb: ⭐️ View project at https://wandb.ai/ecrl/2-constraints-absolute
+wandb: 🚀 View run at https://wandb.ai/ecrl/2-constraints-absolute/runs/4ebe765d-57ba-4a7b-af32-7a46d4b4aca3
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230811_222619-5e37943c-d400-4c40-ad6a-81d471075a0d
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_cost3.0_3.0_step_per_epoch20000-7c01
+wandb: ⭐️ View project at https://wandb.ai/ecrl/2-constraints-absolute
+wandb: 🚀 View run at https://wandb.ai/ecrl/2-constraints-absolute/runs/5e37943c-d400-4c40-ad6a-81d471075a0d
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-3-cost1-3/cpo_cost3.0_3.0_step_per_epoch20000-6432/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	[
+        3.0,
+        3.0
+    ],
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	300,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_cost3.0_3.0_step_per_epoch20000-6432",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"2-constraints-absolute",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 358, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 163, in train
+    train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 477, in __init__
+    super().__init__(env_fns, worker_fn, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in __init__
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in <listcomp>
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 475, in worker_fn
+    return SubprocEnvWorker(fn, share_memory=True)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/worker/subproc.py", line 134, in __init__
+    dummy = env_fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 48, in patched
+    env = fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 163, in <lambda>
+    train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/utils/utils.py", line 24, in load_environment
+    env = gym.make(env_config['id'], render_mode=render_mode)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 813, in make
+    raise e
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 801, in make
+    env = env_creator(**env_spec_kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 75, in __init__
+    super().__init__(config, render_mode)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/common/abstract.py", line 71, in __init__
+    self.reset()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/common/abstract.py", line 205, in reset
+    self._reset()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 137, in _reset
+    self._create_road()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 159, in _create_road
+    quantized_line_1 = self._quantize_straight_line_positions([x, y_offset], [x, y_offset+length], num_points=num_points, horizontal_offset=-width/2)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 184, in _quantize_straight_line_positions
+    quantized_line_positions = self.remove_percentage(quantized_line_positions, 0.10) # Removes 10% from the bottom and top
+TypeError: remove_percentage() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 358, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 163, in train
+    train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 477, in __init__
+    super().__init__(env_fns, worker_fn, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in __init__
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in <listcomp>
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 475, in worker_fn
+    return SubprocEnvWorker(fn, share_memory=True)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/worker/subproc.py", line 134, in __init__
+    dummy = env_fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 48, in patched
+    env = fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 163, in <lambda>
+    train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/utils/utils.py", line 24, in load_environment
+    env = gym.make(env_config['id'], render_mode=render_mode)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 813, in make
+    raise e
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 801, in make
+    env = env_creator(**env_spec_kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 75, in __init__
+    super().__init__(config, render_mode)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/common/abstract.py", line 71, in __init__
+    self.reset()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/common/abstract.py", line 205, in reset
+    self._reset()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 137, in _reset
+    self._create_road()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 159, in _create_road
+    quantized_line_1 = self._quantize_straight_line_positions([x, y_offset], [x, y_offset+length], num_points=num_points, horizontal_offset=-width/2)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 184, in _quantize_straight_line_positions
+    quantized_line_positions = self.remove_percentage(quantized_line_positions, 0.10) # Removes 10% from the bottom and top
+TypeError: remove_percentage() takes 2 positional arguments but 3 were given
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-3-cost1-3/cpo_cost3.0_3.0_step_per_epoch20000-7c01/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	[
+        3.0,
+        3.0
+    ],
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	300,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_cost3.0_3.0_step_per_epoch20000-7c01",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"2-constraints-absolute",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 358, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 163, in train
+    train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 477, in __init__
+    super().__init__(env_fns, worker_fn, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in __init__
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in <listcomp>
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 475, in worker_fn
+    return SubprocEnvWorker(fn, share_memory=True)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/worker/subproc.py", line 134, in __init__
+    dummy = env_fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 48, in patched
+    env = fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 163, in <lambda>
+    train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/utils/utils.py", line 24, in load_environment
+    env = gym.make(env_config['id'], render_mode=render_mode)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 813, in make
+    raise e
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 801, in make
+    env = env_creator(**env_spec_kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 75, in __init__
+    super().__init__(config, render_mode)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/common/abstract.py", line 71, in __init__
+    self.reset()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/common/abstract.py", line 205, in reset
+    self._reset()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 137, in _reset
+    self._create_road()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 159, in _create_road
+    quantized_line_1 = self._quantize_straight_line_positions([x, y_offset], [x, y_offset+length], num_points=num_points, horizontal_offset=-width/2)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 184, in _quantize_straight_line_positions
+    quantized_line_positions = self.remove_percentage(quantized_line_positions, 0.10) # Removes 10% from the bottom and top
+TypeError: remove_percentage() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 358, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 163, in train
+    train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 477, in __init__
+    super().__init__(env_fns, worker_fn, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in __init__
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 153, in <listcomp>
+    self.workers = [worker_fn(_patch_env_generator(fn)) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 475, in worker_fn
+    return SubprocEnvWorker(fn, share_memory=True)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/worker/subproc.py", line 134, in __init__
+    dummy = env_fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/tianshou/env/venvs.py", line 48, in patched
+    env = fn()
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 163, in <lambda>
+    train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/utils/utils.py", line 24, in load_environment
+    env = gym.make(env_config['id'], render_mode=render_mode)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 813, in make
+    raise e
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 801, in make
+    env = env_creator(**env_spec_kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 75, in __init__
+    super().__init__(config, render_mode)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/common/abstract.py", line 71, in __init__
+    self.reset()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/common/abstract.py", line 205, in reset
+    self._reset()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 137, in _reset
+    self._create_road()
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 159, in _create_road
+    quantized_line_1 = self._quantize_straight_line_positions([x, y_offset], [x, y_offset+length], num_points=num_points, horizontal_offset=-width/2)
+  File "/nas/ucb/mason/ethically-compliant-rl/HighwayEnv/highway_env/envs/parking_env.py", line 184, in _quantize_straight_line_positions
+    quantized_line_positions = self.remove_percentage(quantized_line_positions, 0.10) # Removes 10% from the bottom and top
+TypeError: remove_percentage() takes 2 positional arguments but 3 were given
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run cpo_cost3.0_3.0_step_per_epoch20000-6432 at: https://wandb.ai/ecrl/2-constraints-absolute/runs/4ebe765d-57ba-4a7b-af32-7a46d4b4aca3
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230811_152618-4ebe765d-57ba-4a7b-af32-7a46d4b4aca3/logs
+wandb: 🚀 View run cpo_cost3.0_3.0_step_per_epoch20000-7c01 at: https://wandb.ai/ecrl/2-constraints-absolute/runs/5e37943c-d400-4c40-ad6a-81d471075a0d
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230811_222619-5e37943c-d400-4c40-ad6a-81d471075a0d/logs
+srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: sac.ist.berkeley.edu: task 0: Exited with exit code 1
+slurmstepd: error: *** JOB 39505 ON gan.ist.berkeley.edu CANCELLED AT 2023-08-11T15:27:22 ***
