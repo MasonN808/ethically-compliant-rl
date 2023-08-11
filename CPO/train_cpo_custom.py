@@ -44,6 +44,8 @@ from fsrl.policy import CPO
 from fsrl.trainer import OnpolicyTrainer
 from utils.utils import load_environment
 
+from typing import Union, List
+
 TASK_TO_CFG = {
     # HighwayEnv tasks
     "parking-v0": TrainCfg,
@@ -66,7 +68,7 @@ class MyCfg(TrainCfg):
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
-    cost_limit = [1, 3]
+    cost_limit: Union[List, float] = [1, 3]
     # cost_limit: float = 10
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
