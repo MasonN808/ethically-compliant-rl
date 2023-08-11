@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #SBATCH --job-name=safe-rl
 #SBATCH --cpus-per-task=9
 #SBATCH --mem=40gb
