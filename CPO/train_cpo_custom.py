@@ -66,7 +66,9 @@ parser.add_argument('--thread', type=int, default=320, help='Number of threads')
 parser.add_argument('--constrained_rl', type=bool, default=True, help='Identifier for constrained RL')
 parser.add_argument('--cost_delta_distance', type=float, default=4.0, help='The maximum distance to line points until costs incur')
 parser.add_argument('--quantized_line_points', type=int, default=20, help='Number of quantized points for each parking line')
+parser.add_argument('--absolute_cost_distance', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
 parser.add_argument('--cost_speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
+parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
 
 
 args = parser.parse_args()
@@ -102,8 +104,10 @@ ENV_CONFIG.update({
     # Cost-distance
     "cost_delta_distance": args.cost_delta_distance,
     "quantized_line_points": args.quantized_line_points,
+    "absolute_cost_distance": args.absolute_cost_distance,
     # Cost-speed
-    "cost_speed_limit": args.cost_speed_limit
+    "cost_speed_limit": args.cost_speed_limit,
+    "absolute_cost_speed": args.absolute_cost_speed
     })
 
 @pyrallis.wrap()
