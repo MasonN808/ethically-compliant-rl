@@ -10,7 +10,7 @@ os. environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 import ast
 import warnings # FIXME: Fix this warning eventually
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
@@ -46,30 +46,48 @@ from utils.utils import load_environment
 
 from typing import Union, List
 
-TASK_TO_CFG = {
-    # HighwayEnv tasks
-    "parking-v0": TrainCfg,
-    "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
-}
+import argparse
+
+# CPO arguments
+parser = argparse.ArgumentParser(description="Training script")
+parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
+parser.add_argument('--project', type=str, default="2-constraints-absolute", help='Project name')
+parser.add_argument('--epoch', type=int, default=300, help='Number of epochs')
+parser.add_argument('--target_kl', type=float, default=0.01, help='Target KL divergence')
+parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
+parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
+parser.add_argument('--gamma', type=float, default=0.99, help='Gamma value for reinforcement learning')
+parser.add_argument('--cost_limit', type=float, nargs='+', default=[3.0, 3.0], help='Cost limit values as a list')
+parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
+parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
+parser.add_argument('--thread', type=int, default=320, help='Number of threads')
+
+# Environment argumnets
+parser.add_argument('--constrained_rl', type=bool, default=True, help='Identifier for constrained RL')
+parser.add_argument('--cost_delta_distance', type=float, default=4.0, help='The maximum distance to line points until costs incur')
+parser.add_argument('--quantized_line_points', type=int, default=20, help='Number of quantized points for each parking line')
+parser.add_argument('--cost_speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
+
+
+args = parser.parse_args()
 
 @dataclass
 class MyCfg(TrainCfg):
-    task: str = "parking-v0"
-    epoch: int = 300
-    lr: float = 0.0005
-    render: float = None # The rate at which it renders (e.g., .001)
-    render_mode: str = None # "rgb_array" or "human" or None
-    thread: int = 320 # If use CPU to train
-    step_per_epoch: int = 20000
-    target_kl: float = 0.01
-    project: str = "2-constraints-absolute"
+    task: str = args.task
+    epoch: int = args.epoch # Get epoch from command-line arguments
+    lr: float = args.lr
+    render: float = args.render # The rate at which it renders (e.g., .001)
+    render_mode: str = args.render_mode # "rgb_array" or "human" or None
+    thread: int = args.thread # If use CPU to train
+    step_per_epoch: int = args.step_per_epoch
+    target_kl: float = args.target_kl
+    project: str = args.project
+    gamma: float = args.gamma
+    cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
+    
     worker: str = "ShmemVectorEnv"
-    # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
-    gamma: float = .99
-    cost_limit: Union[List, float] = [1, 3]
-    # cost_limit: float = 10
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
     random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
@@ -78,6 +96,15 @@ with open(MyCfg.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
+ENV_CONFIG.update({
+    # Costs
+    "constrained_rl": args.constrained_rl,
+    # Cost-distance
+    "cost_delta_distance": args.cost_delta_distance,
+    "quantized_line_points": args.quantized_line_points,
+    # Cost-speed
+    "cost_speed_limit": args.cost_speed_limit
+    })
 
 @pyrallis.wrap()
 def train(args: MyCfg):
@@ -86,7 +113,8 @@ def train(args: MyCfg):
     torch.set_num_threads(args.thread)
 
     task = args.task
-    default_cfg = TASK_TO_CFG[task]() if task in TASK_TO_CFG else TrainCfg()
+    # default_cfg = TASK_TO_CFG[task]() if task in TASK_TO_CFG else TrainCfg()
+    default_cfg = TrainCfg()
     # use the default configs instead of the input args.
     if args.use_default_cfg:
         default_cfg.task = args.task
@@ -104,7 +132,12 @@ def train(args: MyCfg):
     if args.name is None:
         args.name = auto_name(default_cfg, cfg, args.prefix, args.suffix)
     if args.group is None:
-        args.group = args.task + "-cost-" + str(int(args.cost_limit))
+        if isinstance(args.cost_limit, list): # Since you can have more than one cost limit
+            args.group = args.task 
+            for index, cost_limit in enumerate(args.cost_limit):
+                args.group += f"-cost{index}-" + str(int(cost_limit))
+        else: 
+            args.group = args.task + "-cost-" + str(int(args.cost_limit))
     if args.logdir is not None:
         args.logdir = os.path.join(args.logdir, args.project, args.group)
     logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)
@@ -293,7 +326,7 @@ def train(args: MyCfg):
     )
 
     for epoch, epoch_stat, info in trainer:
-        logger.store(tab="train", cost_limit=args.cost_limit)
+        logger.store(tab="train", cost_limit_distance=args.cost_limit[0], cost_limit_speed=args.cost_limit[1])
         print(f"Epoch: {epoch}")
         print(info)
 
