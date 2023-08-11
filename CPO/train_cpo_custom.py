@@ -234,8 +234,8 @@ def train(args: MyCfg):
                 device=args.device
             ).to(args.device) for _ in range(2)
         ]
-
-    # torch.nn.init.constant_(actor.sigma_param, -0.5)
+    if not torch.cuda.is_available():
+        torch.nn.init.constant_(actor.sigma_param, -0.5)
     actor_critic = ActorCritic(actor, critic)
     # orthogonal initialization
     for m in actor_critic.modules():
