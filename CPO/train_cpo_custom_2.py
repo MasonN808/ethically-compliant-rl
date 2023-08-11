@@ -61,13 +61,13 @@ class MyCfg(TrainCfg):
     thread: int = 320 # If use CPU to train
     step_per_epoch: int = 20000
     target_kl: float = 0.015
-    project: str = "2-constraints-actual"
+    project: str = "2-constraints-absolute"
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
-    cost_limit: float = [7, 5]
+    cost_limit: float = [3, 5]
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints-2.txt'
     # Points are around the parking lot and in the middle
     random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
