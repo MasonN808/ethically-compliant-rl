@@ -9,6 +9,13 @@
 #SBATCH --qos scavenger
 
 
-srun -N1 -n1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" &
-srun -N1 -n1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom_2.py" &
+SCRIPTS=(
+"/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" 
+"/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" 
+"/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" 
+)
+
+for SCRIPT in ${SCRIPTS[@]}; do
+    srun -N1 -n1 python3 $SCRIPT &
+done
 wait
