@@ -13,6 +13,6 @@ SCRIPTS=(
 )
 
 for SCRIPT in \${SCRIPTS[@]}; do
-    srun -N1 -n1 python3 \$SCRIPT &
+    srun -N1 -n1 python3 SCRIPT &
 done
 wait
