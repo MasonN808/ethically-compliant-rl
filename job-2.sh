@@ -12,7 +12,7 @@ SCRIPTS=(
 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom_2.py"
 )
 
-for SCRIPT in \${SCRIPTS[@]}; do
-    srun -N1 -n1 python3 \$SCRIPT &
+for SCRIPT in ${SCRIPTS[@]}; do
+    srun -N1 -n1 python3 $SCRIPT &
 done
 wait
