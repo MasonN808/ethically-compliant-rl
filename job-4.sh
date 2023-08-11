@@ -1,13 +1,11 @@
 #!/bin/sh
-#SBATCH --job-name=safe-rl
+#SBATCH --job-name=ppo
 #SBATCH --cpus-per-task=9
-#SBATCH --mem=50gb
-#SBATCH --nodes=2
-#SBATCH --ntasks=2
+#SBATCH --mem=20gb
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
 #SBATCH --time=30:00:00
 #SBATCH --qos scavenger
 
 
-srun -N1 -n1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" &
-srun -N1 -n1 "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom_2.py" &
-wait
+srun -N1 -n1 "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py"

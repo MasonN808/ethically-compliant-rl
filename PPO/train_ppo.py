@@ -58,7 +58,7 @@ class MyCfg(TrainCfg):
     thread: int = 320 # If use CPU to train
     step_per_epoch: int = 20000
     target_kl: float = 0.01
-    project: str = "fast-safe-rl"
+    project: str = "PPO"
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
