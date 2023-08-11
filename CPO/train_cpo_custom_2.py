@@ -54,19 +54,19 @@ TASK_TO_CFG = {
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     epoch: int = 300
-    lr: float = 0.001
+    lr: float = 0.0005
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
     step_per_epoch: int = 20000
     target_kl: float = 0.01
-    project: str = "2-constraints"
+    project: str = "2-constraints-actual"
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     gamma: float = .99
-    cost_limit: float = [10, 5]
+    cost_limit: float = [7, 5]
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints-2.txt'
     # Points are around the parking lot and in the middle
     random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]

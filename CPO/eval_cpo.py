@@ -30,8 +30,8 @@ import numpy as np
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch20000-b952"
-    best: bool = True
+    path: str = "logs/fast-safe-rl/parking-v0-cost-10/cpo_step_per_epoch20000-515c"
+    best: bool = False
     eval_episodes: int = 1
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
@@ -40,9 +40,10 @@ class EvalConfig:
     render_mode: str = "rgb_array"
     # render_mode: str = "human"
     device = "cpu"
-    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
+    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
-    random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
+    # random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
+    random_starting_locations = None
 
 if EvalConfig.env_config_file:
     with open(EvalConfig.env_config_file) as f:
