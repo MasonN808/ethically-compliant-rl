@@ -1,0 +1,83 @@
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom_2.py", line 54, in <module>
+    class MyCfg(TrainCfg):
+  File "/usr/lib/python3.9/dataclasses.py", line 1021, in dataclass
+    return wrap(cls)
+  File "/usr/lib/python3.9/dataclasses.py", line 1013, in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash, frozen)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in _process_class
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in <listcomp>
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 747, in _get_field
+    raise ValueError(f'mutable default {type(f.default)} for field '
+ValueError: mutable default <class 'list'> for field cost_limit is not allowed: use default_factory
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230811_003644-2952c78a-198b-4fa7-907d-7999bcdae206
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_step_per_epoch20000-74c8
+wandb: ⭐️ View project at https://wandb.ai/ecrl/2-constraints
+wandb: 🚀 View run at https://wandb.ai/ecrl/2-constraints/runs/2952c78a-198b-4fa7-907d-7999bcdae206
+[32;1mLogging data to logs/2-constraints/parking-v0-cost-10/cpo_step_per_epoch20000-74c8/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	300,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_step_per_epoch20000-74c8",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"2-constraints",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Epoch #1:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #1:  50%|#####     | 10000/20000 [00:20<00:20, 492.32it/s]/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/logger/logger_util.py:79: RuntimeWarning: invalid value encountered in scalar subtract
+  self.mean += (x - self.mean) / self.count
+/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/logger/logger_util.py:80: RuntimeWarning: invalid value encountered in scalar subtract
+  self.vars += (x - prev_mean) * (x - self.mean)

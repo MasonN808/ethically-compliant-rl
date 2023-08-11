@@ -1,0 +1,1446 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230810_233755-5f10b50c-341e-4d50-91b4-4a1890ae17e0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_step_per_epoch20000-1d67
+wandb: ⭐️ View project at https://wandb.ai/ecrl/safe-rl
+wandb: 🚀 View run at https://wandb.ai/ecrl/safe-rl/runs/5f10b50c-341e-4d50-91b4-4a1890ae17e0
+[32;1mLogging data to logs/safe-rl/parking-v0-cost-10/cpo_step_per_epoch20000-1d67/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	300,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_step_per_epoch20000-1d67",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"safe-rl",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom_2.py", line 54, in <module>
+    class MyCfg(TrainCfg):
+  File "/usr/lib/python3.9/dataclasses.py", line 1021, in dataclass
+    return wrap(cls)
+  File "/usr/lib/python3.9/dataclasses.py", line 1013, in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash, frozen)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in _process_class
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in <listcomp>
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 747, in _get_field
+    raise ValueError(f'mutable default {type(f.default)} for field '
+ValueError: mutable default <class 'list'> for field cost_limit is not allowed: use default_factory
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+Epoch #1:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #1:  50%|#####     | 10000/20000 [00:24<00:24, 404.73it/s]/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/logger/logger_util.py:79: RuntimeWarning: invalid value encountered in scalar subtract
+  self.mean += (x - self.mean) / self.count
+/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/logger/logger_util.py:80: RuntimeWarning: invalid value encountered in scalar subtract
+  self.vars += (x - prev_mean) * (x - self.mean)
+Epoch #1:  50%|#####     | 10000/20000 [00:40<00:24, 404.73it/s]Epoch #1:  50%|#####     | 10000/20000 [00:41<00:24, 404.73it/s, cost=1.35e+3, length=500, rew=-538]Epoch #1: 100%|##########| 20000/20000 [01:05<00:00, 290.59it/s, cost=1.35e+3, length=500, rew=-538]/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/policy/cpo.py:302: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  lam = torch.tensor(lam)
+Epoch #1: 100%|##########| 20000/20000 [01:20<00:00, 290.59it/s, cost=1.35e+3, length=500, rew=-538]Epoch #1: 100%|##########| 20000/20000 [01:23<00:00, 290.59it/s, cost=1.22e+3, length=500, rew=-505]Epoch #1: 100%|##########| 20000/20000 [01:23<00:00, 239.52it/s, cost=1.22e+3, length=500, rew=-505]
+-------------------------------------------------
+|              loss/cost_loss |        1.29e+03 |
+|                loss/entropy |            2.85 |
+|                     loss/kl |         0.00583 |
+|                loss/optim_A |         -0.0165 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |        -0.00519 |
+|                loss/optim_R |         0.00119 |
+|                loss/optim_S |         0.00317 |
+|             loss/optim_case |            2.88 |
+|              loss/optim_lam |             nan |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |          0.0102 |
+|              loss/step_size |           0.504 |
+|                    loss/vf0 |             123 |
+|                    loss/vf1 |            5.08 |
+|               loss/vf_total |             128 |
+|                   test/cost |            15.7 |
+|                 test/length |             500 |
+|                 test/reward |            -437 |
+|                  train/cost |        1.29e+03 |
+|                train/length |             500 |
+|                train/reward |            -522 |
+|             update/cum_cost |        3.93e+04 |
+|             update/duration |            92.7 |
+|             update/env_step |           2e+04 |
+|              update/episode |              30 |
+|       update/gradient_steps |               6 |
+|      update/remaining_epoch |             299 |
+|           update/test_speed |             109 |
+|            update/test_time |            9.14 |
+| update/train_collector_time |            49.4 |
+|     update/train_model_time |            34.1 |
+|          update/train_speed |             239 |
+-------------------------------------------------
+Epoch: 1
+{'duration': 92.66323399543762, 'test_time': 9.141432762145996, 'test_speed': 109.39204236571392, 'train_collector_time': 49.43944072723389, 'train_model_time': 34.08236050605774, 'train_speed': 239.45843725444033, 'remaining_epoch': 299, 'best_reward': -437.4629322080299, 'best_cost': 15.715412819385541}
+Epoch #2:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #2:  49%|####9     | 9876/20000 [00:24<00:24, 406.64it/s]/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/logger/logger_util.py:79: RuntimeWarning: invalid value encountered in scalar add
+  self.mean += (x - self.mean) / self.count
+Epoch #2:  49%|####9     | 9876/20000 [00:37<00:24, 406.64it/s]Epoch #2:  49%|####9     | 9876/20000 [00:42<00:24, 406.64it/s, cost=797, length=494, rew=-409]Epoch #2:  99%|#########9| 19876/20000 [01:07<00:00, 282.27it/s, cost=797, length=494, rew=-409]Epoch #2:  99%|#########9| 19876/20000 [01:17<00:00, 282.27it/s, cost=797, length=494, rew=-409]Epoch #2:  99%|#########9| 19876/20000 [01:24<00:00, 282.27it/s, cost=133, length=500, rew=-427]Epoch #2: 29876it [01:49, 258.34it/s, cost=133, length=500, rew=-427]                           Epoch #2: 29876it [02:07, 258.34it/s, cost=133, length=500, rew=-427]Epoch #2: 29876it [02:08, 258.34it/s, cost=79.6, length=500, rew=-385]Epoch #2: 29876it [02:08, 233.39it/s, cost=79.6, length=500, rew=-385]
+-------------------------------------------------
+|              loss/cost_loss |             336 |
+|                loss/entropy |            2.84 |
+|                     loss/kl |         0.00699 |
+|                loss/optim_A |          0.0129 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |          0.0133 |
+|                loss/optim_R |       -0.000838 |
+|                loss/optim_S |         0.00194 |
+|             loss/optim_case |            2.75 |
+|              loss/optim_lam |            0.81 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |          0.0138 |
+|              loss/step_size |           0.119 |
+|                    loss/vf0 |            29.1 |
+|                    loss/vf1 |            8.33 |
+|               loss/vf_total |            37.4 |
+|                   test/cost |             155 |
+|                 test/length |             500 |
+|                 test/reward |            -340 |
+|                  train/cost |             336 |
+|            train/cost_limit |              10 |
+|                train/length |             498 |
+|                train/reward |            -407 |
+|             update/cum_cost |        6.98e+04 |
+|             update/duration |             230 |
+|             update/env_step |        4.99e+04 |
+|              update/episode |              80 |
+|       update/gradient_steps |              16 |
+|      update/remaining_epoch |             298 |
+|           update/test_speed |             109 |
+|            update/test_time |            18.3 |
+| update/train_collector_time |             124 |
+|     update/train_model_time |            87.8 |
+|          update/train_speed |             236 |
+-------------------------------------------------
+Epoch: 2
+{'duration': 229.86040830612183, 'test_time': 18.297558784484863, 'test_speed': 109.30419863964966, 'train_collector_time': 123.73259782791138, 'train_model_time': 87.83025169372559, 'train_speed': 235.75027521502105, 'remaining_epoch': 298, 'best_reward': -340.12218862969223, 'best_cost': 155.16735723398463}
+Epoch #3:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #3:  50%|#####     | 10000/20000 [00:24<00:24, 400.35it/s]Epoch #3:  50%|#####     | 10000/20000 [00:40<00:24, 400.35it/s]Epoch #3:  50%|#####     | 10000/20000 [00:43<00:24, 400.35it/s, cost=54, length=500, rew=-371]Epoch #3: 100%|##########| 20000/20000 [01:07<00:00, 280.97it/s, cost=54, length=500, rew=-371]Epoch #3: 100%|##########| 20000/20000 [01:20<00:00, 280.97it/s, cost=54, length=500, rew=-371]Epoch #3: 100%|##########| 20000/20000 [01:25<00:00, 280.97it/s, cost=83.2, length=500, rew=-324]Epoch #3: 100%|##########| 20000/20000 [01:25<00:00, 233.38it/s, cost=83.2, length=500, rew=-324]
+-------------------------------------------------
+|              loss/cost_loss |            68.6 |
+|                loss/entropy |            2.87 |
+|                     loss/kl |         0.00686 |
+|                loss/optim_A |          0.0113 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |          0.0118 |
+|                loss/optim_R |        -0.00188 |
+|                loss/optim_S |          0.0073 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |            0.75 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |          0.0135 |
+|              loss/step_size |           0.168 |
+|                    loss/vf0 |            10.5 |
+|                    loss/vf1 |            10.9 |
+|               loss/vf_total |            21.5 |
+|                   test/cost |             361 |
+|                 test/length |             500 |
+|                 test/reward |            -232 |
+|                  train/cost |            68.6 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -348 |
+|             update/cum_cost |        7.37e+04 |
+|             update/duration |             325 |
+|             update/env_step |        6.99e+04 |
+|              update/episode |             130 |
+|       update/gradient_steps |              26 |
+|      update/remaining_epoch |             297 |
+|           update/test_speed |             107 |
+|            update/test_time |              28 |
+| update/train_collector_time |             174 |
+|     update/train_model_time |             124 |
+|          update/train_speed |             235 |
+-------------------------------------------------
+Epoch: 3
+{'duration': 325.2734754085541, 'test_time': 27.98074173927307, 'test_speed': 107.2166001871664, 'train_collector_time': 173.58786916732788, 'train_model_time': 123.70486450195312, 'train_speed': 235.04106251628923, 'remaining_epoch': 297, 'best_reward': -232.0270630527694, 'best_cost': 361.0904358941299}
+Epoch #4:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #4:  50%|#####     | 10000/20000 [00:24<00:24, 403.19it/s]Epoch #4:  50%|#####     | 10000/20000 [00:44<00:24, 403.19it/s, cost=102, length=500, rew=-305]Epoch #4:  50%|#####     | 10000/20000 [00:44<00:24, 403.19it/s, cost=102, length=500, rew=-305]Epoch #4: 100%|##########| 20000/20000 [01:08<00:00, 278.12it/s, cost=102, length=500, rew=-305]Epoch #4: 100%|##########| 20000/20000 [01:24<00:00, 278.12it/s, cost=102, length=500, rew=-305]Epoch #4: 100%|##########| 20000/20000 [01:26<00:00, 278.12it/s, cost=158, length=500, rew=-280]Epoch #4: 100%|##########| 20000/20000 [01:26<00:00, 231.56it/s, cost=158, length=500, rew=-280]
+-------------------------------------------------
+|              loss/cost_loss |             130 |
+|                loss/entropy |            2.87 |
+|                     loss/kl |         0.00698 |
+|                loss/optim_A |         0.00671 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00808 |
+|                loss/optim_R |        -0.00298 |
+|                loss/optim_S |         0.00663 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.636 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |          0.0121 |
+|              loss/step_size |            0.12 |
+|                    loss/vf0 |            5.54 |
+|                    loss/vf1 |            23.7 |
+|               loss/vf_total |            29.2 |
+|                   test/cost |             441 |
+|                 test/length |             500 |
+|                 test/reward |            -254 |
+|                  train/cost |             130 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -292 |
+|             update/cum_cost |        7.81e+04 |
+|             update/duration |             420 |
+|             update/env_step |        8.99e+04 |
+|              update/episode |             170 |
+|       update/gradient_steps |              34 |
+|      update/remaining_epoch |             296 |
+|           update/test_speed |             109 |
+|            update/test_time |            36.8 |
+| update/train_collector_time |             223 |
+|     update/train_model_time |             161 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 4
+{'duration': 420.4816527366638, 'test_time': 36.78714561462402, 'test_speed': 108.73363326155636, 'train_collector_time': 222.82260918617249, 'train_model_time': 160.8718979358673, 'train_speed': 234.23843274205015, 'remaining_epoch': 296, 'best_reward': -232.0270630527694, 'best_cost': 361.0904358941299}
+Epoch #5:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #5:  49%|####9     | 9848/20000 [00:24<00:24, 407.46it/s]Epoch #5:  49%|####9     | 9848/20000 [00:39<00:24, 407.46it/s]Epoch #5:  49%|####9     | 9848/20000 [00:42<00:24, 407.46it/s, cost=226, length=492, rew=-289]Epoch #5:  99%|#########9| 19848/20000 [01:06<00:00, 286.00it/s, cost=226, length=492, rew=-289]Epoch #5:  99%|#########9| 19848/20000 [01:19<00:00, 286.00it/s, cost=226, length=492, rew=-289]Epoch #5:  99%|#########9| 19848/20000 [01:24<00:00, 286.00it/s, cost=212, length=500, rew=-256]Epoch #5: 29848it [01:48, 260.46it/s, cost=212, length=500, rew=-256]                           Epoch #5: 29848it [01:59, 260.46it/s, cost=212, length=500, rew=-256]Epoch #5: 29848it [02:06, 260.46it/s, cost=287, length=500, rew=-255]Epoch #5: 29848it [02:06, 235.69it/s, cost=287, length=500, rew=-255]
+-------------------------------------------------
+|              loss/cost_loss |             242 |
+|                loss/entropy |            2.82 |
+|                     loss/kl |         0.00719 |
+|                loss/optim_A |          0.0064 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00676 |
+|                loss/optim_R |        -0.00157 |
+|                loss/optim_S |         0.00965 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.569 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |          0.0101 |
+|              loss/step_size |            0.12 |
+|                    loss/vf0 |            4.53 |
+|                    loss/vf1 |            52.1 |
+|               loss/vf_total |            56.7 |
+|                   test/cost |            66.2 |
+|                 test/length |             500 |
+|                 test/reward |            -221 |
+|                  train/cost |             242 |
+|            train/cost_limit |              10 |
+|                train/length |             497 |
+|                train/reward |            -267 |
+|             update/cum_cost |         8.9e+04 |
+|             update/duration |             556 |
+|             update/env_step |         1.2e+05 |
+|              update/episode |             220 |
+|       update/gradient_steps |              44 |
+|      update/remaining_epoch |             295 |
+|           update/test_speed |             109 |
+|            update/test_time |              46 |
+| update/train_collector_time |             295 |
+|     update/train_model_time |             215 |
+|          update/train_speed |             235 |
+-------------------------------------------------
+Epoch: 5
+{'duration': 556.3906669616699, 'test_time': 46.02275776863098, 'test_speed': 108.64190331957877, 'train_collector_time': 295.4644629955292, 'train_model_time': 214.90344619750977, 'train_speed': 234.58371469573768, 'remaining_epoch': 295, 'best_reward': -220.91606210335866, 'best_cost': 66.2057187577276}
+Epoch #6:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #6:  50%|#####     | 10000/20000 [00:24<00:24, 405.50it/s]Epoch #6:  50%|#####     | 10000/20000 [00:41<00:24, 405.50it/s, cost=228, length=500, rew=-242]Epoch #6:  50%|#####     | 10000/20000 [00:43<00:24, 405.50it/s, cost=228, length=500, rew=-242]Epoch #6:  98%|#########8| 19647/20000 [01:05<00:01, 287.07it/s, cost=228, length=500, rew=-242]Epoch #6:  98%|#########8| 19647/20000 [01:23<00:01, 287.07it/s, cost=206, length=482, rew=-242]Epoch #6:  98%|#########8| 19647/20000 [01:23<00:01, 287.07it/s, cost=206, length=482, rew=-242]Epoch #6: 29647it [01:48, 259.54it/s, cost=206, length=482, rew=-242]                           Epoch #6: 29647it [02:03, 259.54it/s, cost=206, length=482, rew=-242]Epoch #6: 29647it [02:06, 259.54it/s, cost=286, length=500, rew=-263]Epoch #6: 29647it [02:06, 233.90it/s, cost=286, length=500, rew=-263]
+-------------------------------------------------
+|              loss/cost_loss |             240 |
+|                loss/entropy |            2.78 |
+|                     loss/kl |         0.00684 |
+|                loss/optim_A |         0.00472 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00494 |
+|                loss/optim_R |        -0.00122 |
+|                loss/optim_S |          0.0076 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.492 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00822 |
+|              loss/step_size |           0.163 |
+|                    loss/vf0 |            3.34 |
+|                    loss/vf1 |            53.1 |
+|               loss/vf_total |            56.4 |
+|                   test/cost |             129 |
+|                 test/length |             500 |
+|                 test/reward |            -346 |
+|                  train/cost |             240 |
+|            train/cost_limit |              10 |
+|                train/length |             494 |
+|                train/reward |            -249 |
+|             update/cum_cost |        1.03e+05 |
+|             update/duration |             692 |
+|             update/env_step |        1.49e+05 |
+|              update/episode |             280 |
+|       update/gradient_steps |              56 |
+|      update/remaining_epoch |             294 |
+|           update/test_speed |             109 |
+|            update/test_time |            54.9 |
+| update/train_collector_time |             369 |
+|     update/train_model_time |             268 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 6
+{'duration': 692.0415134429932, 'test_time': 54.894073486328125, 'test_speed': 109.30141669108151, 'train_collector_time': 369.02162885665894, 'train_model_time': 268.1258111000061, 'train_speed': 234.4371029885317, 'remaining_epoch': 294, 'best_reward': -220.91606210335866, 'best_cost': 66.2057187577276}
+Epoch #7:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #7:  50%|#####     | 10000/20000 [00:24<00:24, 403.48it/s]Epoch #7:  50%|#####     | 10000/20000 [00:38<00:24, 403.48it/s]Epoch #7:  50%|#####     | 10000/20000 [00:42<00:24, 403.48it/s, cost=221, length=500, rew=-290]Epoch #7: 100%|##########| 20000/20000 [01:07<00:00, 283.45it/s, cost=221, length=500, rew=-290]Epoch #7: 100%|##########| 20000/20000 [01:18<00:00, 283.45it/s, cost=221, length=500, rew=-290]Epoch #7: 100%|##########| 20000/20000 [01:25<00:00, 283.45it/s, cost=219, length=500, rew=-278]Epoch #7: 100%|##########| 20000/20000 [01:25<00:00, 234.62it/s, cost=219, length=500, rew=-278]
+-------------------------------------------------
+|              loss/cost_loss |             220 |
+|                loss/entropy |            2.77 |
+|                     loss/kl |         0.00713 |
+|                loss/optim_A |         0.00881 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00901 |
+|                loss/optim_R |       -0.000658 |
+|                loss/optim_S |         0.00642 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.646 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00883 |
+|              loss/step_size |           0.107 |
+|                    loss/vf0 |            3.12 |
+|                    loss/vf1 |            60.9 |
+|               loss/vf_total |            64.1 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -298 |
+|                  train/cost |             220 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -284 |
+|             update/cum_cost |        1.15e+05 |
+|             update/duration |             786 |
+|             update/env_step |        1.69e+05 |
+|              update/episode |             330 |
+|       update/gradient_steps |              66 |
+|      update/remaining_epoch |             293 |
+|           update/test_speed |             110 |
+|            update/test_time |            63.8 |
+| update/train_collector_time |             418 |
+|     update/train_model_time |             304 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 7
+{'duration': 786.2323365211487, 'test_time': 63.81839561462402, 'test_speed': 109.68624222818829, 'train_collector_time': 418.49130940437317, 'train_model_time': 303.9226315021515, 'train_speed': 234.45145561208852, 'remaining_epoch': 293, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #8:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #8:  50%|#####     | 10000/20000 [00:24<00:24, 408.76it/s]Epoch #8:  50%|#####     | 10000/20000 [00:41<00:24, 408.76it/s, cost=188, length=500, rew=-257]Epoch #8:  50%|#####     | 10000/20000 [00:43<00:24, 408.76it/s, cost=188, length=500, rew=-257]Epoch #8: 100%|##########| 20000/20000 [01:06<00:00, 289.37it/s, cost=188, length=500, rew=-257]Epoch #8: 100%|##########| 20000/20000 [01:23<00:00, 289.37it/s, cost=188, length=500, rew=-257]Epoch #8: 100%|##########| 20000/20000 [01:24<00:00, 289.37it/s, cost=252, length=500, rew=-222]Epoch #8: 100%|##########| 20000/20000 [01:24<00:00, 236.63it/s, cost=252, length=500, rew=-222]
+-------------------------------------------------
+|              loss/cost_loss |             220 |
+|                loss/entropy |            2.76 |
+|                     loss/kl |          0.0069 |
+|                loss/optim_A |         0.00486 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00503 |
+|                loss/optim_R |        -0.00119 |
+|                loss/optim_S |         0.00962 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.485 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00825 |
+|              loss/step_size |            0.14 |
+|                    loss/vf0 |            2.86 |
+|                    loss/vf1 |            46.6 |
+|               loss/vf_total |            49.4 |
+|                   test/cost |             120 |
+|                 test/length |             500 |
+|                 test/reward |            -271 |
+|                  train/cost |             220 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -240 |
+|             update/cum_cost |        1.24e+05 |
+|             update/duration |             880 |
+|             update/env_step |        1.89e+05 |
+|              update/episode |             370 |
+|       update/gradient_steps |              74 |
+|      update/remaining_epoch |             292 |
+|           update/test_speed |             110 |
+|            update/test_time |              73 |
+| update/train_collector_time |             467 |
+|     update/train_model_time |             340 |
+|          update/train_speed |             235 |
+-------------------------------------------------
+Epoch: 8
+{'duration': 879.9289562702179, 'test_time': 72.96086144447327, 'test_speed': 109.64782818646385, 'train_collector_time': 467.1347315311432, 'train_model_time': 339.83336329460144, 'train_speed': 234.66974867313988, 'remaining_epoch': 292, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #9:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #9:  50%|#####     | 10000/20000 [00:24<00:24, 413.77it/s]Epoch #9:  50%|#####     | 10000/20000 [00:40<00:24, 413.77it/s]Epoch #9:  50%|#####     | 10000/20000 [00:42<00:24, 413.77it/s, cost=202, length=500, rew=-239]Epoch #9: 100%|##########| 20000/20000 [01:06<00:00, 287.71it/s, cost=202, length=500, rew=-239]Epoch #9: 100%|##########| 20000/20000 [01:20<00:00, 287.71it/s, cost=202, length=500, rew=-239]Epoch #9: 100%|##########| 20000/20000 [01:24<00:00, 287.71it/s, cost=279, length=500, rew=-265]Epoch #9: 100%|##########| 20000/20000 [01:24<00:00, 237.38it/s, cost=279, length=500, rew=-265]
+-------------------------------------------------
+|              loss/cost_loss |             241 |
+|                loss/entropy |             2.7 |
+|                     loss/kl |         0.00709 |
+|                loss/optim_A |         0.00316 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00331 |
+|                loss/optim_R |       -0.000991 |
+|                loss/optim_S |          0.0125 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.406 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00716 |
+|              loss/step_size |           0.131 |
+|                    loss/vf0 |            1.71 |
+|                    loss/vf1 |            47.7 |
+|               loss/vf_total |            49.4 |
+|                   test/cost |             125 |
+|                 test/length |             500 |
+|                 test/reward |            -223 |
+|                  train/cost |             241 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -252 |
+|             update/cum_cost |        1.33e+05 |
+|             update/duration |             973 |
+|             update/env_step |        2.09e+05 |
+|              update/episode |             410 |
+|       update/gradient_steps |              82 |
+|      update/remaining_epoch |             291 |
+|           update/test_speed |             110 |
+|            update/test_time |            81.8 |
+| update/train_collector_time |             515 |
+|     update/train_model_time |             376 |
+|          update/train_speed |             235 |
+-------------------------------------------------
+Epoch: 9
+{'duration': 973.0410811901093, 'test_time': 81.79035329818726, 'test_speed': 110.03742662888668, 'train_collector_time': 515.4533755779266, 'train_model_time': 375.79735231399536, 'train_speed': 234.91818121172912, 'remaining_epoch': 291, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #10:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #10:  50%|#####     | 10000/20000 [00:24<00:24, 410.98it/s]Epoch #10:  50%|#####     | 10000/20000 [00:37<00:24, 410.98it/s]Epoch #10:  50%|#####     | 10000/20000 [00:42<00:24, 410.98it/s, cost=220, length=500, rew=-257]Epoch #10: 100%|#########9| 19974/20000 [01:07<00:00, 282.95it/s, cost=220, length=500, rew=-257]Epoch #10: 100%|#########9| 19974/20000 [01:25<00:00, 282.95it/s, cost=359, length=499, rew=-216]Epoch #10: 100%|#########9| 19974/20000 [01:27<00:00, 282.95it/s, cost=359, length=499, rew=-216]Epoch #10: 29974it [01:50, 256.32it/s, cost=359, length=499, rew=-216]                           Epoch #10: 29974it [02:07, 256.32it/s, cost=359, length=499, rew=-216]Epoch #10: 29974it [02:10, 256.32it/s, cost=292, length=500, rew=-208]Epoch #10: 29974it [02:10, 230.03it/s, cost=292, length=500, rew=-208]
+-------------------------------------------------
+|              loss/cost_loss |             291 |
+|                loss/entropy |            2.65 |
+|                     loss/kl |         0.00736 |
+|                loss/optim_A |          0.0036 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00379 |
+|                loss/optim_R |        0.000122 |
+|                loss/optim_S |          0.0176 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.428 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00734 |
+|              loss/step_size |           0.121 |
+|                    loss/vf0 |            2.12 |
+|                    loss/vf1 |            50.5 |
+|               loss/vf_total |            52.6 |
+|                   test/cost |             275 |
+|                 test/length |             500 |
+|                 test/reward |            -237 |
+|                  train/cost |             291 |
+|            train/cost_limit |              10 |
+|                train/length |             499 |
+|                train/reward |            -227 |
+|             update/cum_cost |        1.47e+05 |
+|             update/duration |        1.11e+03 |
+|             update/env_step |        2.39e+05 |
+|              update/episode |             460 |
+|       update/gradient_steps |              92 |
+|      update/remaining_epoch |             290 |
+|           update/test_speed |             110 |
+|            update/test_time |            90.8 |
+| update/train_collector_time |             589 |
+|     update/train_model_time |             432 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 10
+{'duration': 1112.351776599884, 'test_time': 90.7713086605072, 'test_speed': 110.16696958067325, 'train_collector_time': 589.2330513000488, 'train_model_time': 432.347416639328, 'train_speed': 234.2889351465198, 'remaining_epoch': 290, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #11:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #11:  46%|####5     | 9183/20000 [00:23<00:27, 395.57it/s]Epoch #11:  46%|####5     | 9183/20000 [00:37<00:27, 395.57it/s]Epoch #11:  46%|####5     | 9183/20000 [00:39<00:27, 395.57it/s, cost=270, length=459, rew=-190]Epoch #11:  94%|#########4| 18820/20000 [01:02<00:04, 287.33it/s, cost=270, length=459, rew=-190]Epoch #11:  94%|#########4| 18820/20000 [01:17<00:04, 287.33it/s, cost=270, length=459, rew=-190]Epoch #11:  94%|#########4| 18820/20000 [01:19<00:04, 287.33it/s, cost=317, length=482, rew=-216]Epoch #11: 27712it [01:42, 256.43it/s, cost=317, length=482, rew=-216]                           Epoch #11: 27712it [01:57, 256.43it/s, cost=317, length=482, rew=-216]Epoch #11: 27712it [01:59, 256.43it/s, cost=380, length=445, rew=-207]Epoch #11: 27712it [01:59, 232.39it/s, cost=380, length=445, rew=-207]
+-------------------------------------------------
+|              loss/cost_loss |             322 |
+|                loss/entropy |            2.63 |
+|                     loss/kl |         0.00635 |
+|                loss/optim_A |         0.00235 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00282 |
+|                loss/optim_R |       -0.000868 |
+|                loss/optim_S |          0.0225 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |             nan |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00499 |
+|              loss/step_size |           0.212 |
+|                    loss/vf0 |            4.97 |
+|                    loss/vf1 |            71.7 |
+|               loss/vf_total |            76.7 |
+|                   test/cost |            81.4 |
+|                 test/length |             500 |
+|                 test/reward |            -214 |
+|                  train/cost |             322 |
+|            train/cost_limit |              10 |
+|                train/length |             461 |
+|                train/reward |            -204 |
+|             update/cum_cost |        1.65e+05 |
+|             update/duration |        1.24e+03 |
+|             update/env_step |        2.67e+05 |
+|              update/episode |             520 |
+|       update/gradient_steps |             104 |
+|      update/remaining_epoch |             289 |
+|           update/test_speed |             110 |
+|            update/test_time |            99.7 |
+| update/train_collector_time |             659 |
+|     update/train_model_time |             482 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 11
+{'duration': 1240.5220198631287, 'test_time': 99.67179155349731, 'test_speed': 110.36221812162289, 'train_collector_time': 658.561350107193, 'train_model_time': 482.28887820243835, 'train_speed': 234.0859416714949, 'remaining_epoch': 289, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #12:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #12:  50%|#####     | 10000/20000 [00:24<00:24, 405.95it/s]Epoch #12:  50%|#####     | 10000/20000 [00:39<00:24, 405.95it/s]Epoch #12:  50%|#####     | 10000/20000 [00:42<00:24, 405.95it/s, cost=420, length=500, rew=-214]Epoch #12:  98%|#########8| 19615/20000 [01:05<00:01, 284.24it/s, cost=420, length=500, rew=-214]Epoch #12:  98%|#########8| 19615/20000 [01:19<00:01, 284.24it/s, cost=420, length=500, rew=-214]Epoch #12:  98%|#########8| 19615/20000 [01:23<00:01, 284.24it/s, cost=449, length=481, rew=-226]Epoch #12: 29493it [01:47, 260.56it/s, cost=449, length=481, rew=-226]                           Epoch #12: 29493it [01:59, 260.56it/s, cost=449, length=481, rew=-226]Epoch #12: 29493it [02:04, 260.56it/s, cost=553, length=494, rew=-210]Epoch #12: 29493it [02:04, 236.66it/s, cost=553, length=494, rew=-210]
+-------------------------------------------------
+|              loss/cost_loss |             474 |
+|                loss/entropy |            2.67 |
+|                     loss/kl |         0.00653 |
+|                loss/optim_A |         0.00348 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00417 |
+|                loss/optim_R |        -0.00136 |
+|                loss/optim_S |         0.00375 |
+|             loss/optim_case |            2.92 |
+|              loss/optim_lam |           0.453 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00614 |
+|              loss/step_size |           0.169 |
+|                    loss/vf0 |            2.88 |
+|                    loss/vf1 |            61.1 |
+|               loss/vf_total |              64 |
+|                   test/cost |             332 |
+|                 test/length |             500 |
+|                 test/reward |            -232 |
+|                  train/cost |             474 |
+|            train/cost_limit |              10 |
+|                train/length |             491 |
+|                train/reward |            -217 |
+|             update/cum_cost |        1.91e+05 |
+|             update/duration |        1.37e+03 |
+|             update/env_step |        2.97e+05 |
+|              update/episode |             580 |
+|       update/gradient_steps |             116 |
+|      update/remaining_epoch |             288 |
+|           update/test_speed |             110 |
+|            update/test_time |             109 |
+| update/train_collector_time |             731 |
+|     update/train_model_time |             535 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 12
+{'duration': 1374.2787563800812, 'test_time': 108.78406381607056, 'test_speed': 110.31027504441558, 'train_collector_time': 730.9546446800232, 'train_model_time': 534.5400478839874, 'train_speed': 234.33523802392403, 'remaining_epoch': 288, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #13:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #13:  50%|#####     | 10000/20000 [00:24<00:24, 409.12it/s]Epoch #13:  50%|#####     | 10000/20000 [00:35<00:24, 409.12it/s]Epoch #13:  50%|#####     | 10000/20000 [00:41<00:24, 409.12it/s, cost=526, length=500, rew=-232]Epoch #13: 100%|##########| 20000/20000 [01:06<00:00, 289.70it/s, cost=526, length=500, rew=-232]Epoch #13: 100%|##########| 20000/20000 [01:23<00:00, 289.70it/s, cost=492, length=500, rew=-240]Epoch #13: 100%|##########| 20000/20000 [01:23<00:00, 238.79it/s, cost=492, length=500, rew=-240]
+-------------------------------------------------
+|              loss/cost_loss |             509 |
+|                loss/entropy |             2.6 |
+|                     loss/kl |          0.0072 |
+|                loss/optim_A |         0.00246 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |          0.0026 |
+|                loss/optim_R |       -7.28e-05 |
+|                loss/optim_S |          0.0228 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |             nan |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00675 |
+|              loss/step_size |           0.347 |
+|                    loss/vf0 |            1.43 |
+|                    loss/vf1 |            67.1 |
+|               loss/vf_total |            68.6 |
+|                   test/cost |             373 |
+|                 test/length |             500 |
+|                 test/reward |            -199 |
+|                  train/cost |             509 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -236 |
+|             update/cum_cost |        2.16e+05 |
+|             update/duration |        1.47e+03 |
+|             update/env_step |        3.17e+05 |
+|              update/episode |             630 |
+|       update/gradient_steps |             126 |
+|      update/remaining_epoch |             287 |
+|           update/test_speed |             110 |
+|            update/test_time |             118 |
+| update/train_collector_time |             780 |
+|     update/train_model_time |             569 |
+|          update/train_speed |             235 |
+-------------------------------------------------
+Epoch: 13
+{'duration': 1467.0512065887451, 'test_time': 117.76691579818726, 'test_speed': 110.38753891014359, 'train_collector_time': 780.2111067771912, 'train_model_time': 569.0731840133667, 'train_speed': 234.6058589435815, 'remaining_epoch': 287, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #14:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #14:  46%|####6     | 9249/20000 [00:23<00:26, 399.49it/s]Epoch #14:  46%|####6     | 9249/20000 [00:38<00:26, 399.49it/s, cost=519, length=462, rew=-196]Epoch #14:  46%|####6     | 9249/20000 [00:43<00:26, 399.49it/s, cost=519, length=462, rew=-196]Epoch #14:  96%|#########5| 19155/20000 [01:03<00:02, 290.28it/s, cost=519, length=462, rew=-196]Epoch #14:  96%|#########5| 19155/20000 [01:21<00:02, 290.28it/s, cost=381, length=495, rew=-223]Epoch #14:  96%|#########5| 19155/20000 [01:23<00:02, 290.28it/s, cost=381, length=495, rew=-223]Epoch #14: 29138it [01:45, 261.67it/s, cost=381, length=495, rew=-223]                           Epoch #14: 29138it [02:03, 261.67it/s, cost=381, length=495, rew=-223]Epoch #14: 29138it [02:05, 261.67it/s, cost=441, length=499, rew=-215]Epoch #14: 29138it [02:05, 232.14it/s, cost=441, length=499, rew=-215]
+-------------------------------------------------
+|              loss/cost_loss |             447 |
+|                loss/entropy |            2.61 |
+|                     loss/kl |         0.00718 |
+|                loss/optim_A |         0.00397 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00442 |
+|                loss/optim_R |        -0.00172 |
+|                loss/optim_S |          0.0163 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |             nan |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |          0.0076 |
+|              loss/step_size |           0.252 |
+|                    loss/vf0 |            3.96 |
+|                    loss/vf1 |            90.6 |
+|               loss/vf_total |            94.5 |
+|                   test/cost |            76.9 |
+|                 test/length |             500 |
+|                 test/reward |            -201 |
+|                  train/cost |             447 |
+|            train/cost_limit |              10 |
+|                train/length |             485 |
+|                train/reward |            -211 |
+|             update/cum_cost |         2.4e+05 |
+|             update/duration |         1.6e+03 |
+|             update/env_step |        3.46e+05 |
+|              update/episode |             680 |
+|       update/gradient_steps |             136 |
+|      update/remaining_epoch |             286 |
+|           update/test_speed |             111 |
+|            update/test_time |             127 |
+| update/train_collector_time |             852 |
+|     update/train_model_time |             623 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 14
+{'duration': 1601.449696302414, 'test_time': 126.62250232696533, 'test_speed': 110.56486598131762, 'train_collector_time': 852.2666795253754, 'train_model_time': 622.5605144500732, 'train_speed': 234.39220636296096, 'remaining_epoch': 286, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #15:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #15:  50%|#####     | 10000/20000 [00:25<00:25, 398.72it/s]Epoch #15:  50%|#####     | 10000/20000 [00:38<00:25, 398.72it/s]Epoch #15:  50%|#####     | 10000/20000 [00:45<00:25, 398.72it/s, cost=601, length=500, rew=-201]Epoch #15: 100%|##########| 20000/20000 [01:10<00:00, 271.70it/s, cost=601, length=500, rew=-201]Epoch #15: 100%|##########| 20000/20000 [01:28<00:00, 271.70it/s, cost=551, length=500, rew=-213]Epoch #15: 100%|##########| 20000/20000 [01:28<00:00, 225.87it/s, cost=551, length=500, rew=-213]
+-------------------------------------------------
+|              loss/cost_loss |             576 |
+|                loss/entropy |            2.53 |
+|                     loss/kl |         0.00729 |
+|                loss/optim_A |         0.00539 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |         0.00558 |
+|                loss/optim_R |        -0.00116 |
+|                loss/optim_S |          0.0153 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.526 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00759 |
+|              loss/step_size |           0.102 |
+|                    loss/vf0 |            1.77 |
+|                    loss/vf1 |            71.8 |
+|               loss/vf_total |            73.5 |
+|                   test/cost |             314 |
+|                 test/length |             500 |
+|                 test/reward |            -168 |
+|                  train/cost |             576 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -207 |
+|             update/cum_cost |        2.66e+05 |
+|             update/duration |         1.7e+03 |
+|             update/env_step |        3.66e+05 |
+|              update/episode |             730 |
+|       update/gradient_steps |             146 |
+|      update/remaining_epoch |             285 |
+|           update/test_speed |             111 |
+|            update/test_time |             136 |
+| update/train_collector_time |             902 |
+|     update/train_model_time |             661 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 15
+{'duration': 1698.9036884307861, 'test_time': 135.50652837753296, 'test_speed': 110.69577369887816, 'train_collector_time': 901.9901571273804, 'train_model_time': 661.4070029258728, 'train_speed': 233.90601527480308, 'remaining_epoch': 285, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #16:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #16:  48%|####7     | 9562/20000 [00:24<00:26, 397.66it/s]Epoch #16:  48%|####7     | 9562/20000 [00:41<00:26, 397.66it/s]Epoch #16:  48%|####7     | 9562/20000 [00:41<00:26, 397.66it/s, cost=506, length=478, rew=-182]Epoch #16:  94%|#########4| 18900/20000 [01:04<00:03, 278.62it/s, cost=506, length=478, rew=-182]Epoch #16:  94%|#########4| 18900/20000 [01:21<00:03, 278.62it/s, cost=506, length=478, rew=-182]Epoch #16:  94%|#########4| 18900/20000 [01:22<00:03, 278.62it/s, cost=469, length=467, rew=-195]Epoch #16: 28234it [01:45, 252.34it/s, cost=469, length=467, rew=-195]                           Epoch #16: 28234it [02:01, 252.34it/s, cost=469, length=467, rew=-195]Epoch #16: 28234it [02:02, 252.34it/s, cost=478, length=467, rew=-191]Epoch #16: 28234it [02:02, 229.90it/s, cost=478, length=467, rew=-191]
+-------------------------------------------------
+|              loss/cost_loss |             484 |
+|                loss/entropy |            2.53 |
+|                     loss/kl |         0.00672 |
+|                loss/optim_A |          0.0116 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |          0.0124 |
+|                loss/optim_R |        -0.00124 |
+|                loss/optim_S |          0.0186 |
+|             loss/optim_case |               3 |
+|              loss/optim_lam |           0.759 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |          0.0105 |
+|              loss/step_size |           0.114 |
+|                    loss/vf0 |            2.93 |
+|                    loss/vf1 |             109 |
+|               loss/vf_total |             112 |
+|                   test/cost |             111 |
+|                 test/length |             500 |
+|                 test/reward |            -203 |
+|                  train/cost |             484 |
+|            train/cost_limit |              10 |
+|                train/length |             470 |
+|                train/reward |            -189 |
+|             update/cum_cost |        2.91e+05 |
+|             update/duration |        1.83e+03 |
+|             update/env_step |        3.94e+05 |
+|              update/episode |             780 |
+|       update/gradient_steps |             156 |
+|      update/remaining_epoch |             284 |
+|           update/test_speed |             111 |
+|            update/test_time |             144 |
+| update/train_collector_time |             972 |
+|     update/train_model_time |             714 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 16
+{'duration': 1830.6270475387573, 'test_time': 144.39875030517578, 'test_speed': 110.80428304389903, 'train_collector_time': 972.1134431362152, 'train_model_time': 714.1148540973663, 'train_speed': 233.61130912478853, 'remaining_epoch': 284, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #17:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #17:  48%|####7     | 9574/20000 [00:23<00:25, 405.29it/s]Epoch #17:  48%|####7     | 9574/20000 [00:39<00:25, 405.29it/s]Epoch #17:  48%|####7     | 9574/20000 [00:42<00:25, 405.29it/s, cost=581, length=479, rew=-182]Epoch #17:  96%|#########5| 19167/20000 [01:06<00:03, 275.95it/s, cost=581, length=479, rew=-182]Epoch #17:  96%|#########5| 19167/20000 [01:19<00:03, 275.95it/s, cost=581, length=479, rew=-182]Epoch #17:  96%|#########5| 19167/20000 [01:25<00:03, 275.95it/s, cost=507, length=480, rew=-176]Epoch #17: 28743it [01:49, 247.58it/s, cost=507, length=480, rew=-176]                           Epoch #17: 28743it [02:07, 247.58it/s, cost=614, length=479, rew=-170]Epoch #17: 28743it [02:07, 226.15it/s, cost=614, length=479, rew=-170]
+-------------------------------------------------
+|              loss/cost_loss |             567 |
+|                loss/entropy |            2.49 |
+|                     loss/kl |         0.00695 |
+|                loss/optim_A |         -0.0405 |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |          0.0107 |
+|                loss/optim_R |        -0.00452 |
+|                loss/optim_S |          0.0199 |
+|             loss/optim_case |            2.92 |
+|              loss/optim_lam |           0.707 |
+|               loss/optim_nu |               0 |
+|               loss/rew_loss |         0.00828 |
+|              loss/step_size |          0.0959 |
+|                    loss/vf0 |            1.56 |
+|                    loss/vf1 |            93.5 |
+|               loss/vf_total |            95.1 |
+|                   test/cost |             500 |
+|                 test/length |             500 |
+|                 test/reward |            -175 |
+|                  train/cost |             567 |
+|            train/cost_limit |              10 |
+|                train/length |             478 |
+|                train/reward |            -176 |
+|             update/cum_cost |        3.23e+05 |
+|             update/duration |        1.97e+03 |
+|             update/env_step |        4.23e+05 |
+|              update/episode |             840 |
+|       update/gradient_steps |             168 |
+|      update/remaining_epoch |             283 |
+|           update/test_speed |             110 |
+|            update/test_time |             154 |
+| update/train_collector_time |        1.04e+03 |
+|     update/train_model_time |             769 |
+|          update/train_speed |             233 |
+-------------------------------------------------
+Epoch: 17
+{'duration': 1967.38321185112, 'test_time': 154.02181792259216, 'test_speed': 110.37397317660418, 'train_collector_time': 1043.9493687152863, 'train_model_time': 769.4120252132416, 'train_speed': 233.08370930094864, 'remaining_epoch': 283, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #18:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #18:  48%|####7     | 9559/20000 [00:24<00:26, 395.42it/s]Epoch #18:  48%|####7     | 9559/20000 [00:42<00:26, 395.42it/s]Epoch #18:  48%|####7     | 9559/20000 [00:45<00:26, 395.42it/s, cost=427, length=478, rew=-181]Epoch #18:  98%|#########7| 19559/20000 [01:09<00:01, 267.29it/s, cost=427, length=478, rew=-181]Epoch #18:  98%|#########7| 19559/20000 [01:22<00:01, 267.29it/s, cost=427, length=478, rew=-181]Epoch #18:  98%|#########7| 19559/20000 [01:25<00:01, 267.29it/s, cost=0, length=500, rew=-342]  Epoch #18: 29559it [01:50, 257.20it/s, cost=0, length=500, rew=-342]                           Epoch #18: 29559it [02:02, 257.20it/s, cost=0, length=500, rew=-342]Epoch #18: 29559it [02:06, 257.20it/s, cost=0, length=500, rew=-308]Epoch #18: 29559it [02:06, 234.57it/s, cost=0, length=500, rew=-308]
+-------------------------------------------------
+|              loss/cost_loss |             142 |
+|                loss/entropy |           -14.5 |
+|                     loss/kl |        6.91e+08 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |           0.667 |
+|              loss/optim_lam |             nan |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |          0.0017 |
+|              loss/step_size |           0.777 |
+|                    loss/vf0 |            1.41 |
+|                    loss/vf1 |            31.1 |
+|               loss/vf_total |            32.5 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -311 |
+|                  train/cost |             142 |
+|            train/cost_limit |              10 |
+|                train/length |             492 |
+|                train/reward |            -277 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |         2.1e+03 |
+|             update/env_step |        4.52e+05 |
+|              update/episode |             900 |
+|       update/gradient_steps |             180 |
+|      update/remaining_epoch |             282 |
+|           update/test_speed |             110 |
+|            update/test_time |             163 |
+| update/train_collector_time |        1.12e+03 |
+|     update/train_model_time |             823 |
+|          update/train_speed |             233 |
+-------------------------------------------------
+Epoch: 18
+{'duration': 2102.447135925293, 'test_time': 163.04431128501892, 'test_speed': 110.39943594556986, 'train_collector_time': 1116.8826577663422, 'train_model_time': 822.5201668739319, 'train_speed': 233.1769317103474, 'remaining_epoch': 282, 'best_reward': -297.7869569605546, 'best_cost': 0.0}
+Epoch #19:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #19:  50%|#####     | 10000/20000 [00:24<00:24, 411.47it/s]Epoch #19:  50%|#####     | 10000/20000 [00:37<00:24, 411.47it/s]Epoch #19:  50%|#####     | 10000/20000 [00:40<00:24, 411.47it/s, cost=0, length=500, rew=-350]Epoch #19: 100%|##########| 20000/20000 [01:04<00:00, 297.29it/s, cost=0, length=500, rew=-350]Epoch #19: 100%|##########| 20000/20000 [01:17<00:00, 297.29it/s, cost=0, length=500, rew=-350]Epoch #19: 100%|##########| 20000/20000 [01:20<00:00, 297.29it/s, cost=0, length=500, rew=-335]Epoch #19: 100%|##########| 20000/20000 [01:20<00:00, 248.94it/s, cost=0, length=500, rew=-335]
+-------------------------------------------------
+|              loss/cost_loss |       -1.79e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |        5.06e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.846 |
+|                    loss/vf1 |            3.99 |
+|               loss/vf_total |            4.83 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -287 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -342 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        2.19e+03 |
+|             update/env_step |        4.72e+05 |
+|              update/episode |             950 |
+|       update/gradient_steps |             190 |
+|      update/remaining_epoch |             281 |
+|           update/test_speed |             111 |
+|            update/test_time |             172 |
+| update/train_collector_time |        1.17e+03 |
+|     update/train_model_time |             854 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 19
+{'duration': 2191.656809091568, 'test_time': 171.886461019516, 'test_speed': 110.53808361231394, 'train_collector_time': 1165.3356640338898, 'train_model_time': 854.4346840381622, 'train_speed': 233.8008380263409, 'remaining_epoch': 281, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #20:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #20:  50%|#####     | 10000/20000 [00:24<00:24, 411.53it/s]Epoch #20:  50%|#####     | 10000/20000 [00:38<00:24, 411.53it/s]Epoch #20:  50%|#####     | 10000/20000 [00:40<00:24, 411.53it/s, cost=0, length=500, rew=-326]Epoch #20: 100%|##########| 20000/20000 [01:04<00:00, 295.90it/s, cost=0, length=500, rew=-326]Epoch #20: 100%|##########| 20000/20000 [01:18<00:00, 295.90it/s, cost=0, length=500, rew=-326]Epoch #20: 100%|##########| 20000/20000 [01:20<00:00, 295.90it/s, cost=0, length=500, rew=-337]Epoch #20: 100%|##########| 20000/20000 [01:20<00:00, 247.25it/s, cost=0, length=500, rew=-337]
+-------------------------------------------------
+|              loss/cost_loss |        3.58e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |         3.8e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.642 |
+|                    loss/vf1 |            3.27 |
+|               loss/vf_total |            3.92 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -332 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -331 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        2.28e+03 |
+|             update/env_step |        4.92e+05 |
+|              update/episode |             990 |
+|       update/gradient_steps |             198 |
+|      update/remaining_epoch |             280 |
+|           update/test_speed |             110 |
+|            update/test_time |             181 |
+| update/train_collector_time |        1.21e+03 |
+|     update/train_model_time |             887 |
+|          update/train_speed |             234 |
+-------------------------------------------------
+Epoch: 20
+{'duration': 2281.8328630924225, 'test_time': 181.14027976989746, 'test_speed': 110.41166561852508, 'train_collector_time': 1213.9964807033539, 'train_model_time': 886.6961026191711, 'train_speed': 234.3151034605369, 'remaining_epoch': 280, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #21:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #21:  50%|#####     | 10000/20000 [00:24<00:24, 408.02it/s]Epoch #21:  50%|#####     | 10000/20000 [00:38<00:24, 408.02it/s]Epoch #21:  50%|#####     | 10000/20000 [00:40<00:24, 408.02it/s, cost=0, length=500, rew=-338]Epoch #21: 100%|##########| 20000/20000 [01:05<00:00, 293.27it/s, cost=0, length=500, rew=-338]Epoch #21: 100%|##########| 20000/20000 [01:18<00:00, 293.27it/s, cost=0, length=500, rew=-338]Epoch #21: 100%|##########| 20000/20000 [01:21<00:00, 293.27it/s, cost=0, length=500, rew=-326]Epoch #21: 100%|##########| 20000/20000 [01:21<00:00, 246.70it/s, cost=0, length=500, rew=-326]
+-------------------------------------------------
+|              loss/cost_loss |        6.56e-11 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |        2.86e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.569 |
+|                    loss/vf1 |             2.7 |
+|               loss/vf_total |            3.27 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -383 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -332 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        2.37e+03 |
+|             update/env_step |        5.12e+05 |
+|              update/episode |        1.03e+03 |
+|       update/gradient_steps |             206 |
+|      update/remaining_epoch |             279 |
+|           update/test_speed |             111 |
+|            update/test_time |             190 |
+| update/train_collector_time |        1.26e+03 |
+|     update/train_model_time |             919 |
+|          update/train_speed |             235 |
+-------------------------------------------------
+Epoch: 21
+{'duration': 2371.79882478714, 'test_time': 190.0040488243103, 'test_speed': 110.52396056790306, 'train_collector_time': 1263.1304385662079, 'train_model_time': 918.6643373966217, 'train_speed': 234.77185189150282, 'remaining_epoch': 279, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #22:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #22:  50%|#####     | 10000/20000 [00:24<00:24, 407.96it/s]Epoch #22:  50%|#####     | 10000/20000 [00:38<00:24, 407.96it/s]Epoch #22:  50%|#####     | 10000/20000 [00:40<00:24, 407.96it/s, cost=0, length=500, rew=-299]Epoch #22: 100%|##########| 20000/20000 [01:04<00:00, 295.24it/s, cost=0, length=500, rew=-299]Epoch #22: 100%|##########| 20000/20000 [01:18<00:00, 295.24it/s, cost=0, length=500, rew=-299]Epoch #22: 100%|##########| 20000/20000 [01:20<00:00, 295.24it/s, cost=0, length=500, rew=-335]Epoch #22: 100%|##########| 20000/20000 [01:20<00:00, 247.97it/s, cost=0, length=500, rew=-335]
+-------------------------------------------------
+|              loss/cost_loss |       -4.89e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |        2.47e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.514 |
+|                    loss/vf1 |            2.09 |
+|               loss/vf_total |             2.6 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -303 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -317 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        2.46e+03 |
+|             update/env_step |        5.32e+05 |
+|              update/episode |        1.07e+03 |
+|       update/gradient_steps |             214 |
+|      update/remaining_epoch |             278 |
+|           update/test_speed |             110 |
+|            update/test_time |             199 |
+| update/train_collector_time |        1.31e+03 |
+|     update/train_model_time |             950 |
+|          update/train_speed |             235 |
+-------------------------------------------------
+Epoch: 22
+{'duration': 2461.6105620861053, 'test_time': 199.13891124725342, 'test_speed': 110.47564668406025, 'train_collector_time': 1312.3250212669373, 'train_model_time': 950.1466295719147, 'train_speed': 235.2400746337168, 'remaining_epoch': 278, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #23:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #23:  50%|#####     | 10000/20000 [00:24<00:24, 406.57it/s]Epoch #23:  50%|#####     | 10000/20000 [00:38<00:24, 406.57it/s]Epoch #23:  50%|#####     | 10000/20000 [00:40<00:24, 406.57it/s, cost=0, length=500, rew=-326]Epoch #23: 100%|##########| 20000/20000 [01:04<00:00, 297.61it/s, cost=0, length=500, rew=-326]Epoch #23: 100%|##########| 20000/20000 [01:18<00:00, 297.61it/s, cost=0, length=500, rew=-326]Epoch #23: 100%|##########| 20000/20000 [01:20<00:00, 297.61it/s, cost=0, length=500, rew=-316]Epoch #23: 100%|##########| 20000/20000 [01:20<00:00, 249.28it/s, cost=0, length=500, rew=-316]
+-------------------------------------------------
+|              loss/cost_loss |       -1.55e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |        3.03e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.482 |
+|                    loss/vf1 |            1.92 |
+|               loss/vf_total |             2.4 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -313 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -321 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        2.55e+03 |
+|             update/env_step |        5.52e+05 |
+|              update/episode |        1.11e+03 |
+|       update/gradient_steps |             222 |
+|      update/remaining_epoch |             277 |
+|           update/test_speed |             110 |
+|            update/test_time |             208 |
+| update/train_collector_time |        1.36e+03 |
+|     update/train_model_time |             981 |
+|          update/train_speed |             236 |
+-------------------------------------------------
+Epoch: 23
+{'duration': 2550.960009098053, 'test_time': 208.22961497306824, 'test_speed': 110.45498981004575, 'train_collector_time': 1361.288405418396, 'train_model_time': 981.4419887065887, 'train_speed': 235.71811822002547, 'remaining_epoch': 277, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #24:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #24:  50%|#####     | 10000/20000 [00:24<00:24, 407.61it/s]Epoch #24:  50%|#####     | 10000/20000 [00:39<00:24, 407.61it/s]Epoch #24:  50%|#####     | 10000/20000 [00:40<00:24, 407.61it/s, cost=0, length=500, rew=-333]Epoch #24: 100%|##########| 20000/20000 [01:04<00:00, 297.91it/s, cost=0, length=500, rew=-333]Epoch #24: 100%|##########| 20000/20000 [01:19<00:00, 297.91it/s, cost=0, length=500, rew=-333]Epoch #24: 100%|##########| 20000/20000 [01:20<00:00, 297.91it/s, cost=0, length=500, rew=-330]Epoch #24: 100%|##########| 20000/20000 [01:20<00:00, 248.57it/s, cost=0, length=500, rew=-330]
+-------------------------------------------------
+|              loss/cost_loss |       -8.34e-11 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |       -3.45e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.476 |
+|                    loss/vf1 |             1.8 |
+|               loss/vf_total |            2.28 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -352 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -331 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        2.64e+03 |
+|             update/env_step |        5.72e+05 |
+|              update/episode |        1.15e+03 |
+|       update/gradient_steps |             230 |
+|      update/remaining_epoch |             276 |
+|           update/test_speed |             110 |
+|            update/test_time |             218 |
+| update/train_collector_time |        1.41e+03 |
+|     update/train_model_time |        1.01e+03 |
+|          update/train_speed |             236 |
+-------------------------------------------------
+Epoch: 24
+{'duration': 2640.8797369003296, 'test_time': 217.6657407283783, 'test_speed': 110.26080594809464, 'train_collector_time': 1410.1591954231262, 'train_model_time': 1013.0548007488251, 'train_speed': 236.14257795801993, 'remaining_epoch': 276, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #25:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #25:  50%|#####     | 10000/20000 [00:24<00:24, 409.90it/s]Epoch #25:  50%|#####     | 10000/20000 [00:39<00:24, 409.90it/s]Epoch #25:  50%|#####     | 10000/20000 [00:40<00:24, 409.90it/s, cost=0, length=500, rew=-347]Epoch #25: 100%|##########| 20000/20000 [01:04<00:00, 297.74it/s, cost=0, length=500, rew=-347]Epoch #25: 100%|##########| 20000/20000 [01:19<00:00, 297.74it/s, cost=0, length=500, rew=-347]Epoch #25: 100%|##########| 20000/20000 [01:20<00:00, 297.74it/s, cost=0, length=500, rew=-296]Epoch #25: 100%|##########| 20000/20000 [01:20<00:00, 248.54it/s, cost=0, length=500, rew=-296]
+-------------------------------------------------
+|              loss/cost_loss |         3.7e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |        2.07e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.468 |
+|                    loss/vf1 |            1.73 |
+|               loss/vf_total |             2.2 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -325 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -322 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        2.73e+03 |
+|             update/env_step |        5.92e+05 |
+|              update/episode |        1.19e+03 |
+|       update/gradient_steps |             238 |
+|      update/remaining_epoch |             275 |
+|           update/test_speed |             110 |
+|            update/test_time |             227 |
+| update/train_collector_time |        1.46e+03 |
+|     update/train_model_time |        1.05e+03 |
+|          update/train_speed |             237 |
+-------------------------------------------------
+Epoch: 25
+{'duration': 2730.790091753006, 'test_time': 227.07256889343262, 'test_speed': 110.09696204975224, 'train_collector_time': 1458.4195959568024, 'train_model_time': 1045.297926902771, 'train_speed': 236.53786603035098, 'remaining_epoch': 275, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #26:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #26:  50%|#####     | 10000/20000 [00:24<00:24, 414.58it/s]Epoch #26:  50%|#####     | 10000/20000 [00:39<00:24, 414.58it/s]Epoch #26:  50%|#####     | 10000/20000 [00:40<00:24, 414.58it/s, cost=0, length=500, rew=-321]Epoch #26: 100%|##########| 20000/20000 [01:04<00:00, 294.76it/s, cost=0, length=500, rew=-321]Epoch #26: 100%|##########| 20000/20000 [01:19<00:00, 294.76it/s, cost=0, length=500, rew=-321]Epoch #26: 100%|##########| 20000/20000 [01:20<00:00, 294.76it/s, cost=0, length=500, rew=-289]Epoch #26: 100%|##########| 20000/20000 [01:20<00:00, 247.53it/s, cost=0, length=500, rew=-289]
+-------------------------------------------------
+|              loss/cost_loss |        9.54e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |        1.46e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.458 |
+|                    loss/vf1 |            1.71 |
+|               loss/vf_total |            2.16 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -319 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -305 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        2.82e+03 |
+|             update/env_step |        6.12e+05 |
+|              update/episode |        1.23e+03 |
+|       update/gradient_steps |             246 |
+|      update/remaining_epoch |             274 |
+|           update/test_speed |             110 |
+|            update/test_time |             236 |
+| update/train_collector_time |        1.51e+03 |
+|     update/train_model_time |        1.08e+03 |
+|          update/train_speed |             237 |
+-------------------------------------------------
+Epoch: 26
+{'duration': 2820.9241943359375, 'test_time': 236.38409996032715, 'test_speed': 109.9904773813621, 'train_collector_time': 1506.9098205566406, 'train_model_time': 1077.6302738189697, 'train_speed': 236.8792812819199, 'remaining_epoch': 274, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #27:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #27:  50%|#####     | 10000/20000 [00:24<00:24, 409.58it/s]Epoch #27:  50%|#####     | 10000/20000 [00:39<00:24, 409.58it/s]Epoch #27:  50%|#####     | 10000/20000 [00:40<00:24, 409.58it/s, cost=0, length=500, rew=-315]Epoch #27: 100%|##########| 20000/20000 [01:05<00:00, 294.69it/s, cost=0, length=500, rew=-315]Epoch #27: 100%|##########| 20000/20000 [01:19<00:00, 294.69it/s, cost=0, length=500, rew=-315]Epoch #27: 100%|##########| 20000/20000 [01:21<00:00, 294.69it/s, cost=0, length=500, rew=-298]Epoch #27: 100%|##########| 20000/20000 [01:21<00:00, 246.34it/s, cost=0, length=500, rew=-298]
+-------------------------------------------------
+|              loss/cost_loss |        3.81e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |       -1.73e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.455 |
+|                    loss/vf1 |            1.68 |
+|               loss/vf_total |            2.13 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -331 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -306 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        2.91e+03 |
+|             update/env_step |        6.32e+05 |
+|              update/episode |        1.27e+03 |
+|       update/gradient_steps |             254 |
+|      update/remaining_epoch |             273 |
+|           update/test_speed |             110 |
+|            update/test_time |             246 |
+| update/train_collector_time |        1.56e+03 |
+|     update/train_model_time |        1.11e+03 |
+|          update/train_speed |             237 |
+-------------------------------------------------
+Epoch: 27
+{'duration': 2911.8864238262177, 'test_time': 246.1328752040863, 'test_speed': 109.69684556608854, 'train_collector_time': 1555.7090475559235, 'train_model_time': 1110.0445010662079, 'train_speed': 237.16520993727366, 'remaining_epoch': 273, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #28:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #28:  50%|#####     | 10000/20000 [00:24<00:24, 409.26it/s]Epoch #28:  50%|#####     | 10000/20000 [00:38<00:24, 409.26it/s]Epoch #28:  50%|#####     | 10000/20000 [00:40<00:24, 409.26it/s, cost=0, length=500, rew=-308]Epoch #28: 100%|##########| 20000/20000 [01:05<00:00, 292.44it/s, cost=0, length=500, rew=-308]Epoch #28: 100%|##########| 20000/20000 [01:18<00:00, 292.44it/s, cost=0, length=500, rew=-308]Epoch #28: 100%|##########| 20000/20000 [01:21<00:00, 292.44it/s, cost=0, length=500, rew=-343]Epoch #28: 100%|##########| 20000/20000 [01:21<00:00, 246.46it/s, cost=0, length=500, rew=-343]
+-------------------------------------------------
+|              loss/cost_loss |       -4.17e-11 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |        6.53e-09 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.446 |
+|                    loss/vf1 |            1.65 |
+|               loss/vf_total |             2.1 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -302 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -326 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |           3e+03 |
+|             update/env_step |        6.52e+05 |
+|              update/episode |        1.31e+03 |
+|       update/gradient_steps |             262 |
+|      update/remaining_epoch |             272 |
+|           update/test_speed |             110 |
+|            update/test_time |             256 |
+| update/train_collector_time |         1.6e+03 |
+|     update/train_model_time |        1.14e+03 |
+|          update/train_speed |             237 |
+-------------------------------------------------
+Epoch: 28
+{'duration': 3002.4534442424774, 'test_time': 255.52402782440186, 'test_speed': 109.57873605233642, 'train_collector_time': 1604.7432551383972, 'train_model_time': 1142.1861612796783, 'train_speed': 237.43748059259678, 'remaining_epoch': 272, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #29:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #29:  50%|#####     | 10000/20000 [00:24<00:24, 408.37it/s]Epoch #29:  50%|#####     | 10000/20000 [00:37<00:24, 408.37it/s]Epoch #29:  50%|#####     | 10000/20000 [00:40<00:24, 408.37it/s, cost=0, length=500, rew=-331]Epoch #29: 100%|##########| 20000/20000 [01:04<00:00, 296.63it/s, cost=0, length=500, rew=-331]Epoch #29: 100%|##########| 20000/20000 [01:17<00:00, 296.63it/s, cost=0, length=500, rew=-331]Epoch #29: 100%|##########| 20000/20000 [01:20<00:00, 296.63it/s, cost=0, length=500, rew=-315]Epoch #29: 100%|##########| 20000/20000 [01:20<00:00, 248.01it/s, cost=0, length=500, rew=-315]
+-------------------------------------------------
+|              loss/cost_loss |       -5.72e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |       -1.69e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.444 |
+|                    loss/vf1 |            1.64 |
+|               loss/vf_total |            2.08 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -316 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -323 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        3.09e+03 |
+|             update/env_step |        6.72e+05 |
+|              update/episode |        1.35e+03 |
+|       update/gradient_steps |             270 |
+|      update/remaining_epoch |             271 |
+|           update/test_speed |             109 |
+|            update/test_time |             265 |
+| update/train_collector_time |        1.65e+03 |
+|     update/train_model_time |        1.17e+03 |
+|          update/train_speed |             238 |
+-------------------------------------------------
+Epoch: 29
+{'duration': 3092.661497116089, 'test_time': 265.06195735931396, 'test_speed': 109.40838243599039, 'train_collector_time': 1653.3872456550598, 'train_model_time': 1174.212294101715, 'train_speed': 237.73663510279943, 'remaining_epoch': 271, 'best_reward': -286.7666551117882, 'best_cost': 0.0}
+Epoch #30:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #30:  50%|#####     | 10000/20000 [00:24<00:24, 409.72it/s]Epoch #30:  50%|#####     | 10000/20000 [00:37<00:24, 409.72it/s]Epoch #30:  50%|#####     | 10000/20000 [00:40<00:24, 409.72it/s, cost=0, length=500, rew=-318]Epoch #30: 100%|##########| 20000/20000 [01:05<00:00, 294.53it/s, cost=0, length=500, rew=-318]Epoch #30: 100%|##########| 20000/20000 [01:17<00:00, 294.53it/s, cost=0, length=500, rew=-318]Epoch #30: 100%|##########| 20000/20000 [01:21<00:00, 294.53it/s, cost=0, length=500, rew=-327]Epoch #30: 100%|##########| 20000/20000 [01:21<00:00, 245.79it/s, cost=0, length=500, rew=-327]
+-------------------------------------------------
+|              loss/cost_loss |        2.86e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |       -6.65e-09 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.438 |
+|                    loss/vf1 |            1.63 |
+|               loss/vf_total |            2.07 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -233 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -323 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        3.18e+03 |
+|             update/env_step |        6.92e+05 |
+|              update/episode |        1.39e+03 |
+|       update/gradient_steps |             278 |
+|      update/remaining_epoch |             270 |
+|           update/test_speed |             109 |
+|            update/test_time |             274 |
+| update/train_collector_time |         1.7e+03 |
+|     update/train_model_time |        1.21e+03 |
+|          update/train_speed |             238 |
+-------------------------------------------------
+Epoch: 30
+{'duration': 3183.434803724289, 'test_time': 274.4378809928894, 'test_speed': 109.31435518836881, 'train_collector_time': 1702.0906147956848, 'train_model_time': 1206.9063079357147, 'train_speed': 237.9596879566435, 'remaining_epoch': 270, 'best_reward': -232.68345955192564, 'best_cost': 0.0}
+Epoch #31:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #31:  50%|#####     | 10000/20000 [00:24<00:24, 416.01it/s]Epoch #31:  50%|#####     | 10000/20000 [00:36<00:24, 416.01it/s]Epoch #31:  50%|#####     | 10000/20000 [00:40<00:24, 416.01it/s, cost=0, length=500, rew=-320]Epoch #31: 100%|##########| 20000/20000 [01:05<00:00, 291.36it/s, cost=0, length=500, rew=-320]Epoch #31: 100%|##########| 20000/20000 [01:16<00:00, 291.36it/s, cost=0, length=500, rew=-320]Epoch #31: 100%|##########| 20000/20000 [01:21<00:00, 291.36it/s, cost=0, length=500, rew=-322]Epoch #31: 100%|##########| 20000/20000 [01:21<00:00, 244.95it/s, cost=0, length=500, rew=-322]
+-------------------------------------------------
+|              loss/cost_loss |        5.96e-11 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |        7.25e-09 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.437 |
+|                    loss/vf1 |            1.62 |
+|               loss/vf_total |            2.06 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -298 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -321 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        3.27e+03 |
+|             update/env_step |        7.12e+05 |
+|              update/episode |        1.43e+03 |
+|       update/gradient_steps |             286 |
+|      update/remaining_epoch |             269 |
+|           update/test_speed |             109 |
+|            update/test_time |             284 |
+| update/train_collector_time |        1.75e+03 |
+|     update/train_model_time |        1.24e+03 |
+|          update/train_speed |             238 |
+-------------------------------------------------
+Epoch: 31
+{'duration': 3274.5259454250336, 'test_time': 283.84920477867126, 'test_speed': 109.21291826120125, 'train_collector_time': 1751.0417358875275, 'train_model_time': 1239.6350047588348, 'train_speed': 238.14810551743886, 'remaining_epoch': 269, 'best_reward': -232.68345955192564, 'best_cost': 0.0}
+Epoch #32:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #32:  50%|#####     | 10000/20000 [00:24<00:24, 411.67it/s]Epoch #32:  50%|#####     | 10000/20000 [00:35<00:24, 411.67it/s]Epoch #32:  50%|#####     | 10000/20000 [00:40<00:24, 411.67it/s, cost=0, length=500, rew=-313]Epoch #32: 100%|##########| 20000/20000 [01:04<00:00, 296.00it/s, cost=0, length=500, rew=-313]Epoch #32: 100%|##########| 20000/20000 [01:15<00:00, 296.00it/s, cost=0, length=500, rew=-313]Epoch #32: 100%|##########| 20000/20000 [01:20<00:00, 296.00it/s, cost=0, length=500, rew=-320]Epoch #32: 100%|##########| 20000/20000 [01:20<00:00, 247.66it/s, cost=0, length=500, rew=-320]
+-------------------------------------------------
+|              loss/cost_loss |       -3.87e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |       -1.29e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |            0.43 |
+|                    loss/vf1 |            1.61 |
+|               loss/vf_total |            2.04 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -347 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -317 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        3.36e+03 |
+|             update/env_step |        7.32e+05 |
+|              update/episode |        1.47e+03 |
+|       update/gradient_steps |             294 |
+|      update/remaining_epoch |             268 |
+|           update/test_speed |             109 |
+|            update/test_time |             293 |
+| update/train_collector_time |         1.8e+03 |
+|     update/train_model_time |        1.27e+03 |
+|          update/train_speed |             238 |
+-------------------------------------------------
+Epoch: 32
+{'duration': 3364.795536518097, 'test_time': 293.33911776542664, 'test_speed': 109.08875789825385, 'train_collector_time': 1799.5614314079285, 'train_model_time': 1271.8949873447418, 'train_speed': 238.39635019055842, 'remaining_epoch': 268, 'best_reward': -232.68345955192564, 'best_cost': 0.0}
+Epoch #33:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #33:  50%|#####     | 10000/20000 [00:24<00:24, 406.42it/s]Epoch #33:  50%|#####     | 10000/20000 [00:35<00:24, 406.42it/s]Epoch #33:  50%|#####     | 10000/20000 [00:40<00:24, 406.42it/s, cost=0, length=500, rew=-329]Epoch #33: 100%|##########| 20000/20000 [01:04<00:00, 295.20it/s, cost=0, length=500, rew=-329]Epoch #33: 100%|##########| 20000/20000 [01:15<00:00, 295.20it/s, cost=0, length=500, rew=-329]Epoch #33: 100%|##########| 20000/20000 [01:20<00:00, 295.20it/s, cost=0, length=500, rew=-340]Epoch #33: 100%|##########| 20000/20000 [01:20<00:00, 247.18it/s, cost=0, length=500, rew=-340]
+-------------------------------------------------
+|              loss/cost_loss |       -6.79e-10 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |        -1.7e-08 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.425 |
+|                    loss/vf1 |            1.59 |
+|               loss/vf_total |            2.02 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -341 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -334 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        3.46e+03 |
+|             update/env_step |        7.52e+05 |
+|              update/episode |        1.51e+03 |
+|       update/gradient_steps |             302 |
+|      update/remaining_epoch |             267 |
+|           update/test_speed |             109 |
+|            update/test_time |             303 |
+| update/train_collector_time |        1.85e+03 |
+|     update/train_model_time |         1.3e+03 |
+|          update/train_speed |             239 |
+-------------------------------------------------
+Epoch: 33
+{'duration': 3455.62500667572, 'test_time': 303.22586035728455, 'test_speed': 108.82976788693684, 'train_collector_time': 1848.4683499336243, 'train_model_time': 1303.9307963848114, 'train_speed': 238.6195291540074, 'remaining_epoch': 267, 'best_reward': -232.68345955192564, 'best_cost': 0.0}
+Epoch #34:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #34:  50%|#####     | 10000/20000 [00:24<00:24, 415.53it/s]Epoch #34:  50%|#####     | 10000/20000 [00:34<00:24, 415.53it/s]Epoch #34:  50%|#####     | 10000/20000 [00:40<00:24, 415.53it/s, cost=0, length=500, rew=-314]Epoch #34: 100%|##########| 20000/20000 [01:05<00:00, 289.77it/s, cost=0, length=500, rew=-314]Epoch #34: 100%|##########| 20000/20000 [01:21<00:00, 289.77it/s, cost=0, length=500, rew=-304]Epoch #34: 100%|##########| 20000/20000 [01:21<00:00, 245.57it/s, cost=0, length=500, rew=-304]
+-------------------------------------------------
+|              loss/cost_loss |       -6.56e-11 |
+|                loss/entropy |           -20.2 |
+|                     loss/kl |               0 |
+|                loss/optim_A |             nan |
+|                loss/optim_B |             nan |
+|                loss/optim_C |             nan |
+|                loss/optim_Q |             nan |
+|                loss/optim_R |             nan |
+|                loss/optim_S |             nan |
+|             loss/optim_case |               0 |
+|              loss/optim_lam |               0 |
+|               loss/optim_nu |             nan |
+|               loss/rew_loss |          -6e-09 |
+|              loss/step_size |               1 |
+|                    loss/vf0 |           0.422 |
+|                    loss/vf1 |            1.58 |
+|               loss/vf_total |               2 |
+|                   test/cost |               0 |
+|                 test/length |             500 |
+|                 test/reward |            -324 |
+|                  train/cost |               0 |
+|            train/cost_limit |              10 |
+|                train/length |             500 |
+|                train/reward |            -309 |
+|             update/cum_cost |        3.43e+05 |
+|             update/duration |        3.55e+03 |
+|             update/env_step |        7.72e+05 |
+|              update/episode |        1.55e+03 |
+|       update/gradient_steps |             310 |
+|      update/remaining_epoch |             266 |
+|           update/test_speed |             109 |
+|            update/test_time |             312 |
+| update/train_collector_time |         1.9e+03 |
+|     update/train_model_time |        1.34e+03 |
+|          update/train_speed |             239 |
+-------------------------------------------------
+Epoch: 34
+{'duration': 3546.0312399864197, 'test_time': 312.16704392433167, 'test_speed': 108.91604562921606, 'train_collector_time': 1898.3184869289398, 'train_model_time': 1335.5457091331482, 'train_speed': 238.79295888193008, 'remaining_epoch': 266, 'best_reward': -232.68345955192564, 'best_cost': 0.0}
