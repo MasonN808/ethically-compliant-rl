@@ -54,12 +54,13 @@ TASK_TO_CFG = {
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     epoch: int = 300
-    lr: float = 0.0005
+    # lr: float = 0.0005
+    lr: float = 0.001
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
     step_per_epoch: int = 20000
-    target_kl: float = 0.01
+    target_kl: float = 0.015
     project: str = "2-constraints-actual"
     worker: str = "ShmemVectorEnv"
     # worker: str = "RayVectorEnv"
