@@ -1,5 +1,6 @@
 import ast
 from dataclasses import asdict, dataclass
+import random
 import sys
 
 import bullet_safety_gym
@@ -30,19 +31,20 @@ from gym.wrappers.monitoring.video_recorder import VideoRecorder
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/fast-safe-rl/parking-v0-cost-10/ppol_lr0.001_step_per_epoch20000_target_kl0.01-c32c"
+    path: str = "logs/PPO/parking-v0-cost-10/ppol_lr0.001_step_per_epoch20000_target_kl0.01-80c2"
     best: bool = True
-    eval_episodes: int = 10
+    eval_episodes: int = 3
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
-    render: float = .05
+    render: float = .005
     train_mode: bool = False
     render_mode: str = "rgb_array"
     device = "cpu"
     worker: BaseVectorEnv = ShmemVectorEnv
     env_config_file: str = 'configs/ParkingEnv/env-evaluation.txt'
     monitor_mode: bool = True
-    video_recorder: VideoRecorder = None
+    video_recorder: VideoRecorder = None # Keep this None
+    random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, 40], [-40, 0]]
 
 with open(EvalConfig.env_config_file) as f:
     data = f.read()
@@ -134,15 +136,17 @@ def eval(args: EvalConfig):
     # test_envs = args.worker(
     #     [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
     # )
-    # TODO: add large for loop here
-    test_env = load_environment(ENV_CONFIG, render_mode=args.render_mode)
-    args.video_recorder = VideoRecorder(test_env, "./videos/ppo-7.mp4")
-    
-    # Collector
-    eval_collector = FastCollector(policy, test_env)
-    result = eval_collector.collect(n_episode=args.eval_episodes, render=args.render, video_recorder=args.video_recorder)
-    rews, lens, cost = result["rew"], result["len"], result["cost"]
-    print(f"Eval reward: {rews}, cost: {cost}, length: {lens}")
+    index_offset = 8
+    for vid_index in range(index_offset, EvalConfig.eval_episodes+index_offset):
+        ENV_CONFIG.update({"start_location": random.choice(EvalConfig.random_starting_locations)})
+        test_env = load_environment(ENV_CONFIG, render_mode=args.render_mode)
+        args.video_recorder = VideoRecorder(test_env, f"./videos/ppo-{vid_index}.mp4")
+        # Collector
+        eval_collector = FastCollector(policy, test_env)
+        result = eval_collector.collect(n_episode=1, render=args.render, video_recorder=args.video_recorder, constraints=False)
+    # result = eval_collector.collect(n_episode=args.eval_episodes, render=args.render, video_recorder=args.video_recorder, constraints=False)
+        rews, lens, cost = result["rew"], result["len"], result["cost"]
+        print(f"Eval reward: {rews}, cost: {cost}, length: {lens}")
 
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ ARGS="$@"
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py"
 
 SCRIPTS=(
-"$BASE_SCRIPT --lr .0005 --eoch 400$ARGS" 
+"$BASE_SCRIPT --lr .0005 --epoch 400 $ARGS" 
 "$BASE_SCRIPT --lr .0005 --cost_limit 10.0 10.0 $ARGS"
 "$BASE_SCRIPT --lr .0005 --cost_limit 5.0 3.0 $ARGS"
 )
