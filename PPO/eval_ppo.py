@@ -27,11 +27,30 @@ from gymnasium.spaces.dict import Dict
 
 # For video monitoring the environment
 from gym.wrappers.monitoring.video_recorder import VideoRecorder
+import re
 
 @dataclass
 class EvalConfig:
     # Relative path to experiment
     path: str = "logs/PPO/parking-v0-cost-10/ppol_lr0.001_step_per_epoch20000_target_kl0.01-80c2"
+    # Get the unique 4 char id of the file at the end of the file name
+    match = re.search(r'-([\w]+)$', path)
+    experiment_id = "----"
+    if match:
+        experiment_id = match.group(1)
+    else:
+        print("Pattern not found")
+
+    # Get the algorithm used
+    match = re.search(r'/(\w+?)_', path)
+    constraints = True
+    if match:
+        algorithm = match.group(1)
+        if algorithm == "ppol":
+            constraints = False
+    else:
+        print("Pattern not found")
+
     best: bool = True
     eval_episodes: int = 3
     parallel_eval: bool = False
@@ -44,7 +63,9 @@ class EvalConfig:
     env_config_file: str = 'configs/ParkingEnv/env-evaluation.txt'
     monitor_mode: bool = True
     video_recorder: VideoRecorder = None # Keep this None
-    random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, 40], [-40, 0]]
+    # random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, 40], [-40, 0]]
+    random_starting_locations = [[0,0]]
+
 
 with open(EvalConfig.env_config_file) as f:
     data = f.read()
@@ -136,17 +157,17 @@ def eval(args: EvalConfig):
     # test_envs = args.worker(
     #     [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
     # )
-    index_offset = 8
+    index_offset = 0
     for vid_index in range(index_offset, EvalConfig.eval_episodes+index_offset):
         ENV_CONFIG.update({"start_location": random.choice(EvalConfig.random_starting_locations)})
         test_env = load_environment(ENV_CONFIG, render_mode=args.render_mode)
-        args.video_recorder = VideoRecorder(test_env, f"./videos/ppo-{vid_index}.mp4")
+        args.video_recorder = VideoRecorder(test_env, f"./videos/ppo-{EvalConfig.experiment_id}-{vid_index}.mp4")
         # Collector
-        eval_collector = FastCollector(policy, test_env)
+        eval_collector = FastCollector(policy, test_env, constraints=EvalConfig.constraints)
         result = eval_collector.collect(n_episode=1, render=args.render, video_recorder=args.video_recorder, constraints=False)
     # result = eval_collector.collect(n_episode=args.eval_episodes, render=args.render, video_recorder=args.video_recorder, constraints=False)
-        rews, lens, cost = result["rew"], result["len"], result["cost"]
-        print(f"Eval reward: {rews}, cost: {cost}, length: {lens}")
+        rews, lens = result["rew"], result["len"]
+        print(f"Eval reward: {rews}, length: {lens}")
 
 
 if __name__ == "__main__":

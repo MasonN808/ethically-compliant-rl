@@ -67,6 +67,7 @@ class MyCfg(TrainCfg):
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
     # Points are around the parking lot and in the middle
     random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, -40]]
+    constraints: bool = False
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
@@ -245,9 +246,9 @@ def train(args: MyCfg):
         train_envs,
         VectorReplayBuffer(args.buffer_size, len(train_envs)),
         exploration_noise=True,
-        constraints=False,
+        constraints=MyCfg.constraints,
     )
-    test_collector = FastCollector(policy, test_envs, constraints=False)
+    test_collector = FastCollector(policy, test_envs, constraints=MyCfg.constraints)
 
     def stop_fn(reward, cost):
         return reward > args.reward_threshold and cost < args.cost_limit
@@ -289,13 +290,13 @@ def train(args: MyCfg):
             ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
         env = load_environment(ENV_CONFIG)
         policy.eval()
-        collector = FastCollector(policy, env, constraints=False)
+        collector = FastCollector(policy, env, constraints=MyCfg.constraints)
         result = collector.collect(n_episode=10, render=args.render)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final eval reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
 
         policy.train()
-        collector = FastCollector(policy, env,  constraints=False)
+        collector = FastCollector(policy, env,  constraints=MyCfg.constraints)
         result = collector.collect(n_episode=10, render=args.render)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final train reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
