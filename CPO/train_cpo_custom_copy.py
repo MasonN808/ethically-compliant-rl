@@ -86,7 +86,7 @@ class MyCfg(TrainCfg):
     project: str = args.project
     gamma: float = args.gamma
     # cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
-    cost_limit: Union[List, float] = [10.0, 10.0]
+    cost_limit: Union[List, float] = field(default_factory=lambda: [10.0, 10.0])
     
     worker: str = "ShmemVectorEnv"
     # Decide which device to use based on availability
