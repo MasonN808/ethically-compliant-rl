@@ -9,13 +9,19 @@
 #SBATCH --qos scavenger
 
 
+# Get all arguments passed to the script
+ARGS="$@"
+
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py"
+
 SCRIPTS=(
-"/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" 
-"/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" --cost_limit 10.0 10.0
-"/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py" --target_kl 0.015
+"$BASE_SCRIPT --lr .0005 --epoch 400 $ARGS" 
+"$BASE_SCRIPT --lr .0005 --cost_limit 10.0 10.0 $ARGS"
+"$BASE_SCRIPT --lr .0005 --cost_limit 5.0 3.0 $ARGS"
 )
 
-for SCRIPT in ${SCRIPTS[@]}; do
+for SCRIPT in "${SCRIPTS[@]}"; do
     srun -N1 -n1 python3 $SCRIPT &
 done
+
 wait
