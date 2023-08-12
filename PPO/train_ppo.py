@@ -51,8 +51,8 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = 300
-    lr: float = 0.001
+    epoch: int = 400
+    lr: float = 0.0005
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 320 # If use CPU to train
@@ -66,7 +66,7 @@ class MyCfg(TrainCfg):
     gamma: float = .99
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
     # Points are around the parking lot and in the middle
-    random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, 30], [0, -40]]
+    random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, -40]]
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
