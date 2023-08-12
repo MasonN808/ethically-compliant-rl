@@ -11,7 +11,7 @@
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom_copy.py"
 
 SCRIPTS=(
 "$BASE_SCRIPT --lr .0005 --epoch 400 $ARGS" 
