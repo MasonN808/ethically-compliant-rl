@@ -48,33 +48,33 @@ from typing import Union, List
 
 import argparse
 
-# CPO arguments
-parser = argparse.ArgumentParser(description="Training script")
-parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
-parser.add_argument('--project', type=str, default="2-constraints-absolute", help='Project name')
-parser.add_argument('--epoch', type=int, default=300, help='Number of epochs')
-parser.add_argument('--target_kl', type=float, default=0.01, help='Target KL divergence')
-parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
-parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
-parser.add_argument('--gamma', type=float, default=0.99, help='Gamma value for reinforcement learning')
-parser.add_argument('--cost_limit', type=float, nargs='+', default=[3.0, 3.0], help='Cost limit values as a list', metavar='FLOAT')
-parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
-parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
-parser.add_argument('--thread', type=int, default=320, help='Number of threads')
-
-# Environment argumnets
-parser.add_argument('--constrained_rl', type=bool, default=True, help='Identifier for constrained RL')
-parser.add_argument('--cost_delta_distance', type=float, default=4.0, help='The maximum distance to line points until costs incur')
-parser.add_argument('--quantized_line_points', type=int, default=20, help='Number of quantized points for each parking line')
-parser.add_argument('--absolute_cost_distance', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
-parser.add_argument('--cost_speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
-parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
-
-
-args = parser.parse_args()
-
 @dataclass
 class MyCfg(TrainCfg):
+    # CPO arguments
+    parser = argparse.ArgumentParser(description="Training script")
+    parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
+    parser.add_argument('--project', type=str, default="2-constraints-absolute", help='Project name')
+    parser.add_argument('--epoch', type=int, default=300, help='Number of epochs')
+    parser.add_argument('--target_kl', type=float, default=0.01, help='Target KL divergence')
+    parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
+    parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
+    parser.add_argument('--gamma', type=float, default=0.99, help='Gamma value for reinforcement learning')
+    parser.add_argument('--cost_limit', type=float, nargs='+', default=[3.0, 3.0], help='Cost limit values as a list', metavar='FLOAT')
+    parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
+    parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
+    parser.add_argument('--thread', type=int, default=320, help='Number of threads')
+
+    # Environment argumnets
+    parser.add_argument('--constrained_rl', type=bool, default=True, help='Identifier for constrained RL')
+    parser.add_argument('--cost_delta_distance', type=float, default=4.0, help='The maximum distance to line points until costs incur')
+    parser.add_argument('--quantized_line_points', type=int, default=20, help='Number of quantized points for each parking line')
+    parser.add_argument('--absolute_cost_distance', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
+    parser.add_argument('--cost_speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
+    parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
+
+
+    args = parser.parse_args()
+
     task: str = args.task
     epoch: int = args.epoch # Get epoch from command-line arguments
     lr: float = args.lr
@@ -86,6 +86,7 @@ class MyCfg(TrainCfg):
     project: str = args.project
     gamma: float = args.gamma
     cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
+    # cost_limit: Union[List, float] = [3.0]
     
     worker: str = "ShmemVectorEnv"
     # Decide which device to use based on availability
