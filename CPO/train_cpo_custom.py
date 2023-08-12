@@ -57,7 +57,7 @@ parser.add_argument('--target_kl', type=float, default=0.01, help='Target KL div
 parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
 parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
 parser.add_argument('--gamma', type=float, default=0.99, help='Gamma value for reinforcement learning')
-parser.add_argument('--cost_limit', type=float, nargs='+', default=[3.0, 3.0], help='Cost limit values as a list')
+parser.add_argument('--cost_limit', type=list[float], nargs='+', default=[3.0, 3.0], help='Cost limit values as a list')
 parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
 parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
 parser.add_argument('--thread', type=int, default=320, help='Number of threads')
