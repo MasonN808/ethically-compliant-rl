@@ -245,8 +245,9 @@ def train(args: MyCfg):
         train_envs,
         VectorReplayBuffer(args.buffer_size, len(train_envs)),
         exploration_noise=True,
+        constraints=False,
     )
-    test_collector = FastCollector(policy, test_envs)
+    test_collector = FastCollector(policy, test_envs, constraints=False)
 
     def stop_fn(reward, cost):
         return reward > args.reward_threshold and cost < args.cost_limit
@@ -288,13 +289,13 @@ def train(args: MyCfg):
             ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
         env = load_environment(ENV_CONFIG)
         policy.eval()
-        collector = FastCollector(policy, env)
+        collector = FastCollector(policy, env, constraints=False)
         result = collector.collect(n_episode=10, render=args.render)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final eval reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
 
         policy.train()
-        collector = FastCollector(policy, env)
+        collector = FastCollector(policy, env,  constraints=False)
         result = collector.collect(n_episode=10, render=args.render)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final train reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
