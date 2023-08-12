@@ -1,0 +1,174 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230812_001512-a4e76a3a-7aa0-4549-a5ca-91886466a253
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_step_per_epoch20000_target_kl0.01-b093
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO/runs/a4e76a3a-7aa0-4549-a5ca-91886466a253
+[32;1mLogging data to logs/PPO/parking-v0-cost-10/ppol_step_per_epoch20000_target_kl0.01-b093/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "cost_limit":	10,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoal.txt",
+    "episode_per_collect":	20,
+    "epoch":	400,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0005,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_step_per_epoch20000_target_kl0.01-b093",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPO",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+Epoch #1:   0%|          | 0/20000 [00:00<?, ?it/s]Epoch #1:  50%|#####     | 10000/20000 [00:18<00:18, 529.80it/s]Epoch #1:  50%|#####     | 10000/20000 [00:30<00:18, 529.80it/s]Epoch #1:  50%|#####     | 10000/20000 [00:33<00:18, 529.80it/s, cost=0, length=500, rew=-573]Epoch #1: 100%|##########| 20000/20000 [00:51<00:00, 370.06it/s, cost=0, length=500, rew=-573]Epoch #1: 100%|##########| 20000/20000 [01:06<00:00, 370.06it/s, cost=0, length=500, rew=-552]Epoch #1: 100%|##########| 20000/20000 [01:06<00:00, 300.17it/s, cost=0, length=500, rew=-552]
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 305, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 280, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 226, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 256, in perf_is_better
+    if cost <= self.cost_limit or rew > self.best_perf_rew:
+TypeError: '<=' not supported between instances of 'list' and 'int'
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 305, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 280, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 226, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 256, in perf_is_better
+    if cost <= self.cost_limit or rew > self.best_perf_rew:
+TypeError: '<=' not supported between instances of 'list' and 'int'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁█
+wandb:     loss/actor_safety ▁▁
+wandb:      loss/actor_total ▁█
+wandb:          loss/entropy ▁█
+wandb:               loss/kl █▁
+wandb:       loss/lagrangian ▁▁
+wandb:        loss/rescaling ▁▁
+wandb:            loss/total █▁
+wandb:              loss/vf0 █▁
+wandb:              loss/vf1 █▁
+wandb:         loss/vf_total █▁
+wandb:            train/cost ▁▁
+wandb:   train/cost_distance ▁▁
+wandb:      train/cost_speed ▁▁
+wandb:          train/length ▁▁
+wandb:          train/reward ▁█
+wandb:       update/cum_cost ▁▁
+wandb:        update/episode ▁█
+wandb: update/gradient_steps ▁█
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.00055
+wandb:     loss/actor_safety 0.0
+wandb:      loss/actor_total 0.00055
+wandb:          loss/entropy 2.85817
+wandb:               loss/kl 0.0074
+wandb:       loss/lagrangian 0.0
+wandb:        loss/rescaling 1.0
+wandb:            loss/total 24.47858
+wandb:              loss/vf0 97.90812
+wandb:              loss/vf1 0.00399
+wandb:         loss/vf_total 97.91212
+wandb:            train/cost 0.0
+wandb:   train/cost_distance 0.0
+wandb:      train/cost_speed 0.0
+wandb:          train/length 500.0
+wandb:          train/reward -562.34336
+wandb:       update/cum_cost 0.0
+wandb:        update/episode 30.0
+wandb: update/gradient_steps 234.0
+wandb: 
+wandb: 🚀 View run ppol_step_per_epoch20000_target_kl0.01-b093 at: https://wandb.ai/ecrl/PPO/runs/a4e76a3a-7aa0-4549-a5ca-91886466a253
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230812_001512-a4e76a3a-7aa0-4549-a5ca-91886466a253/logs
+Exception in thread NetStatThr:
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 954, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 892, in run
+    self._target(*self._args, **self._kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 259, in check_network_status
+    self._loop_check_status(
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 215, in _loop_check_status
+    local_handle = request()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 795, in deliver_network_status
+    return self._deliver_network_status(status)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 601, in _deliver_network_status
+    return self._deliver_record(record)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 560, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 1

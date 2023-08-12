@@ -1,0 +1,114 @@
+usage: train_cpo_custom.py [-h] [--config_path str] [--task str]
+                           [--cost_limit str] [--device str] [--thread str]
+                           [--seed str] [--use_default_cfg str] [--lr str]
+                           [--hidden_sizes str] [--unbounded str]
+                           [--last_layer_scale str] [--target_kl str]
+                           [--backtrack_coeff str] [--damping_coeff str]
+                           [--max_backtracks str] [--optim_critic_iters str]
+                           [--l2_reg str] [--gae_lambda str] [--norm_adv str]
+                           [--gamma str] [--max_batchsize str]
+                           [--rew_norm str] [--deterministic_eval str]
+                           [--action_scaling str] [--action_bound_method str]
+                           [--epoch str] [--episode_per_collect str]
+                           [--step_per_epoch str] [--repeat_per_collect str]
+                           [--buffer_size str] [--worker str]
+                           [--training_num str] [--testing_num str]
+                           [--batch_size str] [--reward_threshold str]
+                           [--save_interval str] [--resume str]
+                           [--save_ckpt str] [--verbose str] [--render str]
+                           [--logdir str] [--project str] [--group str]
+                           [--name str] [--prefix str] [--suffix str]
+                           [--render_mode str] [--env_config_file str]
+train_cpo_custom.py: error: unrecognized arguments: 10.0
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 2
+usage: train_cpo_custom.py [-h] [--config_path str] [--task str]
+                           [--cost_limit str] [--device str] [--thread str]
+                           [--seed str] [--use_default_cfg str] [--lr str]
+                           [--hidden_sizes str] [--unbounded str]
+                           [--last_layer_scale str] [--target_kl str]
+                           [--backtrack_coeff str] [--damping_coeff str]
+                           [--max_backtracks str] [--optim_critic_iters str]
+                           [--l2_reg str] [--gae_lambda str] [--norm_adv str]
+                           [--gamma str] [--max_batchsize str]
+                           [--rew_norm str] [--deterministic_eval str]
+                           [--action_scaling str] [--action_bound_method str]
+                           [--epoch str] [--episode_per_collect str]
+                           [--step_per_epoch str] [--repeat_per_collect str]
+                           [--buffer_size str] [--worker str]
+                           [--training_num str] [--testing_num str]
+                           [--batch_size str] [--reward_threshold str]
+                           [--save_interval str] [--resume str]
+                           [--save_ckpt str] [--verbose str] [--render str]
+                           [--logdir str] [--project str] [--group str]
+                           [--name str] [--prefix str] [--suffix str]
+                           [--render_mode str] [--env_config_file str]
+train_cpo_custom.py: error: unrecognized arguments: 3.0
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 2
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230811_231939-00be6388-ab59-486e-8f91-8e37f0fd881f
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cpo_cost3.0_3.0_lr0.0005_step_per_epoch20000-62e4
+wandb: ⭐️ View project at https://wandb.ai/ecrl/2-constraints-absolute
+wandb: 🚀 View run at https://wandb.ai/ecrl/2-constraints-absolute/runs/00be6388-ab59-486e-8f91-8e37f0fd881f
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-3-cost1-3/cpo_cost3.0_3.0_lr0.0005_step_per_epoch20000-62e4/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "backtrack_coeff":	0.8,
+    "batch_size":	99999,
+    "buffer_size":	100000,
+    "cost_limit":	[
+        3.0,
+        3.0
+    ],
+    "damping_coeff":	0.1,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	400,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "l2_reg":	0.001,
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0005,
+    "max_backtracks":	100,
+    "max_batchsize":	99999,
+    "name":	"cpo_cost3.0_3.0_lr0.0005_step_per_epoch20000-62e4",
+    "norm_adv":	true,
+    "optim_critic_iters":	10,
+    "prefix":	"cpo",
+    "project":	"2-constraints-absolute",
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	20000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	320,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "verbose":	true,
+    "worker":	"ShmemVectorEnv"
+}
+slurmstepd: error: *** JOB 39628 ON airl.ist.berkeley.edu CANCELLED AT 2023-08-12T06:19:57 ***
