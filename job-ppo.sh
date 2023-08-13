@@ -2,8 +2,8 @@
 #SBATCH --job-name=ppo
 #SBATCH --cpus-per-task=7
 #SBATCH --mem=10gb
-#SBATCH --nodes=5
-#SBATCH --ntasks=5
+#SBATCH --nodes=6
+#SBATCH --ntasks=6
 #SBATCH --time=30:00:00
 #SBATCH --qos scavenger
 
