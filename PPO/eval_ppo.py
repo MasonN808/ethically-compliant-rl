@@ -1,5 +1,6 @@
 import ast
 from dataclasses import asdict, dataclass
+from pathlib import Path
 import random
 import sys
 
@@ -21,7 +22,7 @@ sys.path.append("FSRL")
 from fsrl.data import FastCollector
 from fsrl.policy import PPOLagrangian
 from fsrl.utils import BaseLogger
-from fsrl.utils.exp_util import load_config_and_model, seed_all
+from fsrl.utils.exp_util import load_config_and_model, mp4_to_gif, seed_all
 from utils.utils import load_environment
 from gymnasium.spaces.dict import Dict
 
@@ -52,7 +53,8 @@ class EvalConfig:
         print("Pattern not found")
 
     best: bool = True
-    eval_episodes: int = 3
+    eval_episodes: int = 2
+    convert_to_gif: bool = True
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
     render: float = .005
@@ -157,17 +159,42 @@ def eval(args: EvalConfig):
     # test_envs = args.worker(
     #     [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
     # )
-    index_offset = 0
-    for vid_index in range(index_offset, EvalConfig.eval_episodes+index_offset):
+
+    video_index = 0
+    for _ in range(0, EvalConfig.eval_episodes):
         ENV_CONFIG.update({"start_location": random.choice(EvalConfig.random_starting_locations)})
-        test_env = load_environment(ENV_CONFIG, render_mode=args.render_mode)
-        args.video_recorder = VideoRecorder(test_env, f"./videos/ppo-{EvalConfig.experiment_id}-{vid_index}.mp4")
+        test_env = load_environment(ENV_CONFIG, render_mode=EvalConfig.render_mode)
+        # Check if the file name exists
+        # If not, loop through the indices until you reach an available index
+        name = f"./videos/{EvalConfig.algorithm}/mp4s/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.mp4"
+        filename = Path(name)
+        while filename.exists():
+            video_index += 1
+            name = f"./videos/{EvalConfig.algorithm}/mp4s/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.mp4"
+            filename = Path(name)
+        video_recorder = VideoRecorder(test_env, name)
         # Collector
         eval_collector = FastCollector(policy, test_env, constraints=EvalConfig.constraints)
-        result = eval_collector.collect(n_episode=1, render=args.render, video_recorder=args.video_recorder, constraints=False)
-    # result = eval_collector.collect(n_episode=args.eval_episodes, render=args.render, video_recorder=args.video_recorder, constraints=False)
-        rews, lens = result["rew"], result["len"]
-        print(f"Eval reward: {rews}, length: {lens}")
+        result = eval_collector.collect(n_episode=1, render=EvalConfig.render, video_recorder=video_recorder, constraints=False)
+
+        # Optionally turn the mp4 into a gif immediately
+        if EvalConfig.convert_to_gif:
+            mp4_to_gif(mp4_path=f"./videos/{EvalConfig.algorithm}/mp4s/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.mp4",
+                        gif_path=f"./videos/{EvalConfig.algorithm}/gifs/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.gif")
+
+        rews, lens, cost = result["rew"], result["len"], result["avg_total_cost"]
+        print(f'rews: {rews}', f'lens: {lens}', f'cost: {cost}')
+
+    # index_offset = 0
+    # for vid_index in range(index_offset, EvalConfig.eval_episodes+index_offset):
+    #     ENV_CONFIG.update({"start_location": random.choice(EvalConfig.random_starting_locations)})
+    #     test_env = load_environment(ENV_CONFIG, render_mode=args.render_mode)
+    #     args.video_recorder = VideoRecorder(test_env, f"./videos/ppo-{EvalConfig.experiment_id}-{vid_index}.mp4")
+    #     # Collector
+    #     eval_collector = FastCollector(policy, test_env, constraints=EvalConfig.constraints)
+    #     result = eval_collector.collect(n_episode=1, render=args.render, video_recorder=args.video_recorder, constraints=False)
+    #     rews, lens = result["rew"], result["len"]
+    #     print(f"Eval reward: {rews}, length: {lens}")
 
 
 if __name__ == "__main__":
