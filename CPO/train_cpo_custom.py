@@ -44,7 +44,7 @@ from fsrl.policy import CPO
 from fsrl.trainer import OnpolicyTrainer
 from utils.utils import load_environment
 
-from typing import Union, List
+from typing import Tuple, Union, List
 
 import argparse
 
@@ -86,7 +86,8 @@ class MyCfg(TrainCfg):
     project: str = args.project
     gamma: float = args.gamma
     # cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
-    cost_limit: Union[List, float] = field(default_factory=lambda: [2.0, 2.0])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [5.0, 5.0])
+    hidden_sizes: Tuple[int, ...] = (128, 128, 128)
     
     worker: str = "ShmemVectorEnv"
     # Decide which device to use based on availability

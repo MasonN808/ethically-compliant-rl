@@ -30,8 +30,8 @@ import re
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cpo_lr0.0005_step_per_epoch20000-e0f5"
-    best: bool = True
+    path: str = "logs/2-constraints-absolute/parking-v0-cost0-3-cost1-3/cpo_cost3.0_3.0_lr0.0005_step_per_epoch20000-c954"
+    best: bool = False
     eval_episodes: int = 5
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
@@ -43,8 +43,8 @@ class EvalConfig:
     device = "cpu"
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
-    # random_starting_locations = [[30, 30], [-30,-30], [30, -30], [-30, -30], [0, -40]]
-    random_starting_locations = [[0,0]]
+    random_starting_locations = [[30, 30]]
+    # random_starting_locations = [[0,0]]
 
 if EvalConfig.env_config_file:
     with open(EvalConfig.env_config_file) as f:

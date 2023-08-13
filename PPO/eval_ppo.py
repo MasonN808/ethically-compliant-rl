@@ -33,7 +33,7 @@ import re
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/PPO/parking-v0-cost-10/ppol_lr0.001_step_per_epoch20000_target_kl0.01-80c2"
+    path: str = "logs/PPO/parking-v0-cost-10/ppol_step_per_epoch20000_target_kl0.01-19bd"
     # Get the unique 4 char id of the file at the end of the file name
     match = re.search(r'-([\w]+)$', path)
     experiment_id = "----"
@@ -65,8 +65,8 @@ class EvalConfig:
     env_config_file: str = 'configs/ParkingEnv/env-evaluation.txt'
     monitor_mode: bool = True
     video_recorder: VideoRecorder = None # Keep this None
-    # random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, 40], [-40, 0]]
-    random_starting_locations = [[0,0]]
+    random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, 40], [-40, 0]]
+    # random_starting_locations = [[0,0]]
 
 
 with open(EvalConfig.env_config_file) as f:

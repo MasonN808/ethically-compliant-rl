@@ -44,10 +44,11 @@ done = False
 while not done:
     obs, rew, done, _, info = env.step(env.action_space.sample())  # with manual control, these actions are ignored
     # achieved_goal = obs['achieved_goal']
-    desired_goal = obs['desired_goal']
+    # desired_goal = obs['desired_goal']
     # print(f'achieved_goal: {achieved_goal}')
-    print(f'desired_goal: {desired_goal}')
-    cost = info['cost']
-    print(f'cost: {cost}')
+    # print(f'desired_goal: {desired_goal}')
+    # cost = info['cost']
+    # print(f'cost: {cost}')
+    print(rew)
 
     env.render()
