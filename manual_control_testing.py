@@ -28,7 +28,7 @@ env.configure({
     "controlled_vehicles": 1,
     "vehicles_count": 0,
     "add_walls": False,
-    "start_location": [0, 0],
+    "start_location": [0, 32],
     "manual_control": True,
 
     # Costs
