@@ -14,12 +14,12 @@ ARGS="$@"
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py"
 
 SCRIPTS=(
+"$BASE_SCRIPT --lr .0005 --epoch 300 --target_kl .012 $ARGS"
 "$BASE_SCRIPT --lr .0005 --epoch 300 $ARGS" 
 "$BASE_SCRIPT --lr .0005 --epoch 300 --target_kl .008 $ARGS"
-"$BASE_SCRIPT --lr .0005 --epoch 300 --target_kl .005 $ARGS"
+"$BASE_SCRIPT --lr .0005 --epoch 600 --target_kl .012 $ARGS"
 "$BASE_SCRIPT --lr .0005 --epoch 600 $ARGS" 
 "$BASE_SCRIPT --lr .0005 --epoch 600 --target_kl .008 $ARGS"
-"$BASE_SCRIPT --lr .0005 --epoch 600 --target_kl .005 $ARGS"
 )
 
 for SCRIPT in "${SCRIPTS[@]}"; do
