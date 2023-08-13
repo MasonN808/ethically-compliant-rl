@@ -86,14 +86,14 @@ class MyCfg(TrainCfg):
     project: str = args.project
     gamma: float = args.gamma
     # cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
-    cost_limit: Union[List, float] = field(default_factory=lambda: [10.0, 10.0])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [5.0, 5.0])
     
     worker: str = "ShmemVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
-    random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, 40], [-40, 0]]
+    random_starting_locations = [[0,0], [30, 30], [-30,-30], [30, -30], [-30, 30], [0, 30], [-40, 0]]
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
