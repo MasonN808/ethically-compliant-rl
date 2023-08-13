@@ -1,7 +1,7 @@
 #!/bin/sh
 #SBATCH --job-name=safe-rl
 #SBATCH --gpus-per-task=1
-#SBATCH --cpus-per-task=5
+#SBATCH --cpus-per-task=3
 #SBATCH --mem=30gb
 #SBATCH --nodes=3
 #SBATCH --ntasks=3
@@ -15,9 +15,9 @@ ARGS="$@"
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py"
 
 SCRIPTS=(
-"$BASE_SCRIPT --lr .0005 --epoch 400 $ARGS" 
-"$BASE_SCRIPT --lr .0005 --cost_limit 10.0 10.0 $ARGS"
-"$BASE_SCRIPT --lr .0005 --cost_limit 5.0 3.0 $ARGS"
+"$BASE_SCRIPT --lr .0005 --epoch 450 $ARGS" 
+"$BASE_SCRIPT --lr .0005 --epoch 450 $ARGS"
+"$BASE_SCRIPT --lr .0005 --epoch 450 $ARGS"
 )
 
 for SCRIPT in "${SCRIPTS[@]}"; do
