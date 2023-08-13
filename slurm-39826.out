@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 40, in <module>
+    from fsrl.utils.exp_util import auto_name, seed_all
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/exp_util.py", line 11, in <module>
+    from moviepy.editor import VideoFileClip
+ModuleNotFoundError: No module named 'moviepy'
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 40, in <module>
+    from fsrl.utils.exp_util import auto_name, seed_all
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/exp_util.py", line 11, in <module>
+    from moviepy.editor import VideoFileClip
+ModuleNotFoundError: No module named 'moviepy'
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom.py", line 40, in <module>
+    from fsrl.utils.exp_util import auto_name, seed_all
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/utils/exp_util.py", line 11, in <module>
+    from moviepy.editor import VideoFileClip
+ModuleNotFoundError: No module named 'moviepy'
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
