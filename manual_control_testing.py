@@ -47,8 +47,8 @@ while not done:
     # desired_goal = obs['desired_goal']
     # print(f'achieved_goal: {achieved_goal}')
     # print(f'desired_goal: {desired_goal}')
-    # cost = info['cost']
-    # print(f'cost: {cost}')
-    print(rew)
+    cost = info['cost']
+    print(f'cost: {cost}')
+    # print(rew)
 
     env.render()
