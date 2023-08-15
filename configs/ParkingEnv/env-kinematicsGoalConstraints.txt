@@ -15,7 +15,7 @@
     "show_trajectories": False,
     "success_goal_reward": 0.12,
     "collision_reward": -5,
-    "simulation_frequency": 15,
+    "simulation_frequency": 100,
     "policy_frequency": 5,
     "duration": 100,
     "screen_width": 600,
@@ -29,9 +29,6 @@
 
     # Costs
     "constrained_rl": True,
-    # Cost-distance
-    "cost_delta_distance": 4,
-    "quantized_line_points": 20,
     # Cost-speed
     "cost_speed_limit": 4,
 }
