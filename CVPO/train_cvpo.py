@@ -1,3 +1,4 @@
+import copy
 import os
 os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
@@ -40,7 +41,7 @@ from fsrl.utils.exp_util import auto_name, seed_all
 from fsrl.utils.net.continuous import SingleCritic, DoubleCritic, Critic
 from fsrl.data import FastCollector
 from fsrl.policy import CVPO
-from fsrl.trainer import OnpolicyTrainer
+from fsrl.trainer import OffpolicyTrainer
 from utils import load_environment
 
 from typing import Tuple, Union, List
@@ -95,6 +96,18 @@ class MyCfg(TrainCfg):
     # Points are around the parking lot and in the middle
     random_starting_locations = [[0,32]]
 
+with open(MyCfg.env_config_file) as f:
+    data = f.read()
+# reconstructing the data as a dictionary
+ENV_CONFIG = ast.literal_eval(data)
+ENV_CONFIG.update({
+    # Costs
+    "constrained_rl": args.constrained_rl,
+    "constraint_type": args.constraint_type,
+    # Cost-speed
+    "cost_speed_limit": args.cost_speed_limit,
+    "absolute_cost_speed": args.absolute_cost_speed
+    })
 
 @pyrallis.wrap()
 def train(args: MyCfg):
@@ -184,59 +197,46 @@ def train(args: MyCfg):
         env.spec, "max_episode_steps"
     ), "Please use an env wrapper to provide 'max_episode_steps' for CVPO"
 
-    net = Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device)
-
     use_cuda = torch.cuda.is_available()
     # Create Actor
+    net = Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device)
     actor_constructor = ActorProb(net, action_shape, max_action=max_action, unbounded=args.unbounded, conditioned_sigma=args.conditioned_sigma, device=None if use_cuda else args.device)
     actor = DataParallelNet(actor_constructor).to(args.device) if use_cuda else actor_constructor.to(args.device)
-
-    # Create Critics
-    critic_constructor = lambda: Critic(Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device), device=None if use_cuda else args.device).to(args.device)
-    critic = [DataParallelNet(critic_constructor()) for _ in range(2)] if use_cuda else [critic_constructor() for _ in range(2)]
-
-    actor = ActorProb(
-        net,
-        action_shape,
-        max_action=max_action,
-        device=args.device,
-        unbounded=args.unbounded
-    ).to(args.device)
     actor_optim = torch.optim.Adam(actor.parameters(), lr=args.actor_lr)
 
-    critics = []
-    for i in range(2):
-        if args.double_critic:
-            net1 = Net(
-                state_shape,
-                action_shape,
-                hidden_sizes=args.hidden_sizes,
-                concat=True,
-                device=args.device
-            )
-            net2 = Net(
-                state_shape,
-                action_shape,
-                hidden_sizes=args.hidden_sizes,
-                concat=True,
-                device=args.device
-            )
-            critics.append(DoubleCritic(net1, net2, device=args.device).to(args.device))
-        else:
-            net_c = Net(
-                state_shape,
-                action_shape,
-                hidden_sizes=args.hidden_sizes,
-                concat=True,
-                device=args.device
-            )
-            critics.append(SingleCritic(net_c, device=args.device).to(args.device))
+    # Create Critics
+    if args.double_critic:
+        net1 = Net(
+            state_shape,
+            action_shape,
+            hidden_sizes=args.hidden_sizes,
+            concat=True,
+            device=args.device
+        )
+        net2 = Net(
+            state_shape,
+            action_shape,
+            hidden_sizes=args.hidden_sizes,
+            concat=True,
+            device=args.device
+        )
+        critic_constructor = lambda: DoubleCritic(net1, net2, device=None if use_cuda else args.device).to(args.device)
+    else:
+        net_c = Net(
+            state_shape,
+            action_shape,
+            hidden_sizes=args.hidden_sizes,
+            concat=True,
+            device=args.device
+        )
+        critic_constructor = lambda: SingleCritic(net_c, device=None if use_cuda else args.device).to(args.device)
 
+    critics = [DataParallelNet(critic_constructor()) for _ in range(2)] if use_cuda else [critic_constructor() for _ in range(2)]
     critic_optim = torch.optim.Adam(
         nn.ModuleList(critics).parameters(), lr=args.critic_lr
     )
 
-    if not args.conditioned_sigma:
+    if not args.conditioned_sigma and not use_cuda:
         torch.nn.init.constant_(actor.sigma_param, -0.5)
     actor_critic = ActorCritic(actor, critics)
     # orthogonal initialization
@@ -288,11 +288,16 @@ def train(args: MyCfg):
         lr_scheduler=None
     )
 
+
     # collector
+    if isinstance(train_envs, gym.Env):
+        buffer = ReplayBuffer(args.buffer_size)
+    else:
+        buffer = VectorReplayBuffer(args.buffer_size, len(train_envs))
     train_collector = FastCollector(
         policy,
         train_envs,
-        VectorReplayBuffer(args.buffer_size, len(train_envs)),
+        buffer,
         exploration_noise=False,
     )
     test_collector = FastCollector(policy, test_envs)
@@ -326,14 +331,17 @@ def train(args: MyCfg):
     )
 
     for epoch, epoch_stat, info in trainer:
-        logger.store(tab="train", cost_limit=args.cost_limit)
+        logger.store(tab="train" ,cost_limit_distance=args.cost_limit[0], cost_limit_speed=args.cost_limit[1])
         print(f"Epoch: {epoch}")
         print(info)
 
     if __name__ == "__main__":
         pprint.pprint(info)
         # Let's watch its performance!
-        env = gym.make(args.task)
+        # Update the starting location
+        if MyCfg.random_starting_locations:
+            ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
+        env = load_environment(ENV_CONFIG)
         policy.eval()
         collector = FastCollector(policy, env)
         result = collector.collect(n_episode=10, render=args.render)
