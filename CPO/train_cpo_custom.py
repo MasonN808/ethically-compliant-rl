@@ -105,10 +105,7 @@ ENV_CONFIG = ast.literal_eval(data)
 ENV_CONFIG.update({
     # Costs
     "constrained_rl": args.constrained_rl,
-    # Cost-distance
-    "cost_delta_distance": args.cost_delta_distance,
-    "quantized_line_points": args.quantized_line_points,
-    "absolute_cost_distance": args.absolute_cost_distance,
+    "constraint_type": args.constraint_type,
     # Cost-speed
     "cost_speed_limit": args.cost_speed_limit,
     "absolute_cost_speed": args.absolute_cost_speed
@@ -228,6 +225,7 @@ def train(args: MyCfg):
         if isinstance(m, torch.nn.Linear):
             torch.nn.init.orthogonal_(m.weight)
             torch.nn.init.zeros_(m.bias)
+
     if args.last_layer_scale:
         # do last policy layer scaling, this will make initial actions have (close to)
         # 0 mean and std, and will help boost performances,
@@ -317,6 +315,7 @@ def train(args: MyCfg):
     )
 
     for epoch, epoch_stat, info in trainer:
+        # if 
         logger.store(tab="train", cost_limit_distance=args.cost_limit[0], cost_limit_speed=args.cost_limit[1])
         print(f"Epoch: {epoch}")
         print(info)
