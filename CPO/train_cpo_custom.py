@@ -6,7 +6,7 @@ import sys
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'False'
+os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
@@ -87,7 +87,8 @@ class MyCfg(TrainCfg):
     gamma: float = args.gamma
     # cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
     cost_limit: Union[List, float] = field(default_factory=lambda: [5.0, 5.0])
-    hidden_sizes: Tuple[int, ...] = (128, 128, 128)
+    constraint_type: list[str] = field(default_factory=lambda: ["distance", "speed"])
+    hidden_sizes: Tuple[int, ...] = (128, 128)
     
     worker: str = "ShmemVectorEnv"
     # Decide which device to use based on availability
@@ -320,6 +321,7 @@ def train(args: MyCfg):
         max_epoch=args.epoch,
         batch_size=args.batch_size,
         cost_limit=args.cost_limit,
+        constraint_type=args.constraint_type,
         step_per_epoch=args.step_per_epoch,
         repeat_per_collect=args.repeat_per_collect,
         episode_per_test=args.testing_num,
