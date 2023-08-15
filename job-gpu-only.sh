@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #SBATCH --job-name=safe-rl
 #SBATCH --gpus-per-task=1
 #SBATCH --cpus-per-task=3
