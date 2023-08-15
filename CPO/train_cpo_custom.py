@@ -6,7 +6,7 @@ import sys
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'False'
+os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
@@ -49,6 +49,7 @@ from typing import Tuple, Union, List
 import argparse
 
 # CPO arguments
+# TODO None of these actually work --> there exist predefined arguments somewhere I can't find
 parser = argparse.ArgumentParser(description="Training script")
 parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
 parser.add_argument('--project', type=str, default="2-constraints-absolute", help='Project name')
@@ -115,6 +116,7 @@ ENV_CONFIG.update({
 
 @pyrallis.wrap()
 def train(args: MyCfg):
+    assert len(args.cost_limit) == len(args.constraint_type), f"Unequal lens: cost_limit is of len {len(args.cost_limit)} and constraint_type of len {len(args.constraint_type)}"
     # set seed and computing
     seed_all(args.seed)
     torch.set_num_threads(args.thread)
@@ -145,24 +147,21 @@ def train(args: MyCfg):
                 args.group += f"-cost{index}-" + str(int(cost_limit))
         else: 
             args.group = args.task + "-cost-" + str(int(args.cost_limit))
+
     if args.logdir is not None:
         args.logdir = os.path.join(args.logdir, args.project, args.group)
     logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)
-    # logger = TensorboardLogger(args.logdir, log_txt=True, name=args.name)
     logger.save_config(cfg, verbose=args.verbose)
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
     if MyCfg.random_starting_locations:
+        def generate_env_config(num):
+            return [{"start_location": random.choice(MyCfg.random_starting_locations)} for _ in range(num)]
         # Make a list of initialized environments with different starting positions
-        env_training_list, env_testing_list = [], []
-        for _ in range(training_num):
-            ENV_CONFIG.update({"start_location": random.choice(MyCfg.random_starting_locations)})
-            env_training_list.append(ENV_CONFIG)
-        for _ in range(args.testing_num):
-            ENV_CONFIG.update({"start_location": random.choice(MyCfg.random_starting_locations)})
-            env_testing_list.append(ENV_CONFIG)
-
+        env_training_list = generate_env_config(training_num)
+        env_testing_list = generate_env_config(args.testing_num)
+        
         train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
         test_envs = worker([lambda: load_environment(env_testing_list[i]) for i in range(args.testing_num)])
     else:
