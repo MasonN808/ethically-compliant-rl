@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import copy
 import os
 import pprint
 import random
@@ -12,8 +13,8 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 from dataclasses import asdict, dataclass, field
 import ast
-import warnings # FIXME: Fix this warning eventually
-warnings.filterwarnings("ignore", category=DeprecationWarning) 
+# import warnings # FIXME: Fix this warning eventually
+# warnings.filterwarnings("ignore", category=DeprecationWarning) 
 import highway_env
 import bullet_safety_gym
 import gymnasium as gym
@@ -34,7 +35,6 @@ from tianshou.data import VectorReplayBuffer, ReplayBuffer
 
 # To render the environemnt and agent
 import matplotlib.pyplot as plt
-sys.path.append("FSRL")
 from fsrl.config.cpo_cfg import TrainCfg
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name, seed_all
@@ -158,12 +158,17 @@ def train(args: MyCfg):
     if MyCfg.random_starting_locations:
         def generate_env_config(num):
             return [{"start_location": random.choice(MyCfg.random_starting_locations)} for _ in range(num)]
+        def get_updated_config(i, env_list):
+            updated_config = copy.deepcopy(ENV_CONFIG)
+            updated_config.update(env_list[i])
+            return updated_config
+
         # Make a list of initialized environments with different starting positions
         env_training_list = generate_env_config(training_num)
         env_testing_list = generate_env_config(args.testing_num)
-        
-        train_envs = worker([lambda: load_environment(env_training_list[i]) for i in range(training_num)])
-        test_envs = worker([lambda: load_environment(env_testing_list[i]) for i in range(args.testing_num)])
+
+        train_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_training_list)) for i in range(training_num)])
+        test_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_testing_list)) for i in range(args.testing_num)])
     else:
         train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
         test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
@@ -205,38 +210,17 @@ def train(args: MyCfg):
 
     # W/ DataParallelNet For cuda Parallelization
     net = Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device)
-    if torch.cuda.is_available():
-        actor = DataParallelNet(
-                ActorProb(
-                    net,
-                    action_shape,
-                    max_action=max_action,
-                    unbounded=args.unbounded,
-                    device=None
-                ).to(args.device)
-        )
-        critic = [DataParallelNet(
-                        Critic(
-                            Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device),
-                            device=None
-                        ).to(args.device)
-                    ) for _ in range(2)
-        ]
-    else:
-        actor = ActorProb(
-            net,
-            action_shape,
-            max_action=max_action,
-            unbounded=args.unbounded,
-            device=args.device
-        ).to(args.device)
-        critic = [
-            Critic(
-                Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device),
-                device=args.device
-            ).to(args.device) for _ in range(2)
-        ]
-    if not torch.cuda.is_available():
+
+    use_cuda = torch.cuda.is_available()
+    # Create Actor
+    actor_constructor = ActorProb(net, action_shape, max_action=max_action, unbounded=args.unbounded, device=None if use_cuda else args.device)
+    actor = DataParallelNet(actor_constructor).to(args.device) if use_cuda else actor_constructor.to(args.device)
+
+    # Create Critics
+    critic_constructor = lambda: Critic(Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device), device=None if use_cuda else args.device).to(args.device)
+    critic = [DataParallelNet(critic_constructor()) for _ in range(2)] if use_cuda else [critic_constructor() for _ in range(2)]
+
+    if not use_cuda():
         torch.nn.init.constant_(actor.sigma_param, -0.5)
     actor_critic = ActorCritic(actor, critic)
     # orthogonal initialization
