@@ -65,9 +65,7 @@ parser.add_argument('--thread', type=int, default=320, help='Number of threads')
 
 # Environment argumnets
 parser.add_argument('--constrained_rl', type=bool, default=True, help='Identifier for constrained RL')
-parser.add_argument('--cost_delta_distance', type=float, default=4.0, help='The maximum distance to line points until costs incur')
-parser.add_argument('--quantized_line_points', type=int, default=20, help='Number of quantized points for each parking line')
-parser.add_argument('--absolute_cost_distance', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
+parser.add_argument('--constraint_type', type=list, nargs='+', default=["distance", "speed"], help='List of constraint types to use')
 parser.add_argument('--cost_speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
 parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
 args = parser.parse_args()
@@ -165,6 +163,14 @@ def train(args: MyCfg):
     else:
         train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
         test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
+
+    # This env is used strictly to evaluate the observation and action shapes for CPO
+    env = load_environment(ENV_CONFIG)
+
+    # set seed and computing
+    seed_all(args.seed)
+    if not torch.cuda.is_available():
+        torch.set_num_threads(args.thread)
 
     # Model
     # Get the shapes of the states and actions to be transfered to a tensor
@@ -287,7 +293,6 @@ def train(args: MyCfg):
         action_bound_method=args.action_bound_method,
         lr_scheduler=None
     )
-
 
     # collector
     if isinstance(train_envs, gym.Env):
