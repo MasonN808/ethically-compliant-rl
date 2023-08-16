@@ -308,8 +308,9 @@ def train(args: MyCfg):
         train_envs,
         buffer,
         exploration_noise=False,
+        constraint_type=args.constraint_type,
     )
-    test_collector = FastCollector(policy, test_envs)
+    test_collector = FastCollector(policy, test_envs, constraint_type=args.constraint_type)
 
     def stop_fn(reward, cost):
         return reward > args.reward_threshold and cost < args.cost_limit
@@ -328,6 +329,7 @@ def train(args: MyCfg):
         max_epoch=args.epoch,
         batch_size=args.batch_size,
         cost_limit=args.cost_limit,
+        constraint_type=args.constraint_type,
         step_per_epoch=args.step_per_epoch,
         update_per_step=args.update_per_step,
         episode_per_test=args.testing_num,
