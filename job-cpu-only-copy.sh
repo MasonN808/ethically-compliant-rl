@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name=safe-rl
-#SBATCH --cpus-per-task=9
-#SBATCH --mem=30gb
-#SBATCH --nodes=3
-#SBATCH --ntasks=3
+#SBATCH --job-name=CVPO-2
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=40gb
+#SBATCH --nodes=6
+#SBATCH --ntasks=6
 #SBATCH --time=30:00:00
 #SBATCH --qos scavenger
 
@@ -11,12 +11,15 @@
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo_custom_copy.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo_copy.py"
 
 SCRIPTS=(
-"$BASE_SCRIPT --lr .0005 --epoch 400 $ARGS" 
-"$BASE_SCRIPT --lr .0005 --epoch 400 $ARGS"
-"$BASE_SCRIPT --lr .0005 --epoch 400 $ARGS"
+"$BASE_SCRIPT --epoch 400 $ARGS"
+"$BASE_SCRIPT --epoch 400 $ARGS"
+"$BASE_SCRIPT --epoch 300 $ARGS"
+"$BASE_SCRIPT --epoch 300 $ARGS"
+"$BASE_SCRIPT --epoch 200 $ARGS"
+"$BASE_SCRIPT --epoch 200 $ARGS"
 )
 
 for SCRIPT in "${SCRIPTS[@]}"; do

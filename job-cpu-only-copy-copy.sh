@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=CVPO-5
+#SBATCH --job-name=CVPO-0
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=40gb
 #SBATCH --nodes=6
@@ -11,12 +11,12 @@
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo_copy_copy.py"
 
 SCRIPTS=(
-"$BASE_SCRIPT --epoch 400 $ARGS" 
 "$BASE_SCRIPT --epoch 400 $ARGS"
-"$BASE_SCRIPT --epoch 300 $ARGS" 
+"$BASE_SCRIPT --epoch 400 $ARGS"
+"$BASE_SCRIPT --epoch 300 $ARGS"
 "$BASE_SCRIPT --epoch 300 $ARGS"
 "$BASE_SCRIPT --epoch 200 $ARGS"
 "$BASE_SCRIPT --epoch 200 $ARGS"

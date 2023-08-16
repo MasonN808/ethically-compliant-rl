@@ -56,7 +56,7 @@ parser.add_argument('--project', type=str, default="2-constraints-absolute", hel
 parser.add_argument('--epoch', type=int, default=300, help='Number of epochs')
 parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
 parser.add_argument('--gamma', type=float, default=0.97, help='Gamma value for reinforcement learning')
-parser.add_argument('--cost_limit', type=float, nargs='+', default=[5.0, 5.0], help='Cost limit values as a list', metavar='FLOAT')
+parser.add_argument('--cost_limit', type=float, nargs='+', default=[2.0, 2.0], help='Cost limit values as a list', metavar='FLOAT')
 parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
 parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
 parser.add_argument('--thread', type=int, default=320, help='Number of threads')
@@ -79,7 +79,7 @@ class MyCfg(TrainCfg):
     project: str = args.project
     gamma: float = args.gamma
     # cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
-    cost_limit: Union[List, float] = field(default_factory=lambda: [5.0, 5.0])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [0.0, 0.0])
     constraint_type: list[str] = field(default_factory=lambda: ["distance", "speed"])
     hidden_sizes: Tuple[int, ...] = (128, 128)
     
