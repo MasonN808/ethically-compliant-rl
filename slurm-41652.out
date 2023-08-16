@@ -1,0 +1,39 @@
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id cb48096a-bf01-4132-8521-083d7bdb7832.
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id 1645d2bf-4971-4448-b181-8b36e11d80ad.
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id e98f09af-d0e5-4918-bb3a-df81c43a486f.
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id 7ea55b3d-22c5-433e-8000-cfe6d107715d.
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cvpo-4336/progress.txt[0m
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cvpo-332b/progress.txt[0m
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cvpo-6530/progress.txt[0m
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cvpo-124d/progress.txt[0m
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id ac15731d-23cd-45d0-a834-54b9bb886c85.
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cvpo-c107/progress.txt[0m
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id 491a34ac-5d6b-4288-978c-d634cd3454c4.
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+[32;1mLogging data to logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cvpo-5291/progress.txt[0m
+slurmstepd: error: *** STEP 41652.3 ON gan.ist.berkeley.edu CANCELLED AT 2023-08-15T21:56:59 ***
+slurmstepd: error: *** STEP 41652.4 ON ppo.ist.berkeley.edu CANCELLED AT 2023-08-15T21:56:59 ***
+wandb: Waiting for W&B process to finish... (failed 15).
+slurmstepd: error: *** STEP 41652.5 ON sac.ist.berkeley.edu CANCELLED AT 2023-08-16T04:56:59 ***
+slurmstepd: error: *** JOB 41652 ON airl.ist.berkeley.edu CANCELLED AT 2023-08-16T04:56:59 ***
+slurmstepd: error: *** STEP 41652.0 ON airl.ist.berkeley.edu CANCELLED AT 2023-08-16T04:56:59 ***
+wandb: Waiting for W&B process to finish... (failed 15).
+slurmstepd: error: *** STEP 41652.2 ON gail.ist.berkeley.edu CANCELLED AT 2023-08-15T21:56:59 ***
+slurmstepd: error: *** STEP 41652.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-08-15T21:56:59 ***
