@@ -35,7 +35,7 @@ from tianshou.data import VectorReplayBuffer, ReplayBuffer
 
 # To render the environemnt and agent
 import matplotlib.pyplot as plt
-from fsrl.config.cpo_cfg import TrainCfg
+from fsrl.config.cvpo_cfg import TrainCfg
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name, seed_all
 from fsrl.utils.net.continuous import SingleCritic, DoubleCritic, Critic
@@ -182,11 +182,12 @@ def train(args: MyCfg):
             "desired_goal": (6,)
         }
         decorator_fn, state_shape = get_dict_state_decorator(dict_state_shape, list(dict_state_shape.keys()))
-        global Net, ActorProb, Critic, DataParallelNet # Fixes UnboundLocalError
+        global Net, ActorProb, DoubleCritic, SingleCritic, DataParallelNet # Fixes UnboundLocalError
         # Apply decorator to overwrite the forward pass in the Tensorflow module to allow for dict object
         Net = decorator_fn(Net)
         ActorProb = decorator_fn(ActorProb)
-        Critic = decorator_fn(Critic)
+        DoubleCritic = decorator_fn(DoubleCritic)
+        SingleCritic = decorator_fn(SingleCritic)
         DataParallelNet = decorator_fn(DataParallelNet)
     else: 
         state_shape = env.observation_space.shape or env.observation_space.n
@@ -202,7 +203,9 @@ def train(args: MyCfg):
     assert hasattr(
         env.spec, "max_episode_steps"
     ), "Please use an env wrapper to provide 'max_episode_steps' for CVPO"
-
+    #TODO FIX THIS LATER 
+    state_shape = 6 # 6 since it is the length of the observation 
+    print(state_shape, action_shape)
     use_cuda = torch.cuda.is_available()
     # Create Actor
     net = Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device)
@@ -271,7 +274,8 @@ def train(args: MyCfg):
         logger=logger,
         action_space=env.action_space,
         dist_fn=dist,
-        max_episode_steps=env.spec.max_episode_steps,
+        # max_episode_steps=env.spec.max_episode_steps,
+        max_episode_steps=args.step_per_epoch, # TODO Check that this is somewhat right
         cost_limit=args.cost_limit,
         tau=args.tau,
         gamma=args.gamma,
