@@ -34,7 +34,7 @@ import re
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cvpo-4f74"
+    path: str = "logs/CVPO/parking-v0-cost0-2-cost1-2/cvpo-a6cf"
     # Get the unique 4 char id of the file at the end of the file name
     match = re.search(r'-([\w]+)$', path)
     experiment_id = "----"
@@ -105,8 +105,6 @@ def eval(args: EvalConfig):
     action_shape = env.action_space.shape or env.action_space.n
     max_action = env.action_space.high[0]
 
-    #TODO FIX THIS LATER 
-    state_shape = 6 # 6 since it is the length of the observation 
     use_cuda = torch.cuda.is_available()
     # Create Actor
     net = Net(state_shape, hidden_sizes=cfg["hidden_sizes"], device=args.device)
