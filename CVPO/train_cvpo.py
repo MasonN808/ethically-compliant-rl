@@ -52,7 +52,7 @@ from typing import Tuple, Union, List
 parser = argparse.ArgumentParser(description="Training script")
 parser.add_argument('-f', default='cvpo', help=argparse.SUPPRESS)
 parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
-parser.add_argument('--project', type=str, default="2-constraints-absolute", help='Project name')
+parser.add_argument('--project', type=str, default="CVPO", help='Project name')
 parser.add_argument('--epoch', type=int, default=400, help='Number of epochs')
 parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
 parser.add_argument('--gamma', type=float, default=0.97, help='Gamma value for reinforcement learning')
