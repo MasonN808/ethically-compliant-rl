@@ -7,7 +7,7 @@ import sys
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'True'
+os. environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
@@ -64,13 +64,9 @@ parser.add_argument('--render_mode', type=str, default=None, help='Mode for rend
 parser.add_argument('--thread', type=int, default=320, help='Number of threads')
 
 # Environment argumnets
-parser.add_argument('--constrained_rl', type=bool, default=True, help='Identifier for constrained RL')
-parser.add_argument('--cost_delta_distance', type=float, default=4.0, help='The maximum distance to line points until costs incur')
-parser.add_argument('--quantized_line_points', type=int, default=20, help='Number of quantized points for each parking line')
-parser.add_argument('--absolute_cost_distance', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
+parser.add_argument('--constraint_type', type=str, nargs='+', default=["distance", "speed"], help='List of constraint types to use')
 parser.add_argument('--cost_speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
 parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
-
 
 args = parser.parse_args()
 
@@ -104,7 +100,6 @@ with open(MyCfg.env_config_file) as f:
 ENV_CONFIG = ast.literal_eval(data)
 ENV_CONFIG.update({
     # Costs
-    "constrained_rl": args.constrained_rl,
     "constraint_type": args.constraint_type,
     # Cost-speed
     "cost_speed_limit": args.cost_speed_limit,
@@ -183,8 +178,8 @@ def train(args: MyCfg):
     if isinstance(env.observation_space, Dict):
         # TODO: This is hardcoded please fix
         dict_state_shape = {
-            "achieved_goal": (6,),
             "observation": (6,),
+            "achieved_goal": (6,),
             "desired_goal": (6,)
         }
         decorator_fn, state_shape = get_dict_state_decorator(dict_state_shape, list(dict_state_shape.keys()))
@@ -217,7 +212,7 @@ def train(args: MyCfg):
     critic_constructor = lambda: Critic(Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device), device=None if use_cuda else args.device).to(args.device)
     critic = [DataParallelNet(critic_constructor()) for _ in range(2)] if use_cuda else [critic_constructor() for _ in range(2)]
 
-    if not use_cuda():
+    if not use_cuda:
         torch.nn.init.constant_(actor.sigma_param, -0.5)
     actor_critic = ActorCritic(actor, critic)
     # orthogonal initialization
@@ -280,9 +275,10 @@ def train(args: MyCfg):
         train_envs,
         buffer,
         exploration_noise=True,
+        constraint_type=args.constraint_type
     )
     test_collector = FastCollector(
-        policy, test_envs
+        policy, test_envs, constraint_type=args.constraint_type
     ) if test_envs is not None else None
 
     def stop_fn(reward, cost):
@@ -328,13 +324,13 @@ def train(args: MyCfg):
             ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
         env = load_environment(ENV_CONFIG)
         policy.eval()
-        collector = FastCollector(policy, env)
+        collector = FastCollector(policy, env, args.constraint_type)
         result = collector.collect(n_episode=10, render=args.render)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final eval reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
 
         policy.train()
-        collector = FastCollector(policy, env)
+        collector = FastCollector(policy, env, args.constraint_type)
         result = collector.collect(n_episode=10, render=args.render)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final train reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
