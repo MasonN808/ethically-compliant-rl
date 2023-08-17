@@ -27,7 +27,7 @@ env.configure({
     "scaling": 7,
     "controlled_vehicles": 1,
     "vehicles_count": 0,
-    "add_walls": False,
+    "add_walls": True,
     "start_location": [0, 32],
     "manual_control": True,
 
