@@ -31,11 +31,6 @@ env.configure({
     "start_location": [0, 32],
     "manual_control": True,
 
-    # Costs
-    "constrained_rl": True,
-    # Cost-distance
-    "cost_delta_distance": 4,
-    "quantized_line_points": 20,
     # Cost-speed
     "cost_speed_limit": 2,
 })

@@ -81,8 +81,10 @@ class MyCfg(TrainCfg):
     step_per_epoch: int = 2000 # Shorten since parking env has small episodes
     double_critic: bool = True # Increases stability and promotes exploration since it is pessimistic on the Q-values it predicts
     # cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
-    cost_limit: Union[List, float] = field(default_factory=lambda: [2.0, 2.0])
-    constraint_type: list[str] = field(default_factory=lambda: ["distance", "speed"])
+    # cost_limit: Union[List, float] = field(default_factory=lambda: [2.0, 2.0])
+    # constraint_type: list[str] = field(default_factory=lambda: ["distance", "speed"])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [2.0])
+    constraint_type: list[str] = field(default_factory=lambda: ["distance"])
     hidden_sizes: Tuple[int, ...] = (128, 128)
     
     worker: str = "ShmemVectorEnv"
