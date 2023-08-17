@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
+import argparse
 import os
 import pprint
 import random
 import sys
+from typing import List, Union
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'False'
+os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 import ast
 import warnings # FIXME: Fix this warning eventually
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
@@ -48,33 +50,63 @@ TASK_TO_CFG = {
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
 
+# CPO arguments
+# TODO None of these actually work --> there exist predefined arguments somewhere I can't find
+parser = argparse.ArgumentParser(description="Training script")
+parser.add_argument('-f', default='ppol', help=argparse.SUPPRESS)
+parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
+parser.add_argument('--project', type=str, default="PPOL", help='Project name')
+parser.add_argument('--epoch', type=int, default=400, help='Number of epochs')
+parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
+parser.add_argument('--gamma', type=float, default=0.97, help='Gamma value for reinforcement learning')
+parser.add_argument('--cost_limit', type=float, nargs='+', default=[5.0, 5.0], help='Cost limit values as a list', metavar='FLOAT')
+parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
+parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
+parser.add_argument('--thread', type=int, default=320, help='Number of threads')
+
+# Environment argumnets
+# parser.add_argument('--constrained_rl', type=bool, default=True, help='Identifier for constrained RL')
+parser.add_argument('--constraint_type', type=str, nargs='*', default=["distance", "speed"], help='List of constraint types to use')
+parser.add_argument('--cost_speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
+parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
+args = parser.parse_args()
+
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = 400
+    epoch: int = args.epoch
     lr: float = 0.0005
-    render: float = None # The rate at which it renders (e.g., .001)
-    render_mode: str = None # "rgb_array" or "human" or None
-    thread: int = 320 # If use CPU to train
-    step_per_epoch: int = 20000
+    render: float = args.render # The rate at which it renders (e.g., .001)
+    render_mode: str = args.render_mode # "rgb_array" or "human" or None
+    thread: int = args.thread # If use CPU to train
+    step_per_epoch: int = args.step_per_epoch
     target_kl: float = 0.01
-    project: str = "PPO"
+    gamma: float = args.gamma
+    project: str = args.project
     worker: str = "ShmemVectorEnv"
+    constraint_type: list[str] = field(default_factory=lambda: ["distance", "speed"])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [2.0, 2.0])
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
-    gamma: float = .99
-    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoal.txt'
+    env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
     # random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, -40]]
     random_starting_locations = [[0,32]]
-    constraints: bool = False
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
-ENV_CONFIG.update({"constrained_rl": False})
+ENV_CONFIG.update({
+    "add_walls": False,
+    # Costs
+    # "constrained_rl": args.constrained_rl,
+    "constraint_type": args.constraint_type,
+    # Cost-speed
+    "cost_speed_limit": args.cost_speed_limit,
+    "absolute_cost_speed": args.absolute_cost_speed
+    })
 
 @pyrallis.wrap()
 def train(args: MyCfg):
@@ -101,7 +133,13 @@ def train(args: MyCfg):
     if args.name is None:
         args.name = auto_name(default_cfg, cfg, args.prefix, args.suffix)
     if args.group is None:
-        args.group = args.task + "-cost-" + str(int(args.cost_limit))
+        if isinstance(args.cost_limit, list): # Since you can have more than one cost limit
+            args.group = args.task 
+            for index, cost_limit in enumerate(args.cost_limit):
+                args.group += f"-cost{index}-" + str(int(cost_limit))
+        else: 
+            args.group = args.task + "-cost-" + str(int(args.cost_limit))
+
     if args.logdir is not None:
         args.logdir = os.path.join(args.logdir, args.project, args.group)
     logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)
@@ -138,8 +176,8 @@ def train(args: MyCfg):
     if isinstance(env.observation_space, Dict):
         # TODO: This is hardcoded please fix
         dict_state_shape = {
-            "achieved_goal": (6,),
             "observation": (6,),
+            "achieved_goal": (6,),
             "desired_goal": (6,)
         }
         decorator_fn, state_shape = get_dict_state_decorator(dict_state_shape, list(dict_state_shape.keys()))
@@ -171,7 +209,7 @@ def train(args: MyCfg):
                             Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device),
                             device=None
                         ).to(args.device)
-                    ) for _ in range(2)
+                    ) for _ in range(1 + len(args.constraint_type)) # NOTE Add the number of constraints here minus 1
         ]
     else:
         actor = ActorProb(
@@ -185,7 +223,7 @@ def train(args: MyCfg):
             Critic(
                 Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device),
                 device=args.device
-            ).to(args.device) for _ in range(2)
+            ).to(args.device) for _ in range(1 + len(args.constraint_type)) # NOTE Add the number of constraints here minus 1
         ]
 
     # torch.nn.init.constant_(actor.sigma_param, -0.5)
@@ -229,6 +267,7 @@ def train(args: MyCfg):
         use_lagrangian=args.use_lagrangian,
         lagrangian_pid=args.lagrangian_pid,
         cost_limit=args.cost_limit,
+        constraint_type=args.constraint_type,
         rescaling=args.rescaling,
         gamma=args.gamma,
         max_batchsize=args.max_batchsize,
@@ -247,9 +286,9 @@ def train(args: MyCfg):
         train_envs,
         VectorReplayBuffer(args.buffer_size, len(train_envs)),
         exploration_noise=True,
-        constraints=MyCfg.constraints,
+        constraint_type=args.constraint_type,
     )
-    test_collector = FastCollector(policy, test_envs, constraints=MyCfg.constraints)
+    test_collector = FastCollector(policy, test_envs, constraint_type=args.constraint_type)
 
     def stop_fn(reward, cost):
         return reward > args.reward_threshold and cost < args.cost_limit
@@ -268,6 +307,7 @@ def train(args: MyCfg):
         max_epoch=args.epoch,
         batch_size=args.batch_size,
         cost_limit=args.cost_limit,
+        constraint_type=args.constraint_type,
         step_per_epoch=args.step_per_epoch,
         repeat_per_collect=args.repeat_per_collect,
         episode_per_test=args.testing_num,
@@ -291,13 +331,13 @@ def train(args: MyCfg):
             ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
         env = load_environment(ENV_CONFIG)
         policy.eval()
-        collector = FastCollector(policy, env, constraints=MyCfg.constraints)
+        collector = FastCollector(policy, env, constraint_type=args.constraint_type)
         result = collector.collect(n_episode=10, render=args.render)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final eval reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
 
         policy.train()
-        collector = FastCollector(policy, env,  constraints=MyCfg.constraints)
+        collector = FastCollector(policy, env,  constraint_type=args.constraint_type)
         result = collector.collect(n_episode=10, render=args.render)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final train reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
