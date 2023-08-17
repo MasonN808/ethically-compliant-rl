@@ -59,6 +59,8 @@ parser.add_argument('--project', type=str, default="PPOL", help='Project name')
 parser.add_argument('--epoch', type=int, default=400, help='Number of epochs')
 parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
 parser.add_argument('--gamma', type=float, default=0.97, help='Gamma value for reinforcement learning')
+parser.add_argument('--lr', type=float, default=0.0005, help='learning rate')
+parser.add_argument('--target_kl', type=float, default=0.01, help='target_kl')
 parser.add_argument('--cost_limit', type=float, nargs='+', default=[5.0, 5.0], help='Cost limit values as a list', metavar='FLOAT')
 parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
 parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
@@ -75,12 +77,12 @@ args = parser.parse_args()
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     epoch: int = args.epoch
-    lr: float = 0.0005
+    lr: float = args.lr
     render: float = args.render # The rate at which it renders (e.g., .001)
     render_mode: str = args.render_mode # "rgb_array" or "human" or None
     thread: int = args.thread # If use CPU to train
     step_per_epoch: int = args.step_per_epoch
-    target_kl: float = 0.01
+    target_kl: float = args.target_kl
     gamma: float = args.gamma
     project: str = args.project
     worker: str = "ShmemVectorEnv"
