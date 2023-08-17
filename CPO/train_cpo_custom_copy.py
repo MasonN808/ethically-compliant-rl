@@ -182,8 +182,8 @@ def train(args: MyCfg):
     if isinstance(env.observation_space, Dict):
         # TODO: This is hardcoded please fix
         dict_state_shape = {
-            "achieved_goal": (6,),
             "observation": (6,),
+            "achieved_goal": (6,),
             "desired_goal": (6,)
         }
         decorator_fn, state_shape = get_dict_state_decorator(dict_state_shape, list(dict_state_shape.keys()))

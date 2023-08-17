@@ -176,8 +176,8 @@ def train(args: MyCfg):
     if isinstance(env.observation_space, Dict):
         # TODO: This is hardcoded please fix
         dict_state_shape = {
-            "achieved_goal": (6,),
             "observation": (6,),
+            "achieved_goal": (6,),
             "desired_goal": (6,)
         }
         decorator_fn, state_shape = get_dict_state_decorator(dict_state_shape, list(dict_state_shape.keys()))
@@ -352,13 +352,13 @@ def train(args: MyCfg):
         env = load_environment(ENV_CONFIG)
         policy.eval()
         collector = FastCollector(policy, env)
-        result = collector.collect(n_episode=10, render=args.render)
+        result = collector.collect(n_episode=10, render=args.render, constraint_type=args.constraint_type)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final eval reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
 
         policy.train()
         collector = FastCollector(policy, env)
-        result = collector.collect(n_episode=10, render=args.render)
+        result = collector.collect(n_episode=10, render=args.render, constraint_type=args.constraint_type)
         rews, lens, cost = result["rew"], result["len"], result["cost"]
         print(f"Final train reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
 
