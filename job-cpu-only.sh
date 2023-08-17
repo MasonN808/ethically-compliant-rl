@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=CVPO-5
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=7
 #SBATCH --mem=40gb
 #SBATCH --nodes=6
 #SBATCH --ntasks=6
