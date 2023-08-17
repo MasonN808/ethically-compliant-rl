@@ -2,8 +2,8 @@
 #SBATCH --job-name=CVPO-1-const
 #SBATCH --cpus-per-task=7
 #SBATCH --mem=40gb
-#SBATCH --nodes=6
-#SBATCH --ntasks=6
+#SBATCH --nodes=2
+#SBATCH --ntasks=2
 #SBATCH --time=30:00:00
 #SBATCH --qos scavenger
 
