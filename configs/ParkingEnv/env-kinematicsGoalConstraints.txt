@@ -28,7 +28,6 @@
     "start_location": [30, 30],
 
     # Costs
-    "constrained_rl": True,
     # Cost-speed
     "cost_speed_limit": 4,
 }

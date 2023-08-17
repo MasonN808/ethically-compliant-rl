@@ -24,5 +24,5 @@
     "controlled_vehicles": 1,
     "vehicles_count": 0,
     "add_walls": False,
-    "start_location": [30, 30]
+    "start_location": [0, 32]
 }
