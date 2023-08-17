@@ -101,7 +101,6 @@ ENV_CONFIG = ast.literal_eval(data)
 ENV_CONFIG.update({
     "add_walls": False,
     # Costs
-    # "constrained_rl": args.constrained_rl,
     "constraint_type": args.constraint_type,
     # Cost-speed
     "cost_speed_limit": args.cost_speed_limit,
