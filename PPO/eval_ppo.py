@@ -1,5 +1,5 @@
 import ast
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 import random
 import sys
@@ -33,7 +33,7 @@ import re
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/PPO/parking-v0-cost-10/ppol_step_per_epoch20000_target_kl0.01-19bd"
+    path: str = "logs/PPOL/parking-v0-cost0-2-cost1-2/ppol_cost2.0_2.0_gamma0.97_lr0.001_step_per_epoch20000_target_kl0.01-5a15"
     # Get the unique 4 char id of the file at the end of the file name
     match = re.search(r'-([\w]+)$', path)
     experiment_id = "----"
@@ -44,7 +44,6 @@ class EvalConfig:
 
     # Get the algorithm used
     match = re.search(r'/(\w+?)_', path)
-    constraints = True
     if match:
         algorithm = match.group(1)
         if algorithm == "ppol":
@@ -52,10 +51,11 @@ class EvalConfig:
     else:
         print("Pattern not found")
 
-    best: bool = True
+    best: bool = False
     eval_episodes: int = 2
     convert_to_gif: bool = True
     parallel_eval: bool = False
+    constraint_type: list[str] = field(default_factory=lambda: ["distance", "speed"])
     # This was originally a bool; must be changed to float
     render: float = .005
     train_mode: bool = False
@@ -65,8 +65,8 @@ class EvalConfig:
     env_config_file: str = 'configs/ParkingEnv/env-evaluation.txt'
     monitor_mode: bool = True
     video_recorder: VideoRecorder = None # Keep this None
-    random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, 40], [-40, 0]]
-    # random_starting_locations = [[0,0]]
+    # random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, 40], [-40, 0]]
+    random_starting_locations = [[0,32]]
 
 
 with open(EvalConfig.env_config_file) as f:
@@ -89,8 +89,8 @@ def eval(args: EvalConfig):
     if isinstance(env.observation_space, Dict):
         # TODO: This is hardcoded please fix
         dict_state_shape = {
-            "achieved_goal": (6,),
             "observation": (6,),
+            "achieved_goal": (6,),
             "desired_goal": (6,)
         }
         decorator_fn, state_shape = get_dict_state_decorator(dict_state_shape, list(dict_state_shape.keys()))
@@ -123,7 +123,7 @@ def eval(args: EvalConfig):
                             Net(state_shape, hidden_sizes=cfg["hidden_sizes"], device=args.device),
                             device=None
                         ).to(args.device)
-                    ) for _ in range(2)
+                    ) for _ in range(1 + len(cfg["constraint_type"]))
         ]
     else:
         actor = ActorProb(
@@ -137,7 +137,7 @@ def eval(args: EvalConfig):
             Critic(
                 Net(state_shape, hidden_sizes=cfg["hidden_sizes"], device=args.device),
                 device=args.device
-            ).to(args.device) for _ in range(2)
+            ).to(args.device) for _ in range(1 + len(cfg["constraint_type"]))
         ]
 
     def dist(*logits):
@@ -174,8 +174,8 @@ def eval(args: EvalConfig):
             filename = Path(name)
         video_recorder = VideoRecorder(test_env, name)
         # Collector
-        eval_collector = FastCollector(policy, test_env, constraints=EvalConfig.constraints)
-        result = eval_collector.collect(n_episode=1, render=EvalConfig.render, video_recorder=video_recorder, constraints=False)
+        eval_collector = FastCollector(policy, test_env, constraint_type=cfg["constraint_type"])
+        result = eval_collector.collect(n_episode=1, render=EvalConfig.render, video_recorder=video_recorder)
 
         # Optionally turn the mp4 into a gif immediately
         if EvalConfig.convert_to_gif:
