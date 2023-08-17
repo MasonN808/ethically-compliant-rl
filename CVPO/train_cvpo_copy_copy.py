@@ -53,10 +53,10 @@ parser = argparse.ArgumentParser(description="Training script")
 parser.add_argument('-f', default='cvpo', help=argparse.SUPPRESS)
 parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
 parser.add_argument('--project', type=str, default="2-constraints-absolute", help='Project name')
-parser.add_argument('--epoch', type=int, default=300, help='Number of epochs')
+parser.add_argument('--epoch', type=int, default=400, help='Number of epochs')
 parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
 parser.add_argument('--gamma', type=float, default=0.97, help='Gamma value for reinforcement learning')
-parser.add_argument('--cost_limit', type=float, nargs='+', default=[2.0, 2.0], help='Cost limit values as a list', metavar='FLOAT')
+parser.add_argument('--cost_limit', type=float, nargs='+', default=[5.0, 5.0], help='Cost limit values as a list', metavar='FLOAT')
 parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
 parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
 parser.add_argument('--thread', type=int, default=320, help='Number of threads')
@@ -78,8 +78,10 @@ class MyCfg(TrainCfg):
     step_per_epoch: int = args.step_per_epoch
     project: str = args.project
     gamma: float = args.gamma
+    step_per_epoch: int = 2000 # Shorten since parking env has small episodes
+    double_critic: bool = True # Increases stability and promotes exploration since it is pessimistic on the Q-values it predicts
     # cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
-    cost_limit: Union[List, float] = field(default_factory=lambda: [0.0, 0.0])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [2.0, 2.0])
     constraint_type: list[str] = field(default_factory=lambda: ["distance", "speed"])
     hidden_sizes: Tuple[int, ...] = (128, 128)
     
@@ -95,6 +97,7 @@ with open(MyCfg.env_config_file) as f:
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
 ENV_CONFIG.update({
+    "add_walls": False,
     # Costs
     # "constrained_rl": args.constrained_rl,
     "constraint_type": args.constraint_type,
@@ -199,8 +202,7 @@ def train(args: MyCfg):
     assert hasattr(
         env.spec, "max_episode_steps"
     ), "Please use an env wrapper to provide 'max_episode_steps' for CVPO"
-    #TODO FIX THIS LATER 
-    state_shape = 6 # 6 since it is the length of the observation 
+
     use_cuda = torch.cuda.is_available()
     # Create Actor
     net = Net(state_shape, hidden_sizes=args.hidden_sizes, device=args.device)
