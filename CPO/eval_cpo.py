@@ -30,9 +30,9 @@ import re
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/2-constraints-absolute/parking-v0-cost0-3-cost1-3/cpo_cost3.0_3.0_lr0.0005_step_per_epoch20000-c954"
-    best: bool = False
-    eval_episodes: int = 5
+    path: str = "logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cpo_lr0.0005_step_per_epoch20000-8198"
+    best: bool = True
+    eval_episodes: int = 2
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
     render: float = .01
@@ -43,8 +43,7 @@ class EvalConfig:
     device = "cpu"
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
-    random_starting_locations = [[30, 30]]
-    # random_starting_locations = [[0,0]]
+    random_starting_locations = [[0, 32]]
 
 if EvalConfig.env_config_file:
     with open(EvalConfig.env_config_file) as f:
@@ -91,43 +90,17 @@ def eval(args: EvalConfig):
         hidden_sizes=cfg["hidden_sizes"],
         unbounded=cfg["unbounded"],
         last_layer_scale=cfg["last_layer_scale"],
+        constraint_type = cfg["constraint_type"]
     )
-
-    # if ENV_CONFIG:
-    #     if args.parallel_eval:
-    #         test_envs = ShmemVectorEnv(
-    #             [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
-    #         )
-    #     else:
-    #         if EvalConfig.random_starting_locations:
-    #             # Make a list of initialized environments with different starting positions
-    #             env_testing_list = []
-    #             for _ in range(args.eval_episodes):
-    #                 # ENV_CONFIG_temp = copy.deepcopy(ENV_CONFIG)
-    #                 ENV_CONFIG.update({"start_location": random.choice(EvalConfig.random_starting_locations)})
-    #                 env_testing_list.append(ENV_CONFIG)
-    #             test_envs = [lambda: load_environment(env_testing_list[i], render_mode=args.render_mode) for i in range(args.eval_episodes)]
-    #         else:
-    #             test_envs = [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
-    #         # test_envs = load_environment(ENV_CONFIG, render_mode=args.render_mode)
-    # else: 
-    #     if args.parallel_eval:
-    #         test_envs = ShmemVectorEnv(
-    #             [lambda: gym.make(cfg["task"], render_mode=args.render_mode) for _ in range(args.eval_episodes)]
-    #         )
-    #     else:
-    #         test_envs = gym.make(cfg["task"], render_mode=args.render_mode)
 
     rews, lens, cost = agent.evaluate(
         env_config = ENV_CONFIG,
-        # test_envs=test_envs,
         state_dict=model["model"],
         eval_episodes=args.eval_episodes,
         render=args.render,
         render_mode = args.render_mode,
         train_mode=args.train_mode,
         experiment_id=args.experiment_id,
-        constraints = args.constraints,
         random_starting_locations = args.random_starting_locations,
         algorithm = args.algorithm,
         convert_to_gif = args.convert_to_gif
