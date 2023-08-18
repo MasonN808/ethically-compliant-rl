@@ -1,0 +1,39 @@
+program: cpo-sweep
+method: bayes
+metric:
+  goal: maximize
+  name: train/reward
+parameters:
+  optim_critic_iters:
+    max: 20
+    min: 5
+    distribution: int_uniform
+  last_layer_scale:
+    values:
+      - true
+      - false
+    distribution: categorical
+  max_backtracks:
+    max: 200
+    min: 50
+    distribution: int_uniform
+  gae_lambda:
+    max: 1.9
+    min: 0.475
+    distribution: uniform
+  target_kl:
+    max: 0.03
+    min: 0.005
+    distribution: uniform
+  l2_reg:
+    max: 0.002
+    min: 0.0005
+    distribution: uniform
+  gamma:
+    max: .999
+    min: 0.8
+    distribution: uniform
+  lr:
+    max: 0.002
+    min: 0.00025
+    distribution: uniform
