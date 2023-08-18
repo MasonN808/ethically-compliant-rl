@@ -55,7 +55,7 @@ class EvalConfig:
     eval_episodes: int = 2
     convert_to_gif: bool = True
     parallel_eval: bool = False
-    constraint_type: list[str] = field(default_factory=lambda: ["distance", "speed"])
+    constraint_type: list[str] = field(default_factory=lambda: ["lines", "speed"])
     # This was originally a bool; must be changed to float
     render: float = .005
     train_mode: bool = False

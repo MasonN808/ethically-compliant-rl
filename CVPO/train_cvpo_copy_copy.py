@@ -63,8 +63,8 @@ parser.add_argument('--thread', type=int, default=320, help='Number of threads')
 
 # Environment argumnets
 # parser.add_argument('--constrained_rl', type=bool, default=True, help='Identifier for constrained RL')
-parser.add_argument('--constraint_type', type=str, nargs='*', default=["distance", "speed"], help='List of constraint types to use')
-parser.add_argument('--cost_speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
+parser.add_argument('--constraint_type', type=str, nargs='*', default=["lines", "speed"], help='List of constraint types to use')
+parser.add_argument('--speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
 parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
 args = parser.parse_args()
 
@@ -82,7 +82,7 @@ class MyCfg(TrainCfg):
     double_critic: bool = True # Increases stability and promotes exploration since it is pessimistic on the Q-values it predicts
     # cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
     cost_limit: Union[List, float] = field(default_factory=lambda: [2.0, 2.0])
-    constraint_type: list[str] = field(default_factory=lambda: ["distance", "speed"])
+    constraint_type: list[str] = field(default_factory=lambda: ["lines", "speed"])
     hidden_sizes: Tuple[int, ...] = (128, 128)
     
     worker: str = "ShmemVectorEnv"
@@ -102,7 +102,7 @@ ENV_CONFIG.update({
     # "constrained_rl": args.constrained_rl,
     "constraint_type": args.constraint_type,
     # Cost-speed
-    "cost_speed_limit": args.cost_speed_limit,
+    "speed_limit": args.speed_limit,
     "absolute_cost_speed": args.absolute_cost_speed
     })
 

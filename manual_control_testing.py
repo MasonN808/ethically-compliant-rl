@@ -32,7 +32,7 @@ env.configure({
     "manual_control": True,
 
     # Cost-speed
-    "cost_speed_limit": 2,
+    "speed_limit": 2,
 })
 env.reset()
 done = False
