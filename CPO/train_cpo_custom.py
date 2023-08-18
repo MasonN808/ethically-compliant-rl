@@ -147,6 +147,7 @@ def train(args: MyCfg):
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
+    
     if MyCfg.random_starting_locations:
         def generate_env_config(num):
             return [{"start_location": random.choice(MyCfg.random_starting_locations)} for _ in range(num)]
@@ -270,6 +271,7 @@ def train(args: MyCfg):
         buffer = ReplayBuffer(args.buffer_size)
     else:
         buffer = VectorReplayBuffer(args.buffer_size, len(train_envs))
+
     train_collector = FastCollector(
         policy,
         train_envs,
