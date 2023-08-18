@@ -5,10 +5,11 @@ import random
 import sys
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
-# Set this before everything
-import wandb
-wandb.init()
 
+# import wandb
+# wandb.init()
+os. environ['WANDB_DISABLED'] = 'True'
+os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 from dataclasses import asdict, dataclass, field
@@ -68,7 +69,10 @@ parser.add_argument('--constraint_type', type=str, nargs='+', default=["lines", 
 parser.add_argument('--speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
 parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
 
-args = wandb.config
+# args = wandb.config
+
+args = parser.parse_args()
+
 
 @dataclass
 class MyCfg(TrainCfg):
@@ -84,16 +88,16 @@ class MyCfg(TrainCfg):
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     hidden_sizes: Tuple[int, ...] = (128, 128)
     random_starting_locations = [[0,32]] # Support of starting position
-
-    # Wandb params
-    optim_critic_iters: int = wandb.config.optim_critic_iters
-    last_layer_scale: bool = wandb.config.last_layer_scale
-    max_backtracks: int = wandb.config.max_backtracks
-    gae_lambda: float = wandb.config.gae_lambda
-    target_kl: float = wandb.config.target_kl
-    l2_reg: float = wandb.config.l2.reg
-    gamma: float = wandb.config.gamma
-    lr: float = wandb.config.lr
+    training_num: int = 2
+    # # Wandb params
+    # optim_critic_iters: int = wandb.config.optim_critic_iters
+    # last_layer_scale: bool = wandb.config.last_layer_scale
+    # max_backtracks: int = wandb.config.max_backtracks
+    # gae_lambda: float = wandb.config.gae_lambda
+    # target_kl: float = wandb.config.target_kl
+    # l2_reg: float = wandb.config.l2.reg
+    # gamma: float = wandb.config.gamma
+    # lr: float = wandb.config.lr
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
@@ -127,7 +131,7 @@ def train(args: MyCfg):
     if args.name is None:
         args.name = auto_name(default_cfg, cfg, args.prefix, args.suffix)
     if args.group is None:
-        args.group = args.task + "-cost-" + str(int(args.cost_limit))
+        args.group = args.task + "-cost-" + str(args.cost_limit)
     if args.logdir is not None:
         args.logdir = os.path.join(args.logdir, args.project, args.group)
     logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)

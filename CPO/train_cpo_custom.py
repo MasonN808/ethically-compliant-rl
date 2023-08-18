@@ -7,7 +7,7 @@ import sys
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'False'
+os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
@@ -133,13 +133,7 @@ def train(args: MyCfg):
     if args.name is None:
         args.name = auto_name(default_cfg, cfg, args.prefix, args.suffix)
     if args.group is None:
-        if isinstance(args.cost_limit, list): # Since you can have more than one cost limit
-            args.group = args.task 
-            for index, cost_limit in enumerate(args.cost_limit):
-                args.group += f"-cost{index}-" + str(int(cost_limit))
-        else: 
-            args.group = args.task + "-cost-" + str(int(args.cost_limit))
-
+        args.group = args.task + "-cost-" + str(args.cost_limit)
     if args.logdir is not None:
         args.logdir = os.path.join(args.logdir, args.project, args.group)
     logger = WandbLogger(cfg, args.project, args.group, args.name, args.logdir)
