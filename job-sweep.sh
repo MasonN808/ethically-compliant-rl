@@ -31,7 +31,7 @@ run_sweep() {
     
     # Initialize the sweep using wandb and capture the returned SWEEP_ID
     SWEEP_ID=$(wandb sweep $SWEEP_FILE)
-
+    echo "Generated SWEEP_ID: $SWEEP_ID"        
     # Replace %s in the template with the SWEEP_ID
     BASE_SCRIPT=$(printf "$BASE_SCRIPT_TEMPLATE" "$SWEEP_ID")
 
