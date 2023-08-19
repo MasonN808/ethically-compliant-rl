@@ -7,6 +7,7 @@ import random
 import sys
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
+from tianshou.env import BaseVectorEnv, DummyVectorEnv, ShmemVectorEnv, SubprocVectorEnv
 
 # import wandb
 # wandb.init()
@@ -31,20 +32,12 @@ import torch
 from torch.distributions import Independent, Normal
 import pyrallis
 
-from tianshou.utils.net.continuous import ActorProb
-from tianshou.utils.net.common import Net, get_dict_state_decorator, DataParallelNet
-from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv, RayVectorEnv
-from tianshou.data import VectorReplayBuffer, ReplayBuffer
-
 # To render the environemnt and agent
-import matplotlib.pyplot as plt
-from fsrl.config.cpo_cfg import TrainCfg
+from fsrl.config.cvpo_cfg import TrainCfg
 from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
 from fsrl.utils.exp_util import auto_name, seed_all
-from fsrl.utils.net.continuous import DoubleCritic, Critic
 from fsrl.data import FastCollector
 from fsrl.agent import CVPOAgent
-from fsrl.trainer import OnpolicyTrainer
 from utils import load_environment
 
 from typing import Tuple, Union, List
@@ -90,28 +83,36 @@ class MyCfg(TrainCfg):
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     hidden_sizes: Tuple[int, ...] = (128, 128)
     random_starting_locations = [[0,0]] # Support of starting position
-    training_num: int = 2
+    normalize_obs = True
+    render_mode: str = "rgb_array"
+    save_interval: int = 4 # The frequency of saving model per number of epochs
+    verbose: bool = False
+
     # # Wandb params
     # optim_critic_iters: int = wandb.config.optim_critic_iters
-    # last_layer_scale: bool = wandb.config.last_layer_scale
+    # last_layer_scale =b.config.last_layer_scale
     # max_backtracks: int = wandb.config.max_backtracks
     # gae_lambda: float = wandb.config.gae_lambda
     # target_kl: float = wandb.config.target_kl
     # l2_reg: float = wandb.config.l2.reg
     # gamma: float = wandb.config.gamma
-    # lr: float = wandb.config.lr
+    lr: float = wandb.config.lr
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
 ENV_CONFIG.update({
+    "observation": {        
+        "type": "KinematicsGoal",
+        "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
+        "scales": [100, 100, 5, 5, 1, 1],
+        "normalize": MyCfg.normalize_obs
+    },
     # Costs
     "constraint_type": args.constraint_type,
     # Cost-speed
-    "speed_limit": args.speed_limit,
-    "absolute_cost_speed": args.absolute_cost_speed,
-    "observation": {"normalize": args.normalize_obs}
+    "speed_limit": args.speed_limit
 })
 
 @pyrallis.wrap()
@@ -149,25 +150,33 @@ def train(args: MyCfg):
     agent = CVPOAgent(
         env=demo_env,
         logger=logger,
+        cost_limit=args.cost_limit,
+        constraint_type=args.constraint_type,
         device=args.device,
         thread=args.thread,
         seed=args.seed,
-        lr=args.lr,
+        # CVPO arguments,
+        estep_iter_num=args.estep_iter_num,
+        estep_kl=args.estep_kl,
+        estep_dual_max=args.estep_dual_max,
+        estep_dual_lr=args.estep_dual_lr,
+        sample_act_num=args.sample_act_num,
+        mstep_iter_num=args.mstep_iter_num,
+        mstep_kl_mu=args.mstep_kl_mu,
+        mstep_kl_std=args.mstep_kl_std,
+        mstep_dual_max=args.mstep_dual_max,
+        mstep_dual_lr=args.mstep_dual_lr,
+        # other algorithm params,
+        actor_lr = args.actor_lr,
+        critic_lr = args.critic_lr,
+        gamma = args.gamma,
+        n_step = args.n_step,
+        tau = args.tau,
         hidden_sizes=args.hidden_sizes,
+        double_critic=args.double_critic,
+        conditioned_sigma=args.conditioned_sigma,
         unbounded=args.unbounded,
         last_layer_scale=args.last_layer_scale,
-        target_kl=args.target_kl,
-        backtrack_coeff=args.backtrack_coeff,
-        damping_coeff=args.damping_coeff,
-        max_backtracks=args.max_backtracks,
-        optim_critic_iters=args.optim_critic_iters,
-        gae_lambda=args.gae_lambda,
-        advantage_normalization=args.norm_adv,
-        cost_limit=args.cost_limit,
-        constraint_type=args.constraint_type,
-        gamma=args.gamma,
-        max_batchsize=args.max_batchsize,
-        reward_normalization=args.rew_norm,
         deterministic_eval=args.deterministic_eval,
         action_scaling=args.action_scaling,
         action_bound_method=args.action_bound_method,
@@ -205,7 +214,7 @@ def train(args: MyCfg):
         epoch=args.epoch,
         episode_per_collect=args.episode_per_collect,
         step_per_epoch=args.step_per_epoch,
-        repeat_per_collect=args.repeat_per_collect,
+        # repeat_per_collect=args.repeat_per_collect,
         buffer_size=args.buffer_size,
         testing_num=args.testing_num,
         batch_size=args.batch_size,
@@ -218,10 +227,7 @@ def train(args: MyCfg):
 
     if __name__ == "__main__":
         # Let's watch its performance!
-        try:
-            env = load_environment(ENV_CONFIG)
-        except:
-            env = gym.make(args.task, render_mode=args.render_mode)
+        env = load_environment(ENV_CONFIG)
     
         agent.policy.eval()
         collector = FastCollector(agent.policy, env, constraint_type=args.constraint_type)

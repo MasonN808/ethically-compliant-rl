@@ -1,7 +1,10 @@
 import copy
 import os
 import argparse
-os. environ['WANDB_DISABLED'] = 'False'
+
+# import wandb
+# wandb.init()
+os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
@@ -68,6 +71,8 @@ parser.add_argument('--speed_limit', type=float, default=4.0, help='The maximum 
 parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
 args = parser.parse_args()
 
+# args = wandb.config
+
 @dataclass
 class MyCfg(TrainCfg):
     task: str = args.task
@@ -80,12 +85,24 @@ class MyCfg(TrainCfg):
     gamma: float = args.gamma
     step_per_epoch: int = 2000 # Shorten since parking env has small episodes
     double_critic: bool = True # Increases stability and promotes exploration since it is pessimistic on the Q-values it predicts
-    # cost_limit: Union[List, float] = field(default_factory=lambda: args.cost_limit)
-    # cost_limit: Union[List, float] = field(default_factory=lambda: [2.0, 2.0])
-    # constraint_type: list[str] = field(default_factory=lambda: ["lines", "speed"])
-    cost_limit: Union[List, float] = field(default_factory=lambda: [2.0])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [5.0])
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
     hidden_sizes: Tuple[int, ...] = (128, 128)
+    random_starting_locations = [[0,0]] # Support of starting position
+    training_num: int = 4
+    normalize_obs: bool = True
+    render_mode: str = "rgb_array"
+    save_interval: int = 4 # The frequency of saving model per epoch
+
+    # # Wandb params
+    # optim_critic_iters: int = wandb.config.optim_critic_iters
+    # last_layer_scale: bool = wandb.config.last_layer_scale
+    # max_backtracks: int = wandb.config.max_backtracks
+    # gae_lambda: float = wandb.config.gae_lambda
+    # target_kl: float = wandb.config.target_kl
+    # l2_reg: float = wandb.config.l2.reg
+    # gamma: float = wandb.config.gamma
+    # lr: float = wandb.config.lr
     
     worker: str = "ShmemVectorEnv"
     # Decide which device to use based on availability
@@ -99,13 +116,16 @@ with open(MyCfg.env_config_file) as f:
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
 ENV_CONFIG.update({
-    "add_walls": True,
+    "observation": {        
+        "type": "KinematicsGoal",
+        "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
+        "scales": [100, 100, 5, 5, 1, 1],
+        "normalize": True
+    },
     # Costs
-    # "constrained_rl": args.constrained_rl,
     "constraint_type": args.constraint_type,
     # Cost-speed
     "speed_limit": args.speed_limit,
-    "absolute_cost_speed": args.absolute_cost_speed
     })
 
 @pyrallis.wrap()
