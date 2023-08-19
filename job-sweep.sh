@@ -9,6 +9,9 @@
 #SBATCH --time=30:00:00             # Maximum run time of the job
 #SBATCH --qos=scavenger             # Quality of Service of the job
 
+# Set the wandb API key
+export WANDB_API_KEY='9762ecfe45a25eda27bb421e664afe503bb42297'
+
 # An array of paths to the sweep configuration files
 SWEEP_FILES=(
     "/nas/ucb/mason/ethically-compliant-rl/CPO/sweep-cpo.yaml"
