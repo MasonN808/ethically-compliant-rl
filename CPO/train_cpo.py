@@ -53,7 +53,7 @@ import argparse
 # TODO None of these actually work --> there exist predefined arguments somewhere I can't find
 parser = argparse.ArgumentParser(description="Training script")
 parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
-parser.add_argument('--project', type=str, default="2-constraints-absolute", help='Project name')
+# parser.add_argument('--project', type=str, default="2-constraints-absolute", help='Project name')
 parser.add_argument('--epoch', type=int, default=300, help='Number of epochs')
 parser.add_argument('--target_kl', type=float, default=0.01, help='Target KL divergence')
 parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
@@ -77,17 +77,17 @@ args = parser.parse_args()
 @dataclass
 class MyCfg(TrainCfg):
     task: str = args.task
-    project: str = args.project
+    project: str = "Line-constraint"
     epoch: int = 400 # Get epoch from command-line arguments
     step_per_epoch: int = 3000
-    cost_limit: Union[List, float] = field(default_factory=lambda: [5.0, 5.0])
-    constraint_type: list[str] = field(default_factory=lambda: ["lines", "speed"])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [5.0])
+    constraint_type: list[str] = field(default_factory=lambda: ["lines"])
     worker: str = "ShmemVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     hidden_sizes: Tuple[int, ...] = (128, 128)
-    random_starting_locations = [[0,32]] # Support of starting position
+    random_starting_locations = [[0,0]] # Support of starting position
     training_num: int = 2
     # # Wandb params
     # optim_critic_iters: int = wandb.config.optim_critic_iters
@@ -97,7 +97,7 @@ class MyCfg(TrainCfg):
     # target_kl: float = wandb.config.target_kl
     # l2_reg: float = wandb.config.l2.reg
     # gamma: float = wandb.config.gamma
-    # lr: float = wandb.config.lr
+    lr: float = wandb.config.lr
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
@@ -108,8 +108,9 @@ ENV_CONFIG.update({
     "constraint_type": args.constraint_type,
     # Cost-speed
     "speed_limit": args.speed_limit,
-    "absolute_cost_speed": args.absolute_cost_speed
-    })
+    "absolute_cost_speed": args.absolute_cost_speed,
+    "observation": {"normalize": args.normalize_obs}
+})
 
 @pyrallis.wrap()
 def train(args: MyCfg):
