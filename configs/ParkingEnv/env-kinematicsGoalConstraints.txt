@@ -16,7 +16,7 @@
     "success_goal_reward": 0.12,
     "collision_reward": -5,
     "simulation_frequency": 100,
-    "policy_frequency": 5,
+    "policy_frequency": 30,
     "duration": 70,
     "screen_width": 600,
     "screen_height": 300,
@@ -24,8 +24,8 @@
     "scaling": 7,
     "controlled_vehicles": 1,
     "vehicles_count": 0,
-    "add_walls": False,
-    "start_location": [30, 30],
+    "add_walls": True,
+    "start_location": [0, 0],
 
     # Costs
     # Cost-speed
