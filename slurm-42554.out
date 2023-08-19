@@ -1,0 +1,38 @@
+wandb: Creating sweep from: /nas/ucb/mason/ethically-compliant-rl/CVPO/sweep-cvpo.yaml
+wandb: Creating sweep from: /nas/ucb/mason/ethically-compliant-rl/CPO/sweep-cpo.yaml
+wandb: Created sweep with ID: q562qiaz
+wandb: View sweep at: https://wandb.ai/ecrl/fast-safe-rl/sweeps/q562qiaz
+wandb: Run sweep agent with: wandb agent ecrl/fast-safe-rl/q562qiaz
+wandb: Created sweep with ID: kf0al80z
+wandb: View sweep at: https://wandb.ai/ecrl/fast-safe-rl/sweeps/kf0al80z
+wandb: Run sweep agent with: wandb agent ecrl/fast-safe-rl/kf0al80z
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: Missing argument 'SWEEP_ID'.
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: Missing argument 'SWEEP_ID'.
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: Missing argument 'SWEEP_ID'.
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 2
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 2
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: Missing argument 'SWEEP_ID'.
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: Missing argument 'SWEEP_ID'.
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: Missing argument 'SWEEP_ID'.
+srun: error: ppo.ist.berkeley.edu: task 0: Exited with exit code 2
+srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 2
+srun: error: sac.ist.berkeley.edu: task 0: Exited with exit code 2
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 2

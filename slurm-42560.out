@@ -1,0 +1,391 @@
+wandb: Starting wandb agent 🕵️
+wandb: Starting wandb agent 🕵️
+wandb: Starting wandb agent 🕵️
+wandb: Starting wandb agent 🕵️
+wandb: Starting wandb agent 🕵️
+wandb: Starting wandb agent 🕵️
+2023-08-19 07:47:13,722 - wandb.wandb_agent - INFO - Running runs: []
+2023-08-19 00:47:13,818 - wandb.wandb_agent - INFO - Running runs: []
+2023-08-19 07:47:13,822 - wandb.wandb_agent - INFO - Running runs: []
+2023-08-19 00:47:13,852 - wandb.wandb_agent - INFO - Running runs: []
+2023-08-19 00:47:13,934 - wandb.wandb_agent - INFO - Running runs: []
+2023-08-19 00:47:13,978 - wandb.wandb_agent - INFO - Running runs: []
+2023-08-19 07:47:13,993 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 07:47:13,993 - wandb.wandb_agent - INFO - Agent starting run with config:
+	actor_lr: 0.001
+	critic_lr: 0.0005
+	normalize_obs: False
+2023-08-19 07:47:13,995 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py --actor_lr=0.001 --critic_lr=0.0005 --normalize_obs=False
+2023-08-19 07:47:14,110 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 07:47:14,111 - wandb.wandb_agent - INFO - Agent starting run with config:
+	lr: 0.001
+	normalize_obs: True
+2023-08-19 07:47:14,112 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py --lr=0.001 --normalize_obs=True
+2023-08-19 00:47:14,257 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 00:47:14,257 - wandb.wandb_agent - INFO - Agent starting run with config:
+	actor_lr: 0.0005
+	critic_lr: 0.0005
+	normalize_obs: False
+2023-08-19 00:47:14,260 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py --actor_lr=0.0005 --critic_lr=0.0005 --normalize_obs=False
+2023-08-19 00:47:14,373 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 00:47:14,373 - wandb.wandb_agent - INFO - Agent starting run with config:
+	lr: 0.001
+	normalize_obs: False
+2023-08-19 00:47:14,375 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py --lr=0.001 --normalize_obs=False
+2023-08-19 00:47:14,408 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 00:47:14,408 - wandb.wandb_agent - INFO - Agent starting run with config:
+	actor_lr: 0.0005
+	critic_lr: 0.001
+	normalize_obs: False
+2023-08-19 00:47:14,411 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py --actor_lr=0.0005 --critic_lr=0.001 --normalize_obs=False
+2023-08-19 00:47:14,569 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 00:47:14,569 - wandb.wandb_agent - INFO - Agent starting run with config:
+	lr: 0.001
+	normalize_obs: True
+2023-08-19 00:47:14,571 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py --lr=0.001 --normalize_obs=True
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_074716-9h5bew99
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run chocolate-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/qejxb08l
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/9h5bew99
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_004716-ov98mxmb
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run fine-sweep-2
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/qejxb08l
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/ov98mxmb
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_074716-ajncl1yf
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run neat-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/ipsycznb
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/ajncl1yf
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_004717-5vqnc6gq
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run azure-sweep-2
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/ipsycznb
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/5vqnc6gq
+usage: train_cvpo.py [-h] [--task TASK] [--epoch EPOCH]
+                     [--target_kl TARGET_KL] [--lr LR]
+                     [--step_per_epoch STEP_PER_EPOCH] [--gamma GAMMA]
+                     [--cost_limit FLOAT [FLOAT ...]] [--render RENDER]
+                     [--render_mode RENDER_MODE] [--thread THREAD]
+                     [--constraint_type CONSTRAINT_TYPE [CONSTRAINT_TYPE ...]]
+                     [--speed_limit SPEED_LIMIT]
+                     [--absolute_cost_speed ABSOLUTE_COST_SPEED]
+train_cvpo.py: error: unrecognized arguments: --actor_lr=0.001 --critic_lr=0.0005 --normalize_obs=False
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_004717-gvuh9vuy
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run flowing-sweep-3
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/ipsycznb
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/gvuh9vuy
+usage: train_cvpo.py [-h] [--task TASK] [--epoch EPOCH]
+                     [--target_kl TARGET_KL] [--lr LR]
+                     [--step_per_epoch STEP_PER_EPOCH] [--gamma GAMMA]
+                     [--cost_limit FLOAT [FLOAT ...]] [--render RENDER]
+                     [--render_mode RENDER_MODE] [--thread THREAD]
+                     [--constraint_type CONSTRAINT_TYPE [CONSTRAINT_TYPE ...]]
+                     [--speed_limit SPEED_LIMIT]
+                     [--absolute_cost_speed ABSOLUTE_COST_SPEED]
+train_cvpo.py: error: unrecognized arguments: --actor_lr=0.0005 --critic_lr=0.0005 --normalize_obs=False
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_004717-rthvjwai
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run exalted-sweep-3
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/qejxb08l
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/rthvjwai
+usage: train_cvpo.py [-h] [--task TASK] [--epoch EPOCH]
+                     [--target_kl TARGET_KL] [--lr LR]
+                     [--step_per_epoch STEP_PER_EPOCH] [--gamma GAMMA]
+                     [--cost_limit FLOAT [FLOAT ...]] [--render RENDER]
+                     [--render_mode RENDER_MODE] [--thread THREAD]
+                     [--constraint_type CONSTRAINT_TYPE [CONSTRAINT_TYPE ...]]
+                     [--speed_limit SPEED_LIMIT]
+                     [--absolute_cost_speed ABSOLUTE_COST_SPEED]
+train_cvpo.py: error: unrecognized arguments: --actor_lr=0.0005 --critic_lr=0.001 --normalize_obs=False
+2023-08-19 07:47:19,004 - wandb.wandb_agent - INFO - Running runs: ['ajncl1yf']
+2023-08-19 07:47:19,005 - wandb.wandb_agent - INFO - Cleaning up finished run: ajncl1yf
+wandb: Waiting for W&B process to finish... (failed 2). Press Control-C to abort syncing.
+2023-08-19 07:47:19,117 - wandb.wandb_agent - INFO - Running runs: ['9h5bew99']
+2023-08-19 00:47:19,270 - wandb.wandb_agent - INFO - Running runs: ['5vqnc6gq']
+2023-08-19 00:47:19,271 - wandb.wandb_agent - INFO - Cleaning up finished run: 5vqnc6gq
+wandb: Waiting for W&B process to finish... (failed 2). Press Control-C to abort syncing.
+2023-08-19 00:47:19,384 - wandb.wandb_agent - INFO - Running runs: ['ov98mxmb']
+2023-08-19 00:47:19,422 - wandb.wandb_agent - INFO - Running runs: ['gvuh9vuy']
+2023-08-19 00:47:19,422 - wandb.wandb_agent - INFO - Cleaning up finished run: gvuh9vuy
+wandb: Waiting for W&B process to finish... (failed 2). Press Control-C to abort syncing.
+2023-08-19 00:47:19,580 - wandb.wandb_agent - INFO - Running runs: ['rthvjwai']
+[32;1mLogging data to logs/Line-constraint/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_step_per_epoch3000-abf9/progress.txt[0m
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 🚀 View run neat-sweep-1 at: https://wandb.ai/ecrl/fast-safe-rl/runs/ajncl1yf
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230819_074716-ajncl1yf/logs
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 🚀 View run azure-sweep-2 at: https://wandb.ai/ecrl/fast-safe-rl/runs/5vqnc6gq
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230819_004717-5vqnc6gq/logs
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.030 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: 🚀 View run flowing-sweep-3 at: https://wandb.ai/ecrl/fast-safe-rl/runs/gvuh9vuy
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230819_004717-gvuh9vuy/logs
+[32;1mLogging data to logs/Line-constraint/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_step_per_epoch3000-27c5/progress.txt[0m
+2023-08-19 07:47:23,068 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 07:47:23,068 - wandb.wandb_agent - INFO - Agent starting run with config:
+	actor_lr: 0.0005
+	critic_lr: 0.001
+	normalize_obs: False
+2023-08-19 07:47:23,070 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py --actor_lr=0.0005 --critic_lr=0.001 --normalize_obs=False
+2023-08-19 00:47:23,393 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 00:47:23,393 - wandb.wandb_agent - INFO - Agent starting run with config:
+	actor_lr: 0.001
+	critic_lr: 0.0005
+	normalize_obs: True
+2023-08-19 00:47:23,396 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py --actor_lr=0.001 --critic_lr=0.0005 --normalize_obs=True
+2023-08-19 00:47:23,724 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 00:47:23,724 - wandb.wandb_agent - INFO - Agent starting run with config:
+	actor_lr: 0.0005
+	critic_lr: 0.0005
+	normalize_obs: True
+2023-08-19 00:47:23,727 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py --actor_lr=0.0005 --critic_lr=0.0005 --normalize_obs=True
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_074726-o0wgiye4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run zesty-sweep-4
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/ipsycznb
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/o0wgiye4
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_004726-d3z3zt2r
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run distinctive-sweep-5
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/ipsycznb
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/d3z3zt2r
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+usage: train_cvpo.py [-h] [--task TASK] [--epoch EPOCH]
+                     [--target_kl TARGET_KL] [--lr LR]
+                     [--step_per_epoch STEP_PER_EPOCH] [--gamma GAMMA]
+                     [--cost_limit FLOAT [FLOAT ...]] [--render RENDER]
+                     [--render_mode RENDER_MODE] [--thread THREAD]
+                     [--constraint_type CONSTRAINT_TYPE [CONSTRAINT_TYPE ...]]
+                     [--speed_limit SPEED_LIMIT]
+                     [--absolute_cost_speed ABSOLUTE_COST_SPEED]
+train_cvpo.py: error: unrecognized arguments: --actor_lr=0.0005 --critic_lr=0.001 --normalize_obs=False
+wandb: Waiting for W&B process to finish... (failed 2). Press Control-C to abort syncing.
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+usage: train_cvpo.py [-h] [--task TASK] [--epoch EPOCH]
+                     [--target_kl TARGET_KL] [--lr LR]
+                     [--step_per_epoch STEP_PER_EPOCH] [--gamma GAMMA]
+                     [--cost_limit FLOAT [FLOAT ...]] [--render RENDER]
+                     [--render_mode RENDER_MODE] [--thread THREAD]
+                     [--constraint_type CONSTRAINT_TYPE [CONSTRAINT_TYPE ...]]
+                     [--speed_limit SPEED_LIMIT]
+                     [--absolute_cost_speed ABSOLUTE_COST_SPEED]
+train_cvpo.py: error: unrecognized arguments: --actor_lr=0.001 --critic_lr=0.0005 --normalize_obs=True
+wandb: Waiting for W&B process to finish... (failed 2). Press Control-C to abort syncing.
+[32;1mLogging data to logs/Line-constraint/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_step_per_epoch3000-ab89/progress.txt[0m
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_004727-3rkvbn37
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run graceful-sweep-6
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/ipsycznb
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/3rkvbn37
+2023-08-19 07:47:28,079 - wandb.wandb_agent - INFO - Running runs: ['o0wgiye4']
+2023-08-19 00:47:28,406 - wandb.wandb_agent - INFO - Running runs: ['d3z3zt2r']
+usage: train_cvpo.py [-h] [--task TASK] [--epoch EPOCH]
+                     [--target_kl TARGET_KL] [--lr LR]
+                     [--step_per_epoch STEP_PER_EPOCH] [--gamma GAMMA]
+                     [--cost_limit FLOAT [FLOAT ...]] [--render RENDER]
+                     [--render_mode RENDER_MODE] [--thread THREAD]
+                     [--constraint_type CONSTRAINT_TYPE [CONSTRAINT_TYPE ...]]
+                     [--speed_limit SPEED_LIMIT]
+                     [--absolute_cost_speed ABSOLUTE_COST_SPEED]
+train_cvpo.py: error: unrecognized arguments: --actor_lr=0.0005 --critic_lr=0.0005 --normalize_obs=True
+wandb: Waiting for W&B process to finish... (failed 2). Press Control-C to abort syncing.
+2023-08-19 00:47:28,737 - wandb.wandb_agent - INFO - Running runs: ['3rkvbn37']
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: | 0.030 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: 🚀 View run zesty-sweep-4 at: https://wandb.ai/ecrl/fast-safe-rl/runs/o0wgiye4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230819_074726-o0wgiye4/logs
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: | 0.030 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: 🚀 View run distinctive-sweep-5 at: https://wandb.ai/ecrl/fast-safe-rl/runs/d3z3zt2r
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230819_004726-d3z3zt2r/logs
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: 🚀 View run graceful-sweep-6 at: https://wandb.ai/ecrl/fast-safe-rl/runs/3rkvbn37
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230819_004727-3rkvbn37/logs
+2023-08-19 00:47:33,824 - wandb.wandb_agent - INFO - Cleaning up finished run: 3rkvbn37
+2023-08-19 00:47:34,228 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 00:47:34,228 - wandb.wandb_agent - INFO - Agent starting run with config:
+	actor_lr: 0.0005
+	critic_lr: 0.001
+	normalize_obs: False
+2023-08-19 00:47:34,231 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py --actor_lr=0.0005 --critic_lr=0.001 --normalize_obs=False
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_004737-pz4pzfyr
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run stoic-sweep-7
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/ipsycznb
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/pz4pzfyr
+2023-08-19 07:47:38,222 - wandb.wandb_agent - INFO - Cleaning up finished run: o0wgiye4
+2023-08-19 00:47:38,564 - wandb.wandb_agent - INFO - Cleaning up finished run: d3z3zt2r
+2023-08-19 07:47:38,639 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 07:47:38,639 - wandb.wandb_agent - INFO - Agent starting run with config:
+	actor_lr: 0.001
+	critic_lr: 0.0005
+	normalize_obs: True
+2023-08-19 07:47:38,641 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py --actor_lr=0.001 --critic_lr=0.0005 --normalize_obs=True
+usage: train_cvpo.py [-h] [--task TASK] [--epoch EPOCH]
+                     [--target_kl TARGET_KL] [--lr LR]
+                     [--step_per_epoch STEP_PER_EPOCH] [--gamma GAMMA]
+                     [--cost_limit FLOAT [FLOAT ...]] [--render RENDER]
+                     [--render_mode RENDER_MODE] [--thread THREAD]
+                     [--constraint_type CONSTRAINT_TYPE [CONSTRAINT_TYPE ...]]
+                     [--speed_limit SPEED_LIMIT]
+                     [--absolute_cost_speed ABSOLUTE_COST_SPEED]
+train_cvpo.py: error: unrecognized arguments: --actor_lr=0.0005 --critic_lr=0.001 --normalize_obs=False
+wandb: Waiting for W&B process to finish... (failed 2). Press Control-C to abort syncing.
+2023-08-19 00:47:39,039 - wandb.wandb_agent - INFO - Agent received command: run
+2023-08-19 00:47:39,039 - wandb.wandb_agent - INFO - Agent starting run with config:
+	actor_lr: 0.001
+	critic_lr: 0.001
+	normalize_obs: True
+2023-08-19 00:47:39,042 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py --actor_lr=0.001 --critic_lr=0.001 --normalize_obs=True
+2023-08-19 00:47:39,239 - wandb.wandb_agent - INFO - Running runs: ['pz4pzfyr']
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: 🚀 View run stoic-sweep-7 at: https://wandb.ai/ecrl/fast-safe-rl/runs/pz4pzfyr
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230819_004737-pz4pzfyr/logs
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mason/.netrc
+wandb: WARNING Ignored wandb.init() arg project when running a sweep.
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_074741-21gt3yvt
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run glorious-sweep-8
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/ipsycznb
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/21gt3yvt
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20230819_004741-zqsqdvz0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run chocolate-sweep-9
+wandb: ⭐️ View project at https://wandb.ai/ecrl/fast-safe-rl
+wandb: 🧹 View sweep at https://wandb.ai/ecrl/fast-safe-rl/sweeps/ipsycznb
+wandb: 🚀 View run at https://wandb.ai/ecrl/fast-safe-rl/runs/zqsqdvz0
+usage: train_cvpo.py [-h] [--task TASK] [--epoch EPOCH]
+                     [--target_kl TARGET_KL] [--lr LR]
+                     [--step_per_epoch STEP_PER_EPOCH] [--gamma GAMMA]
+                     [--cost_limit FLOAT [FLOAT ...]] [--render RENDER]
+                     [--render_mode RENDER_MODE] [--thread THREAD]
+                     [--constraint_type CONSTRAINT_TYPE [CONSTRAINT_TYPE ...]]
+                     [--speed_limit SPEED_LIMIT]
+                     [--absolute_cost_speed ABSOLUTE_COST_SPEED]
+train_cvpo.py: error: unrecognized arguments: --actor_lr=0.001 --critic_lr=0.0005 --normalize_obs=True
+wandb: Waiting for W&B process to finish... (failed 2). Press Control-C to abort syncing.
+usage: train_cvpo.py [-h] [--task TASK] [--epoch EPOCH]
+                     [--target_kl TARGET_KL] [--lr LR]
+                     [--step_per_epoch STEP_PER_EPOCH] [--gamma GAMMA]
+                     [--cost_limit FLOAT [FLOAT ...]] [--render RENDER]
+                     [--render_mode RENDER_MODE] [--thread THREAD]
+                     [--constraint_type CONSTRAINT_TYPE [CONSTRAINT_TYPE ...]]
+                     [--speed_limit SPEED_LIMIT]
+                     [--absolute_cost_speed ABSOLUTE_COST_SPEED]
+train_cvpo.py: error: unrecognized arguments: --actor_lr=0.001 --critic_lr=0.001 --normalize_obs=True
+wandb: Waiting for W&B process to finish... (failed 2). Press Control-C to abort syncing.
+2023-08-19 07:47:43,650 - wandb.wandb_agent - INFO - Running runs: ['21gt3yvt']
+2023-08-19 00:47:44,052 - wandb.wandb_agent - INFO - Running runs: ['zqsqdvz0']
+2023-08-19 00:47:44,305 - wandb.wandb_agent - ERROR - Detected 3 failed runs in the first 60 seconds, shutting down.
+2023-08-19 00:47:44,306 - wandb.wandb_agent - INFO - To disable this check set WANDB_AGENT_DISABLE_FLAPPING=true
+wandb: Terminating and syncing runs. Press ctrl-c to kill.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: 🚀 View run glorious-sweep-8 at: https://wandb.ai/ecrl/fast-safe-rl/runs/21gt3yvt
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230819_074741-21gt3yvt/logs
+wandb: 🚀 View run chocolate-sweep-9 at: https://wandb.ai/ecrl/fast-safe-rl/runs/zqsqdvz0
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230819_004741-zqsqdvz0/logs
+2023-08-19 07:47:48,741 - wandb.wandb_agent - ERROR - Detected 3 failed runs in the first 60 seconds, shutting down.
+2023-08-19 07:47:48,741 - wandb.wandb_agent - INFO - To disable this check set WANDB_AGENT_DISABLE_FLAPPING=true
+wandb: Terminating and syncing runs. Press ctrl-c to kill.
+2023-08-19 00:47:49,124 - wandb.wandb_agent - ERROR - Detected 3 failed runs in the first 60 seconds, shutting down.
+2023-08-19 00:47:49,125 - wandb.wandb_agent - INFO - To disable this check set WANDB_AGENT_DISABLE_FLAPPING=true
+wandb: Terminating and syncing runs. Press ctrl-c to kill.
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 11481it [00:38, 298.25it/s]             Epoch #1: 11481it [00:43, 298.25it/s, cost=88.2, length=574, rew=-288]Epoch #1: 11481it [00:43, 262.52it/s, cost=88.2, length=574, rew=-288]
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 12576it [00:44, 283.61it/s]             Epoch #1: 12576it [00:50, 283.61it/s, cost=133, length=629, rew=-329]Epoch #1: 12576it [00:50, 250.54it/s, cost=133, length=629, rew=-329]
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 15074it [00:54, 276.12it/s]             Epoch #1: 15074it [01:01, 276.12it/s, cost=203, length=754, rew=-361]Epoch #1: 15074it [01:01, 243.57it/s, cost=203, length=754, rew=-361]
+Epoch #2:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #2: 10366it [00:35, 293.87it/s]             Epoch #2: 10366it [00:38, 293.87it/s, cost=101, length=518, rew=-270]Epoch #2: 10366it [00:38, 267.67it/s, cost=101, length=518, rew=-270]
+Epoch #2:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #2: 10144it [00:33, 298.70it/s]             Epoch #2: 10144it [00:38, 298.70it/s, cost=86.1, length=507, rew=-261]Epoch #2: 10144it [00:38, 264.67it/s, cost=86.1, length=507, rew=-261]
+Epoch #2:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #2: 18388it [01:03, 291.40it/s]             Epoch #2: 18388it [01:12, 291.40it/s, cost=205, length=919, rew=-468]Epoch #2: 18388it [01:12, 255.26it/s, cost=205, length=919, rew=-468]
+Epoch #3:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #3: 10681it [00:35, 304.97it/s]             Epoch #3: 10681it [00:38, 304.97it/s, cost=102, length=534, rew=-245]Epoch #3: 10681it [00:38, 277.01it/s, cost=102, length=534, rew=-245]
+Epoch #3:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #3: 10984it [00:36, 296.92it/s]             Epoch #3: 10984it [00:41, 296.92it/s, cost=117, length=549, rew=-270]Epoch #3: 10984it [00:41, 262.51it/s, cost=117, length=549, rew=-270]
+Epoch #4:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #4: 10151it [00:40, 248.44it/s]             Epoch #4: 10151it [00:44, 248.44it/s, cost=80.5, length=508, rew=-246]Epoch #4: 10151it [00:44, 228.20it/s, cost=80.5, length=508, rew=-246]
+Epoch #3:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #3: 15832it [00:58, 269.80it/s]             Epoch #3: 15832it [01:03, 269.80it/s, cost=135, length=792, rew=-376]Epoch #3: 15832it [01:03, 247.67it/s, cost=135, length=792, rew=-376]
+Epoch #4:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #4: 20230it [01:06, 302.87it/s]             Epoch #4: 20230it [01:14, 302.87it/s, cost=226, length=1011.5, rew=-486]Epoch #4: 20230it [01:14, 270.03it/s, cost=226, length=1011.5, rew=-486]
+Epoch #5:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #5: 13363it [00:49, 268.16it/s]             Epoch #5: 13363it [00:55, 268.16it/s, cost=83.8, length=668, rew=-345]Epoch #5: 13363it [00:55, 242.83it/s, cost=83.8, length=668, rew=-345]
+Epoch #4:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #4: 21441it [01:10, 305.35it/s]             Epoch #4: 21441it [01:18, 305.35it/s, cost=219, length=1072.05, rew=-498]Epoch #4: 21441it [01:18, 274.44it/s, cost=219, length=1072.05, rew=-498]
+Epoch #6:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #6: 14027it [00:54, 257.34it/s]             Epoch #6: 14027it [01:01, 257.34it/s, cost=150, length=701, rew=-340]Epoch #6: 14027it [01:01, 229.59it/s, cost=150, length=701, rew=-340]
+Epoch #5:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #5: 19539it [01:05, 296.07it/s]             Epoch #5: 19539it [01:13, 296.07it/s, cost=200, length=977, rew=-461]Epoch #5: 19539it [01:13, 266.24it/s, cost=200, length=977, rew=-461]
+slurmstepd: error: *** JOB 42560 ON airl.ist.berkeley.edu CANCELLED AT 2023-08-19T07:53:54 ***
+Epoch #7:   0%|          | 0/3000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 42560.4 ON ppo.ist.berkeley.edu CANCELLED AT 2023-08-19T00:53:54 ***
+Epoch #6:   0%|          | 0/3000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 42560.3 ON gan.ist.berkeley.edu CANCELLED AT 2023-08-19T00:53:54 ***
+Epoch #5:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #5: 23415it [01:17, 303.33it/s]             slurmstepd: error: *** STEP 42560.5 ON sac.ist.berkeley.edu CANCELLED AT 2023-08-19T07:53:54 ***
