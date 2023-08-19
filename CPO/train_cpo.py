@@ -11,6 +11,7 @@ sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 
 import wandb
+wandb.login(key="9762ecfe45a25eda27bb421e664afe503bb42297")
 wandb.init(project="CPO-sweep")
 
 from dataclasses import asdict, dataclass, field

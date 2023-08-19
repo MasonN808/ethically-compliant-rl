@@ -14,6 +14,7 @@ from fsrl.utils.net.common import ActorCritic
 from tianshou.env import BaseVectorEnv, DummyVectorEnv, ShmemVectorEnv, SubprocVectorEnv
 
 import wandb
+wandb.login(key="9762ecfe45a25eda27bb421e664afe503bb42297")
 wandb.init(project="CVPO-sweep")
 
 from dataclasses import asdict, dataclass, field
