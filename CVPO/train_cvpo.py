@@ -60,6 +60,9 @@ parser.add_argument('--cost_limit', type=float, nargs='+', default=[3.0, 3.0], h
 parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
 parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
 parser.add_argument('--thread', type=int, default=320, help='Number of threads')
+parser.add_argument('--normalize_obs', type=bool, default=True, help='normalization of observation')
+parser.add_argument('--actor_lr', type=float, default=.001, help='actor learning rate')
+parser.add_argument('--critic_lr', type=float, default=.001, help='critic learning rate')
 
 # Environment argumnets
 parser.add_argument('--constraint_type', type=str, nargs='+', default=["lines", "speed"], help='List of constraint types to use')
