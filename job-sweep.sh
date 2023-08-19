@@ -30,7 +30,13 @@ run_sweep() {
     SWEEP_FILE=$1
     
     # Initialize the sweep using wandb and capture the returned SWEEP_ID
-    SWEEP_ID=$(wandb sweep $SWEEP_FILE)
+    # SWEEP_ID=$(wandb sweep $SWEEP_FILE)
+
+    # This command will only capture the line containing "wandb agent" from the output
+    SWEEP_LINE=$(wandb sweep $SWEEP_FILE 2>&1 | grep "wandb agent")
+
+    # This command extracts the SWEEP_ID from the captured line using awk
+    SWEEP_ID=$(echo $SWEEP_LINE | awk '{print $NF}')
     echo "Generated SWEEP_ID: $SWEEP_ID"        
     # Replace %s in the template with the SWEEP_ID
     BASE_SCRIPT=$(printf "$BASE_SCRIPT_TEMPLATE" "$SWEEP_ID")
