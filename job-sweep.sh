@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=CPO-tune         # Name of the job
-#SBATCH --cpus-per-task=7           # Number of CPUs per task
-#SBATCH --mem=40gb                  # Memory allocated
-#SBATCH --nodes=8                   # Number of nodes
-#SBATCH --ntasks=8                  # Number of tasks
+#SBATCH --job-name=expers         # Name of the job
+#SBATCH --cpus-per-task=6           # Number of CPUs per task
+#SBATCH --mem=50gb                  # Memory allocated
+#SBATCH --nodes=6                   # Number of nodes
+#SBATCH --ntasks=6                  # Number of tasks
 #SBATCH --time=30:00:00             # Maximum run time of the job
 #SBATCH --qos=scavenger             # Quality of Service of the job
 
@@ -19,7 +19,7 @@ SWEEP_FILES=(
 BASE_SCRIPT_TEMPLATE="wandb agent %s"
 
 # Number of parallel jobs for each sweep
-NUM_JOBS=4
+NUM_JOBS=3
 
 # Function to execute a single sweep
 run_sweep() {
