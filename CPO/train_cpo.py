@@ -1,17 +1,18 @@
 import copy
 import os
+# os. environ['WANDB_DISABLED'] = 'True'
+os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 import pprint
 import random
 import sys
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 
-# import wandb
-# wandb.init()
-os. environ['WANDB_DISABLED'] = 'True'
-os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+import wandb
+wandb.init(project="CPO-sweep")
+
 from dataclasses import asdict, dataclass, field
 import ast
 # import warnings # FIXME: Fix this warning eventually
@@ -88,7 +89,6 @@ class MyCfg(TrainCfg):
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     hidden_sizes: Tuple[int, ...] = (128, 128)
     random_starting_locations = [[0,0]] # Support of starting position
-    normalize_obs: bool = True
     render_mode: str = "rgb_array"
     save_interval: int = 4 # The frequency of saving model per number of epochs
     verbose: bool = False
@@ -101,7 +101,8 @@ class MyCfg(TrainCfg):
     # target_kl: float = wandb.config.target_kl
     # l2_reg: float = wandb.config.l2.reg
     # gamma: float = wandb.config.gamma
-    # lr: float = wandb.config.lr
+    lr: float = wandb.config.lr
+    normalize_obs = wandb.config.normalized_obs
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
