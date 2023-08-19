@@ -99,7 +99,7 @@ class MyCfg(TrainCfg):
     # gamma: float = wandb.config.gamma
     actor_lr = wandb.config.actor_lr
     critic_lr = wandb.config.critic_lr
-    normalize_obs = wandb.config.normalized_obs
+    normalize_obs = wandb.config.normalize_obs
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()

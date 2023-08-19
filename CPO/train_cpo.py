@@ -103,7 +103,7 @@ class MyCfg(TrainCfg):
     # l2_reg: float = wandb.config.l2.reg
     # gamma: float = wandb.config.gamma
     lr: float = wandb.config.lr
-    normalize_obs = wandb.config.normalized_obs
+    normalize_obs = wandb.config.normalize_obs
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
