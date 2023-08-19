@@ -97,9 +97,9 @@ class MyCfg(TrainCfg):
     # target_kl: float = wandb.config.target_kl
     # l2_reg: float = wandb.config.l2.reg
     # gamma: float = wandb.config.gamma
-    actor_lr = wandb.config.actor_lr
-    critic_lr = wandb.config.critic_lr
-    normalize_obs = wandb.config.normalize_obs
+    actor_lr: float = wandb.config.actor_lr
+    critic_lr: float = wandb.config.critic_lr
+    normalize_obs: bool = wandb.config.normalize_obs
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()

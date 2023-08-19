@@ -65,6 +65,7 @@ parser.add_argument('--cost_limit', type=float, nargs='+', default=[3.0, 3.0], h
 parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
 parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
 parser.add_argument('--thread', type=int, default=320, help='Number of threads')
+parser.add_argument('--normalize_obs', type=bool, default=True, help='normalization of observation')
 
 # Environment argumnets
 parser.add_argument('--constraint_type', type=str, nargs='+', default=["lines", "speed"], help='List of constraint types to use')
@@ -103,7 +104,7 @@ class MyCfg(TrainCfg):
     # l2_reg: float = wandb.config.l2.reg
     # gamma: float = wandb.config.gamma
     lr: float = wandb.config.lr
-    normalize_obs = wandb.config.normalize_obs
+    normalize_obs: bool = wandb.config.normalize_obs
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
