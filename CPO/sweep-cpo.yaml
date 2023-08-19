@@ -1,0 +1,16 @@
+name: cpo-sweep
+program: train_cpo.py
+method: bayes
+metric:
+  goal: maximize
+  name: train/reward
+parameters:
+  lr:
+    values:
+      - 0.001
+      - 0.0005
+  normalize_obs:
+      values:
+      - True
+      - False
+

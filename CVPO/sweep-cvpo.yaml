@@ -1,0 +1,20 @@
+name: cvpo-sweep
+program: train_cvpo.py
+method: bayes
+metric:
+  goal: maximize
+  name: train/reward
+parameters:
+  actor_lr:
+    values:
+      - 0.001
+      - 0.0005
+  critic_lr:
+    values:
+      - 0.001
+      - 0.0005
+  normalize_obs:
+      values:
+      - True
+      - False
+
