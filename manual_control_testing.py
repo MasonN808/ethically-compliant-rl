@@ -8,7 +8,7 @@ env.configure({
         "type": "KinematicsGoal",
         "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
         "scales": [100, 100, 5, 5, 1, 1],
-        "normalize": False # TODO THIS DOES NOTHING
+        "normalize": True
     },
     "action": {
         "type": "ContinuousAction"
@@ -19,8 +19,8 @@ env.configure({
     "success_goal_reward": 0.12,
     "collision_reward": -5,
     "simulation_frequency": 100,
-    "policy_frequency": 5,
-    "duration": 10,
+    "policy_frequency": 30,
+    "duration": 70,
     "screen_width": 600,
     "screen_height": 300,
     "centering_position": [0, 0],
