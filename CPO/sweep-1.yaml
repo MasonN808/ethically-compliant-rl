@@ -1,0 +1,10 @@
+program: cpo-sweep
+method: bayes
+metric:
+  goal: maximize
+  name: train/reward
+parameters:
+  lr:
+    values:
+      - 0.001
+      - 0.0005
