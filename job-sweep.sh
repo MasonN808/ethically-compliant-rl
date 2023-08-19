@@ -37,7 +37,7 @@ run_sweep() {
 
     # This command extracts the SWEEP_ID from the captured line using awk
     SWEEP_ID=$(echo $SWEEP_LINE | awk '{print $NF}')
-    echo "Generated SWEEP_ID: $SWEEP_ID"        
+  
     # Replace %s in the template with the SWEEP_ID
     BASE_SCRIPT=$(printf "$BASE_SCRIPT_TEMPLATE" "$SWEEP_ID")
 

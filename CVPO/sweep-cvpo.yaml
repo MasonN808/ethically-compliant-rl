@@ -1,5 +1,5 @@
 name: cvpo-sweep
-program: train_cvpo.py
+program: /nas/ucb/mason/ethically-compliant-rl/CVPO/train_cvpo.py
 method: bayes
 metric:
   goal: maximize
