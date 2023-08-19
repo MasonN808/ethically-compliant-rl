@@ -88,7 +88,11 @@ class MyCfg(TrainCfg):
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     hidden_sizes: Tuple[int, ...] = (128, 128)
     random_starting_locations = [[0,0]] # Support of starting position
-    training_num: int = 2
+    normalize_obs: bool = True
+    render_mode: str = "rgb_array"
+    save_interval: int = 4 # The frequency of saving model per number of epochs
+    verbose: bool = False
+
     # # Wandb params
     # optim_critic_iters: int = wandb.config.optim_critic_iters
     # last_layer_scale: bool = wandb.config.last_layer_scale
@@ -97,19 +101,23 @@ class MyCfg(TrainCfg):
     # target_kl: float = wandb.config.target_kl
     # l2_reg: float = wandb.config.l2.reg
     # gamma: float = wandb.config.gamma
-    lr: float = wandb.config.lr
+    # lr: float = wandb.config.lr
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
 # reconstructing the data as a dictionary
 ENV_CONFIG = ast.literal_eval(data)
 ENV_CONFIG.update({
+    "observation": {        
+        "type": "KinematicsGoal",
+        "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
+        "scales": [100, 100, 5, 5, 1, 1],
+        "normalize": MyCfg.normalize_obs
+    },
     # Costs
     "constraint_type": args.constraint_type,
     # Cost-speed
-    "speed_limit": args.speed_limit,
-    "absolute_cost_speed": args.absolute_cost_speed,
-    "observation": {"normalize": args.normalize_obs}
+    "speed_limit": args.speed_limit
 })
 
 @pyrallis.wrap()
@@ -139,10 +147,10 @@ def train(args: MyCfg):
     logger.save_config(cfg, verbose=args.verbose)
     
     # This env is used strictly to evaluate the observation and action shapes for CPO
-    try:
-        demo_env = load_environment(ENV_CONFIG)
-    except:
-        demo_env = gym.make(args.task, render_mode=args.render_mode)
+    demo_env = load_environment(ENV_CONFIG)
+    # try:
+    # except:
+    #     demo_env = gym.make(args.task, render_mode=args.render_mode)
     
     agent = CPOAgent(
         env=demo_env,
@@ -216,10 +224,7 @@ def train(args: MyCfg):
 
     if __name__ == "__main__":
         # Let's watch its performance!
-        try:
-            env = load_environment(ENV_CONFIG)
-        except:
-            env = gym.make(args.task, render_mode=args.render_mode)
+        env = load_environment(ENV_CONFIG)
     
         agent.policy.eval()
         collector = FastCollector(agent.policy, env, constraint_type=args.constraint_type)
