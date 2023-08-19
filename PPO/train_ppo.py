@@ -43,7 +43,7 @@ from fsrl.utils.net.continuous import DoubleCritic, Critic
 from fsrl.data import FastCollector
 from fsrl.policy import PPOLagrangian
 from fsrl.trainer import OnpolicyTrainer
-from utils.utils import load_environment
+from utils import load_environment
 
 TASK_TO_CFG = {
     # HighwayEnv tasks
