@@ -66,9 +66,9 @@ parser.add_argument('--constraint_type', type=str, nargs='+', default=["lines", 
 parser.add_argument('--speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
 parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
 
-args = wandb.config
+# args = wandb.config
 
-# args = parser.parse_args()
+args = parser.parse_args()
 
 
 @dataclass
