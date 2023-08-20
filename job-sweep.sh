@@ -6,7 +6,7 @@
 #SBATCH --mem=50gb                  # Memory allocated
 #SBATCH --nodes=6                   # Number of nodes
 #SBATCH --ntasks=6                  # Number of tasks
-#SBATCH --time=30:00:00             # Maximum run time of the job
+#SBATCH --time=2-00:00:00           # Maximum run time of the job (set to 2 days)
 #SBATCH --qos=scavenger             # Quality of Service of the job
 
 # Set the wandb API key
