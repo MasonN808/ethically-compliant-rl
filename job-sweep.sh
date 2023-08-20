@@ -33,7 +33,7 @@ run_sweep() {
     # SWEEP_ID=$(wandb sweep $SWEEP_FILE)
 
     # This command will only capture the line containing "wandb agent" from the output
-    SWEEP_LINE=$(wandb sweep $SWEEP_FILE 2>&1 | grep "wandb agent")
+    SWEEP_LINE=$(wandb sweep --name="700-epochs" $SWEEP_FILE 2>&1 | grep "wandb agent")
 
     # This command extracts the SWEEP_ID from the captured line using awk
     SWEEP_ID=$(echo $SWEEP_LINE | awk '{print $NF}')
