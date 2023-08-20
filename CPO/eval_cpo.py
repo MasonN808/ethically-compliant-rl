@@ -30,8 +30,9 @@ import re
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/2-constraints-absolute/parking-v0-cost0-5-cost1-5/cpo_lr0.0005_step_per_epoch20000-8198"
-    best: bool = True
+    path: str = "logs/Line-constraint/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_step_per_epoch3000-7bf7"
+    best: bool = False
+    # file_name: str = 
     eval_episodes: int = 2
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
@@ -43,7 +44,7 @@ class EvalConfig:
     device = "cpu"
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
-    random_starting_locations = [[0, 32]]
+    random_starting_locations = [[0, 0]]
 
 if EvalConfig.env_config_file:
     with open(EvalConfig.env_config_file) as f:
@@ -73,7 +74,7 @@ if EvalConfig.env_config_file:
 
 @pyrallis.wrap()
 def eval(args: EvalConfig):
-    cfg, model = load_config_and_model(args.path, args.best)
+    cfg, model = load_config_and_model(args.path, args.best, file_name=args.file_name)
 
     try:
         demo_env = load_environment(ENV_CONFIG)

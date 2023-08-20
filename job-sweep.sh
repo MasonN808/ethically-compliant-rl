@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=expers         # Name of the job
+#SBATCH --job-name=expers-2         # Name of the job
 #SBATCH --cpus-per-task=6           # Number of CPUs per task
 #SBATCH --mem=50gb                  # Memory allocated
 #SBATCH --nodes=6                   # Number of nodes

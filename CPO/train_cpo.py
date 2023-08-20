@@ -80,8 +80,8 @@ args = parser.parse_args()
 class MyCfg(TrainCfg):
     task: str = args.task
     project: str = "Line-constraint"
-    epoch: int = 400 # Get epoch from command-line arguments
-    step_per_epoch: int = 3000
+    epoch: int = 700 # Get epoch from command-line arguments
+    step_per_epoch: int = 1000
     cost_limit: Union[List, float] = field(default_factory=lambda: [5.0])
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
     worker: str = "ShmemVectorEnv"
