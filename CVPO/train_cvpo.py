@@ -76,7 +76,7 @@ args = parser.parse_args()
 @dataclass
 class MyCfg(TrainCfg):
     task: str = args.task
-    project: str = "Line-constraint"
+    project: str = "CVPO-sweep-700epochs"
     epoch: int = 700 # Get epoch from command-line arguments
     step_per_epoch: int = 1000
     cost_limit: Union[List, float] = field(default_factory=lambda: [5.0])
