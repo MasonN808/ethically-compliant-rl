@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=expers-2         # Name of the job
+#SBATCH --job-name=exps-3         # Name of the job
 #SBATCH --cpus-per-task=6           # Number of CPUs per task
 #SBATCH --mem=50gb                  # Memory allocated
 #SBATCH --nodes=6                   # Number of nodes
 #SBATCH --ntasks=6                  # Number of tasks
-#SBATCH --time=2-00:00:00           # Maximum run time of the job (set to 2 days)
+#SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 2 days)
 #SBATCH --qos=scavenger             # Quality of Service of the job
 
 # Set the wandb API key

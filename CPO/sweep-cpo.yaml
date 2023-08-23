@@ -1,4 +1,4 @@
-name: cpo-sweep
+name: cpo-700-determ
 program: /nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py
 method: bayes
 metric:
@@ -9,8 +9,8 @@ parameters:
     values:
       - 0.001
       - 0.0005
-  normalize_obs:
-      values:
-      - True
-      - False
+  gamma:
+    values:
+      - 0.095
+      - 0.099
 

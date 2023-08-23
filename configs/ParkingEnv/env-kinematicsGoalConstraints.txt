@@ -29,5 +29,5 @@
 
     # Costs
     # Cost-speed
-    "speed_limit": 4,
+    "speed_limit": 3,
 }
