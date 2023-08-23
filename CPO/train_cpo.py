@@ -11,7 +11,7 @@ sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 
 import wandb
-wandb.init(project="CPO-sweep")
+wandb.init(entity="mason-nakamura1", project="CPO-sweep-700epochs")
 
 from dataclasses import asdict, dataclass, field
 import ast
@@ -79,7 +79,7 @@ args = parser.parse_args()
 @dataclass
 class MyCfg(TrainCfg):
     task: str = args.task
-    project: str = "Line-constraint"
+    project: str = "CPO-sweep-700epochs"
     epoch: int = 700 # Get epoch from command-line arguments
     step_per_epoch: int = 1000
     cost_limit: Union[List, float] = field(default_factory=lambda: [5.0])
