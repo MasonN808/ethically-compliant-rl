@@ -103,26 +103,19 @@ class MyCfg(TrainCfg):
     critic_lr: float = wandb.config.critic_lr
     # normalize_obs: bool = wandb.config.normalize_obs
 
-with open(MyCfg.env_config_file) as f:
-    data = f.read()
-# reconstructing the data as a dictionary
-ENV_CONFIG = ast.literal_eval(data)
-ENV_CONFIG.update({
-    "observation": {        
-        "type": "KinematicsGoal",
-        "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
-        "scales": [100, 100, 5, 5, 1, 1],
-        "normalize": True
-    },
-    "start_angle": -np.math.pi/2, # This is radians
-    # Costs
-    "constraint_type": args.constraint_type,
-    # Cost-speed
-    "speed_limit": args.speed_limit
-})
 
 @pyrallis.wrap()
 def train(args: MyCfg):
+    with open(args.env_config_file) as f:
+        data = f.read()
+    # reconstructing the data as a dictionary
+    ENV_CONFIG = ast.literal_eval(data)
+    ENV_CONFIG.update({
+        "start_angle": -np.math.pi/2, # This is radians
+        # Costs
+        "constraint_type": args.constraint_type,
+    })
+
     default_cfg = TrainCfg()
     # use the default configs instead of the input args.
     if args.use_default_cfg:
@@ -192,6 +185,7 @@ def train(args: MyCfg):
     worker = eval(args.worker)
     try:
         # Start your vehicle at a random starting position 
+        # TODO PUT THIS IN THE ENVIRONMENT NOT IN THE TRAINING FILE
         if MyCfg.random_starting_locations:
             def generate_env_config(num):
                 return [{"start_location": random.choice(MyCfg.random_starting_locations)} for _ in range(num)]
