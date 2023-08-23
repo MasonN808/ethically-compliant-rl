@@ -29,6 +29,8 @@ env.configure({
     "vehicles_count": 0,
     "add_walls": True,
     "start_location": [0, 32],
+    "start_angle": -np.math.pi/2, # This is radians
+
     "manual_control": True,
 
     # Cost-speed
