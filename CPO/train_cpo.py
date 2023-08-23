@@ -101,9 +101,9 @@ class MyCfg(TrainCfg):
     # gae_lambda: float = wandb.config.gae_lambda
     # target_kl: float = wandb.config.target_kl
     # l2_reg: float = wandb.config.l2.reg
-    # gamma: float = wandb.config.gamma
+    gamma: float = wandb.config.gamma
     lr: float = wandb.config.lr
-    normalize_obs: bool = wandb.config.normalize_obs
+    # normalize_obs: bool = wandb.config.normalize_obs
 
 with open(MyCfg.env_config_file) as f:
     data = f.read()
@@ -114,8 +114,9 @@ ENV_CONFIG.update({
         "type": "KinematicsGoal",
         "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
         "scales": [100, 100, 5, 5, 1, 1],
-        "normalize": MyCfg.normalize_obs
+        "normalize": True
     },
+    "start_angle": -np.math.pi/2, # This is radians
     # Costs
     "constraint_type": args.constraint_type,
     # Cost-speed
@@ -231,13 +232,13 @@ def train(args: MyCfg):
         agent.policy.eval()
         collector = FastCollector(agent.policy, env, constraint_type=args.constraint_type)
         result = collector.collect(n_episode=10, render=args.render)
-        rews, lens, cost = result["rew"], result["len"], result["cost"]
+        rews, lens, cost = result["rew"], result["len"], result["avg_total_cost"]
         print(f"Final eval reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
 
         agent.policy.train()
         collector = FastCollector(agent.policy, env, constraint_type=args.constraint_type)
         result = collector.collect(n_episode=10, render=args.render)
-        rews, lens, cost = result["rew"], result["len"], result["cost"]
+        rews, lens, cost = result["rew"], result["len"], result["avg_total_cost"]
         print(f"Final train reward: {rews.mean()}, cost: {cost}, length: {lens.mean()}")
 
 
