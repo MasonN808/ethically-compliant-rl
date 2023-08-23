@@ -14,7 +14,7 @@ from fsrl.utils.net.common import ActorCritic
 from tianshou.env import BaseVectorEnv, DummyVectorEnv, ShmemVectorEnv, SubprocVectorEnv
 
 import wandb
-wandb.init(project="CVPO-sweep")
+wandb.init(entity="mason-nakamura1", project="CVPO-sweep-700epochs")
 
 from dataclasses import asdict, dataclass, field
 import ast

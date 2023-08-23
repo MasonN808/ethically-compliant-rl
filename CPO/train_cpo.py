@@ -11,7 +11,7 @@ sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 
 import wandb
-wandb.init(project="CPO-sweep")
+wandb.init(entity="mason-nakamura1", project="CPO-sweep-700epochs")
 
 from dataclasses import asdict, dataclass, field
 import ast
