@@ -15,8 +15,6 @@ wandb.init(entity="mason-nakamura1", project="CPO-sweep-700epochs")
 
 from dataclasses import asdict, dataclass, field
 import ast
-# import warnings # FIXME: Fix this warning eventually
-# warnings.filterwarnings("ignore", category=DeprecationWarning) 
 import highway_env
 import bullet_safety_gym
 import gymnasium as gym
@@ -57,7 +55,6 @@ class MyCfg(TrainCfg):
     cost_limit: Union[List, float] = field(default_factory=lambda: [5.0])
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
     worker: str = "ShmemVectorEnv"
-    # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     hidden_sizes: Tuple[int, ...] = (128, 128)
