@@ -43,39 +43,9 @@ from utils import load_environment
 
 from typing import Tuple, Union, List
 
-import argparse
-
-# CPO arguments
-# TODO None of these actually work --> there exist predefined arguments somewhere I can't find
-parser = argparse.ArgumentParser(description="Training script")
-parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
-# parser.add_argument('--project', type=str, default="2-constraints-absolute", help='Project name')
-parser.add_argument('--epoch', type=int, default=300, help='Number of epochs')
-parser.add_argument('--target_kl', type=float, default=0.01, help='Target KL divergence')
-parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
-parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
-parser.add_argument('--gamma', type=float, default=0.99, help='Gamma value for reinforcement learning')
-parser.add_argument('--cost_limit', type=float, nargs='+', default=[3.0, 3.0], help='Cost limit values as a list', metavar='FLOAT')
-parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
-parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
-parser.add_argument('--thread', type=int, default=320, help='Number of threads')
-parser.add_argument('--normalize_obs', type=bool, default=True, help='normalization of observation')
-parser.add_argument('--actor_lr', type=float, default=.001, help='actor learning rate')
-parser.add_argument('--critic_lr', type=float, default=.001, help='critic learning rate')
-
-# Environment argumnets
-parser.add_argument('--constraint_type', type=str, nargs='+', default=["lines", "speed"], help='List of constraint types to use')
-parser.add_argument('--speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
-parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
-
-# args = wandb.config
-
-args = parser.parse_args()
-
-
 @dataclass
 class MyCfg(TrainCfg):
-    task: str = args.task
+    task: str = "parking-v0"
     project: str = "CVPO-sweep-700epochs"
     epoch: int = 700 # Get epoch from command-line arguments
     step_per_epoch: int = 1000
@@ -183,7 +153,7 @@ def train(args: MyCfg):
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
-    
+
     # Start your vehicle at a random starting position 
     # TODO PUT THIS IN THE ENVIRONMENT NOT IN THE TRAINING FILE
     if MyCfg.random_starting_locations:
