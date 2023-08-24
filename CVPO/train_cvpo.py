@@ -183,29 +183,27 @@ def train(args: MyCfg):
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
-    try:
-        # Start your vehicle at a random starting position 
-        # TODO PUT THIS IN THE ENVIRONMENT NOT IN THE TRAINING FILE
-        if MyCfg.random_starting_locations:
-            def generate_env_config(num):
-                return [{"start_location": random.choice(MyCfg.random_starting_locations)} for _ in range(num)]
-            def get_updated_config(i, env_list):
-                updated_config = copy.deepcopy(ENV_CONFIG)
-                updated_config.update(env_list[i])
-                return updated_config
+    
+    # Start your vehicle at a random starting position 
+    # TODO PUT THIS IN THE ENVIRONMENT NOT IN THE TRAINING FILE
+    if MyCfg.random_starting_locations:
+        def generate_env_config(num):
+            return [{"start_location": random.choice(MyCfg.random_starting_locations)} for _ in range(num)]
+        def get_updated_config(i, env_list):
+            updated_config = copy.deepcopy(ENV_CONFIG)
+            updated_config.update(env_list[i])
+            return updated_config
 
-            # Make a list of initialized environments with different starting positions
-            env_training_list = generate_env_config(training_num)
-            env_testing_list = generate_env_config(args.testing_num)
+        # Make a list of initialized environments with different starting positions
+        env_training_list = generate_env_config(training_num)
+        env_testing_list = generate_env_config(args.testing_num)
 
-            train_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_training_list)) for i in range(training_num)])
-            test_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_testing_list)) for i in range(args.testing_num)])
-        else:
-            train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
-            test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
-    except:
-        train_envs = worker([lambda: gym.make(args.task, render_mode=args.render_mode) for _ in range(training_num)])
-        test_envs = worker([lambda: gym.make(args.task, render_mode=args.render_mode) for _ in range(args.testing_num)])
+        train_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_training_list)) for i in range(training_num)])
+        test_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_testing_list)) for i in range(args.testing_num)])
+    else:
+        train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
+        test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
+
 
     # start training
     agent.learn(
