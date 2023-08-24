@@ -30,9 +30,10 @@ import re
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/Line-constraint/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_step_per_epoch3000-7bf7"
+    path: str = "logs/CPO-sweep-700epochs/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_gamma0.095_step_per_epoch1000-7050"
     best: bool = False
-    # file_name: str = 
+    # TODO Create a most recent checkpoint model
+    epoch_model_number: int = 436 # For a specific checkpoint model 
     eval_episodes: int = 2
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
@@ -46,35 +47,38 @@ class EvalConfig:
     # Points are around the parking lot and in the middle
     random_starting_locations = [[0, 0]]
 
-if EvalConfig.env_config_file:
+# Get the unique 4 char id of the file at the end of the file name
+match = re.search(r'-([\w]+)$', EvalConfig.path)
+EvalConfig.experiment_id = "----"
+if match:
+    EvalConfig.experiment_id = match.group(1)
+else:
+    print("Pattern not found")
+
+# Get the algorithm used
+match = re.search(r'/(\w+?)_', EvalConfig.path)
+EvalConfig.constraints = True
+if match:
+    EvalConfig.algorithm = match.group(1)
+    if EvalConfig.algorithm == "ppol":
+        EvalConfig.constraints = False
+else:
+    print("Pattern not found")
+
+@pyrallis.wrap()
+def eval(args: EvalConfig):
+    cfg, model = load_config_and_model(args.path, args.best, epoch_model_number=args.epoch_model_number)
+
     with open(EvalConfig.env_config_file) as f:
         data = f.read()
     # reconstructing the data as a dictionary
     ENV_CONFIG = ast.literal_eval(data)
-    # Update the steering_range since np can't be paresed in .txt file
-    ENV_CONFIG.update({"steering_range": np.deg2rad(50)}) # it is typical to be between 30-50 irl
-
-    # Get the unique 4 char id of the file at the end of the file name
-    match = re.search(r'-([\w]+)$', EvalConfig.path)
-    EvalConfig.experiment_id = "----"
-    if match:
-        EvalConfig.experiment_id = match.group(1)
-    else:
-        print("Pattern not found")
-
-    # Get the algorithm used
-    match = re.search(r'/(\w+?)_', EvalConfig.path)
-    EvalConfig.constraints = True
-    if match:
-        EvalConfig.algorithm = match.group(1)
-        if EvalConfig.algorithm == "ppol":
-            EvalConfig.constraints = False
-    else:
-        print("Pattern not found")
-
-@pyrallis.wrap()
-def eval(args: EvalConfig):
-    cfg, model = load_config_and_model(args.path, args.best, file_name=args.file_name)
+    ENV_CONFIG.update({
+        "steering_range": np.deg2rad(50),  # it is typical to be between 30-50 irl
+        "start_angle": -np.math.pi/2, # This is radians
+        # Costs
+        "constraint_type": cfg["constraint_type"],
+    })
 
     try:
         demo_env = load_environment(ENV_CONFIG)
