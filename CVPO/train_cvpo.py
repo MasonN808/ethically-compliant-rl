@@ -1,7 +1,7 @@
 import copy
 import os
 import wandb
-wandb.init(entity="mason-nakamura1", project="CVPO-sweep-700-epochs-high-limit")
+wandb.init(entity="mason-nakamura1", project="CVPO-sweep-700-epochs-high-limit-lines")
 # os. environ['WANDB_DISABLED'] = 'True'
 # os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
@@ -34,7 +34,7 @@ from typing import Tuple, Union, List
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "CVPO-sweep-700epochs"
+    project: str = "CVPO-sweep-700-epochs-high-limit-lines"
     epoch: int = 700 # Get epoch from command-line arguments
     step_per_epoch: int = 1000
     cost_limit: Union[List, float] = field(default_factory=lambda: [100000])
