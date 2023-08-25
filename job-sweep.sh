@@ -3,7 +3,7 @@
 # SLURM settings for the job submission
 #SBATCH --job-name=limit-high         # Name of the job
 #SBATCH --cpus-per-task=6           # Number of CPUs per task
-#SBATCH --mem=50gb                  # Memory allocated
+#SBATCH --mem=30gb                  # Memory allocated
 #SBATCH --nodes=6                   # Number of nodes
 #SBATCH --ntasks=6                  # Number of tasks
 #SBATCH --time=4-00:00:00           # Maximum run time of the job (set to 2 days)
