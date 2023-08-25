@@ -47,7 +47,8 @@ class MyCfg(TrainCfg):
     render_mode: str = "rgb_array"
     save_interval: int = 4 # The frequency of saving model per number of epochs
     verbose: bool = False
-
+    thread: int = 100  # if use "cpu" to train
+    
     # # Wandb params
     # optim_critic_iters: int = wandb.config.optim_critic_iters
     # last_layer_scale: bool = wandb.config.last_layer_scale
