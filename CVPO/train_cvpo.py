@@ -1,40 +1,30 @@
-
-
 import copy
 import os
+import wandb
+wandb.init(entity="mason-nakamura1", project="CVPO-sweep-700-epochs-high-limit")
 # os. environ['WANDB_DISABLED'] = 'True'
 # os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
-import pprint
+os.environ["CUDA_VISIBLE_DEVICES"] = "1" # For GPU identification
 import random
 import sys
 sys.path.append("FSRL")
-from fsrl.utils.net.common import ActorCritic
-from tianshou.env import BaseVectorEnv, DummyVectorEnv, ShmemVectorEnv, SubprocVectorEnv
-
-import wandb
-wandb.init(entity="mason-nakamura1", project="CVPO-sweep-700epochs")
 
 from dataclasses import asdict, dataclass, field
 import ast
 import highway_env
 import bullet_safety_gym
 import gymnasium as gym
-from gymnasium.spaces.dict import Dict
-from gymnasium.spaces.discrete import Discrete # Must be gymnasium, not gym for type checking
 import numpy as np
-import torch.nn as nn
 import safety_gymnasium
 
 import torch
-from torch.distributions import Independent, Normal
 import pyrallis
 
 # To render the environemnt and agent
 from fsrl.config.cvpo_cfg import TrainCfg
-from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
-from fsrl.utils.exp_util import auto_name, seed_all
+from fsrl.utils import WandbLogger
+from fsrl.utils.exp_util import auto_name
 from fsrl.data import FastCollector
 from fsrl.agent import CVPOAgent
 from utils import load_environment
@@ -47,7 +37,7 @@ class MyCfg(TrainCfg):
     project: str = "CVPO-sweep-700epochs"
     epoch: int = 700 # Get epoch from command-line arguments
     step_per_epoch: int = 1000
-    cost_limit: Union[List, float] = field(default_factory=lambda: [5.0])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [100000])
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
     worker: str = "ShmemVectorEnv"
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
@@ -73,6 +63,11 @@ class MyCfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: MyCfg):
+    with wandb.init() as run:
+        # Overwrite the random run names chosen by wandb
+        name_str = run.id
+        run.name = name_str
+
     with open(args.env_config_file) as f:
         data = f.read()
     # reconstructing the data as a dictionary
@@ -108,11 +103,8 @@ def train(args: MyCfg):
     logger.save_config(cfg, verbose=args.verbose)
     
     # This env is used strictly to evaluate the observation and action shapes for CPO
-    try:
-        demo_env = load_environment(ENV_CONFIG)
-    except:
-        demo_env = gym.make(args.task, render_mode=args.render_mode)
-    
+    demo_env = load_environment(ENV_CONFIG)
+
     agent = CVPOAgent(
         env=demo_env,
         logger=logger,

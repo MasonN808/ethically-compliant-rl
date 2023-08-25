@@ -28,9 +28,6 @@ NUM_JOBS=3
 run_sweep() {
     # Assign the first argument of the function to SWEEP_FILE
     SWEEP_FILE=$1
-    
-    # Initialize the sweep using wandb and capture the returned SWEEP_ID
-    # SWEEP_ID=$(wandb sweep $SWEEP_FILE)
 
     # This command will only capture the line containing "wandb agent" from the output
     SWEEP_LINE=$(wandb sweep --name="700-epochs" $SWEEP_FILE 2>&1 | grep "wandb agent")
