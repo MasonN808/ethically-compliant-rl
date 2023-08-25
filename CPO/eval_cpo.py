@@ -1,27 +1,17 @@
 #!/usr/bin/env python3
-import copy
-import os
-import random
 import sys
-from dataclasses import asdict, dataclass
-from typing import Optional, Tuple
+from dataclasses import dataclass
 import torch
 import torch.nn as nn
 import bullet_safety_gym
-import warnings # FIXME: Fix this warning eventually
-warnings.filterwarnings("ignore", category=DeprecationWarning) 
-try:
-    import safety_gymnasium
-except ImportError:
-    print("safety_gymnasium is not found.")
+import safety_gymnasium
 import gymnasium as gym
 import pyrallis
-from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv
 from tianshou.utils.net.common import DataParallelNet
 sys.path.append("FSRL")
 from fsrl.agent import CPOAgent
-from fsrl.utils import BaseLogger, TensorboardLogger, WandbLogger
-from fsrl.utils.exp_util import auto_name, load_config_and_model, seed_all
+from fsrl.utils import BaseLogger
+from fsrl.utils.exp_util import load_config_and_model
 import ast
 from utils.utils import load_environment
 import numpy as np
@@ -30,10 +20,10 @@ import re
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/CPO-sweep-700epochs/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_gamma0.095_step_per_epoch1000-7050"
+    path: str = "logs/CPO-sweep-700epochs/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_gamma0.099_lr0.0005_step_per_epoch1000-a1b0"
     best: bool = False
     # TODO Create a most recent checkpoint model
-    epoch_model_number: int = 436 # For a specific checkpoint model 
+    epoch_model_number: int = 700 # For a specific checkpoint model 
     eval_episodes: int = 2
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
