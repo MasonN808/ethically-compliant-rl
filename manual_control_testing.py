@@ -36,6 +36,7 @@ env.configure({
     # Cost-speed
     "speed_limit": 2,
 })
+
 env.reset()
 done = False
 while not done:
