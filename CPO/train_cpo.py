@@ -17,6 +17,7 @@ import bullet_safety_gym
 import gymnasium as gym
 import numpy as np
 import safety_gymnasium
+from tianshou.env import BaseVectorEnv, ShmemVectorEnv, SubprocVectorEnv, RayVectorEnv
 
 import torch
 import pyrallis
