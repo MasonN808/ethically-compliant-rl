@@ -5,7 +5,7 @@
         "type": "KinematicsGoal",
         "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
         "scales": [100, 100, 5, 5, 1, 1],
-        "normalize": False
+        "normalize": True
     },
     "action": {
         "type": "ContinuousAction"
@@ -15,23 +15,19 @@
     "show_trajectories": False,
     "success_goal_reward": 0.12,
     "collision_reward": -5,
-    "simulation_frequency": 15,
-    "policy_frequency": 5,
-    "duration": 100,
+    "simulation_frequency": 100,
+    "policy_frequency": 30,
+    "duration": 70,
     "screen_width": 600,
     "screen_height": 300,
     "centering_position": [0.5, 0.5],
     "scaling": 7,
     "controlled_vehicles": 1,
     "vehicles_count": 0,
-    "add_walls": False,
-    "start_location": [30, 30],
+    "add_walls": True,
+    "start_location": [0, 0],
 
     # Costs
-    "constrained_rl": True,
-    # Cost-distance
-    "cost_delta_distance": 3,
-    "quantized_line_points": 20,
     # Cost-speed
-    # "cost_speed_limit": 2,
+    "speed_limit": 3,
 }

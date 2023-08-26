@@ -15,7 +15,7 @@
     "show_trajectories": False,
     "success_goal_reward": 0.12,
     "collision_reward": -5,
-    "simulation_frequency": 15,
+    "simulation_frequency": 100,
     "policy_frequency": 5,
     "duration": 100,
     "screen_width": 600,
@@ -25,7 +25,7 @@
     "controlled_vehicles": 1,
     "vehicles_count": 0,
     "add_walls": False,
-    "start_location": [30, 30],
+    "start_location": [0, 0],
 
     # Costs
     "constrained_rl": False,
