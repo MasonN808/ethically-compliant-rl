@@ -1,7 +1,7 @@
 import copy
 import os
 import wandb
-wandb.init(entity="mason-nakamura1", project="CVPO-sweep-700-epochs-high-limit-lines")
+wandb.init(entity="mason-nakamura1", project="CVPO-sweep-700-epochs-speed")
 # os. environ['WANDB_DISABLED'] = 'True'
 # os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
@@ -34,11 +34,11 @@ from typing import Tuple, Union, List
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "CVPO-sweep-700-epochs-high-limit-lines"
+    project: str = "CVPO-sweep-700-epochs-speed"
     epoch: int = 700 # Get epoch from command-line arguments
     step_per_epoch: int = 1000
-    cost_limit: Union[List, float] = field(default_factory=lambda: [100000])
-    constraint_type: list[str] = field(default_factory=lambda: ["lines"])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [5])
+    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
     worker: str = "ShmemVectorEnv"
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
@@ -49,17 +49,10 @@ class MyCfg(TrainCfg):
     verbose: bool = False
     thread: int = 100  # if use "cpu" to train
 
-    # # Wandb params
-    # optim_critic_iters: int = wandb.config.optim_critic_iters
-    # last_layer_scale =b.config.last_layer_scale
-    # max_backtracks: int = wandb.config.max_backtracks
-    # gae_lambda: float = wandb.config.gae_lambda
-    # target_kl: float = wandb.config.target_kl
-    # l2_reg: float = wandb.config.l2.reg
+    # Wandb params
     gamma: float = wandb.config.gamma
     actor_lr: float = wandb.config.actor_lr
     critic_lr: float = wandb.config.critic_lr
-    # normalize_obs: bool = wandb.config.normalize_obs
 
 
 @pyrallis.wrap()
@@ -77,6 +70,7 @@ def train(args: MyCfg):
         "start_angle": -np.math.pi/2, # This is radians
         # Costs
         "constraint_type": args.constraint_type,
+        "speed_limit": 2,
     })
 
     default_cfg = TrainCfg()

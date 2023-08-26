@@ -1,7 +1,7 @@
 import copy
 import os
 import wandb
-wandb.init(entity="mason-nakamura1", project="CPO-sweep-700-epochs-high-limit-lines")
+wandb.init(entity="mason-nakamura1", project="CPO-sweep-700-epochs-speed")
 # os. environ['WANDB_DISABLED'] = 'True'
 # os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
@@ -34,11 +34,11 @@ from typing import Tuple, Union, List
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "CPO-sweep-700-epochs-high-limit-lines"
+    project: str = "CPO-sweep-700-epochs-speed"
     epoch: int = 700 # Get epoch from command-line arguments
     step_per_epoch: int = 1000
-    cost_limit: Union[List, float] = field(default_factory=lambda: [100000])
-    constraint_type: list[str] = field(default_factory=lambda: ["lines"])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [5])
+    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
     worker: str = "ShmemVectorEnv"
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
@@ -48,17 +48,10 @@ class MyCfg(TrainCfg):
     save_interval: int = 4 # The frequency of saving model per number of epochs
     verbose: bool = False
     thread: int = 100  # if use "cpu" to train
-    
-    # # Wandb params
-    # optim_critic_iters: int = wandb.config.optim_critic_iters
-    # last_layer_scale: bool = wandb.config.last_layer_scale
-    # max_backtracks: int = wandb.config.max_backtracks
-    # gae_lambda: float = wandb.config.gae_lambda
-    # target_kl: float = wandb.config.target_kl
-    # l2_reg: float = wandb.config.l2.reg
+
+    # Wandb params
     gamma: float = wandb.config.gamma
     lr: float = wandb.config.lr
-    # normalize_obs: bool = wandb.config.normalize_obs
 
 
 @pyrallis.wrap()
@@ -70,12 +63,14 @@ def train(args: MyCfg):
 
     with open(args.env_config_file) as f:
         data = f.read()
-    # reconstructing the data as a dictionary
+    # Reconstructing the data as a dictionary
     ENV_CONFIG = ast.literal_eval(data)
+    # Overriding certain keys in the environment config
     ENV_CONFIG.update({
         "start_angle": -np.math.pi/2, # This is radians
         # Costs
         "constraint_type": args.constraint_type,
+        "speed_limit": 2,
     })
 
     default_cfg = TrainCfg()
