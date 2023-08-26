@@ -20,7 +20,7 @@ import re
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/CPO-sweep-700epochs/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_gamma0.099_lr0.0005_step_per_epoch1000-a1b0"
+    path: str = "logs/CPO-sweep-700epochs/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_gamma0.095_lr0.0005_step_per_epoch1000-fa47"
     best: bool = False
     # TODO Create a most recent checkpoint model
     epoch_model_number: int = 700 # For a specific checkpoint model 
