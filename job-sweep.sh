@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=speed-sweep         # Name of the job
+#SBATCH --job-name=sweeps         # Name of the job
 #SBATCH --cpus-per-task=6           # Number of CPUs per task
-#SBATCH --mem=30gb                  # Memory allocated
+#SBATCH --mem=40gb                  # Memory allocated
 #SBATCH --nodes=6                   # Number of nodes
 #SBATCH --ntasks=6                  # Number of tasks
 #SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 2 days)
@@ -29,8 +29,11 @@ run_sweep() {
     # Assign the first argument of the function to SWEEP_FILE
     SWEEP_FILE=$1
 
-    # This command will only capture the line containing "wandb agent" from the output
-    SWEEP_LINE=$(wandb sweep --name="700-epochs" $SWEEP_FILE 2>&1 | grep "wandb agent")
+    # Extract the name of the sweep from the file name
+    SWEEP_NAME=$(basename "$SWEEP_FILE" | cut -d'-' -f2 | cut -d'.' -f1)
+
+    # Use the extracted name for the sweep
+    SWEEP_LINE=$(wandb sweep --name="$SWEEP_NAME-700-epochs-no-walls" $SWEEP_FILE 2>&1 | grep "wandb agent")
 
     # This command extracts the SWEEP_ID from the captured line using awk
     SWEEP_ID=$(echo $SWEEP_LINE | awk '{print $NF}')
