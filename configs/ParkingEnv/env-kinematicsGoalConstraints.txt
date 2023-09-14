@@ -24,7 +24,7 @@
     "scaling": 7,
     "controlled_vehicles": 1,
     "vehicles_count": 0,
-    "add_walls": True,
+    "add_walls": False,
     "start_location": [0, 0],
 
     # Costs

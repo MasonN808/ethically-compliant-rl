@@ -58,15 +58,16 @@ class MyCfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: MyCfg):
-    with wandb.init() as run:
-        # Overwrite the random run names chosen by wandb
-        name_str = run.id
-        run.name = name_str
+    # with wandb.init() as run:
+    #     # Overwrite the random run names chosen by wandb
+    #     name_str = run.id
+    #     run.name = name_str
 
     with open(args.env_config_file) as f:
         data = f.read()
-    # reconstructing the data as a dictionary
+    # Reconstructing the data as a dictionary
     ENV_CONFIG = ast.literal_eval(data)
+    # Overriding certain keys in the environment config
     ENV_CONFIG.update({
         "start_angle": -np.math.pi/2, # This is radians
         # Costs

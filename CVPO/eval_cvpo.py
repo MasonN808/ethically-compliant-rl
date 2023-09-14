@@ -18,10 +18,10 @@ from utils import load_environment
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/CVPO-sweep-700epochs/parking-v0-cost-[5.0]/cvpo_actor_lr0.001_constraint_typelines_cost5.0_critic_lr0.0005_gamma0.099_step_per_epoch1000-a31a"
+    path: str = "logs/CVPO-sweep-700-epochs-high-limit-lines/parking-v0-cost-[100000]/cvpo_actor_lr0.001_constraint_typelines_cost100000_critic_lr0.0005_gamma0.099_step_per_epoch1000-0baa"
     best: bool = False
     # TODO Create a most recent checkpoint model
-    epoch_model_number: int = 588 # For a specific checkpoint model 
+    epoch_model_number: int = 100 # For a specific checkpoint model 
     eval_episodes: int = 2
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float

@@ -36,7 +36,7 @@ from typing import Tuple, Union, List
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     project: str = "CPO-sweep-700-epochs-speed"
-    epoch: int = 700 # Get epoch from command-line arguments
+    epoch: int = 700
     step_per_epoch: int = 1000
     cost_limit: Union[List, float] = field(default_factory=lambda: [5])
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
@@ -57,10 +57,10 @@ class MyCfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: MyCfg):
-    with wandb.init() as run:
-        # Overwrite the random run names chosen by wandb
-        name_str = run.id
-        run.name = name_str
+    # with wandb.init() as run:
+    #     # Overwrite the random run names chosen by wandb
+    #     name_str = run.id
+    #     run.name = name_str
 
     with open(args.env_config_file) as f:
         data = f.read()
