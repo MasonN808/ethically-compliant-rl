@@ -57,11 +57,7 @@ class MyCfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: MyCfg):
-    # with wandb.init() as run:
-    #     # Overwrite the random run names chosen by wandb
-    #     name_str = run.id
-    #     run.name = name_str
-
+    
     with open(args.env_config_file) as f:
         data = f.read()
     # Reconstructing the data as a dictionary
