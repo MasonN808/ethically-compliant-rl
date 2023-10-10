@@ -1,6 +1,7 @@
 import copy
 import os
 import wandb
+wandb.init(project="test-consistency")
 
 # wandb.init(entity="mason-nakamura1", project="CVPO-sweep-NoWalls")
 # os. environ['WANDB_DISABLED'] = 'True'
