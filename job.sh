@@ -10,7 +10,7 @@
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
 # Activate python environment, if you use one (e.g., conda or virtualenv)
-# source activate your_environment_name
+source .venv/bin/activate
 
 # Get all arguments passed to the script
 ARGS="$@"

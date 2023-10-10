@@ -2,11 +2,12 @@ import copy
 import os
 import wandb
 
-wandb.init(entity="mason-nakamura1", project="CVPO-sweep-NoWalls")
+# wandb.init(entity="mason-nakamura1", project="CVPO-sweep-NoWalls")
 # os. environ['WANDB_DISABLED'] = 'True'
 # os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "1" # For GPU identification
+
+# os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "1" # For GPU identification
 import random
 import sys
 sys.path.append("FSRL")
