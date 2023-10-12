@@ -2,7 +2,6 @@ import copy
 import os
 import wandb
 
-from CPO import utils
 wandb.init(entity="mason-nakamura1", project="CPO-sweep-NoWalls")
 # os. environ['WANDB_DISABLED'] = 'True'
 # os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
@@ -38,8 +37,8 @@ from typing import Tuple, Union, List
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     project: str = "CPO-sweep-700-epochs-speed"
-    epoch: int = 700
-    step_per_epoch: int = 1000
+    epoch: int = 300
+    step_per_epoch: int = 100
     cost_limit: Union[List, float] = field(default_factory=lambda: [5])
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
     worker: str = "ShmemVectorEnv"
