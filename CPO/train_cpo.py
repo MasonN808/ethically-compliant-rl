@@ -36,7 +36,7 @@ from typing import Tuple, Union, List
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "CPO-sweep-700-epochs-speed"
+    project: str = "CPO-300-epochs-none"
     epoch: int = 300
     step_per_epoch: int = 100
     cost_limit: Union[List, float] = field(default_factory=lambda: [])
