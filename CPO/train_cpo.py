@@ -39,8 +39,8 @@ class MyCfg(TrainCfg):
     project: str = "CPO-sweep-700-epochs-speed"
     epoch: int = 300
     step_per_epoch: int = 100
-    cost_limit: Union[List, float] = field(default_factory=lambda: [5])
-    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [])
+    constraint_type: list[str] = field(default_factory=lambda: [])
     worker: str = "ShmemVectorEnv"
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
