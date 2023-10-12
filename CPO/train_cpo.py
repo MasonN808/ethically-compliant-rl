@@ -2,8 +2,8 @@ import copy
 import os
 import wandb
 
-wandb.init(entity="mason-nakamura1", project="CPO-sweep-NoWalls")
-# os. environ['WANDB_DISABLED'] = 'True'
+# wandb.init(entity="mason-nakamura1", project="CPO-sweep-NoWalls")
+os. environ['WANDB_DISABLED'] = 'True'
 # os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1" # For GPU identification
@@ -39,8 +39,8 @@ class MyCfg(TrainCfg):
     project: str = "CPO-300-epochs-none"
     epoch: int = 300
     step_per_epoch: int = 100
-    cost_limit: Union[List, float] = field(default_factory=lambda: [])
-    constraint_type: list[str] = field(default_factory=lambda: [])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [2])
+    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
     worker: str = "ShmemVectorEnv"
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
@@ -52,8 +52,8 @@ class MyCfg(TrainCfg):
     thread: int = 100  # if use "cpu" to train
 
     # Wandb params
-    gamma: float = wandb.config.gamma
-    lr: float = wandb.config.lr
+    # gamma: float = wandb.config.gamma
+    # lr: float = wandb.config.lr
 
 
 @pyrallis.wrap()
