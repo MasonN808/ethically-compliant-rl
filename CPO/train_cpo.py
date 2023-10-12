@@ -1,6 +1,8 @@
 import copy
 import os
 import wandb
+
+from CPO import utils
 wandb.init(entity="mason-nakamura1", project="CPO-sweep-NoWalls")
 # os. environ['WANDB_DISABLED'] = 'True'
 # os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
@@ -57,6 +59,19 @@ class MyCfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: MyCfg):
+    # Set the numpy seed
+    np.random.seed(args.seed)
+
+    # Set the pytorch seed
+    # Set the seed for CPU
+    torch.manual_seed(args.seed)
+
+    # If you're using CUDA:
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(args.seed)
+        torch.cuda.manual_seed_all(args.seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
     
     with open(args.env_config_file) as f:
         data = f.read()
