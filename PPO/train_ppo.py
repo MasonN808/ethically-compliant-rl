@@ -66,7 +66,7 @@ agent = PPO(MlpPolicy, env, verbose=1, seed=seed)
 # Train the agent with the callback
 # agent.learn(total_timesteps=100000, callback=callback, progress_bar=True)
 time_steps = 200000
-epochs = 50
+epochs = 200
 for i in range(epochs):
   agent.learn(total_timesteps=time_steps, callback=callback, reset_num_timesteps=False)
   agent.save(f"PPO/models/model_epoch({i})_timesteps({time_steps})")
