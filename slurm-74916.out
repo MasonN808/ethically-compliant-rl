@@ -1,0 +1,2 @@
+/nas/ucb/mason/ethically-compliant-rl/.venv/bin/python3: can't open file '/nas/ucb/mason/ecrl/PPO/train_ppo.py': [Errno 2] No such file or directory
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 2

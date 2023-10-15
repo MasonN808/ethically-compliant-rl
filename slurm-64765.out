@@ -1,0 +1,12 @@
+slurmstepd: error: execve(): wandb: Permission denied
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 13
+slurmstepd: error: execve(): wandb: Permission denied
+slurmstepd: error: execve(): wandb: Permission denied
+slurmstepd: error: execve(): wandb: Permission denied
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 13
+slurmstepd: error: execve(): wandb: Permission denied
+srun: error: ppo.ist.berkeley.edu: task 0: Exited with exit code 13
+slurmstepd: error: execve(): wandb: Permission denied
+srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 13
+srun: error: sac.ist.berkeley.edu: task 0: Exited with exit code 13
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 13

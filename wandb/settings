@@ -1,5 +1,5 @@
 [default]
 entity = ecrl
-project = fast-safe-rl
+project = test-consistency
 base_url = https://api.wandb.ai
 
