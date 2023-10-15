@@ -30,6 +30,9 @@ class WandbLoggingCallback(BaseCallback):
         super(WandbLoggingCallback, self).__init__(verbose)
 
     def _on_step(self) -> bool:
+        # Log the rewards
+        reward = self.locals['rewards']
+        self.logger.record('reward', reward)
         # Outputs all the values from the logger as a dictionary
         logs = self.logger.name_to_value.copy()
         wandb.log(logs)
@@ -64,8 +67,10 @@ agent = PPO(MlpPolicy, env, verbose=1, seed=seed)
 
 # Train the agent with the callback
 # agent.learn(total_timesteps=100000, callback=callback, progress_bar=True)
-time_steps = 150000
-epochs = 200
+time_steps = 10000
+epochs = 150
+# time_steps = 150000
+# epochs = 200
 for i in range(epochs):
   agent.learn(total_timesteps=time_steps, callback=callback, reset_num_timesteps=False)
   agent.save(f"PPO/models/model_epoch({i})_timesteps({time_steps})")
