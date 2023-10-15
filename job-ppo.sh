@@ -2,10 +2,10 @@
 
 # SLURM settings for the job submission
 #SBATCH --job-name=ppo-highway         # Name of the job
-#SBATCH --cpus-per-task=6         # Number of CPUs per task
-#SBATCH --mem=20gb                # Memory allocated
+#SBATCH --cpus-per-task=1         # Number of CPUs per task
+#SBATCH --ntasks-per-node=6  # Specify the number of CPU cores
+#SBATCH --mem=10gb                # Memory allocated
 #SBATCH --nodes=1                 # Number of nodes
-#SBATCH --ntasks=1                # Number of tasks
 #SBATCH --time=10:00:00         # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
