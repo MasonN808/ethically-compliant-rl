@@ -1,0 +1,102 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.12 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231015_105556-1o6y93vr
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppo-highway-parking
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO/runs/1o6y93vr
+Using cpu device
+-------------------------------------
+| reward             | [-1.1419846] |
+| time/              |              |
+|    fps             | 181          |
+|    iterations      | 1            |
+|    time_elapsed    | 11           |
+|    total_timesteps | 2048         |
+-------------------------------------
+-------------------------------------------
+| reward                  | [-0.47269288] |
+| time/                   |               |
+|    fps                  | 175           |
+|    iterations           | 2             |
+|    time_elapsed         | 23            |
+|    total_timesteps      | 4096          |
+| train/                  |               |
+|    approx_kl            | 0.00518265    |
+|    clip_fraction        | 0.0374        |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -2.85         |
+|    explained_variance   | -0.0352       |
+|    learning_rate        | 0.0003        |
+|    loss                 | 20.3          |
+|    n_updates            | 10            |
+|    policy_gradient_loss | -0.00406      |
+|    std                  | 1.01          |
+|    value_loss           | 108           |
+-------------------------------------------
+------------------------------------------
+| reward                  | [-0.5680749] |
+| time/                   |              |
+|    fps                  | 172          |
+|    iterations           | 3            |
+|    time_elapsed         | 35           |
+|    total_timesteps      | 6144         |
+| train/                  |              |
+|    approx_kl            | 0.0071182186 |
+|    clip_fraction        | 0.036        |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -2.84        |
+|    explained_variance   | 0.206        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 10.3         |
+|    n_updates            | 20           |
+|    policy_gradient_loss | -0.00589     |
+|    std                  | 1            |
+|    value_loss           | 75.4         |
+------------------------------------------
+-------------------------------------------
+| reward                  | [-0.28948686] |
+| time/                   |               |
+|    fps                  | 171           |
+|    iterations           | 4             |
+|    time_elapsed         | 47            |
+|    total_timesteps      | 8192          |
+| train/                  |               |
+|    approx_kl            | 0.003720325   |
+|    clip_fraction        | 0.0162        |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -2.85         |
+|    explained_variance   | -0.732        |
+|    learning_rate        | 0.0003        |
+|    loss                 | 10.8          |
+|    n_updates            | 30            |
+|    policy_gradient_loss | -0.00288      |
+|    std                  | 1             |
+|    value_loss           | 66.7          |
+-------------------------------------------
+------------------------------------------
+| reward                  | [-0.7867682] |
+| time/                   |              |
+|    fps                  | 170          |
+|    iterations           | 5            |
+|    time_elapsed         | 59           |
+|    total_timesteps      | 10240        |
+| train/                  |              |
+|    approx_kl            | 0.0064135855 |
+|    clip_fraction        | 0.0389       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -2.84        |
+|    explained_variance   | -0.261       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 8.78         |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.00666     |
+|    std                  | 1            |
+|    value_loss           | 54.1         |
+------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/stable_baselines3/common/save_util.py:278: UserWarning: Path 'PPO/models' does not exist. Will create it.
+  warnings.warn(f"Path '{path.parent}' does not exist. Will create it.")
+slurmstepd: error: *** JOB 74920 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-10-15T10:57:00 ***
+slurmstepd: error: *** STEP 74920.0 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-10-15T10:57:00 ***
