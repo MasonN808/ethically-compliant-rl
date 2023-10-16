@@ -1,4 +1,5 @@
 import json
+import time
 import imageio
 import gymnasium as gym
 import logging
@@ -59,6 +60,7 @@ def evaluate_policy_and_capture_frames(model, env, n_eval_episodes=10):
             episode_reward += reward
             
             # Capture frame
+            time.sleep(.05)
             frame = env.render(mode='rgb_array')
             frames.append(frame)
 

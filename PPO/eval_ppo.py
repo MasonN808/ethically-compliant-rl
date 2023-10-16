@@ -44,10 +44,10 @@ env = FlattenObservation(load_environment(ENV_CONFIG, render_mode="rgb_array"))
 env = DummyVecEnv([lambda: env])
 
 # Load the trained agent
-agent = PPO.load("PPO/models/model_90000", env=env)
+agent = PPO.load("PPO/models/model_epoch(7)_timesteps(100000).zip", env=env)
 
 # A modified version of evaluate_policy() from stable_baslelines3
-mean_reward, std_reward, frames= evaluate_policy_and_capture_frames(agent, env, n_eval_episodes=4)
+mean_reward, std_reward, frames= evaluate_policy_and_capture_frames(agent, env, n_eval_episodes=7)
 
 # Create the gif from the frames
 save_frames_as_gif(frames, path=f'PPO/gifs/car_evaluation.gif')

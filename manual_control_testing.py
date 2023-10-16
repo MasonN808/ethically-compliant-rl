@@ -48,7 +48,7 @@ while not done:
     # cost = info['cost']
     # print(f'cost: {cost}')
     # print(rew)
-    print(obs)
+    print(rew)
     print(len(obs))
 
     env.render()
