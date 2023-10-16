@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=sweeps         # Name of the job
-#SBATCH --cpus-per-task=6         # Number of CPUs per task
-#SBATCH --mem=40gb                # Memory allocated
-#SBATCH --nodes=6                 # Number of nodes
-#SBATCH --ntasks=6                # Number of tasks
-#SBATCH --time=3-00:00:00         # Maximum run time of the job (set to 3 days)
+#SBATCH --job-name=cpo-one         # Name of the job
+#SBATCH --gpus-per-task=A6000:1
+#SBATCH --cpus-per-task=8         # Number of CPUs per task
+#SBATCH --mem=20gb                # Memory allocated
+#SBATCH --nodes=4                 # Number of nodes
+#SBATCH --ntasks=4                # Number of tasks
+#SBATCH --time=23:00:00         # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
 # Activate python environment, if you use one (e.g., conda or virtualenv)
@@ -15,7 +16,7 @@ source .venv/bin/activate
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ecrl/CVPO/train_cvpo.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py"
 
 SCRIPTS=(
     "$BASE_SCRIPT --epoch 200 $ARGS" 
