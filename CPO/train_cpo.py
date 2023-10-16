@@ -66,11 +66,11 @@ def train(args: MyCfg):
     torch.manual_seed(args.seed)
 
     # If you're using CUDA:
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed(args.seed)
-        torch.cuda.manual_seed_all(args.seed)
-        torch.backends.cudnn.deterministic = True
-        torch.backends.cudnn.benchmark = False
+    # if torch.cuda.is_available():
+    #     torch.cuda.manual_seed(args.seed)
+    #     torch.cuda.manual_seed_all(args.seed)
+    #     torch.backends.cudnn.deterministic = True
+    #     torch.backends.cudnn.benchmark = False
     
     with open(args.env_config_file) as f:
         data = f.read()
