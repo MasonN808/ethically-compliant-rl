@@ -1,7 +1,10 @@
+#!/usr/bin/env python3
 import ast
 import numpy as np
 import torch
 import wandb
+import sys
+sys.path.append("stable_baselines3")
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.ppo import MlpPolicy
