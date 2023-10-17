@@ -2,7 +2,7 @@
 
 # SLURM settings for the job submission
 #SBATCH --job-name=ppo-penalty         # Name of the job
-#SBATCH --gpus-per-task=A6000:1
+#SBATCH --gpus-per-task=1
 #SBATCH --cpus-per-task=8         # Number of CPUs per task
 #SBATCH --mem=20gb                # Memory allocated
 #SBATCH --nodes=4                 # Number of nodes
