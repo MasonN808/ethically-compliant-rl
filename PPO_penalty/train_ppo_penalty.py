@@ -44,16 +44,16 @@ class WandbLoggingCallback(BaseCallback):
         return True
     
 # Create an argument parser
-parser = argparse.ArgumentParser(description='PPO_Penalty Script')
+parser = argparse.ArgumentParser(description='PPO_Penalty')
 
 # Add an argument for the beta value
-parser.add_argument('--beta', type=float, default=1, help='Value of beta')
+parser.add_argument('--beta', type=float, default=1, help='Value of KL penalty coefficient')
 
 # Parse the command line arguments
 args = parser.parse_args()
 
 # Initialize wandb
-wandb.init(name="ppo-KLpenalty-highway-parking", project="PPO", sync_tensorboard=True)
+wandb.init(name=f"ppo-KLpenalty-beta({args.beta})-parking", project="PPO-Penalty", sync_tensorboard=True)
 
 with open('configs/ParkingEnv/env-default.txt') as f:
     data = f.read()
