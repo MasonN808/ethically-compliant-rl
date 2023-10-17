@@ -20,14 +20,14 @@ import re
 @dataclass
 class EvalConfig:
     # Need to get relative path of the experiment that you'd like to evaluate
-    path: str = "logs/CPO-sweep-700epochs/parking-v0-cost-[5.0]/cpo_constraint_typelines_cost5.0_gamma0.095_lr0.0005_step_per_epoch1000-fa47"
+    path: str = "logs/CPO-200-epochs-speed-constraint/parking-v0-cost-[2]/cpo_constraint_typespeed_cost2_step_per_epoch1000-39f0"
     best: bool = False
     # TODO Create a most recent checkpoint model
-    epoch_model_number: int = 700 # For a specific checkpoint model 
+    epoch_model_number: int = 200 # For a specific checkpoint model 
     eval_episodes: int = 2
     parallel_eval: bool = False
     # This was originally a bool; must be changed to float
-    render: float = .01
+    render: float = .001
     convert_to_gif: bool = True
     train_mode: bool = False
     render_mode: str = "rgb_array"

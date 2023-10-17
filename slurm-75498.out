@@ -1,8 +1,0 @@
-/nas/ucb/mason/ethically-compliant-rl/.venv/bin/python3: can't open file '/nas/ucb/mason/ecrl/CVPO/train_cvpo.py': [Errno 2] No such file or directory
-srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 2
-/nas/ucb/mason/ethically-compliant-rl/.venv/bin/python3: can't open file '/nas/ucb/mason/ecrl/CVPO/train_cvpo.py': [Errno 2] No such file or directory
-/nas/ucb/mason/ethically-compliant-rl/.venv/bin/python3: can't open file '/nas/ucb/mason/ecrl/CVPO/train_cvpo.py': [Errno 2] No such file or directory
-srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 2
-srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 2
-/nas/ucb/mason/ethically-compliant-rl/.venv/bin/python3: can't open file '/nas/ucb/mason/ecrl/CVPO/train_cvpo.py': [Errno 2] No such file or directory
-srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 2
