@@ -79,9 +79,6 @@ callback = WandbLoggingCallback()
 agent = PPO_Penalty(MlpPolicy, env, beta=args.beta, verbose=1, seed=seed)
 
 # Train the agent with the callback
-# agent.learn(total_timesteps=100000, callback=callback, progress_bar=True)
-# time_steps = 10000
-# epochs = 150
 time_steps = 10000
 epochs = 200
 for i in range(epochs):
