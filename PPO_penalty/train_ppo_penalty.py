@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import ast
+import argparse
 import numpy as np
 import torch
 import wandb
@@ -22,11 +23,11 @@ np.random.seed(seed)
 torch.manual_seed(seed)
 
 # If you're using CUDA:
-if torch.cuda.is_available():
-    torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
+# if torch.cuda.is_available():
+#     torch.cuda.manual_seed(seed)
+#     torch.cuda.manual_seed_all(seed)
+#     torch.backends.cudnn.deterministic = True
+#     torch.backends.cudnn.benchmark = False
 
 class WandbLoggingCallback(BaseCallback):
     def __init__(self, verbose=0):
@@ -41,6 +42,15 @@ class WandbLoggingCallback(BaseCallback):
         wandb.log(logs)
         # Continue training
         return True
+    
+# Create an argument parser
+parser = argparse.ArgumentParser(description='PPO_Penalty Script')
+
+# Add an argument for the beta value
+parser.add_argument('--beta', type=float, default=1, help='Value of beta')
+
+# Parse the command line arguments
+args = parser.parse_args()
 
 # Initialize wandb
 wandb.init(name="ppo-KLpenalty-highway-parking", project="PPO", sync_tensorboard=True)
@@ -73,10 +83,11 @@ agent = PPO_Penalty(MlpPolicy, env, beta=1, verbose=1, seed=seed)
 # time_steps = 10000
 # epochs = 150
 time_steps = 10000
-epochs = 150
+epochs = 200
 for i in range(epochs):
   agent.learn(total_timesteps=time_steps, callback=callback, reset_num_timesteps=False)
-  agent.save(f"PPO_penalty/models/model_epoch({i})_timesteps({time_steps})")
+  if i % 5 == 0:
+    agent.save(f"PPO_penalty/models/model_epoch({i})_timesteps({time_steps})")
 
 # Test the trained agent
 obs = env.reset()
