@@ -11,5 +11,5 @@
 	url = https://github.com/MasonN808/HighwayEnv.git
   branch = master
 [submodule "/Users/masonnakamura/Local-Git/ethically-compliant-rl/stable_baselines3"]
-	path = /Users/masonnakamura/Local-Git/ethically-compliant-rl/stable_baselines3
+	path = stable_baselines3
 	url = https://github.com/MasonN808/stable-baselines3.git
