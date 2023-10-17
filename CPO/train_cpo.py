@@ -37,8 +37,8 @@ from typing import Tuple, Union, List
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     project: str = "CPO-200-epochs-speed-constraint"
-    epoch: int = 200
-    step_per_epoch: int = 1000
+    epoch: int = 500
+    step_per_epoch: int = 10000
     cost_limit: Union[List, float] = field(default_factory=lambda: [2])
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
     worker: str = "ShmemVectorEnv"
