@@ -76,7 +76,7 @@ env = DummyVecEnv([lambda: env])
 callback = WandbLoggingCallback()
 
 # Initialize the PPO agent with an MLP policy
-agent = PPO_Penalty(MlpPolicy, env, beta=1, verbose=1, seed=seed)
+agent = PPO_Penalty(MlpPolicy, env, beta=args.beta, verbose=1, seed=seed)
 
 # Train the agent with the callback
 # agent.learn(total_timesteps=100000, callback=callback, progress_bar=True)
@@ -87,7 +87,7 @@ epochs = 200
 for i in range(epochs):
   agent.learn(total_timesteps=time_steps, callback=callback, reset_num_timesteps=False)
   if i % 5 == 0:
-    agent.save(f"PPO_penalty/models/model_epoch({i})_timesteps({time_steps})")
+    agent.save(f"PPO_penalty/models/{args.beta}/model_epoch({i})_timesteps({time_steps})")
 
 # Test the trained agent
 obs = env.reset()
