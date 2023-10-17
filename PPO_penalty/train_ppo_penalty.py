@@ -15,14 +15,14 @@ from stable_baselines3.common.callbacks import BaseCallback
 from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 
-seed = 10
+# seed = 10
 
 # Set the numpy seed
-np.random.seed(seed)
+# np.random.seed(seed)
 
 # Set the pytorch seed
 # Set the seed for CPU
-torch.manual_seed(seed)
+# torch.manual_seed(seed)
 
 # If you're using CUDA:
 # if torch.cuda.is_available():
