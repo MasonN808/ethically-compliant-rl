@@ -82,7 +82,7 @@ agent = PPO_Penalty(MlpPolicy, env, beta=args.beta, verbose=1)
 
 # Train the agent with the callback
 time_steps = 100000
-epochs = 400
+epochs = 50
 for i in range(epochs):
   agent.learn(total_timesteps=time_steps, callback=callback, reset_num_timesteps=False)
   if i % 5 == 0:
