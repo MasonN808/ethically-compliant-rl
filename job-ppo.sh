@@ -6,7 +6,7 @@
 #SBATCH --ntasks-per-node=6  # Specify the number of CPU cores
 #SBATCH --mem=10gb                # Memory allocated
 #SBATCH --nodes=1                 # Number of nodes
-#SBATCH --time=10:00:00         # Maximum run time of the job (set to 3 days)
+#SBATCH --time=20:00:00         # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
 # Activate python environment, if you use one (e.g., conda or virtualenv)
