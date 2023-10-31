@@ -18,7 +18,7 @@ ARGS="$@"
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py"
 
 # Extract number of nodes from SLURM settings
-NUM_NODES=$(awk -F'=' '/^#SBATCH --nodes/ {print $2}' $0)
+NUM_NODES=$(grep "^#SBATCH --nodes=" $0 | cut -d'=' -f2)
 
 # Run the script as many times as the number of nodes in parallel
 for i in $(seq 1 $NUM_NODES); do
