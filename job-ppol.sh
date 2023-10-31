@@ -17,12 +17,12 @@ ARGS="$@"
 
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py"
 
-SCRIPTS=(
-    "$BASE_SCRIPT $ARGS" 
-)
+# Extract number of nodes from SLURM settings
+NUM_NODES=$(awk -F'=' '/^#SBATCH --nodes/ {print $2}' $0)
 
-for SCRIPT in "${SCRIPTS[@]}"; do
-    srun -N1 -n1 python3 $SCRIPT &
+# Run the script as many times as the number of nodes in parallel
+for i in $(seq 1 $NUM_NODES); do
+    srun -N1 -n1 python3 $BASE_SCRIPT $ARGS &
 done
 
 wait
