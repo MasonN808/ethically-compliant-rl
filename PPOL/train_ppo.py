@@ -50,70 +50,49 @@ TASK_TO_CFG = {
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
 
-# CPO arguments
-# TODO None of these actually work --> there exist predefined arguments somewhere I can't find
-parser = argparse.ArgumentParser(description="Training script")
-parser.add_argument('-f', default='ppol', help=argparse.SUPPRESS)
-parser.add_argument('--task', type=str, default="parking-v0", help='Task for training')
-parser.add_argument('--project', type=str, default="PPOL", help='Project name')
-parser.add_argument('--epoch', type=int, default=400, help='Number of epochs')
-parser.add_argument('--step_per_epoch', type=int, default=20000, help='Steps per epoch')
-parser.add_argument('--gamma', type=float, default=0.97, help='Gamma value for reinforcement learning')
-parser.add_argument('--lr', type=float, default=0.0005, help='learning rate')
-parser.add_argument('--target_kl', type=float, default=0.01, help='target_kl')
-parser.add_argument('--cost_limit', type=float, nargs='+', default=[5.0, 5.0], help='Cost limit values as a list', metavar='FLOAT')
-parser.add_argument('--render', type=float, default=None, help='Render interval (if applicable)')
-parser.add_argument('--render_mode', type=str, default=None, help='Mode for rendering')
-parser.add_argument('--thread', type=int, default=320, help='Number of threads')
-
-# Environment argumnets
-# parser.add_argument('--constrained_rl', type=bool, default=True, help='Identifier for constrained RL')
-parser.add_argument('--constraint_type', type=str, nargs='*', default=["lines", "speed"], help='List of constraint types to use')
-parser.add_argument('--speed_limit', type=float, default=4.0, help='The maximum speed until costs incur')
-parser.add_argument('--absolute_cost_speed', type=bool, default=True, help='Indicates whether absolute cost function is used instead of gradual')
-args = parser.parse_args()
-
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    epoch: int = args.epoch
-    lr: float = args.lr
-    render: float = args.render # The rate at which it renders (e.g., .001)
-    render_mode: str = args.render_mode # "rgb_array" or "human" or None
-    thread: int = args.thread # If use CPU to train
-    step_per_epoch: int = args.step_per_epoch
-    target_kl: float = args.target_kl
-    gamma: float = args.gamma
-    project: str = args.project
+    project: str = "PPOL-100Epochs"
+    epoch: int = 100
+    step_per_epoch: int = 1000
+    lr: float = .001
+    render: float = None # The rate at which it renders (e.g., .001)
+    render_mode: str = None # "rgb_array" or "human" or None
+    thread: int = 100 # If use CPU to train
+    target_kl: float = .01
+    gamma: float = .99
     worker: str = "ShmemVectorEnv"
-    constraint_type: list[str] = field(default_factory=lambda: ["lines", "speed"])
-    cost_limit: Union[List, float] = field(default_factory=lambda: [2.0, 2.0])
+    constraint_type: list[str] = field(default_factory=lambda: [])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [])
     # worker: str = "RayVectorEnv"
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
     # random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, -40]]
-    random_starting_locations = [[0,32]]
+    random_starting_locations = [[0,0]]
 
-with open(MyCfg.env_config_file) as f:
-    data = f.read()
-# reconstructing the data as a dictionary
-ENV_CONFIG = ast.literal_eval(data)
-ENV_CONFIG.update({
-    "add_walls": False,
-    # Costs
-    "constraint_type": args.constraint_type,
-    # Cost-speed
-    "speed_limit": args.speed_limit,
-    "absolute_cost_speed": args.absolute_cost_speed
-    })
+    # PPOL Params
+    use_lagrangian: bool = False
 
 @pyrallis.wrap()
 def train(args: MyCfg):
     # set seed and computing
     seed_all(args.seed)
     torch.set_num_threads(args.thread)
+
+    with open(args.env_config_file) as f:
+        data = f.read()
+    # Reconstructing the data as a dictionary
+    ENV_CONFIG = ast.literal_eval(data)
+    # Overriding certain keys in the environment config
+    ENV_CONFIG.update({
+        "start_angle": -np.math.pi/2, # This is radians
+        # Costs
+        # "constraint_type": args.constraint_type,
+        # "speed_limit": 2,
+    })
 
     task = args.task
     default_cfg = TASK_TO_CFG[task]() if task in TASK_TO_CFG else TrainCfg()
