@@ -55,7 +55,7 @@ class MyCfg(TrainCfg):
     task: str = "parking-v0"
     project: str = "PPOL-600Epochs-SpeedConstraint"
     epoch: int = 600
-    step_per_epoch: int = 1000
+    step_per_epoch: int = 3000
     lr: float = .0003
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
