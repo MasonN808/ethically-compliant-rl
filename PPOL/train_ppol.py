@@ -54,26 +54,25 @@ TASK_TO_CFG = {
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     project: str = "PPOL-200Epochs-NoConstraints"
-    epoch: int = 200
+    epoch: int = 600
     step_per_epoch: int = 1000
-    lr: float = .001
+    lr: float = .0003
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 100 # If use CPU to train
     target_kl: float = .01
     gamma: float = .99
     worker: str = "ShmemVectorEnv"
-    constraint_type: list[str] = field(default_factory=lambda: [])
-    cost_limit: Union[List, float] = field(default_factory=lambda: [])
-    # worker: str = "RayVectorEnv"
+    save_interval: int = 25 # The frequency of saving model per number of epochs
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
     # random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, -40]]
     random_starting_locations = [[0,0]]
-
     # PPOL Params
+    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [2])
     use_lagrangian: bool = True
 
 @pyrallis.wrap()
@@ -90,8 +89,8 @@ def train(args: MyCfg):
     ENV_CONFIG.update({
         "start_angle": -np.math.pi/2, # This is radians
         # Costs
-        # "constraint_type": args.constraint_type,
-        # "speed_limit": 2,
+        "constraint_type": args.constraint_type,
+        "speed_limit": 2, # TODO make constraint type and limit a dictionary for easier implementation
     })
 
     task = args.task
