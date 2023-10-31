@@ -53,7 +53,7 @@ TASK_TO_CFG = {
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "PPOL-200Epochs-NoConstraints"
+    project: str = "PPOL-600Epochs-SpeedConstraint"
     epoch: int = 600
     step_per_epoch: int = 1000
     lr: float = .0003
