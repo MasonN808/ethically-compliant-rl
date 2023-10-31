@@ -1,0 +1,229 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.12 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231031_034728-4caaf996-a184-4dd6-9ff4-3b558df77df8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost_lr0.001_step_per_epoch1000_target_kl0.01-038b
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-200Epochs-NoConstraints
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-200Epochs-NoConstraints/runs/4caaf996-a184-4dd6-9ff4-3b558df77df8
+[32;1mLogging data to logs/PPOL-200Epochs-NoConstraints/parking-v0/ppol_cost_lr0.001_step_per_epoch1000_target_kl0.01-038b/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[],
+    "cost_limit":	[],
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	200,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.001,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost_lr0.001_step_per_epoch1000_target_kl0.01-038b",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-200Epochs-NoConstraints",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	4,
+    "seed":	10,
+    "step_per_epoch":	1000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+Epoch #1:   0%|          | 0/1000 [00:00<?, ?it/s]Epoch #1: 42020it [00:37, 1123.67it/s]            Epoch #1: 42020it [00:48, 1123.67it/s, cost=0, length=2101.0, rew=-1.62e+3]Epoch #1: 42020it [00:48, 868.19it/s, cost=0, length=2101.0, rew=-1.62e+3] 
+-------------------------------------------------
+|              loss/actor_rew |       -0.000226 |
+|            loss/actor_total |       -0.000226 |
+|                loss/entropy |            2.84 |
+|                     loss/kl |         0.00396 |
+|              loss/rescaling |               1 |
+|                  loss/total |             2.7 |
+|                    loss/vf0 |            10.8 |
+|               loss/vf_total |            10.8 |
+|                   test/cost |               0 |
+|                 test/length |         2.1e+03 |
+|                 test/reward |       -1.64e+03 |
+|                  train/cost |               0 |
+|                train/length |         2.1e+03 |
+|                train/reward |       -1.62e+03 |
+|             update/cum_cost |               0 |
+|             update/duration |            68.6 |
+|             update/env_step |         4.2e+04 |
+|              update/episode |              20 |
+|       update/gradient_steps |             656 |
+|      update/remaining_epoch |             199 |
+|           update/test_speed |             208 |
+|            update/test_time |            20.2 |
+| update/train_collector_time |            37.4 |
+|     update/train_model_time |              11 |
+|          update/train_speed |             868 |
+-------------------------------------------------
+Epoch: 1
+{'duration': 68.62165331840515, 'test_time': 20.19927430152893, 'test_speed': 208.0272754988005, 'train_collector_time': 37.37940287590027, 'train_model_time': 11.042976140975952, 'train_speed': 867.7805769385091, 'remaining_epoch': 199, 'best_reward': -1642.5105700280124, 'best_cost': []}
+Epoch #2:   0%|          | 0/1000 [00:00<?, ?it/s]Epoch #2: 42020it [00:38, 1080.37it/s]            Epoch #2: 42020it [00:49, 1080.37it/s, cost=0, length=2101.0, rew=-1.58e+3]Epoch #2: 42020it [00:49, 841.67it/s, cost=0, length=2101.0, rew=-1.58e+3] 
+-------------------------------------------------
+|              loss/actor_rew |       -0.000567 |
+|            loss/actor_total |       -0.000567 |
+|                loss/entropy |            2.85 |
+|                     loss/kl |          0.0029 |
+|              loss/rescaling |               1 |
+|                  loss/total |           0.957 |
+|                    loss/vf0 |            3.83 |
+|               loss/vf_total |            3.83 |
+|                   test/cost |               0 |
+|                 test/length |         2.1e+03 |
+|                 test/reward |        -1.8e+03 |
+|                  train/cost |               0 |
+|            train/cost_limit |             nan |
+|                train/length |         2.1e+03 |
+|                train/reward |       -1.58e+03 |
+|             update/cum_cost |               0 |
+|             update/duration |             138 |
+|             update/env_step |         8.4e+04 |
+|              update/episode |              40 |
+|       update/gradient_steps |        1.31e+03 |
+|      update/remaining_epoch |             198 |
+|           update/test_speed |             211 |
+|            update/test_time |            39.8 |
+| update/train_collector_time |            76.3 |
+|     update/train_model_time |            22.1 |
+|          update/train_speed |             854 |
+-------------------------------------------------
+Epoch: 2
+{'duration': 138.22956037521362, 'test_time': 39.84960985183716, 'test_speed': 210.89290538217293, 'train_collector_time': 76.25862407684326, 'train_model_time': 22.121326446533203, 'train_speed': 854.2390960039252, 'remaining_epoch': 198, 'best_reward': -1642.5105700280124, 'best_cost': []}
+Epoch #3:   0%|          | 0/1000 [00:00<?, ?it/s]Epoch #3: 42020it [00:41, 1021.50it/s]            Epoch #3: 42020it [00:51, 1021.50it/s]Epoch #3: 42020it [00:52, 1021.50it/s, cost=0, length=2101.0, rew=-1.59e+3]Epoch #3: 42020it [00:52, 805.99it/s, cost=0, length=2101.0, rew=-1.59e+3] 
+-------------------------------------------------
+|              loss/actor_rew |       -0.000839 |
+|            loss/actor_total |       -0.000839 |
+|                loss/entropy |            2.87 |
+|                     loss/kl |         0.00336 |
+|              loss/rescaling |               1 |
+|                  loss/total |           0.539 |
+|                    loss/vf0 |            2.16 |
+|               loss/vf_total |            2.16 |
+|                   test/cost |               0 |
+|                 test/length |         2.1e+03 |
+|                 test/reward |       -1.13e+03 |
+|                  train/cost |               0 |
+|            train/cost_limit |             nan |
+|                train/length |         2.1e+03 |
+|                train/reward |       -1.59e+03 |
+|             update/cum_cost |               0 |
+|             update/duration |             210 |
+|             update/env_step |        1.26e+05 |
+|              update/episode |              60 |
+|       update/gradient_steps |        1.97e+03 |
+|      update/remaining_epoch |             197 |
+|           update/test_speed |             212 |
+|            update/test_time |            59.6 |
+| update/train_collector_time |             117 |
+|     update/train_model_time |            33.2 |
+|          update/train_speed |             837 |
+-------------------------------------------------
+Epoch: 3
+{'duration': 210.13153529167175, 'test_time': 59.594923973083496, 'test_speed': 211.5280825879331, 'train_collector_time': 117.37025499343872, 'train_model_time': 33.166356325149536, 'train_speed': 837.4042626295927, 'remaining_epoch': 197, 'best_reward': -1133.2855719634224, 'best_cost': []}
+Epoch #4:   0%|          | 0/1000 [00:00<?, ?it/s]Epoch #4: 42020it [00:42, 994.50it/s]             Epoch #4: 42020it [00:53, 994.50it/s, cost=0, length=2101.0, rew=-1.13e+3]Epoch #4: 42020it [00:53, 788.14it/s, cost=0, length=2101.0, rew=-1.13e+3]
+-------------------------------------------------
+|              loss/actor_rew |       -0.000882 |
+|            loss/actor_total |       -0.000882 |
+|                loss/entropy |            2.88 |
+|                     loss/kl |         0.00292 |
+|              loss/rescaling |               1 |
+|                  loss/total |           0.162 |
+|                    loss/vf0 |            0.65 |
+|               loss/vf_total |            0.65 |
+|                   test/cost |               0 |
+|                 test/length |         2.1e+03 |
+|                 test/reward |            -654 |
+|                  train/cost |               0 |
+|            train/cost_limit |             nan |
+|                train/length |         2.1e+03 |
+|                train/reward |       -1.13e+03 |
+|             update/cum_cost |               0 |
+|             update/duration |             284 |
+|             update/env_step |        1.68e+05 |
+|              update/episode |              80 |
+|       update/gradient_steps |        2.62e+03 |
+|      update/remaining_epoch |             196 |
+|           update/test_speed |             210 |
+|            update/test_time |            79.9 |
+| update/train_collector_time |             160 |
+|     update/train_model_time |            44.3 |
+|          update/train_speed |             824 |
+-------------------------------------------------
+Epoch: 4
+{'duration': 283.82261753082275, 'test_time': 79.94646835327148, 'test_speed': 210.24068162370804, 'train_collector_time': 159.59987902641296, 'train_model_time': 44.276270151138306, 'train_speed': 824.422085065099, 'remaining_epoch': 196, 'best_reward': -654.2303106301224, 'best_cost': []}
+Epoch #5:   0%|          | 0/1000 [00:00<?, ?it/s]Epoch #5: 42020it [00:43, 959.39it/s]             Epoch #5: 42020it [00:54, 959.39it/s, cost=0, length=2101.0, rew=-1.04e+3]Epoch #5: 42020it [00:54, 766.62it/s, cost=0, length=2101.0, rew=-1.04e+3]
+-------------------------------------------------
+|              loss/actor_rew |        -0.00063 |
+|            loss/actor_total |        -0.00063 |
+|                loss/entropy |            2.89 |
+|                     loss/kl |         0.00232 |
+|              loss/rescaling |               1 |
+|                  loss/total |          0.0809 |
+|                    loss/vf0 |           0.326 |
+|               loss/vf_total |           0.326 |
+|                   test/cost |               0 |
+|                 test/length |         2.1e+03 |
+|                 test/reward |       -1.16e+03 |
+|                  train/cost |               0 |
+|            train/cost_limit |             nan |
+|                train/length |         2.1e+03 |
+|                train/reward |       -1.04e+03 |
+|             update/cum_cost |               0 |
+|             update/duration |             359 |
+|             update/env_step |         2.1e+05 |
+|              update/episode |             100 |
+|       update/gradient_steps |        3.28e+03 |
+|      update/remaining_epoch |             195 |
+|           update/test_speed |             210 |
+|            update/test_time |             100 |
+| update/train_collector_time |             203 |
+|     update/train_model_time |            55.3 |
+|          update/train_speed |             812 |
+-------------------------------------------------
+Epoch: 5
+{'duration': 358.99130940437317, 'test_time': 100.27109742164612, 'test_speed': 209.53196424740082, 'train_collector_time': 203.37854433059692, 'train_model_time': 55.34166765213013, 'train_speed': 812.0741645574521, 'remaining_epoch': 195, 'best_reward': -654.2303106301224, 'best_cost': []}
+slurmstepd: error: *** JOB 89207 ON airl.ist.berkeley.edu CANCELLED AT 2023-10-31T03:54:13 ***
+Epoch #6:   0%|          | 0/1000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 89207.0 ON airl.ist.berkeley.edu CANCELLED AT 2023-10-31T03:54:13 ***
