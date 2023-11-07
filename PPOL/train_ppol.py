@@ -56,7 +56,7 @@ class MyCfg(TrainCfg):
     project: str = "PPOL-600Epochs-SpeedConstraint-LongerEpisodes"
     epoch: int = 600
     step_per_epoch: int = 3000
-    lr: float = .0006
+    lr: float = .0002
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 100 # If use CPU to train
