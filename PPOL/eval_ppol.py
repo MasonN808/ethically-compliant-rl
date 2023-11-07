@@ -5,6 +5,7 @@ import random
 import sys
 
 import bullet_safety_gym
+import numpy as np
 
 try:
     import safety_gymnasium
@@ -33,7 +34,8 @@ import re
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/PPOL/parking-v0-cost0-2-cost1-2/ppol_cost2.0_2.0_gamma0.97_lr0.001_step_per_epoch20000_target_kl0.01-5a15"
+    path: str = "logs/PPOL-600Epochs-SpeedConstraint/parking-v0-cost0-2/ppol_cost2_lr0.0003_step_per_epoch3000_target_kl0.01-54c2"
+    # path: str = "logs/PPOL-200Epochs-NoConstraints/parking-v0/ppol_cost_lr0.001_step_per_epoch1000_target_kl0.01-4598"
     # Get the unique 4 char id of the file at the end of the file name
     match = re.search(r'-([\w]+)$', path)
     experiment_id = "----"
@@ -46,16 +48,16 @@ class EvalConfig:
     match = re.search(r'/(\w+?)_', path)
     if match:
         algorithm = match.group(1)
-        if algorithm == "ppol":
-            constraints = False
     else:
         print("Pattern not found")
 
+    epoch_model_number: int = 500
     best: bool = False
     eval_episodes: int = 2
     convert_to_gif: bool = True
     parallel_eval: bool = False
-    constraint_type: list[str] = field(default_factory=lambda: ["lines", "speed"])
+    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
+    # constraint_type: list[str] = field(default_factory=lambda: [])
     # This was originally a bool; must be changed to float
     render: float = .005
     train_mode: bool = False
@@ -66,20 +68,28 @@ class EvalConfig:
     monitor_mode: bool = True
     video_recorder: VideoRecorder = None # Keep this None
     # random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, 40], [-40, 0]]
-    random_starting_locations = [[0,32]]
+    random_starting_locations = [[0,0]]
 
-
-with open(EvalConfig.env_config_file) as f:
-    data = f.read()
-# reconstructing the data as a dictionary
-ENV_CONFIG = ast.literal_eval(data)
 
 @pyrallis.wrap()
 def eval(args: EvalConfig):
-    cfg, model = load_config_and_model(args.path, args.best)
+    cfg, model = load_config_and_model(args.path, args.best, epoch_model_number=args.epoch_model_number)
     # seed
-    seed_all(cfg["seed"])
+    seed_all(12131)
     torch.set_num_threads(cfg["thread"])
+
+    with open(EvalConfig.env_config_file) as f:
+        data = f.read()
+    # reconstructing the data as a dictionary
+    ENV_CONFIG = ast.literal_eval(data)
+
+    # Overriding certain keys in the environment config
+    ENV_CONFIG.update({
+        "start_angle": -np.math.pi/2, # This is radians
+        # Costs
+        "constraint_type": args.constraint_type,
+        "speed_limit": 2, # TODO make constraint type and limit a dictionary for easier implementation
+})
 
     logger = BaseLogger()
 
@@ -174,7 +184,8 @@ def eval(args: EvalConfig):
             filename = Path(name)
         video_recorder = VideoRecorder(test_env, name)
         # Collector
-        eval_collector = FastCollector(policy, test_env, constraint_type=cfg["constraint_type"])
+        # eval_collector = FastCollector(policy, test_env, constraint_type=cfg["constraint_type"])
+        eval_collector = FastCollector(policy, test_env, constraint_type=["speed"])
         result = eval_collector.collect(n_episode=1, render=EvalConfig.render, video_recorder=video_recorder)
 
         # Optionally turn the mp4 into a gif immediately
