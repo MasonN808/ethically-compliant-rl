@@ -54,13 +54,13 @@ TASK_TO_CFG = {
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     project: str = "PPOL-600Epochs-SpeedConstraint-LongerEpisodes"
-    epoch: int = 600
-    step_per_epoch: int = 3000
-    lr: float = .0002
+    epoch: int = 200
+    step_per_epoch: int = 10000
+    lr: float = .0003
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 100 # If use CPU to train
-    target_kl: float = .01
+    target_kl: float = .02
     gamma: float = .99
     worker: str = "ShmemVectorEnv"
     save_interval: int = 25 # The frequency of saving model per number of epochs
