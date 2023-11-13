@@ -34,6 +34,7 @@ env.configure({
     "manual_control": True,
 
     # Cost-speed
+    "constraint_type": ["speed"],
     "speed_limit": 2,
 })
 
@@ -45,10 +46,11 @@ while not done:
     # desired_goal = obs['desired_goal']
     # print(f'achieved_goal: {achieved_goal}')
     # print(f'desired_goal: {desired_goal}')
-    # cost = info['cost']
-    # print(f'cost: {cost}')
+    # print(info)
+    cost = info['cost']
+    print(f'cost: {cost}')
     # print(rew)
-    print(rew)
-    print(len(obs))
+    # print(rew)
+    # print(len(obs))
 
     env.render()
