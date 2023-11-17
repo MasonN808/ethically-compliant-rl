@@ -55,7 +55,7 @@ parser.add_argument('--beta', type=float, default=1, help='Value of KL penalty c
 args = parser.parse_args()
 
 # Initialize wandb
-wandb.init(name=f"ppo-KLpenalty-beta({args.beta})-parking", project="PPO-Penalty-lr=.001", sync_tensorboard=True)
+wandb.init(name=f"ppo-KLpenalty-beta({args.beta})-parking", project="PPO-Penalty-Report5", sync_tensorboard=True)
 
 with open('configs/ParkingEnv/env-default.txt') as f:
     data = f.read()
@@ -77,12 +77,17 @@ env = DummyVecEnv([lambda: env])
 # Create WandbLoggingCallback
 callback = WandbLoggingCallback()
 
+dynamic_beta = False
+beta = args.beta
+if args.beta == "dynamic":
+   dynamic_beta = True
+   beta = 1.0
 # Initialize the PPO agent with an MLP policy
-agent = PPO_Penalty(MlpPolicy, env, learning_rate=.001, beta=args.beta, verbose=1)
+agent = PPO_Penalty(MlpPolicy, env, learning_rate=.001, beta=beta, dynamic_beta=dynamic_beta, verbose=1)
 
 # Train the agent with the callback
 time_steps = 100000
-epochs = 50
+epochs = 40
 for i in range(epochs):
   agent.learn(total_timesteps=time_steps, callback=callback, reset_num_timesteps=False)
   if i % 5 == 0:
