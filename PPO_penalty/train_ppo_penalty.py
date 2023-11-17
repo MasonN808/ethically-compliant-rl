@@ -83,7 +83,7 @@ if args.beta == "dynamic":
    dynamic_beta = True
    beta = 1.0
 # Initialize the PPO agent with an MLP policy
-agent = PPO_Penalty(MlpPolicy, env, learning_rate=.001, beta=beta, dynamic_beta=dynamic_beta, verbose=1)
+agent = PPO_Penalty(MlpPolicy, env, learning_rate=.001, beta=beta, dynamic_beta=dynamic_beta, target_kl=.01, verbose=1)
 
 # Train the agent with the callback
 time_steps = 100000

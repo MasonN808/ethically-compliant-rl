@@ -21,7 +21,7 @@ SCRIPTS=(
     "$BASE_SCRIPT $ARGS" 
 )
 
-BETA_VALUES=("dynamic" "0.0" ".01" "0.05" "0.1" "0.3" "1.0" "3" "10" "15" "40" "80" "150" "250" "1000" "5000" )  # Add the beta values you want to test
+BETA_VALUES=("dynamic" "0.0" ".01" "0.05" "0.1" "0.3" "1.0" "3" "10" "15" "40" "80" "150" "250" "1000" "5000")  # Add the beta values you want to test
 
 for SCRIPT in "${SCRIPTS[@]}"; do
     for BETA in "${BETA_VALUES[@]}"; do
