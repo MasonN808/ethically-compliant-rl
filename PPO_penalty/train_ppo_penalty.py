@@ -87,7 +87,7 @@ dynamic_beta = False
 beta = args.beta
 if args.beta == "dynamic":
    dynamic_beta = True
-   beta = 1.0
+   beta = 5.0
 # Initialize the PPO agent with an MLP policy
 agent = PPO_Penalty(MlpPolicy, env, learning_rate=.001, beta=beta, dynamic_beta=dynamic_beta, target_kl=.01, verbose=1)
 
