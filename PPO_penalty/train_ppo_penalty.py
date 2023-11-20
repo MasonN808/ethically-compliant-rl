@@ -45,11 +45,17 @@ class WandbLoggingCallback(BaseCallback):
         # Continue training
         return True
     
+def float_or_string(value):
+    try:
+        return float(value)
+    except ValueError:
+        return value
+
 # Create an argument parser
 parser = argparse.ArgumentParser(description='PPO_Penalty')
 
 # Add an argument for the beta value
-parser.add_argument('--beta', type=float, default=1, help='Value of KL penalty coefficient')
+parser.add_argument('--beta', type=float_or_string, default=1, help='Value of KL penalty coefficient')
 
 # Parse the command line arguments
 args = parser.parse_args()
