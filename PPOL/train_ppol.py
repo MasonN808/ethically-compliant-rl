@@ -62,7 +62,7 @@ parse_args = parser.parse_args()
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "PPOL-600Epochs-SpeedConstraint-Cost=" + parse_args.cost_limit
+    project: str = "PPOL-600Epochs-SpeedConstraint-Cost=" + str(parse_args.cost_limit)
     epoch: int = 600
     step_per_epoch: int = 3000
     lr: float = .0002
