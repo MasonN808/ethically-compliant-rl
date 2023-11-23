@@ -8,7 +8,7 @@ from typing import List, Union
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'False'
+os. environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
@@ -51,18 +51,19 @@ TASK_TO_CFG = {
 }
 
 # Create an argument parser
-parser = argparse.ArgumentParser(description='PPO_Lagrange')
+# parser = argparse.ArgumentParser(description='PPO_Lagrange')
 
 # Add an argument for the beta value
-parser.add_argument('--cost_limit', type=int, default=2, help='Value cost limit')
+# parser.add_argument('--speed_limit', type=int, default=2, help='Speed limit')
 
 # Parse the command line arguments
-parse_args = parser.parse_args()
+# parse_args = parser.parse_args()
 
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "PPOL-600Epochs-SpeedConstraint-Cost=" + str(parse_args.cost_limit)
+    speed_limit: float = 2
+    project: str = "PPOL-600Epochs-SpeedConstraint-Speed=" + str(speed_limit)
     epoch: int = 600
     step_per_epoch: int = 3000
     lr: float = .0002
@@ -81,8 +82,7 @@ class MyCfg(TrainCfg):
     random_starting_locations = [[0,0]]
     # PPOL Params
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
-    # cost_limit: Union[List, float] = field(default_factory=lambda: [4])
-    cost_limit: Union[List, float] = field(default_factory=lambda: [parse_args.cost_limit])
+    cost_limit: list[float] = field(default_factory=lambda: [2])
     use_lagrangian: bool = True
 
 @pyrallis.wrap()
@@ -100,7 +100,7 @@ def train(args: MyCfg):
         "start_angle": -np.math.pi/2, # This is radians
         # Costs
         "constraint_type": args.constraint_type,
-        "speed_limit": 2, # TODO make constraint type and limit a dictionary for easier implementation
+        "speed_limit": args.speed_limit, # TODO make constraint type and limit a dictionary for easier implementation
     })
 
     task = args.task

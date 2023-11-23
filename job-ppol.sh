@@ -21,13 +21,13 @@ SCRIPTS=(
     "$BASE_SCRIPT $ARGS"
 )
 
-COST_VALUES=("2" "4" "8" "16" "32")  # Add the beta values you want to test
+SPEED_VALUES=("2" "4" "8" "16" "32")  # Add the beta values you want to test
 
 # Run the script as many times as the number of nodes in parallel
 for i in {1..3}; do
     for SCRIPT in "${SCRIPTS[@]}"; do
-        for COST in "${COST_VALUES[@]}"; do
-            srun -N1 -n1 python3 $SCRIPT --cost_limit $COST &
+        for SPEED in "${SPEED_VALUES[@]}"; do
+            srun -N1 -n1 python3 $SCRIPT --speed_limit $SPEED &
         done
     done
 done
