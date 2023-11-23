@@ -17,12 +17,19 @@ ARGS="$@"
 
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py"
 
-# Extract number of nodes from SLURM settings
-# NUM_NODES=$(grep "^#SBATCH --nodes=" $0 | cut -d'=' -f2)
+SCRIPTS=(
+    "$BASE_SCRIPT $ARGS"
+)
+
+BETA_VALUES=("2" "4" "8" "16" "32")  # Add the beta values you want to test
 
 # Run the script as many times as the number of nodes in parallel
-for i in {1..8}; do
-    srun -N1 -n1 python3 $BASE_SCRIPT $ARGS &
+for i in {1..3}; do
+    for SCRIPT in "${SCRIPTS[@]}"; do
+        for BETA in "${BETA_VALUES[@]}"; do
+            srun -N1 -n1 python3 $SCRIPT --cost_limit $COST &
+        done
+    done
 done
 
 wait

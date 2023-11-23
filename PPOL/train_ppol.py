@@ -50,17 +50,26 @@ TASK_TO_CFG = {
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
 
+# Create an argument parser
+parser = argparse.ArgumentParser(description='PPO_Lagrange')
+
+# Add an argument for the beta value
+parser.add_argument('--cost_limit', type=int, default=2, help='Value cost limit')
+
+# Parse the command line arguments
+parse_args = parser.parse_args()
+
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "PPOL-200Epochs-SpeedConstraint-LongerEnv"
-    epoch: int = 200
-    step_per_epoch: int = 10000
-    lr: float = .0003
+    project: str = "PPOL-600Epochs-SpeedConstraint-Cost=" + parse_args.cost_limit
+    epoch: int = 600
+    step_per_epoch: int = 3000
+    lr: float = .0002
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 100 # If use CPU to train
-    target_kl: float = .02
+    target_kl: float = .01
     gamma: float = .99
     worker: str = "ShmemVectorEnv"
     save_interval: int = 25 # The frequency of saving model per number of epochs
@@ -72,7 +81,8 @@ class MyCfg(TrainCfg):
     random_starting_locations = [[0,0]]
     # PPOL Params
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
-    cost_limit: Union[List, float] = field(default_factory=lambda: [2])
+    # cost_limit: Union[List, float] = field(default_factory=lambda: [4])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [parse_args.cost_limit])
     use_lagrangian: bool = True
 
 @pyrallis.wrap()
