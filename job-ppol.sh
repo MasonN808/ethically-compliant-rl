@@ -27,6 +27,7 @@ SPEED_VALUES=("2" "4" "8" "16" "32")  # Add the beta values you want to test
 for i in {1..3}; do
     for SCRIPT in "${SCRIPTS[@]}"; do
         for SPEED in "${SPEED_VALUES[@]}"; do
+            echo "Running script with speed limit: $SPEED"
             srun -N1 -n1 python3 $SCRIPT --speed_limit $SPEED &
         done
     done

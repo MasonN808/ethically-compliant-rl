@@ -8,7 +8,7 @@ from typing import List, Union
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 # Set this before everything
-os.environ['WANDB_DISABLED'] = 'False'
+os.environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
@@ -50,19 +50,18 @@ TASK_TO_CFG = {
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
 
-# Create an argument parser
-# parser = argparse.ArgumentParser(description='PPO_Lagrange')
+# TODO: remove this after experiments
+parser = argparse.ArgumentParser(description='PPO_Lagrange')
+parser.add_argument('--speed_limit', type=int, default=2, help='Speed limit')
+args = parser.parse_args()
 
-# Add an argument for the beta value
-# parser.add_argument('--speed_limit', type=int, default=2, help='Speed limit')
-
-# Parse the command line arguments
-# parse_args = parser.parse_args()
 
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    speed_limit: float = 2
+    speed_limit: int = 2
+    # Use the parsed argument to set the speed_limit in MyCfg
+    speed_limit = args.speed_limit
     project: str = "PPOL-600Epochs-SpeedConstraint-Speed=" + str(speed_limit)
     epoch: int = 600
     step_per_epoch: int = 3000
