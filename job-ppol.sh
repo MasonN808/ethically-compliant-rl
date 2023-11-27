@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=ppol           # Name of the job
+#SBATCH --job-name=ppol+           # Name of the job
 #SBATCH --cpus-per-task=7         # Number of CPUs per task
 #SBATCH --mem=40gb                # Memory allocated
-#SBATCH --nodes=4                 # Number of nodes
-#SBATCH --ntasks=8                # Number of tasks
+#SBATCH --nodes=5                 # Number of nodes
+#SBATCH --ntasks=9                # Number of tasks
 #SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
@@ -21,7 +21,7 @@ SCRIPTS=(
     "$BASE_SCRIPT $ARGS"
 )
 
-SPEED_VALUES=("2" "4" "8" "16" "32")  # Add the beta values you want to test
+SPEED_VALUES=("2" "4" "8")  # Add the beta values you want to test
 
 # Run the script as many times as the number of nodes in parallel
 for i in {1..3}; do
