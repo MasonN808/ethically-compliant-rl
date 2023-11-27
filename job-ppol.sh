@@ -4,7 +4,7 @@
 #SBATCH --job-name=ppol+           # Name of the job
 #SBATCH --cpus-per-task=7         # Number of CPUs per task
 #SBATCH --mem=40gb                # Memory allocated
-#SBATCH --nodes=5                 # Number of nodes
+#SBATCH --nodes=4                 # Number of nodes
 #SBATCH --ntasks=9                # Number of tasks
 #SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
