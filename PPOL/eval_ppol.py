@@ -34,7 +34,7 @@ import re
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/PPOL-600Epochs-SpeedConstraint-Speed=16/parking-v0-cost0-2/ppol_cost2_lr0.0002_step_per_epoch3000_target_kl0.01-5234"
+    path: str = "logs/PPOL-600Epochs-SpeedConstraint-Speed=2/parking-v0-cost0-2/ppol_cost2_lr0.0002_step_per_epoch3000_target_kl0.01-f4aa"
     # path: str = "logs/PPOL-200Epochs-NoConstraints/parking-v0/ppol_cost_lr0.001_step_per_epoch1000_target_kl0.01-4598"
     # Get the unique 4 char id of the file at the end of the file name
     match = re.search(r'-([\w]+)$', path)
@@ -75,7 +75,7 @@ class EvalConfig:
 def eval(args: EvalConfig):
     cfg, model = load_config_and_model(args.path, args.best, epoch_model_number=args.epoch_model_number)
     # seed
-    seed_all(121)
+    seed_all(1211)
     torch.set_num_threads(cfg["thread"])
 
     with open(EvalConfig.env_config_file) as f:
