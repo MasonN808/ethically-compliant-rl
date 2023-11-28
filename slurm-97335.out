@@ -1,0 +1,2277 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231123_011000-5901a410-a19b-4236-8230-68e9ac8b86a2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-291b
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D16
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D16/runs/5901a410-a19b-4236-8230-68e9ac8b86a2
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=16/parking-v0-cost-16/ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-291b/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	16.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-291b",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=16",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231122_171000-5b7b5e4d-0556-428c-bfee-af132a72e691
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-206f
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D32
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D32/runs/5b7b5e4d-0556-428c-bfee-af132a72e691
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=32/parking-v0-cost-32/ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-206f/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	32.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-206f",
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+    "norm_adv":	true,
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=32",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231122_171001-f04c020f-4c1b-4b96-babc-40a2924fb507
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-5127
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D2/runs/f04c020f-4c1b-4b96-babc-40a2924fb507
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231122_171001-c79ea1f9-723d-4ff2-bc5f-27228b062489
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-e183
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D8
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D8/runs/c79ea1f9-723d-4ff2-bc5f-27228b062489
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=2/parking-v0-cost-2/ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-5127/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	2.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-5127",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=2",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=8/parking-v0-cost-8/ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-e183/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	8.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-e183",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=8",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [00:58, 826.77it/s]             Epoch #1: 48020it [01:02, 826.77it/s, cost=1049.75, length=2401.0, rew=-2.3e+3]Epoch #1: 48020it [01:02, 771.79it/s, cost=1049.75, length=2401.0, rew=-2.3e+3]
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: | 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: / 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.0327
+wandb:     loss/actor_safety 0.577
+wandb:      loss/actor_total 0.00389
+wandb:          loss/entropy 1.83452
+wandb:               loss/kl 0.03695
+wandb:       loss/lagrangian 155.57937
+wandb:        loss/rescaling 0.00639
+wandb:            loss/total 52.14352
+wandb:              loss/vf0 151.02856
+wandb:              loss/vf1 57.52996
+wandb:         loss/vf_total 208.55852
+wandb:            train/cost 1049.75
+wandb:      train/cost_speed 1049.75
+wandb:          train/length 2401.0
+wandb:          train/reward -2301.289
+wandb:       update/cum_cost 20995.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-291b at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D16/runs/5901a410-a19b-4236-8230-68e9ac8b86a2
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231123_011000-5901a410-a19b-4236-8230-68e9ac8b86a2/logs
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:27, 550.46it/s]             Epoch #1: 48020it [01:32, 550.46it/s, cost=624, length=2401.0, rew=-2.2e+3]Epoch #1: 48020it [01:32, 520.67it/s, cost=624, length=2401.0, rew=-2.2e+3]
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.4
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:38, 488.98it/s]             Epoch #1: 48020it [01:43, 488.98it/s, cost=811, length=2401.0, rew=-2.2e+3]Epoch #1: 48020it [01:43, 462.38it/s, cost=811, length=2401.0, rew=-2.2e+3]
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:41, 474.77it/s]             Epoch #1: 48020it [01:46, 474.77it/s, cost=922, length=2401.0, rew=-2.29e+3]Epoch #1: 48020it [01:46, 450.67it/s, cost=922, length=2401.0, rew=-2.29e+3]
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231123_011200-8038ea41-cfd1-47fb-b5d4-e5709526b2fe
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-b2e8
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D2/runs/8038ea41-cfd1-47fb-b5d4-e5709526b2fe
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=2/parking-v0-cost-2/ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-b2e8/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	2.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-b2e8",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=2",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation temporarily disabled, retrying (Requested nodes are busy)
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.05713
+wandb:     loss/actor_safety -0.34539
+wandb:      loss/actor_total -0.0032
+wandb:          loss/entropy 1.84073
+wandb:               loss/kl 0.0895
+wandb:       loss/lagrangian 89.04332
+wandb:        loss/rescaling 0.01111
+wandb:            loss/total 45.95629
+wandb:              loss/vf0 148.43269
+wandb:              loss/vf1 35.40528
+wandb:         loss/vf_total 183.83796
+wandb:            train/cost 623.65
+wandb:      train/cost_speed 623.65
+wandb:          train/length 2401.0
+wandb:          train/reward -2202.83473
+wandb:       update/cum_cost 12473.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-206f at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D32/runs/5b7b5e4d-0556-428c-bfee-af132a72e691
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231122_171000-5b7b5e4d-0556-428c-bfee-af132a72e691/logs
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: | 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: / 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.06472
+wandb:     loss/actor_safety 0.05406
+wandb:      loss/actor_total 0.00097
+wandb:          loss/entropy 1.83983
+wandb:               loss/kl 0.11391
+wandb:       loss/lagrangian 121.7846
+wandb:        loss/rescaling 0.00814
+wandb:            loss/total 51.3707
+wandb:              loss/vf0 158.52447
+wandb:              loss/vf1 46.95448
+wandb:         loss/vf_total 205.47895
+wandb:            train/cost 811.2
+wandb:      train/cost_speed 811.2
+wandb:          train/length 2401.0
+wandb:          train/reward -2195.29559
+wandb:       update/cum_cost 16224.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-5127 at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D2/runs/f04c020f-4c1b-4b96-babc-40a2924fb507
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231122_171001-f04c020f-4c1b-4b96-babc-40a2924fb507/logs
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 1
+wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.14226
+wandb:     loss/actor_safety -0.98175
+wandb:      loss/actor_total -0.00606
+wandb:          loss/entropy 1.84364
+wandb:               loss/kl 0.35983
+wandb:       loss/lagrangian 137.57205
+wandb:        loss/rescaling 0.00722
+wandb:            loss/total 51.96652
+wandb:              loss/vf0 156.53537
+wandb:              loss/vf1 51.35493
+wandb:         loss/vf_total 207.8903
+wandb:            train/cost 922.1
+wandb:      train/cost_speed 922.1
+wandb:          train/length 2401.0
+wandb:          train/reward -2287.12324
+wandb:       update/cum_cost 18442.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-e183 at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D8/runs/c79ea1f9-723d-4ff2-bc5f-27228b062489
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231122_171001-c79ea1f9-723d-4ff2-bc5f-27228b062489/logs
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [00:58, 823.55it/s]             Epoch #1: 48020it [01:02, 823.55it/s, cost=796, length=2401.0, rew=-2.21e+3]Epoch #1: 48020it [01:02, 769.40it/s, cost=796, length=2401.0, rew=-2.21e+3]
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.07573
+wandb:     loss/actor_safety -0.06372
+wandb:      loss/actor_total 0.0001
+wandb:          loss/entropy 1.83902
+wandb:               loss/kl 0.11582
+wandb:       loss/lagrangian 119.44433
+wandb:        loss/rescaling 0.0083
+wandb:            loss/total 49.59695
+wandb:              loss/vf0 154.21369
+wandb:              loss/vf1 44.17371
+wandb:         loss/vf_total 198.3874
+wandb:            train/cost 795.65
+wandb:      train/cost_speed 795.65
+wandb:          train/length 2401.0
+wandb:          train/reward -2205.8858
+wandb:       update/cum_cost 15913.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-b2e8 at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D2/runs/8038ea41-cfd1-47fb-b5d4-e5709526b2fe
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231123_011200-8038ea41-cfd1-47fb-b5d4-e5709526b2fe/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.5
+srun: Step created for StepId=97335.6
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.7
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.8
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231123_011402-39cdda50-45a7-40c7-9e20-20f04821cffb
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-7c2b
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D4
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D4/runs/39cdda50-45a7-40c7-9e20-20f04821cffb
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=4/parking-v0-cost-4/ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-7c2b/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	4.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-7c2b",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=4",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231122_171403-869a6850-8a2e-42cc-b463-f5356525c67e
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-5382
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D4
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D4/runs/869a6850-8a2e-42cc-b463-f5356525c67e
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=4/parking-v0-cost-4/ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-5382/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	4.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-5382",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=4",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231122_171405-2d1f162a-8a4c-41f4-a161-2d0d07084bc7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-11dc
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D8
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D8/runs/2d1f162a-8a4c-41f4-a161-2d0d07084bc7
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231122_171405-e226df33-c64b-42a7-ba05-176866716c5a
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-416e
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D8
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D8/runs/e226df33-c64b-42a7-ba05-176866716c5a
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=8/parking-v0-cost-8/ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-416e/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	8.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-416e",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=8",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=8/parking-v0-cost-8/ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-11dc/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	8.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-11dc",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=8",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [00:59, 812.28it/s]             Epoch #1: 48020it [01:03, 812.28it/s, cost=1012.3, length=2401.0, rew=-2.39e+3]Epoch #1: 48020it [01:03, 757.94it/s, cost=1012.3, length=2401.0, rew=-2.39e+3]
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:28, 544.55it/s]             Epoch #1: 48020it [01:33, 544.55it/s, cost=964, length=2401.0, rew=-2.37e+3]Epoch #1: 48020it [01:33, 514.10it/s, cost=964, length=2401.0, rew=-2.37e+3]
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: | 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: / 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.15396
+wandb:     loss/actor_safety 2.50592
+wandb:      loss/actor_total 0.01741
+wandb:          loss/entropy 1.83989
+wandb:               loss/kl 0.32338
+wandb:       loss/lagrangian 151.74915
+wandb:        loss/rescaling 0.00655
+wandb:            loss/total 55.78258
+wandb:              loss/vf0 169.2823
+wandb:              loss/vf1 53.77835
+wandb:         loss/vf_total 223.06065
+wandb:            train/cost 1012.3
+wandb:      train/cost_speed 1012.3
+wandb:          train/length 2401.0
+wandb:          train/reward -2386.65859
+wandb:       update/cum_cost 20246.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-7c2b at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D4/runs/39cdda50-45a7-40c7-9e20-20f04821cffb
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231123_011402-39cdda50-45a7-40c7-9e20-20f04821cffb/logs
+Exception in thread NetStatThr:
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 954, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 892, in run
+    self._target(*self._args, **self._kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 259, in check_network_status
+    self._loop_check_status(
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 215, in _loop_check_status
+    local_handle = request()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 795, in deliver_network_status
+    return self._deliver_network_status(status)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 601, in _deliver_network_status
+    return self._deliver_record(record)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 560, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:39, 482.19it/s]             Epoch #1: 48020it [01:44, 482.19it/s, cost=1115.7, length=2401.0, rew=-2.38e+3]Epoch #1: 48020it [01:44, 457.52it/s, cost=1115.7, length=2401.0, rew=-2.38e+3]
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:40, 478.10it/s]             Epoch #1: 48020it [01:46, 478.10it/s, cost=521, length=2401.0, rew=-2.09e+3]Epoch #1: 48020it [01:46, 451.87it/s, cost=521, length=2401.0, rew=-2.09e+3]
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.9
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231123_011610-1c9be015-8de8-4d6f-9826-aab3905e3278
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-a513
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D16
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D16/runs/1c9be015-8de8-4d6f-9826-aab3905e3278
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=16/parking-v0-cost-16/ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-a513/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	16.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-a513",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=16",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: | 0.036 MB of 0.036 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.14275
+wandb:     loss/actor_safety -1.18176
+wandb:      loss/actor_total -0.00715
+wandb:          loss/entropy 1.84071
+wandb:               loss/kl 0.4074
+wandb:       loss/lagrangian 144.40475
+wandb:        loss/rescaling 0.00688
+wandb:            loss/total 52.98921
+wandb:              loss/vf0 161.99233
+wandb:              loss/vf1 49.99308
+wandb:         loss/vf_total 211.98541
+wandb:            train/cost 963.5
+wandb:      train/cost_speed 963.5
+wandb:          train/length 2401.0
+wandb:          train/reward -2370.03028
+wandb:       update/cum_cost 19270.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-5382 at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D4/runs/869a6850-8a2e-42cc-b463-f5356525c67e
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231122_171403-869a6850-8a2e-42cc-b463-f5356525c67e/logs
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.10
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231122_171625-548d9f60-326e-46ac-bbe2-545fe6d53bb9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-9c3c
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D16
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D16/runs/548d9f60-326e-46ac-bbe2-545fe6d53bb9
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=16/parking-v0-cost-16/ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-9c3c/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	16.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-9c3c",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=16",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.035 MB uploaded (0.000 MB deduped)wandb: | 0.027 MB of 0.036 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.11215
+wandb:     loss/actor_safety -0.22622
+wandb:      loss/actor_total -0.00146
+wandb:          loss/entropy 1.84147
+wandb:               loss/kl 0.19467
+wandb:       loss/lagrangian 77.1463
+wandb:        loss/rescaling 0.0128
+wandb:            loss/total 42.55214
+wandb:              loss/vf0 138.82002
+wandb:              loss/vf1 31.39437
+wandb:         loss/vf_total 170.21439
+wandb:            train/cost 520.6
+wandb:      train/cost_speed 520.6
+wandb:          train/length 2401.0
+wandb:          train/reward -2092.40255
+wandb:       update/cum_cost 10412.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-416e at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D8/runs/e226df33-c64b-42a7-ba05-176866716c5a
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231122_171405-e226df33-c64b-42a7-ba05-176866716c5a/logs
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 1
+wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.03514
+wandb:     loss/actor_safety 0.73209
+wandb:      loss/actor_total 0.00457
+wandb:          loss/entropy 1.83835
+wandb:               loss/kl 0.04919
+wandb:       loss/lagrangian 166.70885
+wandb:        loss/rescaling 0.00596
+wandb:            loss/total 54.57971
+wandb:              loss/vf0 159.46236
+wandb:              loss/vf1 58.83816
+wandb:         loss/vf_total 218.30052
+wandb:            train/cost 1115.7
+wandb:      train/cost_speed 1115.7
+wandb:          train/length 2401.0
+wandb:          train/reward -2378.49583
+wandb:       update/cum_cost 22314.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost8.0_lr0.0002_step_per_epoch3000_target_kl0.01-11dc at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D8/runs/2d1f162a-8a4c-41f4-a161-2d0d07084bc7
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231122_171405-2d1f162a-8a4c-41f4-a161-2d0d07084bc7/logs
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:00, 787.68it/s]             Epoch #1: 48020it [01:05, 787.68it/s, cost=1187.8, length=2401.0, rew=-2.53e+3]Epoch #1: 48020it [01:05, 733.38it/s, cost=1187.8, length=2401.0, rew=-2.53e+3]
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: | 0.036 MB of 0.036 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.13668
+wandb:     loss/actor_safety -2.91545
+wandb:      loss/actor_total -0.01567
+wandb:          loss/entropy 1.84323
+wandb:               loss/kl 0.4224
+wandb:       loss/lagrangian 176.3559
+wandb:        loss/rescaling 0.00564
+wandb:            loss/total 60.14104
+wandb:              loss/vf0 179.77043
+wandb:              loss/vf1 60.85641
+wandb:         loss/vf_total 240.62684
+wandb:            train/cost 1187.8
+wandb:      train/cost_speed 1187.8
+wandb:          train/length 2401.0
+wandb:          train/reward -2527.70874
+wandb:       update/cum_cost 23756.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-a513 at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D16/runs/1c9be015-8de8-4d6f-9826-aab3905e3278
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231123_011610-1c9be015-8de8-4d6f-9826-aab3905e3278/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:28, 544.97it/s]             Epoch #1: 48020it [01:33, 544.97it/s, cost=1e+3, length=2401.0, rew=-2.4e+3]Epoch #1: 48020it [01:33, 514.83it/s, cost=1e+3, length=2401.0, rew=-2.4e+3]
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.11
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.12
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.13
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231123_011816-d427d9f3-b2d6-4cea-8dc4-add7383d5cc0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-b35c
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D32
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D32/runs/d427d9f3-b2d6-4cea-8dc4-add7383d5cc0
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=32/parking-v0-cost-32/ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-b35c/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	32.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-b35c",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=32",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231122_171817-e2566ee9-6a98-4804-8464-eeebaed1c1b3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-482d
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D32
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D32/runs/e2566ee9-6a98-4804-8464-eeebaed1c1b3
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=32/parking-v0-cost-32/ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-482d/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	32.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-482d",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=32",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231122_171821-ddbc3d8d-5c5b-4fe4-9a94-89279bd23211
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-83bb
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D2/runs/ddbc3d8d-5c5b-4fe4-9a94-89279bd23211
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=2/parking-v0-cost-2/ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-83bb/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	2.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-83bb",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=2",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.036 MB of 0.036 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.14421
+wandb:     loss/actor_safety -0.90217
+wandb:      loss/actor_total -0.00508
+wandb:          loss/entropy 1.84381
+wandb:               loss/kl 0.39946
+wandb:       loss/lagrangian 148.092
+wandb:        loss/rescaling 0.00671
+wandb:            loss/total 54.87339
+wandb:              loss/vf0 166.83452
+wandb:              loss/vf1 52.67937
+wandb:         loss/vf_total 219.51389
+wandb:            train/cost 1000.0
+wandb:      train/cost_speed 1000.0
+wandb:          train/length 2401.0
+wandb:          train/reward -2401.98962
+wandb:       update/cum_cost 20000.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost16.0_lr0.0002_step_per_epoch3000_target_kl0.01-9c3c at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D16/runs/548d9f60-326e-46ac-bbe2-545fe6d53bb9
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231122_171625-548d9f60-326e-46ac-bbe2-545fe6d53bb9/logs
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [00:58, 825.57it/s]             Epoch #1: 48020it [01:02, 825.57it/s, cost=1e+3, length=2401.0, rew=-2.33e+3]Epoch #1: 48020it [01:02, 770.09it/s, cost=1e+3, length=2401.0, rew=-2.33e+3]
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.13778
+wandb:     loss/actor_safety 1.41042
+wandb:      loss/actor_total 0.01054
+wandb:          loss/entropy 1.84155
+wandb:               loss/kl 0.2798
+wandb:       loss/lagrangian 145.84955
+wandb:        loss/rescaling 0.00681
+wandb:            loss/total 52.32566
+wandb:              loss/vf0 155.48155
+wandb:              loss/vf1 53.77892
+wandb:         loss/vf_total 209.26047
+wandb:            train/cost 1001.1
+wandb:      train/cost_speed 1001.1
+wandb:          train/length 2401.0
+wandb:          train/reward -2332.95795
+wandb:       update/cum_cost 20022.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-b35c at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D32/runs/d427d9f3-b2d6-4cea-8dc4-add7383d5cc0
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231123_011816-d427d9f3-b2d6-4cea-8dc4-add7383d5cc0/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:39, 482.37it/s]             Epoch #1: 48020it [01:43, 482.37it/s, cost=1069.45, length=2401.0, rew=-2.4e+3]Epoch #1: 48020it [01:43, 461.90it/s, cost=1069.45, length=2401.0, rew=-2.4e+3]
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [01:40, 479.87it/s]             Epoch #1: 48020it [01:46, 479.87it/s, cost=1165.4, length=2401.0, rew=-2.53e+3]Epoch #1: 48020it [01:46, 452.98it/s, cost=1165.4, length=2401.0, rew=-2.53e+3]
+srun: Job 97335 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=97335.14
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231123_012031-115a1f44-8c61-4715-82df-4b1a9005a276
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-2805
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D4
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D4/runs/115a1f44-8c61-4715-82df-4b1a9005a276
+[32;1mLogging data to logs/PPOL-600Epochs-SpeedConstraint-Cost=4/parking-v0-cost-4/ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-2805/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	4.0,
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	600,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0002,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-2805",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-600Epochs-SpeedConstraint-Cost=4",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "step_per_epoch":	3000,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.04902
+wandb:     loss/actor_safety 0.76757
+wandb:      loss/actor_total 0.0052
+wandb:          loss/entropy 1.83949
+wandb:               loss/kl 0.06014
+wandb:       loss/lagrangian 156.13623
+wandb:        loss/rescaling 0.00636
+wandb:            loss/total 55.58344
+wandb:              loss/vf0 166.32989
+wandb:              loss/vf1 55.98308
+wandb:         loss/vf_total 222.31296
+wandb:            train/cost 1069.45
+wandb:      train/cost_speed 1069.45
+wandb:          train/length 2401.0
+wandb:          train/reward -2395.6655
+wandb:       update/cum_cost 21389.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost32.0_lr0.0002_step_per_epoch3000_target_kl0.01-482d at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D32/runs/e2566ee9-6a98-4804-8464-eeebaed1c1b3
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231122_171817-e2566ee9-6a98-4804-8464-eeebaed1c1b3/logs
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.18729
+wandb:     loss/actor_safety -1.6428
+wandb:      loss/actor_total -0.00827
+wandb:          loss/entropy 1.84157
+wandb:               loss/kl 0.59991
+wandb:       loss/lagrangian 175.0917
+wandb:        loss/rescaling 0.00568
+wandb:            loss/total 61.09909
+wandb:              loss/vf0 182.7814
+wandb:              loss/vf1 61.64803
+wandb:         loss/vf_total 244.42943
+wandb:            train/cost 1165.4
+wandb:      train/cost_speed 1165.4
+wandb:          train/length 2401.0
+wandb:          train/reward -2525.84659
+wandb:       update/cum_cost 23308.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost2.0_lr0.0002_step_per_epoch3000_target_kl0.01-83bb at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D2/runs/ddbc3d8d-5c5b-4fe4-9a94-89279bd23211
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231122_171821-ddbc3d8d-5c5b-4fe4-9a94-89279bd23211/logs
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 1
+Epoch #1:   0%|          | 0/3000 [00:00<?, ?it/s]Epoch #1: 48020it [00:59, 807.28it/s]             Epoch #1: 48020it [01:03, 807.28it/s, cost=1131.95, length=2401.0, rew=-2.4e+3]Epoch #1: 48020it [01:03, 751.76it/s, cost=1131.95, length=2401.0, rew=-2.4e+3]
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 336, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py", line 311, in train
+    for epoch, epoch_stat, info in trainer:
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 232, in __next__
+    if self.perf_is_better(test=True):
+  File "/nas/ucb/mason/ethically-compliant-rl/FSRL/fsrl/trainer/base_trainer.py", line 268, in perf_is_better
+    assert len(cost) == len(self.cost_limit), f'the len of cost {cost} and len of cost limits {self.cost_limit} should be equal'
+TypeError: object of type 'float' has no len()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:        loss/actor_rew ▁
+wandb:     loss/actor_safety ▁
+wandb:      loss/actor_total ▁
+wandb:          loss/entropy ▁
+wandb:               loss/kl ▁
+wandb:       loss/lagrangian ▁
+wandb:        loss/rescaling ▁
+wandb:            loss/total ▁
+wandb:              loss/vf0 ▁
+wandb:              loss/vf1 ▁
+wandb:         loss/vf_total ▁
+wandb:            train/cost ▁
+wandb:      train/cost_speed ▁
+wandb:          train/length ▁
+wandb:          train/reward ▁
+wandb:       update/cum_cost ▁
+wandb:        update/episode ▁
+wandb: update/gradient_steps ▁
+wandb: 
+wandb: Run summary:
+wandb:        loss/actor_rew 0.06443
+wandb:     loss/actor_safety 0.71754
+wandb:      loss/actor_total 0.00458
+wandb:          loss/entropy 1.83984
+wandb:               loss/kl 0.10171
+wandb:       loss/lagrangian 169.75648
+wandb:        loss/rescaling 0.00586
+wandb:            loss/total 60.01862
+wandb:              loss/vf0 179.11843
+wandb:              loss/vf1 60.93775
+wandb:         loss/vf_total 240.05618
+wandb:            train/cost 1131.95
+wandb:      train/cost_speed 1131.95
+wandb:          train/length 2401.0
+wandb:          train/reward -2402.78375
+wandb:       update/cum_cost 22639.0
+wandb:        update/episode 20.0
+wandb: update/gradient_steps 187.0
+wandb: 
+wandb: 🚀 View run ppol_cost4.0_lr0.0002_step_per_epoch3000_target_kl0.01-2805 at: https://wandb.ai/ecrl/PPOL-600Epochs-SpeedConstraint-Cost%3D4/runs/115a1f44-8c61-4715-82df-4b1a9005a276
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231123_012031-115a1f44-8c61-4715-82df-4b1a9005a276/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1

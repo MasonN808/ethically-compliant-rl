@@ -10,3 +10,7 @@
 	path = HighwayEnv
 	url = https://github.com/MasonN808/HighwayEnv.git
   branch = master
+[submodule "stable_baselines3"]
+	path = stable_baselines3
+	url = https://github.com/MasonN808/stable-baselines3.git
+	branch = master

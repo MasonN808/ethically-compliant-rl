@@ -1,0 +1,3 @@
+usage: train_ppo_penalty.py [-h] [--beta BETA]
+train_ppo_penalty.py: error: argument --beta: invalid float value: 'dynamic'
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 2
