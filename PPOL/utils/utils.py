@@ -44,3 +44,15 @@ def load_environment(env_config, render_mode=None):
 
 def seed(self, seed):
     np.random.seed(seed)
+
+# Function to extract text between the first and second backslash
+def parse_between_slashes(text):
+    # Split the string by backslash
+    parts = text.split('/')
+    # Check if there are at least two parts
+    if len(parts) > 1:
+        # Return the second part (index 1)
+        return parts[1]
+    else:
+        # Return an empty string if there are not enough parts
+        return ""

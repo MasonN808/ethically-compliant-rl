@@ -24,7 +24,7 @@ from fsrl.data import FastCollector
 from fsrl.policy import PPOLagrangian
 from fsrl.utils import BaseLogger
 from fsrl.utils.exp_util import load_config_and_model, mp4_to_gif, seed_all
-from utils.utils import load_environment
+from utils.utils import load_environment, parse_between_slashes
 from gymnasium.spaces.dict import Dict
 
 # For video monitoring the environment
@@ -51,9 +51,10 @@ class EvalConfig:
     else:
         print("Pattern not found")
 
-    epoch_model_number: int = 600
+    epoch_model_number: int = 525
     best: bool = True
-    eval_episodes: int = 3
+    # best: bool = False
+    eval_episodes: int = 3 
     convert_to_gif: bool = True
     parallel_eval: bool = False
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
@@ -172,26 +173,38 @@ def eval(args: EvalConfig):
 
     video_index = 0
     for _ in range(0, EvalConfig.eval_episodes):
+        # Get the project description from path
+        description = parse_between_slashes(args.path)
         ENV_CONFIG.update({"start_location": random.choice(EvalConfig.random_starting_locations)})
         test_env = load_environment(ENV_CONFIG, render_mode=EvalConfig.render_mode)
         # Check if the file name exists
         # If not, loop through the indices until you reach an available index
-        name = f"./videos/{EvalConfig.algorithm}/mp4s/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.mp4"
-        filename = Path(name)
+        mp4_path = f"./videos/{EvalConfig.algorithm}/{description}/mp4s/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.mp4"
+        filename = Path(mp4_path)
+
+        # Ensure the directory exists
+        if not filename.parent.exists():
+            filename.parent.mkdir(parents=True, exist_ok=True)
+
         while filename.exists():
             video_index += 1
-            name = f"./videos/{EvalConfig.algorithm}/mp4s/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.mp4"
-            filename = Path(name)
-        video_recorder = VideoRecorder(test_env, name)
+            mp4_path = f"./videos/{EvalConfig.algorithm}/{description}/mp4s/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.mp4"
+            filename = Path(mp4_path)
+        video_recorder = VideoRecorder(test_env, mp4_path)
         # Collector
         # eval_collector = FastCollector(policy, test_env, constraint_type=cfg["constraint_type"])
         eval_collector = FastCollector(policy, test_env, constraint_type=["speed"])
         result = eval_collector.collect(n_episode=1, render=EvalConfig.render, video_recorder=video_recorder)
 
+
         # Optionally turn the mp4 into a gif immediately
         if EvalConfig.convert_to_gif:
-            mp4_to_gif(mp4_path=f"./videos/{EvalConfig.algorithm}/mp4s/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.mp4",
-                        gif_path=f"./videos/{EvalConfig.algorithm}/gifs/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.gif")
+            gif_path = f"./videos/{EvalConfig.algorithm}/{description}/gifs/{EvalConfig.algorithm}-{EvalConfig.experiment_id}-{video_index}.gif"
+            filename = Path(gif_path)
+            # Ensure the directory exists
+            if not filename.parent.exists():
+                filename.parent.mkdir(parents=True, exist_ok=True)
+            mp4_to_gif(mp4_path=mp4_path, gif_path=gif_path)
 
         rews, lens, cost = result["rew"], result["len"], result["avg_total_cost"]
         print(f'rews: {rews}', f'lens: {lens}', f'cost: {cost}')
