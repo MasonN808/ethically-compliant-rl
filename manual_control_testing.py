@@ -14,7 +14,7 @@ env.configure({
         "type": "ContinuousAction"
     },
     # This determines the weights to the difference between the desired_goal and achieved_goal
-    "reward_weights": [1, .3, .02, .02, 0.02, 0.02],
+    "reward_weights": [1, .3, .02, .02, 0.02, 0],
     "show_trajectories": False,
     "success_goal_reward": 0.12,
     "collision_reward": -5,
@@ -49,7 +49,7 @@ while not done:
     # print(info)
     # cost = info['cost']
     # print(f'cost: {cost}')
-    # print(f'reward: {rew}')
+    print(f'reward: {rew}')
     # print(rew)
     # print(len(obs))
 
