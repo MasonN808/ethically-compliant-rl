@@ -11,7 +11,7 @@
         "type": "ContinuousAction"
     },
     # This determines the weights to the difference between the desired_goal and achieved_goal
-    "reward_weights": [1, 0.3, 0.02, 0.02, 0.02, 0.02],
+    "reward_weights": [1, 0.3, 0.02, 0.02, 0.02, 0],
     "show_trajectories": False,
     "success_goal_reward": 0.12,
     "collision_reward": -5,
