@@ -62,7 +62,7 @@ class MyCfg(TrainCfg):
     speed_limit: int = 2
     # Use the parsed argument to set the speed_limit in MyCfg
     speed_limit = args.speed_limit
-    project: str = "PPOL-SpeedConstraint-AddEndReward-Speed=" + str(speed_limit)
+    project: str = "PPOL-SpeedConstraint-DiffReward-Speed=" + str(speed_limit)
     epoch: int = 600
     step_per_epoch: int = 3000
     lr: float = .0002
