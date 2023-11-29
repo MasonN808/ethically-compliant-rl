@@ -16,7 +16,7 @@ env.configure({
     # This determines the weights to the difference between the desired_goal and achieved_goal
     "reward_weights": [1, .3, .02, .02, 0.02, 0],
     "show_trajectories": False,
-    "success_goal_reward": 0.12,
+    "success_goal_reward": -0.12, # set to negative if using alternative reward function
     "collision_reward": -5,
     "simulation_frequency": 100,
     "policy_frequency": 30,
