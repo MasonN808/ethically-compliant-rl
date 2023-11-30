@@ -1,10 +1,11 @@
+import argparse
 import copy
 import os
 import wandb
 
 # wandb.init(entity="mason-nakamura1", project="CPO-sweep-NoWalls")
-# os. environ['WANDB_DISABLED'] = 'True'
-# os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
+os. environ['WANDB_DISABLED'] = 'False'
+os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1" # For GPU identification
 import random
@@ -29,28 +30,35 @@ from fsrl.utils import WandbLogger
 from fsrl.utils.exp_util import auto_name
 from fsrl.data import FastCollector
 from fsrl.agent import CPOAgent
-from utils.utils import load_environment
+from utils.utils import load_environment, generate_env_config, get_updated_config
 
 from typing import Tuple, Union, List
+
+
+parser = argparse.ArgumentParser(description='CPO')
+parser.add_argument('--speed_limit', type=int, default=2, help='Speed limit')
+args = parser.parse_args()
 
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "CPO-200-epochs-speed-constraint"
+    speed_limit: int = 2
+    project: str = "CPO-SpeedConstraint-Speed=" + str(speed_limit)
     epoch: int = 500
+    lr: float = .001
     step_per_epoch: int = 10000
-    cost_limit: Union[List, float] = field(default_factory=lambda: [2])
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
+    cost_limit: Union[List, float] = field(default_factory=lambda: [2])
     worker: str = "ShmemVectorEnv"
+    save_interval: int = 25 # The frequency of saving model per number of epochs
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
-    hidden_sizes: Tuple[int, ...] = (128, 128)
     random_starting_locations = [[0,0]] # Support of starting position
-    render_mode: str = "rgb_array"
-    save_interval: int = 4 # The frequency of saving model per number of epochs
+    hidden_sizes: Tuple[int, ...] = (128, 128)
     verbose: bool = False
     thread: int = 100  # if use "cpu" to train
-
+    last_layer_scale: bool = False # Whether to scale the last layer output for the policy
+    rew_norm: bool = True # normalize estimated values to have std close to 1, also normalize the advantage to Normal(0, 1)
     # Wandb params
     # gamma: float = wandb.config.gamma
     # lr: float = wandb.config.lr
@@ -59,11 +67,11 @@ class MyCfg(TrainCfg):
 @pyrallis.wrap()
 def train(args: MyCfg):
     # Set the numpy seed
-    np.random.seed(args.seed)
+    # np.random.seed(args.seed)
 
     # Set the pytorch seed
     # Set the seed for CPU
-    torch.manual_seed(args.seed)
+    # torch.manual_seed(args.seed)
 
     # If you're using CUDA:
     # if torch.cuda.is_available():
@@ -71,7 +79,8 @@ def train(args: MyCfg):
     #     torch.cuda.manual_seed_all(args.seed)
     #     torch.backends.cudnn.deterministic = True
     #     torch.backends.cudnn.benchmark = False
-    
+    torch.set_num_threads(args.thread)
+
     with open(args.env_config_file) as f:
         data = f.read()
     # Reconstructing the data as a dictionary
@@ -81,7 +90,7 @@ def train(args: MyCfg):
         "start_angle": -np.math.pi/2, # This is radians
         # Costs
         "constraint_type": args.constraint_type,
-        "speed_limit": 2,
+        "speed_limit": args.speed_limit,
     })
 
     default_cfg = TrainCfg()
@@ -140,20 +149,10 @@ def train(args: MyCfg):
 
     training_num = min(args.training_num, args.episode_per_collect)
     worker = eval(args.worker)
-    # Start your vehicle at a random starting position
-    # TODO PUT THIS IN THE ENVIRONMENT NOT IN THE TRAINING FILE
     if MyCfg.random_starting_locations:
-        def generate_env_config(num):
-            return [{"start_location": random.choice(MyCfg.random_starting_locations)} for _ in range(num)]
-        def get_updated_config(i, env_list):
-            updated_config = copy.deepcopy(ENV_CONFIG)
-            updated_config.update(env_list[i])
-            return updated_config
-
         # Make a list of initialized environments with different starting positions
         env_training_list = generate_env_config(training_num)
         env_testing_list = generate_env_config(args.testing_num)
-
         train_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_training_list)) for i in range(training_num)])
         test_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_testing_list)) for i in range(args.testing_num)])
     else:

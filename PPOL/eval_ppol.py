@@ -34,7 +34,7 @@ import re
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/PPOL-SpeedConstraint-AddEndReward-Speed=8/parking-v0-cost0-2/ppol_cost2_lr0.0002_step_per_epoch3000_target_kl0.01-2d37"
+    path: str = "logs/PPOL-600Epochs-SpeedConstraint-Speed=8/parking-v0-cost0-2/ppol_cost2_lr0.0002_step_per_epoch3000_target_kl0.01-a788"
 
     # Get the unique 4 char id of the file at the end of the file name
     match = re.search(r'-([\w]+)$', path)
@@ -53,12 +53,10 @@ class EvalConfig:
 
     epoch_model_number: int = 525
     best: bool = True
-    # best: bool = False
     eval_episodes: int = 3 
     convert_to_gif: bool = True
     parallel_eval: bool = False
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
-    # constraint_type: list[str] = field(default_factory=lambda: [])
     # This was originally a bool; must be changed to float
     render: float = .005
     train_mode: bool = False
@@ -76,7 +74,7 @@ class EvalConfig:
 def eval(args: EvalConfig):
     cfg, model = load_config_and_model(args.path, args.best, epoch_model_number=args.epoch_model_number)
     # seed
-    seed_all(1211)
+    seed_all(111)
     torch.set_num_threads(cfg["thread"])
 
     with open(EvalConfig.env_config_file) as f:

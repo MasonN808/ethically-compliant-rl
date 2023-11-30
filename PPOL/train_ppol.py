@@ -310,10 +310,10 @@ def train(args: MyCfg):
     for epoch, epoch_stat, info in trainer:
         logger.store(tab="train", cost_limit=args.cost_limit)
         print(f"Epoch: {epoch}")
-        print(info)
+        # print(info)
 
     if __name__ == "__main__":
-        pprint.pprint(info)
+        # pprint.pprint(info)
         # Let's watch its performance!# Update the starting location
         if MyCfg.random_starting_locations:
             ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})
