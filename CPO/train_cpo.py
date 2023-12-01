@@ -151,10 +151,10 @@ def train(args: MyCfg):
     worker = eval(args.worker)
     if MyCfg.random_starting_locations:
         # Make a list of initialized environments with different starting positions
-        env_training_list = generate_env_config(training_num)
-        env_testing_list = generate_env_config(args.testing_num)
-        train_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_training_list)) for i in range(training_num)])
-        test_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_testing_list)) for i in range(args.testing_num)])
+        env_training_list = generate_env_config(training_num, MyCfg.random_starting_locations)
+        env_testing_list = generate_env_config(args.testing_num, MyCfg.random_starting_locations)
+        train_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_training_list, ENV_CONFIG)) for i in range(training_num)])
+        test_envs = worker([lambda i=i: load_environment(get_updated_config(i, env_testing_list, ENV_CONFIG)) for i in range(args.testing_num)])
     else:
         train_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(training_num)])
         test_envs = worker([lambda: load_environment(ENV_CONFIG) for _ in range(args.testing_num)])
