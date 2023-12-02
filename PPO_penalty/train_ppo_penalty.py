@@ -62,7 +62,7 @@ parser.add_argument('--beta', type=float_or_string, default=1, help='Value of KL
 args = parser.parse_args()
 
 # Initialize wandb
-wandb.init(name=f"ppo-KLpenalty-beta({args.beta})-parking", project="PPO-Penalty-Report5", sync_tensorboard=True)
+wandb.init(name=f"ppo-KLpenalty-beta({args.beta})-parking", project="PPO-Penalty-Report6", sync_tensorboard=True)
 
 with open('configs/ParkingEnv/env-default.txt') as f:
     data = f.read()
