@@ -60,6 +60,7 @@ args = parser.parse_args()
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
     # Use the parsed argument to set the speed_limit in MyCfg
+    speed_limit = 2
     speed_limit = args.speed_limit
     project: str = "PPOL-SpeedConstraint-200sDuration-Speed=" + str(speed_limit)
     epoch: int = 600
