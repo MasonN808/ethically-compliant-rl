@@ -69,7 +69,7 @@ class MyCfg(TrainCfg):
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 100 # If use CPU to train
     target_kl: float = .01
-    gamma: float = .99
+    gamma: float = .999
     worker: str = "ShmemVectorEnv"
     save_interval: int = 25 # The frequency of saving model per number of epochs
     # Decide which device to use based on availability

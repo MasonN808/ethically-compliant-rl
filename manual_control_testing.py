@@ -20,7 +20,7 @@ env.configure({
     "collision_reward": -5,
     "simulation_frequency": 100,
     "policy_frequency": 30,
-    "duration": 70,
+    "duration": 200, # seconds
     "screen_width": 600,
     "screen_height": 300,
     "centering_position": [0.5, 0.5],
