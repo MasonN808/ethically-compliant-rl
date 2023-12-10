@@ -62,9 +62,9 @@ class MyCfg(TrainCfg):
     # Use the parsed argument to set the speed_limit in MyCfg
     speed_limit: int = args.speed_limit
     project: str = "PPOL-SpeedConstraint-200sDuration-Speed=" + str(speed_limit)
-    epoch: int = 600
+    epoch: int = 400
     step_per_epoch: int = 3000
-    lr: float = .0003
+    lr: float = .003
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 100 # If use CPU to train

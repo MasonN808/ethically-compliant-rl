@@ -34,7 +34,7 @@ import re
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/PPOL-600Epochs-SpeedConstraint-Speed=8/parking-v0-cost0-2/ppol_cost2_lr0.0002_step_per_epoch3000_target_kl0.01-a788"
+    path: str = "logs/PPOL-SpeedConstraint-200sDuration-Speed=16/parking-v0-cost0-2/ppol_cost2_gamma0.999_lr0.0003_step_per_epoch3000_target_kl0.01-5aac"
 
     # Get the unique 4 char id of the file at the end of the file name
     match = re.search(r'-([\w]+)$', path)
