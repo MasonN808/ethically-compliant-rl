@@ -40,7 +40,10 @@ env.configure({
 
 env.reset()
 done = False
+i=0
 while not done:
+    i+=1
+    print(i)
     obs, rew, done, _, info = env.step(env.action_space.sample())  # with manual control, these actions are ignored
     achieved_goal = obs['achieved_goal'][5]
     desired_goal = obs['desired_goal'][5]
