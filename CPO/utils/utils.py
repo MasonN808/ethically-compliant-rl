@@ -1,4 +1,6 @@
+import copy
 import json
+import random
 import gymnasium as gym
 import logging
 import numpy as np
@@ -44,3 +46,11 @@ def load_environment(env_config, render_mode=None):
 
 def seed(self, seed):
     np.random.seed(seed)
+
+def generate_env_config(num: int, starting_locations):
+    return [{"start_location": random.choice(starting_locations)} for _ in range(num)]
+
+def get_updated_config(index: int, env_list: list, env_config: dict):
+    updated_config = copy.deepcopy(env_config)
+    updated_config.update(env_list[index])
+    return updated_config

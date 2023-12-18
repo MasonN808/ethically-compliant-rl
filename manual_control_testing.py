@@ -14,13 +14,13 @@ env.configure({
         "type": "ContinuousAction"
     },
     # This determines the weights to the difference between the desired_goal and achieved_goal
-    "reward_weights": [1, .3, .02, .02, 0.02, 0.02],
+    "reward_weights": [1, .3, .02, .02, 0.02, 0],
     "show_trajectories": False,
-    "success_goal_reward": 0.12,
+    "success_goal_reward": -0.12, # set to negative if using alternative reward function
     "collision_reward": -5,
     "simulation_frequency": 100,
     "policy_frequency": 30,
-    "duration": 70,
+    "duration": 200, # seconds
     "screen_width": 600,
     "screen_height": 300,
     "centering_position": [0.5, 0.5],
@@ -40,7 +40,10 @@ env.configure({
 
 env.reset()
 done = False
+i=0
 while not done:
+    i+=1
+    print(i)
     obs, rew, done, _, info = env.step(env.action_space.sample())  # with manual control, these actions are ignored
     achieved_goal = obs['achieved_goal'][5]
     desired_goal = obs['desired_goal'][5]
@@ -49,7 +52,7 @@ while not done:
     # print(info)
     # cost = info['cost']
     # print(f'cost: {cost}')
-    # print(f'reward: {rew}')
+    print(f'reward: {rew}')
     # print(rew)
     # print(len(obs))
 

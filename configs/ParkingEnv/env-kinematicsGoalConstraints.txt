@@ -11,13 +11,13 @@
         "type": "ContinuousAction"
     },
     # This determines the weights to the difference between the desired_goal and achieved_goal
-    "reward_weights": [1, 0.3, 0.02, 0.02, 0.02, 0.02],
+    "reward_weights": [1.2, 0.3, 0.06, 0.06, 0.02, 0],
     "show_trajectories": False,
-    "success_goal_reward": 0.12,
+    "success_goal_reward": 0.12, # TODO: Change this to positive when using constant negative reward
     "collision_reward": -5,
     "simulation_frequency": 100,
     "policy_frequency": 30,
-    "duration": 80, # seconds
+    "duration": 200, # seconds
     "screen_width": 600,
     "screen_height": 300,
     "centering_position": [0.5, 0.5],

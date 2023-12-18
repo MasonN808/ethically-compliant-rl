@@ -34,8 +34,8 @@ import re
 @dataclass
 class EvalConfig:
     # Relative path to experiment
-    path: str = "logs/PPOL-600Epochs-SpeedConstraint-Speed=2/parking-v0-cost0-2/ppol_cost2_lr0.0002_step_per_epoch3000_target_kl0.01-f4aa"
-    # path: str = "logs/PPOL-200Epochs-NoConstraints/parking-v0/ppol_cost_lr0.001_step_per_epoch1000_target_kl0.01-4598"
+    path: str = "logs/PPOL-SpeedConstraint-200sDuration-Speed=16/parking-v0-cost0-2/ppol_cost2_gamma0.999_lr0.0003_step_per_epoch3000_target_kl0.01-31c0"
+
     # Get the unique 4 char id of the file at the end of the file name
     match = re.search(r'-([\w]+)$', path)
     experiment_id = "----"
@@ -53,12 +53,10 @@ class EvalConfig:
 
     epoch_model_number: int = 525
     best: bool = True
-    # best: bool = False
     eval_episodes: int = 3 
     convert_to_gif: bool = True
     parallel_eval: bool = False
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
-    # constraint_type: list[str] = field(default_factory=lambda: [])
     # This was originally a bool; must be changed to float
     render: float = .005
     train_mode: bool = False
@@ -76,7 +74,7 @@ class EvalConfig:
 def eval(args: EvalConfig):
     cfg, model = load_config_and_model(args.path, args.best, epoch_model_number=args.epoch_model_number)
     # seed
-    seed_all(1211)
+    seed_all(111)
     torch.set_num_threads(cfg["thread"])
 
     with open(EvalConfig.env_config_file) as f:
@@ -167,10 +165,6 @@ def eval(args: EvalConfig):
     policy.load_state_dict(model["model"])
     policy.eval()
 
-    # test_envs = args.worker(
-    #     [lambda: load_environment(ENV_CONFIG, render_mode=args.render_mode) for _ in range(args.eval_episodes)]
-    # )
-
     video_index = 0
     for _ in range(0, EvalConfig.eval_episodes):
         # Get the project description from path
@@ -208,17 +202,6 @@ def eval(args: EvalConfig):
 
         rews, lens, cost = result["rew"], result["len"], result["avg_total_cost"]
         print(f'rews: {rews}', f'lens: {lens}', f'cost: {cost}')
-
-    # index_offset = 0
-    # for vid_index in range(index_offset, EvalConfig.eval_episodes+index_offset):
-    #     ENV_CONFIG.update({"start_location": random.choice(EvalConfig.random_starting_locations)})
-    #     test_env = load_environment(ENV_CONFIG, render_mode=args.render_mode)
-    #     args.video_recorder = VideoRecorder(test_env, f"./videos/ppo-{EvalConfig.experiment_id}-{vid_index}.mp4")
-    #     # Collector
-    #     eval_collector = FastCollector(policy, test_env, constraints=EvalConfig.constraints)
-    #     result = eval_collector.collect(n_episode=1, render=args.render, video_recorder=args.video_recorder, constraints=False)
-    #     rews, lens = result["rew"], result["len"]
-    #     print(f"Eval reward: {rews}, length: {lens}")
 
 
 if __name__ == "__main__":
