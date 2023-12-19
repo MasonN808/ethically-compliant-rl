@@ -61,7 +61,7 @@ class MyCfg(TrainCfg):
     task: str = "parking-v0"
     # Use the parsed argument to set the speed_limit in MyCfg
     speed_limit: int = args.speed_limit
-    project: str = "PPOL-experiment-0-Speed=" + str(speed_limit)
+    project: str = "PPOL-experiment-0-Lagrangian-Speed=" + str(speed_limit)
     epoch: int = 400
     step_per_epoch: int = 2048
     lr: float = 5e-4
