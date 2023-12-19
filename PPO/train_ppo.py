@@ -43,7 +43,7 @@ class WandbLoggingCallback(BaseCallback):
         return True
 
 # Initialize wandb
-wandb.init(name="ppo-highway-parking", project="PPO", sync_tensorboard=True)
+wandb.init(name="ppo-highway-parking", project="PPO-experiment-0", sync_tensorboard=True)
 
 with open('configs/ParkingEnv/env-default.txt') as f:
     data = f.read()
@@ -73,7 +73,7 @@ agent = PPO(MlpPolicy, env, verbose=1, seed=seed)
 # time_steps = 10000
 # epochs = 150
 time_steps = 100000
-epochs = 200
+epochs = 400
 for i in range(epochs):
   agent.learn(total_timesteps=time_steps, callback=callback, reset_num_timesteps=False)
   agent.save(f"PPO/models/model_epoch({i})_timesteps({time_steps})")

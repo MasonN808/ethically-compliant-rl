@@ -8,7 +8,7 @@ from typing import List, Union
 sys.path.append("FSRL")
 from fsrl.utils.net.common import ActorCritic
 # Set this before everything
-os. environ['WANDB_DISABLED'] = 'False'
+os.environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
@@ -50,36 +50,43 @@ TASK_TO_CFG = {
     "roundabout-v0": TrainCfg, # TODO: Change the configs for HighEnv tasks
 }
 
+# TODO: remove this after experiments
+parser = argparse.ArgumentParser(description='PPO_Lagrange')
+parser.add_argument('--speed_limit', type=int, default=2, help='Speed limit')
+args = parser.parse_args()
+
+
 @dataclass
 class MyCfg(TrainCfg):
     task: str = "parking-v0"
-    project: str = "PPOL-100Epochs"
-    epoch: int = 100
-    step_per_epoch: int = 1000
-    lr: float = .001
+    # Use the parsed argument to set the speed_limit in MyCfg
+    speed_limit: int = args.speed_limit
+    project: str = "PPOL-experiment-0-Speed=" + str(speed_limit)
+    epoch: int = 400
+    step_per_epoch: int = 2048
+    lr: float = 5e-4
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 100 # If use CPU to train
     target_kl: float = .01
     gamma: float = .99
     worker: str = "ShmemVectorEnv"
-    constraint_type: list[str] = field(default_factory=lambda: [])
-    cost_limit: Union[List, float] = field(default_factory=lambda: [])
-    # worker: str = "RayVectorEnv"
+    save_interval: int = 25 # The frequency of saving model per number of epochs
     # Decide which device to use based on availability
     device: str = ("cuda" if torch.cuda.is_available() else "cpu")
     env_config_file: str = 'configs/ParkingEnv/env-kinematicsGoalConstraints.txt'
     # Points are around the parking lot and in the middle
     # random_starting_locations = [[0,0], [40, 40], [-40,-40], [40, -40], [-40, 40], [0, -40]]
     random_starting_locations = [[0,0]]
-
     # PPOL Params
+    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
+    cost_limit: list[float] = field(default_factory=lambda: [2])
     use_lagrangian: bool = False
 
 @pyrallis.wrap()
 def train(args: MyCfg):
     # set seed and computing
-    seed_all(args.seed)
+    # seed_all(args.seed)
     torch.set_num_threads(args.thread)
 
     with open(args.env_config_file) as f:
@@ -90,8 +97,8 @@ def train(args: MyCfg):
     ENV_CONFIG.update({
         "start_angle": -np.math.pi/2, # This is radians
         # Costs
-        # "constraint_type": args.constraint_type,
-        # "speed_limit": 2,
+        "constraint_type": args.constraint_type,
+        "speed_limit": args.speed_limit, # TODO make constraint type and limit a dictionary for easier implementation
     })
 
     task = args.task
@@ -206,7 +213,7 @@ def train(args: MyCfg):
             ).to(args.device) for _ in range(1 + len(args.constraint_type)) # NOTE Add the number of constraints here minus 1
         ]
 
-    # torch.nn.init.constant_(actor.sigma_param, -0.5)
+    torch.nn.init.constant_(actor.sigma_param, -0.5)
     actor_critic = ActorCritic(actor, critic)
     # orthogonal initialization
     for m in actor_critic.modules():
@@ -302,10 +309,10 @@ def train(args: MyCfg):
     for epoch, epoch_stat, info in trainer:
         logger.store(tab="train", cost_limit=args.cost_limit)
         print(f"Epoch: {epoch}")
-        print(info)
+        # print(info)
 
     if __name__ == "__main__":
-        pprint.pprint(info)
+        # pprint.pprint(info)
         # Let's watch its performance!# Update the starting location
         if MyCfg.random_starting_locations:
             ENV_CONFIG.update({"starting_location": random.choice(MyCfg.random_starting_locations)})

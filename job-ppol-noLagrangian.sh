@@ -15,7 +15,7 @@ source .venv/bin/activate
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppol.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL/train_ppo.py"
 
 SCRIPTS=(
     "$BASE_SCRIPT $ARGS"
