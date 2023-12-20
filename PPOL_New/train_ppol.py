@@ -15,7 +15,7 @@ from stable_baselines3.common.callbacks import BaseCallback
 from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import pyrallis
 
 
@@ -39,6 +39,8 @@ class Cfg(TrainCfg):
     env_config: str = "configs/ParkingEnv/env-default.txt"
     epochs: int = 400
     total_timesteps: int = 100000
+    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
+    cost_limit: list[float] = field(default_factory=lambda: [2])
 
 @pyrallis.wrap()
 def train(args: Cfg):
@@ -51,6 +53,8 @@ def train(args: Cfg):
     # Overriding certain keys in the environment config
     env_config.update({
         "start_angle": -np.math.pi/2, # This is radians
+        "constraint_type": args.constraint_type,
+        "speed_limit": 5
     })
     # Load the Highway env from the config file
     env = FlattenObservation(load_environment(env_config))
