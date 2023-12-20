@@ -5,7 +5,7 @@
         "type": "KinematicsGoal",
         "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
         "scales": [100, 100, 5, 5, 1, 1],
-        "normalize": True
+        "normalize": False
     },
     "action": {
         "type": "ContinuousAction"
@@ -15,8 +15,8 @@
     "show_trajectories": False,
     "success_goal_reward": 0.12, # TODO: Change this to positive when using constant negative reward
     "collision_reward": -5,
-    "simulation_frequency": 100,
-    "policy_frequency": 30,
+    "simulation_frequency": 15,
+    "policy_frequency": 5,
     "duration": 200, # seconds
     "screen_width": 600,
     "screen_height": 300,

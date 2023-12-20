@@ -16,7 +16,7 @@
     "collision_reward": -5,
     "simulation_frequency": 15,
     "policy_frequency": 5,
-    "duration": 100,
+    "duration": 200,
     "screen_width": 600,
     "screen_height": 300,
     "centering_position": [0.5, 0.5],

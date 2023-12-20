@@ -4,22 +4,24 @@ import numpy as np
 
 env = gym.make("parking-v0", render_mode="human")
 env.configure({
+    "id": "parking-v0",
+    "import_module": "highway_env",
     "observation": {
         "type": "KinematicsGoal",
         "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
         "scales": [100, 100, 5, 5, 1, 1],
-        "normalize": True
+        "normalize": False
     },
     "action": {
         "type": "ContinuousAction"
     },
     # This determines the weights to the difference between the desired_goal and achieved_goal
-    "reward_weights": [1, .3, .02, .02, 0.02, 0],
+    "reward_weights": [1.2, 0.3, 0.06, 0.06, 0.02, 0],
     "show_trajectories": False,
-    "success_goal_reward": -0.12, # set to negative if using alternative reward function
+    "success_goal_reward": 0.12, # TODO: Change this to positive when using constant negative reward
     "collision_reward": -5,
-    "simulation_frequency": 100,
-    "policy_frequency": 30,
+    "simulation_frequency": 15,
+    "policy_frequency": 5,
     "duration": 200, # seconds
     "screen_width": 600,
     "screen_height": 300,
@@ -28,14 +30,11 @@ env.configure({
     "controlled_vehicles": 1,
     "vehicles_count": 0,
     "add_walls": False,
-    "start_location": [0, 32],
-    "start_angle": -np.math.pi/2, # This is radians
+    "start_location": [0, 0],
 
-    "manual_control": True,
-
+    # Costs
     # Cost-speed
-    "constraint_type": ["speed"],
-    "speed_limit": 2,
+    "speed_limit": 3,
 })
 
 env.reset()
