@@ -66,7 +66,7 @@ def train(args: Cfg):
     callback = WandbLoggingCallback()
 
     # Initialize the PPO agent with an MLP policy
-    agent = PPOL(MlpPolicy, env, verbose=1)
+    agent = PPOL("MlpPolicy", env, n_costs=len(args.constraint_type), verbose=1)
 
     # Train the agent with the callback
     for i in range(args.epochs):
