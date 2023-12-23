@@ -2,7 +2,8 @@
 import ast
 import os
 # Enables WandB cloud syncing
-os.environ['WANDB_DISABLED'] = 'True'
+os.environ['WANDB_DISABLED'] = 'False'
+os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 import numpy as np
 import torch
 import wandb
@@ -12,7 +13,7 @@ from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.ppo import MlpPolicy
 from stable_baselines3.common.callbacks import BaseCallback
-from utils import load_environment
+from utils import load_environment, check_build_path
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
 from dataclasses import dataclass, field
@@ -35,7 +36,8 @@ class WandbLoggingCallback(BaseCallback):
     
 @dataclass
 class Cfg(TrainCfg):
-    wandb_project_name: str = "New-PPOL"
+    speed_limit: float = 4
+    wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
     env_config: str = "configs/ParkingEnv/env-default.txt"
     epochs: int = 400
     total_timesteps: int = 100000
@@ -43,15 +45,12 @@ class Cfg(TrainCfg):
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
     cost_threshold: list[float] = field(default_factory=lambda: [2])
-    speed_limit: float = 4
     K_P: float = 0.05
     K_I: float = 0.0005
     K_D: float = 0.1
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    print(args.speed_limit)
-    exit()
     wandb.init(name="ppol-highway-parking", project=args.wandb_project_name, sync_tensorboard=True)
 
     with open(args.env_config) as f:
@@ -86,7 +85,10 @@ def train(args: Cfg):
     # Train the agent with the callback
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
-        agent.save(f"PPO/models/model_epoch({i})_timesteps({args.total_timesteps})")
+        path = f"PPOL_New/models/{args.wandb_project_name}/model_epoch({i})_timesteps({args.total_timesteps})"
+        # Check if path exists and build if if it does not
+        check_build_path(path)
+        agent.save(path)
 
     # Test the trained agent
     obs = env.reset()
