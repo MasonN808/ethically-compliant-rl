@@ -17,6 +17,6 @@ ARGS="$@"
 
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py"
 
-srun -N1 -n1 python3 "$BASE_SCRIPT --speed_limit 5.0 $ARGS" 
+srun -N1 -n1 python3 $BASE_SCRIPT --speed_limit 5.0
 
 wait
