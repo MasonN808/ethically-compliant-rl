@@ -12,7 +12,7 @@ from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.ppo import MlpPolicy
 from stable_baselines3.common.callbacks import BaseCallback
-from utils import load_environment
+from utils import load_environment, check_build_path
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
 from dataclasses import dataclass, field
@@ -84,7 +84,10 @@ def train(args: Cfg):
     # Train the agent with the callback
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
-        agent.save(f"PPOL_New/models/model_epoch({i})_timesteps({args.total_timesteps})")
+        path = f"PPOL_New/models/{args.wandb_project_name}/model_epoch({i})_timesteps({args.total_timesteps})"
+        # Check if path exists and build if if it does not
+        check_build_path(path)
+        agent.save(path)
 
     # Test the trained agent
     obs = env.reset()

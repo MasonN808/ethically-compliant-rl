@@ -1,4 +1,5 @@
 import json
+import os
 import gymnasium as gym
 import logging
 import numpy as np
@@ -56,3 +57,13 @@ def parse_between_slashes(text):
     else:
         # Return an empty string if there are not enough parts
         return ""
+
+@staticmethod
+def check_build_path(path: str):
+    # Check if the directory already exists
+    if not os.path.exists(path):
+        # If it doesn't exist, create it
+        os.makedirs(path)
+        print(f"Directory created: {path}")
+    else:
+        print(f"Directory already exists: {path}")
