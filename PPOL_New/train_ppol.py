@@ -39,11 +39,19 @@ class Cfg(TrainCfg):
     env_config: str = "configs/ParkingEnv/env-default.txt"
     epochs: int = 400
     total_timesteps: int = 100000
+
+    # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
-    cost_limit: list[float] = field(default_factory=lambda: [2])
+    cost_threshold: list[float] = field(default_factory=lambda: [2])
+    speed_limit: float = 4
+    K_P: float = 0.05
+    K_I: float = 0.0005
+    K_D: float = 0.1
 
 @pyrallis.wrap()
 def train(args: Cfg):
+    print(args.speed_limit)
+    exit()
     wandb.init(name="ppol-highway-parking", project=args.wandb_project_name, sync_tensorboard=True)
 
     with open(args.env_config) as f:
@@ -54,7 +62,7 @@ def train(args: Cfg):
     env_config.update({
         "start_angle": -np.math.pi/2, # This is radians
         "constraint_type": args.constraint_type,
-        "speed_limit": 5
+        "speed_limit": args.speed_limit
     })
     # Load the Highway env from the config file
     env = FlattenObservation(load_environment(env_config))
@@ -66,7 +74,14 @@ def train(args: Cfg):
     callback = WandbLoggingCallback()
 
     # Initialize the PPO agent with an MLP policy
-    agent = PPOL("MlpPolicy", env, n_costs=len(args.constraint_type), verbose=1)
+    agent = PPOL("MlpPolicy",
+                 env,
+                 n_costs=len(args.constraint_type), 
+                 cost_threshold=args.cost_threshold, 
+                 K_P=args.K_P,
+                 K_I=args.K_I,
+                 K_D=args.K_D,
+                 verbose=1)
 
     # Train the agent with the callback
     for i in range(args.epochs):
