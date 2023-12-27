@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import ast
 import os
 # Enables WandB cloud syncing
@@ -33,10 +34,15 @@ class WandbLoggingCallback(BaseCallback):
         wandb.log(logs)
         # Continue training
         return True
-    
+
+
+parser = argparse.ArgumentParser(description='PPO_Lagrange')
+parser.add_argument('--speed_limit', type=int, default=2, help='Speed limit')
+args = parser.parse_args()
+
 @dataclass
 class Cfg(TrainCfg):
-    speed_limit: float = 4
+    speed_limit: float = args.speed_limit
     wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
     env_config: str = "configs/ParkingEnv/env-default.txt"
     epochs: int = 400
