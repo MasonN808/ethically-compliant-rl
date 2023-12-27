@@ -58,8 +58,8 @@ def parse_between_slashes(text):
         # Return an empty string if there are not enough parts
         return ""
 
-@staticmethod
-def check_build_path(path: str):
+
+def check_build_path(self, path: str):
     # Check if the directory already exists
     if not os.path.exists(path):
         # If it doesn't exist, create it
