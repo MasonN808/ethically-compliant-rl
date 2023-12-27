@@ -59,7 +59,7 @@ def parse_between_slashes(text):
         return ""
 
 
-def check_build_path(self, path: str):
+def check_build_path(path: str):
     # Check if the directory already exists
     if not os.path.exists(path):
         # If it doesn't exist, create it
