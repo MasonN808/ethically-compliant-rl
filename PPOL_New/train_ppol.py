@@ -90,17 +90,18 @@ def train(args: Cfg):
 
     # Train the agent with the callback
     for i in range(args.epochs):
-        agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
-        path = f"PPOL_New/models/{args.wandb_project_name}/model_epoch({i})_timesteps({args.total_timesteps})"
-        # Check if the directory already exists
-        if not os.path.exists(path):
-            # If it doesn't exist, create it
-            os.makedirs(path)
-            print(f"Directory created: {path}")
-        else:
-            print(f"Directory already exists: {path}")
+        if i % 20 == 0:
+            agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+            path = f"PPOL_New/models/{args.wandb_project_name}/model_epoch({i})_timesteps({args.total_timesteps})"
+            # Check if the directory already exists
+            if not os.path.exists(path):
+                # If it doesn't exist, create it
+                os.makedirs(path)
+                print(f"Directory created: {path}")
+            else:
+                print(f"Directory already exists: {path}")
 
-        agent.save(path)
+            agent.save(path)
 
     # Test the trained agent
     obs = env.reset()
