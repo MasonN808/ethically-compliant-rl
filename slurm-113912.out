@@ -1,0 +1,349 @@
+Running script with speed limit: 2
+Running script with speed limit: 4
+Running script with speed limit: 8
+Running script with speed limit: 16
+Running script with speed limit: 2
+Running script with speed limit: 4
+Running script with speed limit: 8
+Running script with speed limit: 16
+Running script with speed limit: 2
+Running script with speed limit: 4
+Running script with speed limit: 8
+Running script with speed limit: 16
+Running script with speed limit: 2
+Running script with speed limit: 4
+Running script with speed limit: 8
+Running script with speed limit: 16
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231219_035049-e4fc6992-0c41-4250-914f-f56f9744b4da
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost2_step_per_epoch2048_target_kl0.01-f867
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-experiment-0-Speed%3D4
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-experiment-0-Speed%3D4/runs/e4fc6992-0c41-4250-914f-f56f9744b4da
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231218_195049-fe0eeb94-ef81-4ebb-8224-71dab3063452
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost2_step_per_epoch2048_target_kl0.01-e902
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-experiment-0-Speed%3D16
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-experiment-0-Speed%3D16/runs/fe0eeb94-ef81-4ebb-8224-71dab3063452
+[32;1mLogging data to logs/PPOL-experiment-0-Speed=4/parking-v0-cost0-2/ppol_cost2_step_per_epoch2048_target_kl0.01-f867/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	[
+        2
+    ],
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	400,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0005,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost2_step_per_epoch2048_target_kl0.01-f867",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-experiment-0-Speed=4",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "speed_limit":	4,
+    "step_per_epoch":	2048,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231218_195049-d73fff43-7862-4f85-bb2a-902c6ce53e4a
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost2_step_per_epoch2048_target_kl0.01-20e5
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-experiment-0-Speed%3D8
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-experiment-0-Speed%3D8/runs/d73fff43-7862-4f85-bb2a-902c6ce53e4a
+[32;1mLogging data to logs/PPOL-experiment-0-Speed=16/parking-v0-cost0-2/ppol_cost2_step_per_epoch2048_target_kl0.01-e902/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	[
+        2
+    ],
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	400,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0005,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost2_step_per_epoch2048_target_kl0.01-e902",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-experiment-0-Speed=16",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "speed_limit":	16,
+    "step_per_epoch":	2048,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+[32;1mLogging data to logs/PPOL-experiment-0-Speed=8/parking-v0-cost0-2/ppol_cost2_step_per_epoch2048_target_kl0.01-20e5/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	[
+        2
+    ],
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	400,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0005,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost2_step_per_epoch2048_target_kl0.01-20e5",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-experiment-0-Speed=8",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "speed_limit":	8,
+    "step_per_epoch":	2048,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231218_195049-54637fc4-be7f-4b87-8c42-fe176061968b
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol_cost2_step_per_epoch2048_target_kl0.01-ef93
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPOL-experiment-0-Speed%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPOL-experiment-0-Speed%3D2/runs/54637fc4-be7f-4b87-8c42-fe176061968b
+[32;1mLogging data to logs/PPOL-experiment-0-Speed=2/parking-v0-cost0-2/ppol_cost2_step_per_epoch2048_target_kl0.01-ef93/progress.txt[0m
+[36;1mSaving config:
+[0m
+{
+    "action_bound_method":	"clip",
+    "action_scaling":	true,
+    "batch_size":	256,
+    "buffer_size":	100000,
+    "constraint_type":	[
+        "speed"
+    ],
+    "cost_limit":	[
+        2
+    ],
+    "deterministic_eval":	true,
+    "device":	"cpu",
+    "dual_clip":	null,
+    "env_config_file":	"configs/ParkingEnv/env-kinematicsGoalConstraints.txt",
+    "episode_per_collect":	20,
+    "epoch":	400,
+    "eps_clip":	0.2,
+    "gae_lambda":	0.95,
+    "gamma":	0.99,
+    "group":	null,
+    "hidden_sizes":	[
+        128,
+        128
+    ],
+    "lagrangian_pid":	[
+        0.05,
+        0.0005,
+        0.1
+    ],
+    "last_layer_scale":	false,
+    "logdir":	"logs",
+    "lr":	0.0005,
+    "max_batchsize":	100000,
+    "max_grad_norm":	0.5,
+    "name":	"ppol_cost2_step_per_epoch2048_target_kl0.01-ef93",
+    "norm_adv":	true,
+    "prefix":	"ppol",
+    "project":	"PPOL-experiment-0-Speed=2",
+    "recompute_adv":	false,
+    "render":	null,
+    "render_mode":	null,
+    "repeat_per_collect":	4,
+    "rescaling":	true,
+    "resume":	false,
+    "rew_norm":	false,
+    "reward_threshold":	10000,
+    "save_ckpt":	true,
+    "save_interval":	25,
+    "seed":	10,
+    "speed_limit":	2,
+    "step_per_epoch":	2048,
+    "suffix":	"",
+    "target_kl":	0.01,
+    "task":	"parking-v0",
+    "testing_num":	2,
+    "thread":	100,
+    "training_num":	20,
+    "unbounded":	false,
+    "use_default_cfg":	false,
+    "use_lagrangian":	true,
+    "value_clip":	false,
+    "verbose":	true,
+    "vf_coef":	0.25,
+    "worker":	"ShmemVectorEnv"
+}
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 113912 step creation temporarily disabled, retrying (Requested nodes are busy)
+Epoch #1:   0%|          | 0/2048 [00:00<?, ?it/s]Epoch #1: 120020it [02:24, 829.42it/s]            Epoch #1: 120020it [02:34, 829.42it/s, cost=3507.15, length=6e+3, rew=-1.14e+4]Epoch #1: 120020it [02:34, 779.16it/s, cost=3507.15, length=6e+3, rew=-1.14e+4]
+Epoch #1:   0%|          | 0/2048 [00:00<?, ?it/s]slurmstepd: error: *** STEP 113912.2 ON dqn.ist.berkeley.edu CANCELLED AT 2023-12-18T19:54:08 ***
+slurmstepd: error: *** JOB 113912 ON airl.ist.berkeley.edu CANCELLED AT 2023-12-19T03:54:08 ***
+Epoch #1:   0%|          | 0/2048 [00:00<?, ?it/s]slurmstepd: error: *** STEP 113912.3 ON gail.ist.berkeley.edu CANCELLED AT 2023-12-18T19:54:08 ***
+Epoch #1:   0%|          | 0/2048 [00:00<?, ?it/s]slurmstepd: error: *** STEP 113912.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-12-18T19:54:08 ***
+slurmstepd: error: *** STEP 113912.0 ON airl.ist.berkeley.edu CANCELLED AT 2023-12-19T03:54:08 ***
+Epoch #1:   0%|          | 0/2048 [03:07<?, ?it/s]
+[32;1mEarly stop at step 0 due to reaching max kl.[0m
+Epoch #1:   0%|          | 0/2048 [03:07<?, ?it/s]
