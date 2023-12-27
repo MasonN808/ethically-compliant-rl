@@ -45,7 +45,7 @@ class Cfg(TrainCfg):
     speed_limit: float = args.speed_limit
     wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
     env_config: str = "configs/ParkingEnv/env-default.txt"
-    epochs: int = 400
+    epochs: int = 300
     total_timesteps: int = 100000
 
     # Lagrangian Parameters
@@ -90,8 +90,8 @@ def train(args: Cfg):
 
     # Train the agent with the callback
     for i in range(args.epochs):
+        agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
         if i % 20 == 0:
-            agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
             path = f"PPOL_New/models/{args.wandb_project_name}/model_epoch({i})_timesteps({args.total_timesteps})"
             # Check if the directory already exists
             if not os.path.exists(path):
