@@ -1,0 +1,57 @@
+Running script with speed limit: 2
+Running script with speed limit: 4
+Running script with speed limit: 8
+Running script with speed limit: 16
+Running script with speed limit: 2
+Running script with speed limit: 4
+Running script with speed limit: 8
+Running script with speed limit: 16
+Running script with speed limit: 2
+Running script with speed limit: 4
+Running script with speed limit: 8
+Running script with speed limit: 16
+Running script with speed limit: 2
+Running script with speed limit: 4
+Running script with speed limit: 8
+Running script with speed limit: 16
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231226_234039-qhjrmpe0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol-highway-parking
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-SpeedLimit%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-SpeedLimit%3D2/runs/qhjrmpe0
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231226_234039-znxle6ly
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol-highway-parking
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-SpeedLimit%3D8
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-SpeedLimit%3D8/runs/znxle6ly
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231226_234039-wdlz6noh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol-highway-parking
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-SpeedLimit%3D8
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-SpeedLimit%3D8/runs/wdlz6noh
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231227_074039-0fp24sn8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ppol-highway-parking
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-SpeedLimit%3D4
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-SpeedLimit%3D4/runs/0fp24sn8
+slurmstepd: error: *** STEP 114551.3 ON gail.ist.berkeley.edu CANCELLED AT 2023-12-26T23:40:45 ***
+slurmstepd: error: *** STEP 114551.2 ON dqn.ist.berkeley.edu CANCELLED AT 2023-12-26T23:40:45 ***
+slurmstepd: error: *** JOB 114551 ON airl.ist.berkeley.edu CANCELLED AT 2023-12-27T07:40:45 ***
+slurmstepd: error: *** STEP 114551.0 ON airl.ist.berkeley.edu CANCELLED AT 2023-12-27T07:40:45 ***
+slurmstepd: error: *** STEP 114551.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-12-26T23:40:45 ***
