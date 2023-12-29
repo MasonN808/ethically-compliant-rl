@@ -1,7 +1,9 @@
 import json
 import os
+import time
 import gymnasium as gym
 import logging
+import imageio
 import numpy as np
 logger = logging.getLogger(__name__)
 
@@ -67,3 +69,36 @@ def check_build_path(path: str):
         print(f"Directory created: {path}")
     else:
         print(f"Directory already exists: {path}")
+
+
+
+# Replaces evaluate_policy() from stable_baselines3 with a version that outputs frames to be transformed into a gif
+def evaluate_policy_and_capture_frames(model, env, n_eval_episodes=10):
+    episode_rewards = []
+    frames = []
+
+    for _ in range(n_eval_episodes):
+        obs = env.reset()
+        done = False
+        episode_reward = 0
+
+        while not done:
+            action, _ = model.predict(obs, deterministic=True)
+            obs, reward, done, _ = env.step(action)
+            episode_reward += reward
+            
+            # Capture frame
+            time.sleep(.05)
+            frame = env.render(mode='rgb_array')
+            frames.append(frame)
+
+        episode_rewards.append(episode_reward)
+    
+    mean_reward = np.mean(episode_rewards)
+    std_reward = np.std(episode_rewards)
+    
+    return mean_reward, std_reward, frames
+
+# Duration is same as fpss
+def save_frames_as_gif(frames, path='./gym_animation.gif', duration=30):
+    imageio.mimsave(path, frames, duration=duration)

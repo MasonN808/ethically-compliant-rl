@@ -45,22 +45,22 @@ class Cfg(TrainCfg):
     speed_limit: float = args.speed_limit
     wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
     env_config: str = "configs/ParkingEnv/env-default.txt"
-    epochs: int = 300
+    epochs: int = 50
     total_timesteps: int = 100000
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
-    cost_threshold: list[float] = field(default_factory=lambda: [2])
-    # K_P: float = 1
-    # K_I: float = 1
-    # K_D: float = 2
-    K_P: float = 0.05
-    K_I: float = 0.0005
-    K_D: float = 0.1
+    cost_threshold: list[float] = field(default_factory=lambda: [8])
+    K_P: float = 1
+    K_I: float = 1
+    K_D: float = 2
+    # K_P: float = 0.05
+    # K_I: float = 0.0005
+    # K_D: float = 0.1
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    wandb.init(name="ppol-highway-parking", project=args.wandb_project_name, sync_tensorboard=True)
+    run = wandb.init(name="ppol-highway-parking", project=args.wandb_project_name, sync_tensorboard=True)
 
     with open(args.env_config) as f:
         config = f.read()
@@ -94,8 +94,8 @@ def train(args: Cfg):
     # Train the agent with the callback
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
-        if i % 20 == 0:
-            path = f"PPOL_New/models/{args.wandb_project_name}/model_epoch({i})_timesteps({args.total_timesteps})"
+        if i % 5 == 0:
+            path = f"PPOL_New/models/{args.wandb_project_name}/{run.id}/model_epoch({i})_timesteps({args.total_timesteps})"
             # Check if the directory already exists
             if not os.path.exists(path):
                 # If it doesn't exist, create it
