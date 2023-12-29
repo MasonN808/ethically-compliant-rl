@@ -1,2 +1,0 @@
-/nas/ucb/mason/ethically-compliant-rl/.venv/bin/python3: can't open file '/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py --speed_limit 5.0 ': [Errno 2] No such file or directory
-srun: error: vae.ist.berkeley.edu: task 0: Exited with exit code 2
