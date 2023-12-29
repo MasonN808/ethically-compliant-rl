@@ -3,10 +3,9 @@ import argparse
 import ast
 import os
 # Enables WandB cloud syncing
-os.environ['WANDB_DISABLED'] = 'False'
+os.environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 import numpy as np
-import torch
 import wandb
 import sys
 sys.path.append("stable_baselines3")
@@ -14,7 +13,7 @@ from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.ppo import MlpPolicy
 from stable_baselines3.common.callbacks import BaseCallback
-from utils import load_environment, check_build_path
+from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
 from dataclasses import dataclass, field
@@ -40,6 +39,8 @@ parser = argparse.ArgumentParser(description='PPO_Lagrange')
 parser.add_argument('--speed_limit', type=int, default=2, help='Speed limit')
 args = parser.parse_args()
 
+run = wandb.init(name="ppol-highway-parking", project=args.wandb_project_name, sync_tensorboard=True)
+
 @dataclass
 class Cfg(TrainCfg):
     speed_limit: float = args.speed_limit
@@ -60,7 +61,6 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    run = wandb.init(name="ppol-highway-parking", project=args.wandb_project_name, sync_tensorboard=True)
 
     with open(args.env_config) as f:
         config = f.read()
