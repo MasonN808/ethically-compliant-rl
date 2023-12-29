@@ -56,7 +56,7 @@ def train(args: Cfg):
     env = FlattenObservation(load_environment(env_config))
 
     # Add Wrapper to record stats in env
-    # env = RecordEpisodeStatistics(env)
+    env = RecordEpisodeStatistics(env)
 
     # Vectorize env for stablebaselines
     env = DummyVecEnv([lambda: env])
