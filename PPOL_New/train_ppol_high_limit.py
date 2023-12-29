@@ -18,7 +18,7 @@ from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
 from dataclasses import dataclass, field
 import pyrallis
-
+from gymnasium.wrappers import RecordEpisodeStatistics
 
 class Cfg(TrainCfg):
     speed_limit: float = 100
@@ -53,8 +53,11 @@ def train(args: Cfg):
     # Load the Highway env from the config file
     env = FlattenObservation(load_environment(env_config))
 
+    # Add Wrapper to record stats in env
+    env = RecordEpisodeStatistics(env)
+
     # Vectorize env for stablebaselines
-    env = DummyVecEnv([lambda: env])
+    # env = DummyVecEnv([lambda: env])
 
     # Initialize the PPO agent with an MLP policy
     agent = PPOL("MlpPolicy",
