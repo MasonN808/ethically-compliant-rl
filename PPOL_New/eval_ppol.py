@@ -42,7 +42,7 @@ def evaluate(args: TrainCfg):
     ENV_CONFIG = ast.literal_eval(data)
     # Overriding certain keys in the environment config
     ENV_CONFIG.update({
-    "start_angle": -np.math.pi/2, # This is radians
+        "start_angle": -np.math.pi/2, # This is radians
     })
 
     # Load the Highway env from the config file
@@ -72,17 +72,6 @@ def evaluate(args: TrainCfg):
     
     # Load the model state
     agent.set_parameters(params)
-
-# agent = PPOL(
-    #             policy=data["policy_class"],
-    #             env=env,
-    #             n_costs=len(args.constraint_type),
-    #             cost_threshold=args.cost_threshold,
-    #             K_P=args.K_P,
-    #             K_I=args.K_I,
-    #             K_D=args.K_D,
-    #             _init_setup_model=False
-    #         )
 
     # A modified version of evaluate_policy() from stable_baslelines3
     mean_reward, std_reward, frames= evaluate_policy_and_capture_frames(agent, env, n_eval_episodes=3)
