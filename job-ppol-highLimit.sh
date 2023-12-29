@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=noLagrange           # Name of the job
+#SBATCH --job-name=highLimit           # Name of the job
 #SBATCH --cpus-per-task=4         # Number of CPUs per task
 #SBATCH --mem=16gb                # Memory allocated
 #SBATCH --nodes=4                 # Number of nodes
@@ -15,7 +15,7 @@ source .venv/bin/activate
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_no_lagrange.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py"
 
 # Run the script four times in parallel
 for i in {1..4}; do
