@@ -59,7 +59,7 @@ def train(args: Cfg):
     env = RecordEpisodeStatistics(env)
 
     # Vectorize env for stablebaselines
-    # env = DummyVecEnv([lambda: env])
+    env = DummyVecEnv([lambda: env])
 
     # Initialize the PPO agent with an MLP policy
     agent = PPOL("MlpPolicy",
