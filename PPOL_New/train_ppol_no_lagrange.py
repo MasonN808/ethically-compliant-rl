@@ -42,9 +42,12 @@ class WandbLoggingCallback(BaseCallback):
 
         # Retrieve episode statistics from each sub-environment
         for env_idx in range(self.env.num_envs):
-            sub_env_stats = self.env.get_attr('envs')[env_idx].get_episode_rewards_and_lengths()
-            episode_rewards.extend(sub_env_stats['episode_rewards'])
-            episode_lengths.extend(sub_env_stats['episode_lengths'])
+            sub_env = self.env.get_attr('envs')[env_idx]
+            if hasattr(sub_env, 'stats_recorder'):
+                stats = sub_env.stats_recorder
+                episode_rewards.extend(stats.episode_rewards if hasattr(stats, 'episode_rewards') else [])
+                episode_lengths.extend(stats.episode_lengths if hasattr(stats, 'episode_lengths') else [])
+
 
         # Calculate and log the statistics
         if episode_rewards and episode_lengths:
