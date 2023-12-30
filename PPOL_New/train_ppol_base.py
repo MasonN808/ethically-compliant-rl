@@ -34,7 +34,6 @@ class WandbLoggingCallback(BaseCallback):
         # Continue training
         return True
 
-
 parser = argparse.ArgumentParser(description='PPO_Lagrange')
 parser.add_argument('--speed_limit', type=int, default=2, help='Speed limit')
 args = parser.parse_args()

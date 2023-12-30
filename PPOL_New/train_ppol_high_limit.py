@@ -20,6 +20,17 @@ from dataclasses import dataclass, field
 import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 
+class WandbLoggingCallback(BaseCallback):
+    def __init__(self, verbose=0):
+        super(WandbLoggingCallback, self).__init__(verbose)
+
+    def _on_step(self) -> bool:
+        # Outputs all the values from the logger as a dictionary
+        logs = self.logger.name_to_value.copy()
+        wandb.log(logs)
+        # Continue training
+        return True
+
 class Cfg(TrainCfg):
     speed_limit: float = 100
     wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
@@ -38,7 +49,7 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    wandb.init(name="ppol-highway-parking", project=args.wandb_project_name, sync_tensorboard=True)
+    run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
 
     with open(args.env_config) as f:
         config = f.read()
@@ -59,6 +70,9 @@ def train(args: Cfg):
     # Vectorize env for stablebaselines
     env = DummyVecEnv([lambda: env])
 
+    # Create WandbLoggingCallback
+    callback = WandbLoggingCallback()
+
     # Initialize the PPO agent with an MLP policy
     agent = PPOL("MlpPolicy",
                  env,
@@ -73,9 +87,9 @@ def train(args: Cfg):
 
     # Train the agent with the callback
     for i in range(args.epochs):
-        agent.learn(total_timesteps=args.total_timesteps, reset_num_timesteps=False)
+        agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
         if i % 5 == 0:
-            path = f"PPOL_New/models/{args.wandb_project_name}/{0}/model_epoch({i})"
+            path = f"PPOL_New/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
             # Check if the directory already exists
             if not os.path.exists(path):
                 # If it doesn't exist, create it
