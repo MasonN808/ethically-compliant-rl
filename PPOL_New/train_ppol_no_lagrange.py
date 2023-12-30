@@ -2,6 +2,7 @@
 import argparse
 import ast
 import os
+import gymnasium
 # Enables WandB cloud syncing
 os.environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
@@ -39,6 +40,7 @@ class Cfg(TrainCfg):
     epochs: int = 50
     total_timesteps: int = 100000
     batch_size: int = 512
+    num_envs: int = 1
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
@@ -62,14 +64,16 @@ def train(args: Cfg):
         "constraint_type": args.constraint_type,
         "speed_limit": args.speed_limit
     })
-    # Load the Highway env from the config file
-    env = FlattenObservation(load_environment(env_config))
 
-    # Add Wrapper to record stats in env
-    env = RecordEpisodeStatistics(env)
-
-    # Vectorize env for stablebaselines
-    env = DummyVecEnv([lambda: env])
+    def make_env():
+        # Load the Highway env from the config file
+        env = FlattenObservation(load_environment(env_config))
+        # Add Wrapper to record stats in env
+        env = RecordEpisodeStatistics(env)
+        return env
+    
+    envs = [make_env() for _ in range(args.num_envs)]
+    env = DummyVecEnv(envs) 
 
     # Create WandbLoggingCallback
     callback = WandbLoggingCallback()
