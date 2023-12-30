@@ -21,42 +21,54 @@ from dataclasses import dataclass, field
 import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 
+# class WandbLoggingCallback(BaseCallback):
+#     def __init__(self, env, verbose=0):
+#         super(WandbLoggingCallback, self).__init__(verbose)
+#         self.env = env
+
+#     def _on_step(self) -> bool:
+#         # Log standard metrics
+#         logs = self.logger.name_to_value.copy()
+#         wandb.log(logs)
+
+#         # Log episode statistics
+#         self.log_episode_stats()
+#         return True
+
+#     def log_episode_stats(self):
+#         # Initialize empty lists for rewards and lengths
+#         episode_rewards = []
+#         episode_lengths = []
+
+#         # Retrieve episode statistics from each sub-environment
+#         # Check if the environment is a DummyVecEnv
+#         if isinstance(self.env, DummyVecEnv):
+#             # Retrieve episode statistics from each sub-environment
+#             for sub_env in self.env.envs:
+#                 if hasattr(sub_env, 'stats_recorder'):
+#                     stats = sub_env.stats_recorder
+#                     episode_rewards.extend(stats.episode_rewards if hasattr(stats, 'episode_rewards') else [])
+#                     episode_lengths.extend(stats.episode_lengths if hasattr(stats, 'episode_lengths') else [])
+
+#         # Calculate and log the statistics
+#         if episode_rewards and episode_lengths:
+#             mean_reward = np.mean(episode_rewards)
+#             mean_length = np.mean(episode_lengths)
+#             wandb.log({'episode/mean_reward': mean_reward, 'episode/mean_length': mean_length})
+
 class WandbLoggingCallback(BaseCallback):
-    def __init__(self, env, verbose=0):
+    def __init__(self, verbose=0):
         super(WandbLoggingCallback, self).__init__(verbose)
-        self.env = env
 
     def _on_step(self) -> bool:
-        # Log standard metrics
+        # Log the rewards
+        reward = self.locals['rewards']
+        self.logger.record('reward', reward)
+        # Outputs all the values from the logger as a dictionary
         logs = self.logger.name_to_value.copy()
         wandb.log(logs)
-
-        # Log episode statistics
-        self.log_episode_stats()
+        # Continue training
         return True
-
-    def log_episode_stats(self):
-        # Initialize empty lists for rewards and lengths
-        episode_rewards = []
-        episode_lengths = []
-
-        # Retrieve episode statistics from each sub-environment
-        # Check if the environment is a DummyVecEnv
-        if isinstance(self.env, DummyVecEnv):
-            # Retrieve episode statistics from each sub-environment
-            for sub_env in self.env.envs:
-                if hasattr(sub_env, 'stats_recorder'):
-                    stats = sub_env.stats_recorder
-                    episode_rewards.extend(stats.episode_rewards if hasattr(stats, 'episode_rewards') else [])
-                    episode_lengths.extend(stats.episode_lengths if hasattr(stats, 'episode_lengths') else [])
-
-
-
-        # Calculate and log the statistics
-        if episode_rewards and episode_lengths:
-            mean_reward = np.mean(episode_rewards)
-            mean_length = np.mean(episode_lengths)
-            wandb.log({'episode/mean_reward': mean_reward, 'episode/mean_length': mean_length})
 
 @dataclass
 class Cfg(TrainCfg):
