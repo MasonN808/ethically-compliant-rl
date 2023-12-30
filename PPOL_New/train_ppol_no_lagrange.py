@@ -22,15 +22,35 @@ import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 
 class WandbLoggingCallback(BaseCallback):
-    def __init__(self, verbose=0):
+    def __init__(self, env, verbose=0):
         super(WandbLoggingCallback, self).__init__(verbose)
+        self.env = env
 
     def _on_step(self) -> bool:
-        # Outputs all the values from the logger as a dictionary
+        # Log standard metrics
         logs = self.logger.name_to_value.copy()
         wandb.log(logs)
-        # Continue training
+
+        # Log episode statistics
+        self.log_episode_stats()
         return True
+
+    def log_episode_stats(self):
+        # Initialize empty lists for rewards and lengths
+        episode_rewards = []
+        episode_lengths = []
+
+        # Retrieve episode statistics from each sub-environment
+        for env_idx in range(self.env.num_envs):
+            sub_env_stats = self.env.get_attr('envs')[env_idx].get_episode_rewards_and_lengths()
+            episode_rewards.extend(sub_env_stats['episode_rewards'])
+            episode_lengths.extend(sub_env_stats['episode_lengths'])
+
+        # Calculate and log the statistics
+        if episode_rewards and episode_lengths:
+            mean_reward = np.mean(episode_rewards)
+            mean_length = np.mean(episode_lengths)
+            wandb.log({'episode/mean_reward': mean_reward, 'episode/mean_length': mean_length})
 
 @dataclass
 class Cfg(TrainCfg):
@@ -78,7 +98,7 @@ def train(args: Cfg):
     env = DummyVecEnv(envs) 
 
     # Create WandbLoggingCallback
-    callback = WandbLoggingCallback()
+    callback = WandbLoggingCallback(env)
 
     # Initialize the PPO agent with an MLP policy
     agent = PPOL("MlpPolicy",
