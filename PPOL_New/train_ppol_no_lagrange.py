@@ -63,8 +63,8 @@ class WandbLoggingCallback(BaseCallback):
     def _on_step(self) -> bool:
         # Log the rewards
         reward = self.locals['rewards']
-        cost = self.locals['infos']['cost']
-        is_success = self.locals['infos']['is_success']
+        cost = self.locals['infos'][0].get('cost')
+        is_success = self.locals['infos'][0].get('is_success')
         self.logger.record('reward', reward)
         self.logger.record('cost', cost)
         self.logger.record('is_success', is_success)
@@ -73,7 +73,6 @@ class WandbLoggingCallback(BaseCallback):
         wandb.log(logs)
         # Continue training
         return True
-
 @dataclass
 class Cfg(TrainCfg):
     speed_limit: float = 2
