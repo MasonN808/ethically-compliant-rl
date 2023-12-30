@@ -94,7 +94,7 @@ def train(args: Cfg):
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
         if i % 5 == 0:
-            path = f"PPOL_New/models/{args.wandb_project_name}/{run.id}/model_epoch({i})_timesteps({args.total_timesteps})"
+            path = f"PPOL_New/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
             # Check if the directory already exists
             if not os.path.exists(path):
                 # If it doesn't exist, create it
