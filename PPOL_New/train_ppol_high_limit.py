@@ -38,7 +38,7 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    run = wandb.init(name="ppol-highway-parking", project=args.wandb_project_name, sync_tensorboard=True)
+    wandb.init(name="ppol-highway-parking", project=args.wandb_project_name, sync_tensorboard=True)
 
     with open(args.env_config) as f:
         config = f.read()
@@ -75,7 +75,7 @@ def train(args: Cfg):
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, reset_num_timesteps=False)
         if i % 5 == 0:
-            path = f"PPOL_New/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
+            path = f"PPOL_New/models/{args.wandb_project_name}/{0}/model_epoch({i})"
             # Check if the directory already exists
             if not os.path.exists(path):
                 # If it doesn't exist, create it
