@@ -65,14 +65,16 @@ def train(args: Cfg):
         "speed_limit": args.speed_limit
     })
 
-    def make_env():
-        # Load the Highway env from the config file
-        env = FlattenObservation(load_environment(env_config))
-        # Add Wrapper to record stats in env
-        env = RecordEpisodeStatistics(env)
-        return env
+    def make_env(env_config):
+        def _init():
+            # Load the Highway env from the config file
+            env = FlattenObservation(load_environment(env_config))
+            # Add Wrapper to record stats in env
+            env = RecordEpisodeStatistics(env)
+            return env
+        return _init
     
-    envs = [make_env() for _ in range(args.num_envs)]
+    envs = [make_env(env_config) for _ in range(args.num_envs)]
     env = DummyVecEnv(envs) 
 
     # Create WandbLoggingCallback
