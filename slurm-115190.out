@@ -1,0 +1,188 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231230_040343-3ewakuxd
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run skilled-dragon-74
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/3ewakuxd
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231229_200343-ts77187x
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run stellar-river-75
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/ts77187x
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231229_200344-lriw4eps
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run royal-morning-76
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/lriw4eps
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231229_200344-xekmw7yt
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run scarlet-butterfly-77
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/xekmw7yt
+Using cpu device
+----------------------------------
+| rollout/           |           |
+|    ep_len_mean     | 1e+03     |
+|    ep_rew_mean     | -1.18e+03 |
+| time/              |           |
+|    fps             | 121       |
+|    iterations      | 1         |
+|    time_elapsed    | 16        |
+|    total_timesteps | 2048      |
+----------------------------------
+env is RecordEpisodeStatistics
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_no_lagrange.py", line 120, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_no_lagrange.py", line 97, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 429, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 594, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 358, in train
+    episode_rewards.extend(record_stats_wrapper.episode_rewards)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  [Previous line repeated 1 more time]
+AttributeError: 'ParkingEnv' object has no attribute 'episode_rewards'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Using cpu device
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 1e+03    |
+|    ep_rew_mean     | -894     |
+| time/              |          |
+|    fps             | 107      |
+|    iterations      | 1        |
+|    time_elapsed    | 18       |
+|    total_timesteps | 2048     |
+---------------------------------
+env is RecordEpisodeStatistics
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_no_lagrange.py", line 120, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_no_lagrange.py", line 97, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 429, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 594, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 358, in train
+    episode_rewards.extend(record_stats_wrapper.episode_rewards)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  [Previous line repeated 1 more time]
+AttributeError: 'ParkingEnv' object has no attribute 'episode_rewards'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Using cpu device
+----------------------------------
+| rollout/           |           |
+|    ep_len_mean     | 1e+03     |
+|    ep_rew_mean     | -1.06e+03 |
+| time/              |           |
+|    fps             | 107       |
+|    iterations      | 1         |
+|    time_elapsed    | 19        |
+|    total_timesteps | 2048      |
+----------------------------------
+env is RecordEpisodeStatistics
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_no_lagrange.py", line 120, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_no_lagrange.py", line 97, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 429, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 594, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 358, in train
+    episode_rewards.extend(record_stats_wrapper.episode_rewards)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  [Previous line repeated 1 more time]
+AttributeError: 'ParkingEnv' object has no attribute 'episode_rewards'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run skilled-dragon-74 at: https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/3ewakuxd
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231230_040343-3ewakuxd/logs
+Using cpu device
+----------------------------------
+| rollout/           |           |
+|    ep_len_mean     | 1e+03     |
+|    ep_rew_mean     | -1.07e+03 |
+| time/              |           |
+|    fps             | 99        |
+|    iterations      | 1         |
+|    time_elapsed    | 20        |
+|    total_timesteps | 2048      |
+----------------------------------
+env is RecordEpisodeStatistics
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_no_lagrange.py", line 120, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_no_lagrange.py", line 97, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 429, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 594, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 358, in train
+    episode_rewards.extend(record_stats_wrapper.episode_rewards)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/core.py", line 282, in __getattr__
+    return getattr(self.env, name)
+  [Previous line repeated 1 more time]
+AttributeError: 'ParkingEnv' object has no attribute 'episode_rewards'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run stellar-river-75 at: https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/ts77187x
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231229_200343-ts77187x/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+wandb: 🚀 View run royal-morning-76 at: https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/lriw4eps
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231229_200344-lriw4eps/logs
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1
+wandb: 🚀 View run scarlet-butterfly-77 at: https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/xekmw7yt
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231229_200344-xekmw7yt/logs
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1

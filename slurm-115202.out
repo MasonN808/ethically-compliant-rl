@@ -1,0 +1,41 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231230_004756-sw4lpo08
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run driven-dream-111
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/sw4lpo08
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231230_004756-kswxt2on
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run restful-tree-111
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/kswxt2on
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231230_084756-5mfmjrwt
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run young-night-113
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/5mfmjrwt
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231230_004757-bt7u4gd2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run noble-snowflake-114
+wandb: ⭐️ View project at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2
+wandb: 🚀 View run at https://wandb.ai/ecrl/New-PPOL-NoMultipiler-SpeedLimit%3D2/runs/bt7u4gd2
+slurmstepd: error: *** STEP 115202.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-12-30T00:48:00 ***
+slurmstepd: error: *** STEP 115202.3 ON gail.ist.berkeley.edu CANCELLED AT 2023-12-30T00:48:00 ***
+slurmstepd: error: *** STEP 115202.2 ON dqn.ist.berkeley.edu CANCELLED AT 2023-12-30T00:48:00 ***
+slurmstepd: error: *** JOB 115202 ON airl.ist.berkeley.edu CANCELLED AT 2023-12-30T08:48:00 ***
+slurmstepd: error: *** STEP 115202.0 ON airl.ist.berkeley.edu CANCELLED AT 2023-12-30T08:48:00 ***
