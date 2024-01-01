@@ -80,7 +80,7 @@ class Cfg(TrainCfg):
     env_config: str = "configs/ParkingEnv/env-default.txt"
     epochs: int = 50
     total_timesteps: int = 100000
-    batch_size: int = 512
+    batch_size: int = 256
     num_envs: int = 1
 
     # Lagrangian Parameters
