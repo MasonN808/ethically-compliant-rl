@@ -94,6 +94,7 @@ class Cfg(TrainCfg):
 @pyrallis.wrap()
 def train(args: Cfg):
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
+    run.name = run.id
 
     with open(args.env_config) as f:
         config = f.read()

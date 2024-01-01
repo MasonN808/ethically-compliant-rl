@@ -44,7 +44,7 @@ class Cfg(TrainCfg):
     env_config: str = "configs/ParkingEnv/env-default.txt"
     epochs: int = 50
     total_timesteps: int = 100000
-    batch_size: int = 512
+    batch_size: int = 256
     num_envs: int = 1
 
 
@@ -59,6 +59,7 @@ class Cfg(TrainCfg):
 @pyrallis.wrap()
 def train(args: Cfg):
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
+    run.name = run.id
 
     with open(args.env_config) as f:
         config = f.read()
