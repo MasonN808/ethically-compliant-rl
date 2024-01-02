@@ -42,7 +42,7 @@ class Cfg(TrainCfg):
     speed_limit: float = 100
     wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
     env_config: str = "configs/ParkingEnv/env-default.txt"
-    epochs: int = 50
+    epochs: int = 150
     total_timesteps: int = 100000
     batch_size: int = 256
     num_envs: int = 1

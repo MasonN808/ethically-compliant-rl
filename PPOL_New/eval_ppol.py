@@ -53,7 +53,7 @@ def evaluate(args: TrainCfg):
     env = DummyVecEnv([lambda: env])
 
     # Path to your saved model
-    path_to_zip_file = "PPOL_New/models/New-PPOL-NoMultipiler-SpeedLimit=2/lxczzdw4/model_epoch(25).zip"
+    path_to_zip_file = "PPOL_New/models/New-PPOL-NoMultipiler-SpeedLimit=2/003o0d17/model_epoch(25).zip"
 
     # Load the saved data
     data, params, _ = load_from_zip_file(path_to_zip_file)
