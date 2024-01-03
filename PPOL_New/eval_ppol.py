@@ -20,67 +20,68 @@ from ppol_cfg import TrainCfg
 
 @pyrallis.wrap()
 def evaluate(args: TrainCfg):
-    # Path to your saved model
-    model_path = "PPOL_New/models/New-PPOL-NoMultipiler-SpeedLimit=2/5fzunbdm/model_epoch(65).zip"
-    # Parsing path for gif path
-    parsed_gif_file = model_path.split("/models/")[-1][:-4]
-    
-    # Parse the directory
-    # Splitting the string by '/'
-    parts = model_path.split('/')
-    parsed_gif_dir = parts[2] + '/' + parts[3]
+    for i in range(0, 80, 10):
+        # Path to your saved model
+        model_path = f"PPOL_New/models/New-PPOL-SpeedLimit=100/p4q9d6q8/model_epoch({i}).zip"
+        # Parsing path for gif path
+        parsed_gif_file = model_path.split("/models/")[-1][:-4]
+        
+        # Parse the directory
+        # Splitting the string by '/'
+        parts = model_path.split('/')
+        parsed_gif_dir = parts[2] + '/' + parts[3]
 
 
-    gif_dir = f"PPOL_New/gifs/{parsed_gif_dir}"
-    gif_path = f"PPOL_New/gifs/{parsed_gif_file}.gif"
-    # Create the path if it does not exist
-    if not os.path.exists(gif_dir):
-        os.makefiles(gif_dir)
+        gif_dir = f"PPOL_New/gifs/{parsed_gif_dir}"
+        gif_path = f"PPOL_New/gifs/{parsed_gif_file}.gif"
+        # Create the path if it does not exist
+        if not os.path.exists(gif_dir):
+            os.makedirs(gif_dir)
 
 
-    with open('configs/ParkingEnv/env-default.txt') as f:
-        data = f.read()
+        with open('configs/ParkingEnv/env-default.txt') as f:
+            data = f.read()
 
-    # Reconstructing the data as a dictionary
-    ENV_CONFIG = ast.literal_eval(data)
-    # Overriding certain keys in the environment config
-    ENV_CONFIG.update({
-        "start_angle": -np.math.pi/2, # This is radians
-        "duration": 30,
-    })
+        # Reconstructing the data as a dictionary
+        ENV_CONFIG = ast.literal_eval(data)
+        # Overriding certain keys in the environment config
+        ENV_CONFIG.update({
+            "start_angle": -np.math.pi/2, # This is radians
+            "duration": 60,
+        })
 
-    # Load the Highway env from the config file
-    env = FlattenObservation(load_environment(ENV_CONFIG, render_mode="rgb_array"))
+        # Load the Highway env from the config file
+        env = FlattenObservation(load_environment(ENV_CONFIG, render_mode="rgb_array"))
 
-    # Stable baselines usually works with vectorized environments, 
-    # so even though CartPole is a single environment, we wrap it in a DummyVecEnv
-    env = DummyVecEnv([lambda: env])
+        # Stable baselines usually works with vectorized environments, 
+        # so even though CartPole is a single environment, we wrap it in a DummyVecEnv
+        env = DummyVecEnv([lambda: env])
 
-    # Load the saved data
-    data, params, _ = load_from_zip_file(model_path)
+        # Load the saved data
+        data, params, _ = load_from_zip_file(model_path)
 
-    # Load the trained agent
-    agent = PPOL(
-                policy=data["policy_class"], 
-                env=env, 
-                device='auto',
-                n_costs=len(args.constraint_type),
-                cost_threshold=args.cost_threshold,
-                K_P=args.K_P,
-                K_I=args.K_I,
-                K_D=args.K_D,
-            )
-    
-    # Load the model state
-    agent.set_parameters(params)
+        # Load the trained agent
+        agent = PPOL(
+                    policy=data["policy_class"], 
+                    env=env, 
+                    device='auto',
+                    n_costs=len(args.constraint_type),
+                    cost_threshold=args.cost_threshold,
+                    K_P=args.K_P,
+                    K_I=args.K_I,
+                    K_D=args.K_D,
+                )
+        
+        # Load the model state
+        agent.set_parameters(params)
 
-    # A modified version of evaluate_policy() from stable_baslelines3
-    mean_reward, std_reward, frames= evaluate_policy_and_capture_frames(agent, env, n_eval_episodes=1)
+        # A modified version of evaluate_policy() from stable_baslelines3
+        mean_reward, std_reward, frames= evaluate_policy_and_capture_frames(agent, env, n_eval_episodes=1)
 
-    # Create the gif from the frames
-    save_frames_as_gif(frames, path=gif_path)
+        # Create the gif from the frames
+        save_frames_as_gif(frames, path=gif_path)
 
-    print(mean_reward, std_reward)
+        print(mean_reward, std_reward)
 
 if __name__=="__main__":
     evaluate()
