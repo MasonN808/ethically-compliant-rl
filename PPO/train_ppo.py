@@ -5,6 +5,9 @@ import torch
 import os
 import wandb
 import sys
+# Enables WandB cloud syncing
+os.environ['WANDB_DISABLED'] = 'False'
+os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 sys.path.append("stable_baselines3")
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
