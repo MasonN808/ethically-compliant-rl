@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=ppo-highway         # Name of the job
+#SBATCH --job-name=vanilla-ppo         # Name of the job
 #SBATCH --cpus-per-task=1         # Number of CPUs per task
 #SBATCH --ntasks=4  # Specify the number of CPU cores
 #SBATCH --mem=16gb                # Memory allocated
