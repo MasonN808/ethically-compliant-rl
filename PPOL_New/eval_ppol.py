@@ -1,4 +1,5 @@
 import ast
+import os
 import sys
 import gym
 import numpy as np
@@ -19,21 +20,16 @@ from ppol_cfg import TrainCfg
 
 @pyrallis.wrap()
 def evaluate(args: TrainCfg):
-    seed = 10
+    # Path to your saved model
+    model_path = "PPOL_New/models/New-PPOL-NoMultipiler-SpeedLimit=2/5fzunbdm/model_epoch(45).zip"
+    # Parsing path for gif path
+    parsed_path = model_path.split("/models/")[-1][:-4]
 
-    # Set the numpy seed
-    np.random.seed(seed)
+    gif_path = f"PPOL_New/gifs/{parsed_path}.gif"
+    # Create the path if it does not exist
+    if not os.path.exists(gif_path):
+        os.makedirs(gif_path)
 
-    # Set the pyth seed
-    # Set the seed for CPU
-    th.manual_seed(seed)
-
-    # If you're using CUDA:
-    if th.cuda.is_available():
-        th.cuda.manual_seed(seed)
-        th.cuda.manual_seed_all(seed)
-        th.backends.cudnn.deterministic = True
-        th.backends.cudnn.benchmark = False
 
     with open('configs/ParkingEnv/env-default.txt') as f:
         data = f.read()
@@ -43,6 +39,7 @@ def evaluate(args: TrainCfg):
     # Overriding certain keys in the environment config
     ENV_CONFIG.update({
         "start_angle": -np.math.pi/2, # This is radians
+        "duration": 30,
     })
 
     # Load the Highway env from the config file
@@ -52,11 +49,8 @@ def evaluate(args: TrainCfg):
     # so even though CartPole is a single environment, we wrap it in a DummyVecEnv
     env = DummyVecEnv([lambda: env])
 
-    # Path to your saved model
-    path_to_zip_file = "PPOL_New/models/New-PPOL-NoMultipiler-SpeedLimit=2/003o0d17/model_epoch(25).zip"
-
     # Load the saved data
-    data, params, _ = load_from_zip_file(path_to_zip_file)
+    data, params, _ = load_from_zip_file(model_path)
 
     # Load the trained agent
     agent = PPOL(
@@ -74,10 +68,10 @@ def evaluate(args: TrainCfg):
     agent.set_parameters(params)
 
     # A modified version of evaluate_policy() from stable_baslelines3
-    mean_reward, std_reward, frames= evaluate_policy_and_capture_frames(agent, env, n_eval_episodes=3)
+    mean_reward, std_reward, frames= evaluate_policy_and_capture_frames(agent, env, n_eval_episodes=1)
 
     # Create the gif from the frames
-    save_frames_as_gif(frames, path=f'PPOL_New/gifs/car_evaluation.gif')
+    save_frames_as_gif(frames, path=gif_path)
 
     print(mean_reward, std_reward)
 
