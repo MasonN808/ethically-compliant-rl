@@ -24,10 +24,8 @@ class WandbLoggingCallback(BaseCallback):
     def _on_step(self) -> bool:
         # Log the rewards
         reward = self.locals['rewards']
-        cost = self.locals['infos'][0].get('cost')[0]
         is_success = int(self.locals['infos'][0].get('is_success') == True)
         self.logger.record('reward', reward)
-        self.logger.record('cost', cost)
         self.logger.record('is_success', is_success)
         # Outputs all the values from the logger as a dictionary
         logs = self.logger.name_to_value.copy()
