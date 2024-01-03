@@ -85,8 +85,6 @@ def train(args: Cfg):
     envs = [make_env(env_config) for _ in range(args.num_envs)]
     env = DummyVecEnv(envs) 
 
-    # Create WandbLoggingCallback
-    callback = WandbLoggingCallback(env)
 
     # Initialize the PPO agent with an MLP policy
     agent = PPOL("MlpPolicy",
@@ -100,6 +98,9 @@ def train(args: Cfg):
                  batch_size=args.batch_size,
                  verbose=1)
 
+    # Create WandbLoggingCallback
+    callback = WandbLoggingCallback(env)
+    
     # Train the agent with the callback
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
