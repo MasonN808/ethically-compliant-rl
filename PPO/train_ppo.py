@@ -2,6 +2,7 @@
 import ast
 import numpy as np
 import torch
+import os
 import wandb
 import sys
 sys.path.append("stable_baselines3")
@@ -11,22 +12,10 @@ from stable_baselines3.ppo import MlpPolicy
 from stable_baselines3.common.callbacks import BaseCallback
 from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
-
-seed = 10
-
-# Set the numpy seed
-np.random.seed(seed)
-
-# Set the pytorch seed
-# Set the seed for CPU
-torch.manual_seed(seed)
-
-# If you're using CUDA:
-if torch.cuda.is_available():
-    torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
+import pyrallis
+from ppo_cfg import TrainCfg
+from dataclasses import dataclass
+from gymnasium.wrappers import RecordEpisodeStatistics
 
 class WandbLoggingCallback(BaseCallback):
     def __init__(self, verbose=0):
@@ -35,54 +24,85 @@ class WandbLoggingCallback(BaseCallback):
     def _on_step(self) -> bool:
         # Log the rewards
         reward = self.locals['rewards']
+        cost = self.locals['infos'][0].get('cost')[0]
+        is_success = int(self.locals['infos'][0].get('is_success') == True)
         self.logger.record('reward', reward)
+        self.logger.record('cost', cost)
+        self.logger.record('is_success', is_success)
         # Outputs all the values from the logger as a dictionary
         logs = self.logger.name_to_value.copy()
         wandb.log(logs)
         # Continue training
         return True
 
-# Initialize wandb
-wandb.init(name="ppo-highway-parking", project="PPO-experiment-0", sync_tensorboard=True)
+@dataclass
+class Cfg(TrainCfg):
+    wandb_project_name: str = "PPO"
+    env_config: str = "configs/ParkingEnv/env-default.txt"
+    epochs: int = 150
+    total_timesteps: int = 100000
+    batch_size: int = 256
+    num_envs: int = 1
 
-with open('configs/ParkingEnv/env-default.txt') as f:
-    data = f.read()
+@pyrallis.wrap()
+def train(args: Cfg):
+    # Initialize wandb
+    run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
+    run.name = run.id
 
-# Reconstructing the data as a dictionary
-ENV_CONFIG = ast.literal_eval(data)
-# Overriding certain keys in the environment config
-ENV_CONFIG.update({
-    "start_angle": -np.math.pi/2, # This is radians
-})
+    with open('configs/ParkingEnv/env-default.txt') as f:
+        data = f.read()
+    # Reconstructing the data as a dictionary
+    env_config = ast.literal_eval(data)
+    # Overriding certain keys in the environment config
+    env_config.update({
+        "start_angle": -np.math.pi/2, # This is radians
+    })
 
-# Load the Highway env from the config file
-env = FlattenObservation(load_environment(ENV_CONFIG))
+    def make_env(env_config):
+        def _init():
+            # Load the Highway env from the config file
+            env = FlattenObservation(load_environment(env_config))
+            # Add Wrapper to record stats in env
+            env = RecordEpisodeStatistics(env)
+            return env
+        return _init
+    
+    envs = [make_env(env_config) for _ in range(args.num_envs)]
+    env = DummyVecEnv(envs) 
 
-# Stable baselines usually works with vectorized environments, 
-# so even though CartPole is a single environment, we wrap it in a DummyVecEnv
-env = DummyVecEnv([lambda: env])
+    # Initialize the PPO agent with an MLP policy
+    agent = PPO("MlpPolicy", # TODO: Double check that this needs to be a string
+                 env,
+                 batch_size=args.batch_size,
+                 verbose=1)
+    
+    # Create WandbLoggingCallback
+    callback = WandbLoggingCallback(env)
+    
+    # Train the agent with the callback
+    for i in range(args.epochs):
+        agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+        if i % 5 == 0:
+            path = f"PPO/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
+            # Check if the directory already exists
+            if not os.path.exists(path):
+                # If it doesn't exist, create it
+                os.makedirs(path)
+                print(f"Directory created: {path}")
+            else:
+                print(f"Directory already exists: {path}")
 
-# Create WandbLoggingCallback
-callback = WandbLoggingCallback()
+            agent.save(path)
 
-# Initialize the PPO agent with an MLP policy
-agent = PPO(MlpPolicy, env, verbose=1, seed=seed)
+    # Test the trained agent
+    obs = env.reset()
+    for _ in range(1000):
+        action, _states = agent.predict(obs)
+        obs, rewards, dones, info = env.step(action)
+        print(f"Final reward: {rewards.mean()}")
+        env.render()
+    env.close()
 
-# Train the agent with the callback
-# agent.learn(total_timesteps=100000, callback=callback, progress_bar=True)
-# time_steps = 10000
-# epochs = 150
-time_steps = 100000
-epochs = 400
-for i in range(epochs):
-  agent.learn(total_timesteps=time_steps, callback=callback, reset_num_timesteps=False)
-  agent.save(f"PPO/models/model_epoch({i})_timesteps({time_steps})")
-
-# Test the trained agent
-obs = env.reset()
-for _ in range(1000):
-    action, _states = agent.predict(obs)
-    obs, rewards, dones, info = env.step(action)
-    print(f"Final reward: {rewards.mean()}")
-    env.render()
-env.close()
+if __name__ == "__main__":
+    train()
