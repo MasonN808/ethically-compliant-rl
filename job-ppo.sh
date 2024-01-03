@@ -4,9 +4,9 @@
 #SBATCH --job-name=ppo-highway         # Name of the job
 #SBATCH --cpus-per-task=1         # Number of CPUs per task
 #SBATCH --ntasks=4  # Specify the number of CPU cores
-#SBATCH --mem=7gb                # Memory allocated
-#SBATCH --nodes=1                 # Number of nodes
-#SBATCH --time=3-00:00:00         # Maximum run time of the job (set to 3 days)
+#SBATCH --mem=16gb                # Memory allocated
+#SBATCH --nodes=2                 # Number of nodes
+#SBATCH --time=2-00:00:00         # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
 # Activate python environment, if you use one (e.g., conda or virtualenv)
