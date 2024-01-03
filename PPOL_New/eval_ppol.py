@@ -21,14 +21,21 @@ from ppol_cfg import TrainCfg
 @pyrallis.wrap()
 def evaluate(args: TrainCfg):
     # Path to your saved model
-    model_path = "PPOL_New/models/New-PPOL-NoMultipiler-SpeedLimit=2/5fzunbdm/model_epoch(45).zip"
+    model_path = "PPOL_New/models/New-PPOL-NoMultipiler-SpeedLimit=2/5fzunbdm/model_epoch(65).zip"
     # Parsing path for gif path
-    parsed_path = model_path.split("/models/")[-1][:-4]
+    parsed_gif_file = model_path.split("/models/")[-1][:-4]
+    
+    # Parse the directory
+    # Splitting the string by '/'
+    parts = model_path.split('/')
+    parsed_gif_dir = parts[2] + '/' + parts[3]
 
-    gif_path = f"PPOL_New/gifs/{parsed_path}.gif"
+
+    gif_dir = f"PPOL_New/gifs/{parsed_gif_dir}"
+    gif_path = f"PPOL_New/gifs/{parsed_gif_file}.gif"
     # Create the path if it does not exist
-    if not os.path.exists(gif_path):
-        os.makedirs(gif_path)
+    if not os.path.exists(gif_dir):
+        os.makefiles(gif_dir)
 
 
     with open('configs/ParkingEnv/env-default.txt') as f:
