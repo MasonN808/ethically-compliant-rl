@@ -1,0 +1,156 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240103_045745-s0tabxjq
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run balmy-jazz-89
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO/runs/s0tabxjq
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240102_205745-8hvjaaw1
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run restful-capybara-90
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO/runs/8hvjaaw1
+Using cpu device
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 106, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 83, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppo/ppo.py", line 308, in learn
+    return super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 277, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 223, in collect_rollouts
+    rollout_buffer.add(
+TypeError: add() missing 2 required positional arguments: 'value_cost' and 'log_prob'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Using cpu device
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 106, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 83, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppo/ppo.py", line 308, in learn
+    return super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 277, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 223, in collect_rollouts
+    rollout_buffer.add(
+TypeError: add() missing 2 required positional arguments: 'value_cost' and 'log_prob'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb: is_success ▁
+wandb:     reward ▁
+wandb: 
+wandb: Run summary:
+wandb: is_success 0
+wandb:     reward -0.37696
+wandb: 
+wandb: 🚀 View run balmy-jazz-89 at: https://wandb.ai/ecrl/PPO/runs/s0tabxjq
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240103_045745-s0tabxjq/logs
+wandb: 
+wandb: Run history:
+wandb: is_success ▁
+wandb:     reward ▁
+wandb: 
+wandb: Run summary:
+wandb: is_success 0
+wandb:     reward -0.42657
+wandb: 
+wandb: 🚀 View run restful-capybara-90 at: https://wandb.ai/ecrl/PPO/runs/8hvjaaw1
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240102_205745-8hvjaaw1/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 115633 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=115633.2
+srun: Job 115633 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=115633.3
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240103_045950-mnsdr5tx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run faithful-firefly-91
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO/runs/mnsdr5tx
+Using cpu device
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 106, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 83, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppo/ppo.py", line 308, in learn
+    return super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 277, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 223, in collect_rollouts
+    rollout_buffer.add(
+TypeError: add() missing 2 required positional arguments: 'value_cost' and 'log_prob'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240102_205950-5hbt0be7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run clean-star-92
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO/runs/5hbt0be7
+Using cpu device
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 106, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 83, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppo/ppo.py", line 308, in learn
+    return super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 277, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 223, in collect_rollouts
+    rollout_buffer.add(
+TypeError: add() missing 2 required positional arguments: 'value_cost' and 'log_prob'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb: is_success ▁
+wandb:     reward ▁
+wandb: 
+wandb: Run summary:
+wandb: is_success 0
+wandb:     reward -0.51171
+wandb: 
+wandb: 🚀 View run faithful-firefly-91 at: https://wandb.ai/ecrl/PPO/runs/mnsdr5tx
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240103_045950-mnsdr5tx/logs
+wandb: 
+wandb: Run history:
+wandb: is_success ▁
+wandb:     reward ▁
+wandb: 
+wandb: Run summary:
+wandb: is_success 0
+wandb:     reward -0.51227
+wandb: 
+wandb: 🚀 View run clean-star-92 at: https://wandb.ai/ecrl/PPO/runs/5hbt0be7
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240102_205950-5hbt0be7/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1

@@ -1,0 +1,72 @@
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 9, in <module>
+    from stable_baselines3 import PPO
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/__init__.py", line 3, in <module>
+    from stable_baselines3.a2c import A2C
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/a2c/__init__.py", line 1, in <module>
+    from stable_baselines3.a2c.a2c import A2C
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/a2c/a2c.py", line 7, in <module>
+    from stable_baselines3.common.on_policy_algorithm import OnPolicyAlgorithm
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 10, in <module>
+    from stable_baselines3.common.buffers import DictRolloutBuffer, RolloutBuffer
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 342, in <module>
+    class RolloutBuffer(BaseBuffer):
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 492, in RolloutBuffer
+    cost: np.ndarray=np.zeros(dtype=np.float32),
+TypeError: zeros() missing required argument 'shape' (pos 0)
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 9, in <module>
+    from stable_baselines3 import PPO
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/__init__.py", line 3, in <module>
+    from stable_baselines3.a2c import A2C
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/a2c/__init__.py", line 1, in <module>
+    from stable_baselines3.a2c.a2c import A2C
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/a2c/a2c.py", line 7, in <module>
+    from stable_baselines3.common.on_policy_algorithm import OnPolicyAlgorithm
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 10, in <module>
+    from stable_baselines3.common.buffers import DictRolloutBuffer, RolloutBuffer
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 342, in <module>
+    class RolloutBuffer(BaseBuffer):
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 492, in RolloutBuffer
+    cost: np.ndarray=np.zeros(dtype=np.float32),
+TypeError: zeros() missing required argument 'shape' (pos 0)
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 115634 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=115634.2
+srun: Job 115634 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=115634.3
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 9, in <module>
+    from stable_baselines3 import PPO
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/__init__.py", line 3, in <module>
+    from stable_baselines3.a2c import A2C
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/a2c/__init__.py", line 1, in <module>
+    from stable_baselines3.a2c.a2c import A2C
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/a2c/a2c.py", line 7, in <module>
+    from stable_baselines3.common.on_policy_algorithm import OnPolicyAlgorithm
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 10, in <module>
+    from stable_baselines3.common.buffers import DictRolloutBuffer, RolloutBuffer
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 342, in <module>
+    class RolloutBuffer(BaseBuffer):
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 492, in RolloutBuffer
+    cost: np.ndarray=np.zeros(dtype=np.float32),
+TypeError: zeros() missing required argument 'shape' (pos 0)
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py", line 9, in <module>
+    from stable_baselines3 import PPO
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/__init__.py", line 3, in <module>
+    from stable_baselines3.a2c import A2C
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/a2c/__init__.py", line 1, in <module>
+    from stable_baselines3.a2c.a2c import A2C
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/a2c/a2c.py", line 7, in <module>
+    from stable_baselines3.common.on_policy_algorithm import OnPolicyAlgorithm
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 10, in <module>
+    from stable_baselines3.common.buffers import DictRolloutBuffer, RolloutBuffer
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 342, in <module>
+    class RolloutBuffer(BaseBuffer):
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 492, in RolloutBuffer
+    cost: np.ndarray=np.zeros(dtype=np.float32),
+TypeError: zeros() missing required argument 'shape' (pos 0)
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
