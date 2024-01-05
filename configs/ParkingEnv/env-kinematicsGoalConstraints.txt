@@ -26,8 +26,4 @@
     "vehicles_count": 0,
     "add_walls": False,
     "start_location": [0, 0],
-
-    # Costs
-    # Cost-speed
-    "speed_limit": 3,
 }
