@@ -39,13 +39,14 @@ class WandbLoggingCallback(BaseCallback):
         return True
 
 class Cfg(TrainCfg):
-    speed_limit: float = 100
+    speed_limit: float = 10000
     wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
     env_config: str = "configs/ParkingEnv/env-default.txt"
-    epochs: int = 150
+    epochs: int = 100
     total_timesteps: int = 100000
     batch_size: int = 256
     num_envs: int = 1
+    model_save_interval: int = 5
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
@@ -101,7 +102,7 @@ def train(args: Cfg):
     # Train the agent with the callback
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
-        if i % 5 == 0:
+        if i % args.model_save_interval == 0:
             path = f"PPOL_New/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
             # Check if the directory already exists
             if not os.path.exists(path):
