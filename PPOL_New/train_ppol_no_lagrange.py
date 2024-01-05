@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-import argparse
 import ast
 import os
-import gymnasium
 # Enables WandB cloud syncing
 os.environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
@@ -12,7 +10,6 @@ import sys
 sys.path.append("stable_baselines3")
 from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
-from stable_baselines3.ppo import MlpPolicy
 from stable_baselines3.common.callbacks import BaseCallback
 from utils import load_environment
 from gymnasium.wrappers import FlattenObservation

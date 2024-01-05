@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import argparse
 import ast
 import os
 # Enables WandB cloud syncing
@@ -11,12 +10,11 @@ import sys
 sys.path.append("stable_baselines3")
 from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
-from stable_baselines3.ppo import MlpPolicy
 from stable_baselines3.common.callbacks import BaseCallback
 from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
-from dataclasses import dataclass, field
+from dataclasses import field
 import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 
