@@ -15,9 +15,9 @@ from ppo_cfg import TrainCfg
 
 @pyrallis.wrap()
 def evaluate(args: TrainCfg):
-    for i in range(0, 120, 10):
+    for i in range(0, 55, 10):
         # Path to your saved model
-        model_path = f"PPO/models/model_epoch(50)_timesteps(100000).zip"
+        model_path = f"PPO/models/PPO/iiih12kj/model_epoch({i}).zip"
         # Parsing path for gif path
         parsed_gif_file = model_path.split("/models/")[-1][:-4]
         
