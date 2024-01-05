@@ -6,7 +6,7 @@
 #SBATCH --mem=16gb                # Memory allocated
 #SBATCH --nodes=4                 # Number of nodes
 #SBATCH --ntasks=4                # Number of tasks
-#SBATCH --time=2-00:00:00           # Maximum run time of the job (set to 3 days)
+#SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
 # Activate python environment, if you use one (e.g., conda or virtualenv)
@@ -18,7 +18,7 @@ ARGS="$@"
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py"
 
 # Run the script four times in parallel
-for i in {1..4}; do
+for i in {1..5}; do
     srun -N1 -n1 python3 $BASE_SCRIPT $ARGS &
 done
 
