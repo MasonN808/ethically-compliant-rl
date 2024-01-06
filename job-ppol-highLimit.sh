@@ -18,7 +18,7 @@ ARGS="$@"
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py"
 
 # Run the script four times in parallel
-for i in {1..5}; do
+for i in {1..8}; do
     srun -N1 -n1 python3 $BASE_SCRIPT $ARGS &
 done
 
