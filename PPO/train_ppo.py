@@ -42,7 +42,7 @@ class Cfg(TrainCfg):
     env_name: str = "HighwayEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 150
-    total_timesteps: int = 1000
+    total_timesteps: int = 100000
     batch_size: int = 256
     num_envs: int = 1
 
