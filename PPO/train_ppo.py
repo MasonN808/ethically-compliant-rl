@@ -6,7 +6,7 @@ import os
 import wandb
 import sys
 # Enables WandB cloud syncing
-os.environ['WANDB_DISABLED'] = 'False'
+os.environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 sys.path.append("stable_baselines3")
 from stable_baselines3 import PPO
@@ -39,9 +39,10 @@ class WandbLoggingCallback(BaseCallback):
 @dataclass
 class Cfg(TrainCfg):
     wandb_project_name: str = "PPO"
-    env_config: str = "configs/ParkingEnv/env-default.txt"
+    env_name: str = "HighwayEnv" # Following are permissible: HighwayEnv, ParkingEnv
+    env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 150
-    total_timesteps: int = 100000
+    total_timesteps: int = 1000
     batch_size: int = 256
     num_envs: int = 1
 
@@ -49,15 +50,20 @@ class Cfg(TrainCfg):
 def train(args: Cfg):
     # Initialize wandb
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
-    run.name = run.id
+    run.name = run.id + str(args.env_name)
 
-    with open('configs/ParkingEnv/env-default.txt') as f:
+    with open(args.env_config) as f:
         data = f.read()
     # Reconstructing the data as a dictionary
     env_config = ast.literal_eval(data)
     # Overriding certain keys in the environment config
+    # env_config.update({
+    #     "start_angle": -np.math.pi/2, # This is radians
+    # })
     env_config.update({
-        "start_angle": -np.math.pi/2, # This is radians
+        "simulation_frequency": 1,
+        "lanes_count": 4,
+        "vehicles_count": 40,
     })
 
     def make_env(env_config):
