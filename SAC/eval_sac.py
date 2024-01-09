@@ -11,13 +11,13 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.save_util import load_from_zip_file
 from gymnasium.wrappers import FlattenObservation
-from ppo_cfg import TrainCfg
+from sac_cfg import TrainCfg
 
 @pyrallis.wrap()
 def evaluate(args: TrainCfg):
     for i in range(0, 1000, 5):
         # Path to your saved model
-        model_path = f"PPO/models/PPO/n2elupkg/model_epoch({i}).zip"
+        model_path = f"SAC/models/SAC/n2elupkg/model_epoch({i}).zip"
         # Parsing path for gif path
         parsed_gif_file = model_path.split("/models/")[-1][:-4]
         
@@ -27,27 +27,22 @@ def evaluate(args: TrainCfg):
         parsed_gif_dir = parts[2] + '/' + parts[3]
 
 
-        gif_dir = f"PPO/gifs/{parsed_gif_dir}"
-        gif_path = f"PPO/gifs/{parsed_gif_file}.gif"
+        gif_dir = f"SAC/gifs/{parsed_gif_dir}"
+        gif_path = f"SAC/gifs/{parsed_gif_file}.gif"
         # Create the path if it does not exist
         if not os.path.exists(gif_dir):
             os.makedirs(gif_dir)
 
 
-        with open('configs/HighwayEnv/default.txt') as f:
+        with open('configs/ParkingEnv/default.txt') as f:
             data = f.read()
 
         # Reconstructing the data as a dictionary
         ENV_CONFIG = ast.literal_eval(data)
         # Overriding certain keys in the environment config
-        # ENV_CONFIG.update({
-        #     "start_angle": -np.math.pi/2, # This is radians
-        #     "duration": 60,
-        # })
         ENV_CONFIG.update({
-            "simulation_frequency": 10,
-            "lanes_count": 4,
-            "vehicles_count": 40,
+            "start_angle": -np.math.pi/2, # This is radians
+            "duration": 60,
         })
 
         # Load the Highway env from the config file
