@@ -38,7 +38,7 @@ class WandbLoggingCallback(BaseCallback):
 
 @dataclass
 class Cfg(TrainCfg):
-    wandb_project_name: str = "PPO"
+    wandb_project_name: str = "SAC"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 250
