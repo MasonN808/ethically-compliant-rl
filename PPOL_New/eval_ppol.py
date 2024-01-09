@@ -22,7 +22,7 @@ from ppol_cfg import TrainCfg
 def evaluate(args: TrainCfg):
     for i in range(0, 1000, 10):
         # Path to your saved model
-        model_path = f"PPOL_New/models/New-PPOL-NoMultipiler-SpeedLimit=2/1ugan1k1/model_epoch({i}).zip"
+        model_path = f"PPOL_New/models/New-PPOL-SpeedLimit=10000/o7nxelt8/model_epoch({i}).zip"
         # Parsing path for gif path
         parsed_gif_file = model_path.split("/models/")[-1][:-4]
         
@@ -39,7 +39,7 @@ def evaluate(args: TrainCfg):
             os.makedirs(gif_dir)
 
 
-        with open('configs/ParkingEnv/env-default.txt') as f:
+        with open('configs/ParkingEnv/default.txt') as f:
             data = f.read()
 
         # Reconstructing the data as a dictionary
