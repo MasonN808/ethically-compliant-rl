@@ -7,7 +7,7 @@ import torch
 import pyrallis
 from utils import load_environment, evaluate_policy_and_capture_frames, save_frames_as_gif
 sys.path.append("stable_baselines3")
-from stable_baselines3 import PPO
+from stable_baselines3 import SAC
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.save_util import load_from_zip_file
 from gymnasium.wrappers import FlattenObservation
@@ -17,7 +17,7 @@ from sac_cfg import TrainCfg
 def evaluate(args: TrainCfg):
     for i in range(0, 1000, 5):
         # Path to your saved model
-        model_path = f"SAC/models/SAC/n2elupkg/model_epoch({i}).zip"
+        model_path = f"SAC/models/SAC/o2x30h2d/model_epoch({i}).zip"
         # Parsing path for gif path
         parsed_gif_file = model_path.split("/models/")[-1][:-4]
         
@@ -56,7 +56,7 @@ def evaluate(args: TrainCfg):
         data, params, _ = load_from_zip_file(model_path)
 
         # Load the trained agent
-        agent = PPO(
+        agent = SAC(
                     policy=data["policy_class"], 
                     env=env, 
                     device='auto',
