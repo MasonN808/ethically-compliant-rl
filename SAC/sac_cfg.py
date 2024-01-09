@@ -6,4 +6,3 @@ class TrainCfg:
     # general task params
     epochs: int = 150
     total_timesteps: int = 100000
-    batch_size: int = 256
