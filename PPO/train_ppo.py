@@ -39,7 +39,7 @@ class WandbLoggingCallback(BaseCallback):
 @dataclass
 class Cfg(TrainCfg):
     wandb_project_name: str = "PPO"
-    env_name: str = "HighwayEnv" # Following are permissible: HighwayEnv, ParkingEnv
+    env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 150
     total_timesteps: int = 100000
@@ -50,21 +50,21 @@ class Cfg(TrainCfg):
 def train(args: Cfg):
     # Initialize wandb
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
-    run.name = run.id + str(args.env_name)
+    run.name = run.id + "-" + str(args.env_name)
 
     with open(args.env_config) as f:
         data = f.read()
     # Reconstructing the data as a dictionary
     env_config = ast.literal_eval(data)
     # Overriding certain keys in the environment config
-    # env_config.update({
-    #     "start_angle": -np.math.pi/2, # This is radians
-    # })
     env_config.update({
-        "simulation_frequency": 1,
-        "lanes_count": 4,
-        "vehicles_count": 40,
+        "start_angle": -np.math.pi/2, # This is radians
     })
+    # env_config.update({
+    #     "simulation_frequency": 1,
+    #     "lanes_count": 4,
+    #     "vehicles_count": 40,
+    # })
 
     def make_env(env_config):
         def _init():
