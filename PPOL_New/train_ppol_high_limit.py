@@ -27,9 +27,13 @@ class WandbLoggingCallback(BaseCallback):
         reward = self.locals['rewards']
         cost = self.locals['infos'][0].get('cost')[0]
         is_success = int(self.locals['infos'][0].get('is_success') == True)
+        avg_speed = self.locals['infos'][0].get('avg_speed')
+        max_speed = self.locals['infos'][0].get('max_speed')
         self.logger.record('reward', reward)
         self.logger.record('cost', cost)
         self.logger.record('is_success', is_success)
+        self.logger.record('avg_speed', avg_speed)
+        self.logger.record('max_speed', max_speed)
         # Outputs all the values from the logger as a dictionary
         logs = self.logger.name_to_value.copy()
         wandb.log(logs)
