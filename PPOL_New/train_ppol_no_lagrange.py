@@ -25,7 +25,10 @@ class WandbLoggingCallback(BaseCallback):
 
     def _on_step(self) -> bool:
         # Log the rewards
-        reward = self.locals['rewards']
+        if isinstance(self.locals['rewards'], list):
+            reward = sum(self.locals['rewards']) / len(self.locals['rewards'])
+        else:
+            reward = self.locals['rewards']
         cost = self.locals['infos'][0].get('cost')[0]
         is_success = int(self.locals['infos'][0].get('is_success') == True)
         self.logger.record('reward', reward)
@@ -48,7 +51,7 @@ class Cfg(TrainCfg):
     epochs: int = 100
     total_timesteps: int = 100000
     batch_size: int = 256
-    num_envs: int = 2
+    num_envs: int = 3
     model_save_interval: int = 5
     seed: int = 10
 
