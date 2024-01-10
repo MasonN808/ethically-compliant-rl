@@ -11,7 +11,7 @@ sys.path.append("stable_baselines3")
 from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import BaseCallback
-from utils import load_environment
+from utils import load_environment, set_seed
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
 from dataclasses import dataclass, field
@@ -40,14 +40,17 @@ class WandbLoggingCallback(BaseCallback):
 @dataclass
 class Cfg(TrainCfg):
     speed_limit: float = 2
-    wandb_project_name: str = "New-PPOL-NoMultipiler-SpeedLimit=" + str(speed_limit)
-    env_name: str = "HighwayEnv" # Following are permissible: HighwayEnv, ParkingEnv
+    # wandb_project_name: str = "New-PPOL-NoMultipiler-SpeedLimit=" + str(speed_limit)
+    wandb_project_name: str = "PPO+PPOL" + str(speed_limit)
+    run_dscrip: str = "NoMultipiler"
+    env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 100
     total_timesteps: int = 100000
     batch_size: int = 256
     num_envs: int = 1
     model_save_interval: int = 5
+    seed: int = 10
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
@@ -59,8 +62,9 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
+    set_seed(args.seed)
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
-    run.name = run.id
+    run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
 
     with open(args.env_config) as f:
         config = f.read()

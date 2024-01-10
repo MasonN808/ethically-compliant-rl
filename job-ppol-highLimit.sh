@@ -2,10 +2,10 @@
 
 # SLURM settings for the job submission
 #SBATCH --job-name=highLimit           # Name of the job
-#SBATCH --cpus-per-task=4         # Number of CPUs per task
-#SBATCH --mem=16gb                # Memory allocated
-#SBATCH --nodes=4                 # Number of nodes
-#SBATCH --ntasks=4                # Number of tasks
+#SBATCH --cpus-per-task=3         # Number of CPUs per task
+#SBATCH --mem=8gb                # Memory allocated
+#SBATCH --nodes=3                 # Number of nodes
+#SBATCH --ntasks=3                # Number of tasks
 #SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 

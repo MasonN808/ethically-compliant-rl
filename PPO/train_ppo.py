@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import ast
 import numpy as np
-import torch
 import os
 import wandb
 import sys
@@ -11,9 +10,8 @@ os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 sys.path.append("stable_baselines3")
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
-from stable_baselines3.ppo import MlpPolicy
 from stable_baselines3.common.callbacks import BaseCallback
-from utils import load_environment
+from utils import load_environment, set_seed
 from gymnasium.wrappers import FlattenObservation
 import pyrallis
 from ppo_cfg import TrainCfg
@@ -38,19 +36,23 @@ class WandbLoggingCallback(BaseCallback):
 
 @dataclass
 class Cfg(TrainCfg):
-    wandb_project_name: str = "PPO"
+    wandb_project_name: str = "PPO+PPOL"
+    run_dscrip: str = "PPO"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 150
     total_timesteps: int = 100000
     batch_size: int = 256
     num_envs: int = 1
+    model_save_interval: int = 5
+    seed: int = 10
 
 @pyrallis.wrap()
 def train(args: Cfg):
+    set_seed(args.seed)
     # Initialize wandb
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
-    run.name = run.id + "-" + str(args.env_name)
+    run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
 
     with open(args.env_config) as f:
         data = f.read()
@@ -90,7 +92,7 @@ def train(args: Cfg):
     # Train the agent with the callback
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
-        if i % 5 == 0:
+        if i % args.model_save_interval == 0:
             path = f"PPO/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
             # Check if the directory already exists
             if not os.path.exists(path):
