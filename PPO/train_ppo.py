@@ -24,8 +24,8 @@ class WandbLoggingCallback(BaseCallback):
 
     def _on_step(self) -> bool:
         # Log the rewards
-        if isinstance(self.locals['rewards'], list):
-            reward = sum(self.locals['rewards']) / len(self.locals['rewards'])
+        if isinstance(self.locals['rewards'], np.ndarray):
+            reward = np.mean(self.locals['rewards'])
         else:
             reward = self.locals['rewards']
         is_success = int(self.locals['infos'][0].get('is_success') == True)
