@@ -46,7 +46,7 @@ class WandbLoggingCallback(BaseCallback):
 class Cfg(TrainCfg):
     speed_limit: float = 10000
     # wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
-    wandb_project_name: str = "PPO+PPOL" + str(speed_limit)
+    wandb_project_name: str = "PPO+PPOL"
     run_dscrip: str = "HighSpeedLimit"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
