@@ -14,7 +14,7 @@ from stable_baselines3.common.callbacks import BaseCallback
 from utils import load_environment, set_seed
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
-from dataclasses import field
+from dataclasses import field, dataclass
 import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 
@@ -42,7 +42,7 @@ class WandbLoggingCallback(BaseCallback):
         wandb.log(logs)
         # Continue training
         return True
-
+@dataclass
 class Cfg(TrainCfg):
     speed_limit: float = 10000
     # wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
@@ -53,7 +53,7 @@ class Cfg(TrainCfg):
     epochs: int = 100
     total_timesteps: int = 100000
     batch_size: int = 256
-    num_envs: int = 3
+    num_envs: int = 1
     model_save_interval: int = 5
     seed: int = 10
 
