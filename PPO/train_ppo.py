@@ -87,7 +87,8 @@ def train(args: Cfg):
     agent = PPO("MlpPolicy", # TODO: Double check that this needs to be a string
                  env,
                  batch_size=args.batch_size,
-                 verbose=1)
+                 verbose=1,
+                 seed=args.seed)
     
     # Create WandbLoggingCallback
     callback = WandbLoggingCallback(env)

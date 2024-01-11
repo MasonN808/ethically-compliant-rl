@@ -107,7 +107,8 @@ def train(args: Cfg):
                  K_I=args.K_I,
                  K_D=args.K_D,
                  batch_size=args.batch_size,
-                 verbose=1)
+                 verbose=1,
+                 seed=args.seed)
 
     # Train the agent with the callback
     for i in range(args.epochs):
