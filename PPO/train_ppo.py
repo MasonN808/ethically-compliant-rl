@@ -11,7 +11,8 @@ sys.path.append("stable_baselines3")
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import BaseCallback
-from utils import load_environment, set_seed
+from stable_baselines3.common.utils import set_random_seed
+from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 import pyrallis
 from ppo_cfg import TrainCfg
@@ -43,8 +44,8 @@ class Cfg(TrainCfg):
     run_dscrip: str = "PPO"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 150
-    total_timesteps: int = 100000
+    epochs: int = 2
+    total_timesteps: int = 10
     batch_size: int = 256
     num_envs: int = 1
     model_save_interval: int = 5
@@ -52,7 +53,7 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    set_seed(args.seed)
+    set_random_seed(args.seed)
     # Initialize wandb
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
