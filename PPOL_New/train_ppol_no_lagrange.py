@@ -11,7 +11,8 @@ sys.path.append("stable_baselines3")
 from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import BaseCallback
-from utils import load_environment, set_seed
+from stable_baselines3.common.utils import set_random_seed
+from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
 from dataclasses import dataclass, field
@@ -65,7 +66,7 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    set_seed(args.seed)
+    set_random_seed(args.seed)
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
 
