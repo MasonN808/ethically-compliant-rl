@@ -4,7 +4,6 @@ import imageio
 import gymnasium as gym
 import logging
 import numpy as np
-import torch as th
 logger = logging.getLogger(__name__)
 
 def load_environment(env_config, render_mode=None, env_logger_path=None):
@@ -75,18 +74,3 @@ def evaluate_policy_and_capture_frames(model, env, n_eval_episodes=10):
 # Duration is same as fpss
 def save_frames_as_gif(frames, path='./gym_animation.gif', duration=30):
     imageio.mimsave(path, frames, duration=duration)
-
-def set_seed(seed: int):
-    # Set the numpy seed
-    np.random.seed(seed)
-
-    # Set the pytorch seed
-    # Set the seed for CPU
-    th.manual_seed(seed)
-
-    # If you're using CUDA:
-    if th.cuda.is_available():
-        th.cuda.manual_seed(seed)
-        th.cuda.manual_seed_all(seed)
-        th.backends.cudnn.deterministic = True
-        th.backends.cudnn.benchmark = False
