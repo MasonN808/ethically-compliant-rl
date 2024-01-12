@@ -21,7 +21,7 @@ SCRIPTS=(
     "$BASE_SCRIPT $ARGS"
 )
 
-for i in {1..3}; do
+for i in {1..1}; do
     for SCRIPT in "${SCRIPTS[@]}"; do
         srun -N1 -n1 python3 $SCRIPT &
     done
