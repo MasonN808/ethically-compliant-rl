@@ -12,7 +12,6 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import BaseCallback
 from stable_baselines3.common.utils import set_random_seed
-sys.path.append('utils')
 from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 from ppo_cfg import TrainCfg

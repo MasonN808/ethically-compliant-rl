@@ -12,7 +12,7 @@ from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import BaseCallback
 from stable_baselines3.common.utils import set_random_seed
-sys.path.append('utils')
+sys.path.append('common')
 from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
