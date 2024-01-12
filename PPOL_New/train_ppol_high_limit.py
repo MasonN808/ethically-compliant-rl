@@ -12,11 +12,11 @@ from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import BaseCallback
 from stable_baselines3.common.utils import set_random_seed
-sys.path.append('common')
+
 from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
-from dataclasses import field, dataclass
+from dataclasses import dataclass, field
 import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 
@@ -97,9 +97,6 @@ def train(args: Cfg):
     envs = [make_env(env_config) for _ in range(args.num_envs)]
     env = DummyVecEnv(envs) 
 
-    # Create WandbLoggingCallback
-    callback = WandbLoggingCallback()
-
     # Initialize the PPO agent with an MLP policy
     agent = PPOL("MlpPolicy",
                  env,
@@ -112,6 +109,9 @@ def train(args: Cfg):
                  batch_size=args.batch_size,
                  verbose=1,
                  seed=args.seed)
+                 
+    # Create WandbLoggingCallback
+    callback = WandbLoggingCallback()
 
     # Train the agent with the callback
     for i in range(args.epochs):
