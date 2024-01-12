@@ -46,7 +46,7 @@ class WandbLoggingCallback(BaseCallback):
         return True
 @dataclass
 class Cfg(TrainCfg):
-    speed_limit: float = 10000
+    speed_limit: float = 10
     # wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
     wandb_project_name: str = "PPO+PPOL"
     run_dscrip: str = "HighSpeedLimit"
