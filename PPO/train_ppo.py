@@ -50,7 +50,7 @@ class Cfg(TrainCfg):
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 2
     total_timesteps: int = 10
-    batch_size: int = 64
+    batch_size: int = 256
     num_envs: int = 1
     model_save_interval: int = 5
     seed: int = 10
