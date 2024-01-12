@@ -1,0 +1,41 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240112_090228-uli9adoh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run olive-bird-183
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL/runs/uli9adoh
+Using cpu device
+------------------------------------
+| avg_speed          | 0.266       |
+| cost               | 0           |
+| is_success         | 0           |
+| max_speed          | 0.266       |
+| reward             | -0.23268087 |
+| rollout/           |             |
+|    ep_len_mean     | 1e+03       |
+|    ep_rew_mean     | -1.41e+03   |
+| time/              |             |
+|    fps             | 94          |
+|    iterations      | 1           |
+|    time_elapsed    | 21          |
+|    total_timesteps | 2048        |
+------------------------------------
+Directory created: PPOL_New/models/PPO+PPOL/uli9adoh/model_epoch(0)
+------------------------------------
+| avg_speed          | 2.05        |
+| cost               | 1           |
+| is_success         | 0           |
+| max_speed          | 2.05        |
+| reward             | -0.76126015 |
+| rollout/           |             |
+|    ep_len_mean     | 1e+03       |
+|    ep_rew_mean     | -1.3e+03    |
+| time/              |             |
+|    fps             | 102         |
+|    iterations      | 1           |
+|    time_elapsed    | 19          |
+|    total_timesteps | 4096        |
+------------------------------------
