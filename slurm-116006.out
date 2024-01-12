@@ -1,0 +1,924 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240110_083139-0259e7jk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run visionary-shape-4
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL10000
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL10000/runs/0259e7jk
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240110_003139-a1iak8q9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run comic-capybara-5
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL10000
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL10000/runs/a1iak8q9
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240110_003139-tu90sbxe
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run warm-wind-6
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL10000
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL10000/runs/tu90sbxe
+Using cpu device
+------------------------------------
+| avg_speed          | 0.266       |
+| cost               | 0           |
+| is_success         | 0           |
+| max_speed          | 0.266       |
+| reward             | -0.23268087 |
+| rollout/           |             |
+|    ep_len_mean     | 1e+03       |
+|    ep_rew_mean     | -1.38e+03   |
+| time/              |             |
+|    fps             | 110         |
+|    iterations      | 1           |
+|    time_elapsed    | 18          |
+|    total_timesteps | 2048        |
+------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Using cpu device
+-----------------------------------
+| avg_speed          | 0.273      |
+| cost               | 0          |
+| is_success         | 0          |
+| max_speed          | 0.273      |
+| reward             | -0.4797845 |
+| rollout/           |            |
+|    ep_len_mean     | 1e+03      |
+|    ep_rew_mean     | -1.29e+03  |
+| time/              |            |
+|    fps             | 108        |
+|    iterations      | 1          |
+|    time_elapsed    | 18         |
+|    total_timesteps | 2048       |
+-----------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Using cpu device
+------------------------------------
+| avg_speed          | 0.264       |
+| cost               | 0           |
+| is_success         | 0           |
+| max_speed          | 0.264       |
+| reward             | -0.50047296 |
+| rollout/           |             |
+|    ep_len_mean     | 1e+03       |
+|    ep_rew_mean     | -1.32e+03   |
+| time/              |             |
+|    fps             | 95          |
+|    iterations      | 1           |
+|    time_elapsed    | 21          |
+|    total_timesteps | 2048        |
+------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 1.7          |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 1.7          |
+| reward                   | -0.8386385   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.22e+03    |
+| time/                    |              |
+|    fps                   | 109          |
+|    iterations            | 2            |
+|    time_elapsed          | 37           |
+|    total_timesteps       | 4096         |
+| train/                   |              |
+|    approx_kl             | 0.0037874954 |
+|    clip_fraction         | 0.029        |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.143        |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.85        |
+|    entropy_loss          | -2.84        |
+|    explained_variance    | 0.051        |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 312          |
+|    n_updates             | 10           |
+|    policy_gradient_loss  | -0.00542     |
+|    std                   | 1            |
+|    value_loss            | 602          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+------------------------------------------
+| avg_speed                | 1.74        |
+| cost                     | 0           |
+| is_success               | 0           |
+| max_speed                | 1.74        |
+| reward                   | -0.7190048  |
+| rollout/                 |             |
+|    ep_len_mean           | 1e+03       |
+|    ep_rew_mean           | -1.21e+03   |
+| time/                    |             |
+|    fps                   | 107         |
+|    iterations            | 2           |
+|    time_elapsed          | 38          |
+|    total_timesteps       | 4096        |
+| train/                   |             |
+|    approx_kl             | 0.003871211 |
+|    clip_fraction         | 0.0292      |
+|    clip_range            | 0.2         |
+|    cost_returns          | 0.119       |
+|    cost_value_loss       | nan         |
+|    cost_values           | nan         |
+|    entropy               | -2.85       |
+|    entropy_loss          | -2.84       |
+|    explained_variance    | 0.0569      |
+|    lagrangian_multiplier | 0           |
+|    learning_rate         | 0.0003      |
+|    loss                  | 274         |
+|    n_updates             | 10          |
+|    policy_gradient_loss  | -0.00555    |
+|    std                   | 1           |
+|    value_loss            | 529         |
+------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 1.86         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 1.86         |
+| reward                   | -0.5770624   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.22e+03    |
+| time/                    |              |
+|    fps                   | 93           |
+|    iterations            | 2            |
+|    time_elapsed          | 43           |
+|    total_timesteps       | 4096         |
+| train/                   |              |
+|    approx_kl             | 0.0039234506 |
+|    clip_fraction         | 0.029        |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.12         |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.85        |
+|    entropy_loss          | -2.84        |
+|    explained_variance    | 0.0311       |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 292          |
+|    n_updates             | 10           |
+|    policy_gradient_loss  | -0.00546     |
+|    std                   | 1            |
+|    value_loss            | 562          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 1.61         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 1.61         |
+| reward                   | -0.9092461   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.24e+03    |
+| time/                    |              |
+|    fps                   | 109          |
+|    iterations            | 3            |
+|    time_elapsed          | 56           |
+|    total_timesteps       | 6144         |
+| train/                   |              |
+|    approx_kl             | 0.0035239728 |
+|    clip_fraction         | 0.0133       |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.0699       |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.85        |
+|    entropy_loss          | -2.85        |
+|    explained_variance    | 0.028        |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 189          |
+|    n_updates             | 20           |
+|    policy_gradient_loss  | -0.00188     |
+|    std                   | 1.01         |
+|    value_loss            | 379          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 1.43         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 1.43         |
+| reward                   | -0.84836066  |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.28e+03    |
+| time/                    |              |
+|    fps                   | 106          |
+|    iterations            | 3            |
+|    time_elapsed          | 57           |
+|    total_timesteps       | 6144         |
+| train/                   |              |
+|    approx_kl             | 0.0027337589 |
+|    clip_fraction         | 0.00923      |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.0508       |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.85        |
+|    entropy_loss          | -2.85        |
+|    explained_variance    | 0.0749       |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 198          |
+|    n_updates             | 20           |
+|    policy_gradient_loss  | -0.00157     |
+|    std                   | 1            |
+|    value_loss            | 400          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 1.21         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 1.21         |
+| reward                   | -0.54640883  |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.32e+03    |
+| time/                    |              |
+|    fps                   | 93           |
+|    iterations            | 3            |
+|    time_elapsed          | 65           |
+|    total_timesteps       | 6144         |
+| train/                   |              |
+|    approx_kl             | 0.0043814844 |
+|    clip_fraction         | 0.0104       |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.097        |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.85        |
+|    entropy_loss          | -2.85        |
+|    explained_variance    | 0.0208       |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 186          |
+|    n_updates             | 20           |
+|    policy_gradient_loss  | -0.00273     |
+|    std                   | 1.01         |
+|    value_loss            | 374          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+------------------------------------------
+| avg_speed                | 1.35        |
+| cost                     | 0           |
+| is_success               | 0           |
+| max_speed                | 1.35        |
+| reward                   | -0.8709524  |
+| rollout/                 |             |
+|    ep_len_mean           | 1e+03       |
+|    ep_rew_mean           | -1.25e+03   |
+| time/                    |             |
+|    fps                   | 108         |
+|    iterations            | 4           |
+|    time_elapsed          | 75          |
+|    total_timesteps       | 8192        |
+| train/                   |             |
+|    approx_kl             | 0.004226912 |
+|    clip_fraction         | 0.014       |
+|    clip_range            | 0.2         |
+|    cost_returns          | -0.251      |
+|    cost_value_loss       | nan         |
+|    cost_values           | nan         |
+|    entropy               | -2.83       |
+|    entropy_loss          | -2.84       |
+|    explained_variance    | 0.022       |
+|    lagrangian_multiplier | 0           |
+|    learning_rate         | 0.0003      |
+|    loss                  | 272         |
+|    n_updates             | 30          |
+|    policy_gradient_loss  | -0.00243    |
+|    std                   | 0.997       |
+|    value_loss            | 525         |
+------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 2.37         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 2.37         |
+| reward                   | -1.1667447   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.3e+03     |
+| time/                    |              |
+|    fps                   | 106          |
+|    iterations            | 4            |
+|    time_elapsed          | 77           |
+|    total_timesteps       | 8192         |
+| train/                   |              |
+|    approx_kl             | 0.0050153667 |
+|    clip_fraction         | 0.0315       |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.084        |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.83        |
+|    entropy_loss          | -2.84        |
+|    explained_variance    | -0.0866      |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 312          |
+|    n_updates             | 30           |
+|    policy_gradient_loss  | -0.0032      |
+|    std                   | 0.997        |
+|    value_loss            | 631          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 3.59         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 3.59         |
+| reward                   | -0.90102714  |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.42e+03    |
+| time/                    |              |
+|    fps                   | 93           |
+|    iterations            | 4            |
+|    time_elapsed          | 87           |
+|    total_timesteps       | 8192         |
+| train/                   |              |
+|    approx_kl             | 0.0056394637 |
+|    clip_fraction         | 0.0256       |
+|    clip_range            | 0.2          |
+|    cost_returns          | -0.0196      |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.84        |
+|    entropy_loss          | -2.85        |
+|    explained_variance    | -0.0615      |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 356          |
+|    n_updates             | 30           |
+|    policy_gradient_loss  | -0.00282     |
+|    std                   | 1            |
+|    value_loss            | 709          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+------------------------------------------
+| avg_speed                | 1.84        |
+| cost                     | 0           |
+| is_success               | 0           |
+| max_speed                | 1.84        |
+| reward                   | -0.36730406 |
+| rollout/                 |             |
+|    ep_len_mean           | 1e+03       |
+|    ep_rew_mean           | -1.25e+03   |
+| time/                    |             |
+|    fps                   | 108         |
+|    iterations            | 5           |
+|    time_elapsed          | 94          |
+|    total_timesteps       | 10240       |
+| train/                   |             |
+|    approx_kl             | 0.004371558 |
+|    clip_fraction         | 0.00937     |
+|    clip_range            | 0.2         |
+|    cost_returns          | -0.0277     |
+|    cost_value_loss       | nan         |
+|    cost_values           | nan         |
+|    entropy               | -2.83       |
+|    entropy_loss          | -2.83       |
+|    explained_variance    | 0.0982      |
+|    lagrangian_multiplier | 0           |
+|    learning_rate         | 0.0003      |
+|    loss                  | 259         |
+|    n_updates             | 40          |
+|    policy_gradient_loss  | -0.00326    |
+|    std                   | 0.994       |
+|    value_loss            | 513         |
+------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 2.54         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 2.54         |
+| reward                   | -0.7710243   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.3e+03     |
+| time/                    |              |
+|    fps                   | 105          |
+|    iterations            | 5            |
+|    time_elapsed          | 97           |
+|    total_timesteps       | 10240        |
+| train/                   |              |
+|    approx_kl             | 0.0039286637 |
+|    clip_fraction         | 0.0198       |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.129        |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.83        |
+|    entropy_loss          | -2.83        |
+|    explained_variance    | -0.0539      |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 321          |
+|    n_updates             | 40           |
+|    policy_gradient_loss  | -0.00326     |
+|    std                   | 0.994        |
+|    value_loss            | 628          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 0.762        |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 0.762        |
+| reward                   | -0.3976857   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.45e+03    |
+| time/                    |              |
+|    fps                   | 94           |
+|    iterations            | 5            |
+|    time_elapsed          | 108          |
+|    total_timesteps       | 10240        |
+| train/                   |              |
+|    approx_kl             | 0.0039355867 |
+|    clip_fraction         | 0.0144       |
+|    clip_range            | 0.2          |
+|    cost_returns          | -0.0408      |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.83        |
+|    entropy_loss          | -2.84        |
+|    explained_variance    | 0.00214      |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 499          |
+|    n_updates             | 40           |
+|    policy_gradient_loss  | -0.00324     |
+|    std                   | 0.998        |
+|    value_loss            | 984          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-----------------------------------------
+| avg_speed                | 3.47       |
+| cost                     | 0          |
+| is_success               | 0          |
+| max_speed                | 3.47       |
+| reward                   | -1.0509351 |
+| rollout/                 |            |
+|    ep_len_mean           | 1e+03      |
+|    ep_rew_mean           | -1.23e+03  |
+| time/                    |            |
+|    fps                   | 108        |
+|    iterations            | 6          |
+|    time_elapsed          | 112        |
+|    total_timesteps       | 12288      |
+| train/                   |            |
+|    approx_kl             | 0.00385069 |
+|    clip_fraction         | 0.0351     |
+|    clip_range            | 0.2        |
+|    cost_returns          | -0.00934   |
+|    cost_value_loss       | nan        |
+|    cost_values           | nan        |
+|    entropy               | -2.82      |
+|    entropy_loss          | -2.82      |
+|    explained_variance    | -0.0188    |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 226        |
+|    n_updates             | 50         |
+|    policy_gradient_loss  | -0.00392   |
+|    std                   | 0.991      |
+|    value_loss            | 461        |
+-----------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+srun: Job 116006 step creation temporarily disabled, retrying (Requested nodes are busy)
+-------------------------------------------
+| avg_speed                | 0.148        |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 0.148        |
+| reward                   | -1.2845854   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.26e+03    |
+| time/                    |              |
+|    fps                   | 105          |
+|    iterations            | 6            |
+|    time_elapsed          | 116          |
+|    total_timesteps       | 12288        |
+| train/                   |              |
+|    approx_kl             | 0.0059402543 |
+|    clip_fraction         | 0.0243       |
+|    clip_range            | 0.2          |
+|    cost_returns          | -0.111       |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.82        |
+|    entropy_loss          | -2.82        |
+|    explained_variance    | 0.0543       |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 244          |
+|    n_updates             | 50           |
+|    policy_gradient_loss  | -0.00403     |
+|    std                   | 0.991        |
+|    value_loss            | 509          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+srun: Job 116006 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 116006 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 116006 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 116006 step creation temporarily disabled, retrying (Requested nodes are busy)
+-------------------------------------------
+| avg_speed                | 3.88         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 3.88         |
+| reward                   | -1.1607381   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.38e+03    |
+| time/                    |              |
+|    fps                   | 94           |
+|    iterations            | 6            |
+|    time_elapsed          | 130          |
+|    total_timesteps       | 12288        |
+| train/                   |              |
+|    approx_kl             | 0.0046922225 |
+|    clip_fraction         | 0.0296       |
+|    clip_range            | 0.2          |
+|    cost_returns          | -0.147       |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.83        |
+|    entropy_loss          | -2.83        |
+|    explained_variance    | -0.0139      |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 357          |
+|    n_updates             | 50           |
+|    policy_gradient_loss  | -0.00441     |
+|    std                   | 0.998        |
+|    value_loss            | 709          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 3.16         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 3.16         |
+| reward                   | -1.4411336   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.25e+03    |
+| time/                    |              |
+|    fps                   | 108          |
+|    iterations            | 7            |
+|    time_elapsed          | 131          |
+|    total_timesteps       | 14336        |
+| train/                   |              |
+|    approx_kl             | 0.0023874799 |
+|    clip_fraction         | 0.00161      |
+|    clip_range            | 0.2          |
+|    cost_returns          | -0.126       |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.8         |
+|    entropy_loss          | -2.81        |
+|    explained_variance    | -0.034       |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 206          |
+|    n_updates             | 60           |
+|    policy_gradient_loss  | -0.00199     |
+|    std                   | 0.983        |
+|    value_loss            | 416          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 1.36         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 1.36         |
+| reward                   | -1.7106057   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.27e+03    |
+| time/                    |              |
+|    fps                   | 105          |
+|    iterations            | 7            |
+|    time_elapsed          | 136          |
+|    total_timesteps       | 14336        |
+| train/                   |              |
+|    approx_kl             | 0.0033959185 |
+|    clip_fraction         | 0.0208       |
+|    clip_range            | 0.2          |
+|    cost_returns          | -0.109       |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.81        |
+|    entropy_loss          | -2.82        |
+|    explained_variance    | -0.0853      |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 180          |
+|    n_updates             | 60           |
+|    policy_gradient_loss  | -0.00327     |
+|    std                   | 0.988        |
+|    value_loss            | 371          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 0.762        |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 0.762        |
+| reward                   | -0.7551175   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.26e+03    |
+| time/                    |              |
+|    fps                   | 108          |
+|    iterations            | 8            |
+|    time_elapsed          | 150          |
+|    total_timesteps       | 16384        |
+| train/                   |              |
+|    approx_kl             | 0.0065523987 |
+|    clip_fraction         | 0.0567       |
+|    clip_range            | 0.2          |
+|    cost_returns          | -0.269       |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.81        |
+|    entropy_loss          | -2.8         |
+|    explained_variance    | 0.0273       |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 316          |
+|    n_updates             | 70           |
+|    policy_gradient_loss  | -0.00584     |
+|    std                   | 0.986        |
+|    value_loss            | 615          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 0.49         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 0.49         |
+| reward                   | -1.6930528   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.45e+03    |
+| time/                    |              |
+|    fps                   | 94           |
+|    iterations            | 7            |
+|    time_elapsed          | 151          |
+|    total_timesteps       | 14336        |
+| train/                   |              |
+|    approx_kl             | 0.0052620135 |
+|    clip_fraction         | 0.0231       |
+|    clip_range            | 0.2          |
+|    cost_returns          | -0.0972      |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.83        |
+|    entropy_loss          | -2.83        |
+|    explained_variance    | -0.0524      |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 187          |
+|    n_updates             | 60           |
+|    policy_gradient_loss  | -0.0041      |
+|    std                   | 0.997        |
+|    value_loss            | 390          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 0.0452       |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 0.0452       |
+| reward                   | -1.5411146   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.26e+03    |
+| time/                    |              |
+|    fps                   | 104          |
+|    iterations            | 8            |
+|    time_elapsed          | 156          |
+|    total_timesteps       | 16384        |
+| train/                   |              |
+|    approx_kl             | 0.0037661116 |
+|    clip_fraction         | 0.00688      |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.0872       |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.81        |
+|    entropy_loss          | -2.81        |
+|    explained_variance    | -0.0199      |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 278          |
+|    n_updates             | 70           |
+|    policy_gradient_loss  | -0.00341     |
+|    std                   | 0.988        |
+|    value_loss            | 549          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 4.57         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 4.57         |
+| reward                   | -1.7505264   |
+| rollout/                 |              |
+|    ep_len_mean           | 954          |
+|    ep_rew_mean           | -1.17e+03    |
+| time/                    |              |
+|    fps                   | 108          |
+|    iterations            | 9            |
+|    time_elapsed          | 169          |
+|    total_timesteps       | 18432        |
+| train/                   |              |
+|    approx_kl             | 0.0027899179 |
+|    clip_fraction         | 0.0134       |
+|    clip_range            | 0.2          |
+|    cost_returns          | -0.0717      |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.81        |
+|    entropy_loss          | -2.81        |
+|    explained_variance    | -0.117       |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 235          |
+|    n_updates             | 80           |
+|    policy_gradient_loss  | -0.00288     |
+|    std                   | 0.988        |
+|    value_loss            | 489          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 4.11         |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 4.11         |
+| reward                   | -1.3758382   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.46e+03    |
+| time/                    |              |
+|    fps                   | 94           |
+|    iterations            | 8            |
+|    time_elapsed          | 173          |
+|    total_timesteps       | 16384        |
+| train/                   |              |
+|    approx_kl             | 0.0030701647 |
+|    clip_fraction         | 0.00396      |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.073        |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.83        |
+|    entropy_loss          | -2.83        |
+|    explained_variance    | 0.0213       |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 586          |
+|    n_updates             | 70           |
+|    policy_gradient_loss  | -0.00353     |
+|    std                   | 0.998        |
+|    value_loss            | 1.15e+03     |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+-------------------------------------------
+| avg_speed                | 0.0273       |
+| cost                     | 0            |
+| is_success               | 0            |
+| max_speed                | 0.0273       |
+| reward                   | -0.5648262   |
+| rollout/                 |              |
+|    ep_len_mean           | 1e+03        |
+|    ep_rew_mean           | -1.27e+03    |
+| time/                    |              |
+|    fps                   | 104          |
+|    iterations            | 9            |
+|    time_elapsed          | 176          |
+|    total_timesteps       | 18432        |
+| train/                   |              |
+|    approx_kl             | 0.0037163775 |
+|    clip_fraction         | 0.00728      |
+|    clip_range            | 0.2          |
+|    cost_returns          | 0.0815       |
+|    cost_value_loss       | nan          |
+|    cost_values           | nan          |
+|    entropy               | -2.82        |
+|    entropy_loss          | -2.82        |
+|    explained_variance    | -0.00611     |
+|    lagrangian_multiplier | 0            |
+|    learning_rate         | 0.0003       |
+|    loss                  | 216          |
+|    n_updates             | 80           |
+|    policy_gradient_loss  | -0.00256     |
+|    std                   | 0.99         |
+|    value_loss            | 440          |
+-------------------------------------------
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+slurmstepd: error: *** STEP 116006.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2024-01-10T00:34:36 ***
+slurmstepd: error: *** STEP 116006.2 ON dqn.ist.berkeley.edu CANCELLED AT 2024-01-10T00:34:36 ***
+slurmstepd: error: *** JOB 116006 ON airl.ist.berkeley.edu CANCELLED AT 2024-01-10T08:34:36 ***
+slurmstepd: error: *** STEP 116006.0 ON airl.ist.berkeley.edu CANCELLED AT 2024-01-10T08:34:36 ***
