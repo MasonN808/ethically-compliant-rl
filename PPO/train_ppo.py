@@ -7,11 +7,12 @@ import sys
 # Enables WandB cloud syncing
 os.environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
-sys.path.append("stable_baselines3")
+sys.path.append("stable_baselines3") # Since outside of current directory
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import BaseCallback
 from stable_baselines3.common.utils import set_random_seed
+sys.path.append('/path/to/your/utils')
 from utils import load_environment
 from gymnasium.wrappers import FlattenObservation
 import pyrallis
@@ -50,6 +51,7 @@ class Cfg(TrainCfg):
     num_envs: int = 1
     model_save_interval: int = 5
     seed: int = 10
+    env_logger_path: str = "PPO/env_logger.txt"
 
 @pyrallis.wrap()
 def train(args: Cfg):
@@ -75,7 +77,7 @@ def train(args: Cfg):
     def make_env(env_config):
         def _init():
             # Load the Highway env from the config file
-            env = FlattenObservation(load_environment(env_config))
+            env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
             # Add Wrapper to record stats in env
             env = RecordEpisodeStatistics(env)
             return env
