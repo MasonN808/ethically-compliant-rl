@@ -1,0 +1,193 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240111_192114-gpl5mp7p
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dark-smoke-107
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL/runs/gpl5mp7p
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 141, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 98, in train
+    env = DummyVecEnv(envs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 91, in _init
+    env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
+TypeError: load_environment() got an unexpected keyword argument 'env_logger_path'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240111_192114-lyav4zf0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run classic-forest-109
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL/runs/lyav4zf0
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 141, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 98, in train
+    env = DummyVecEnv(envs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 91, in _init
+    env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
+TypeError: load_environment() got an unexpected keyword argument 'env_logger_path'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240112_032114-ru8xv8ec
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run good-tree-108
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL/runs/ru8xv8ec
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 141, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 98, in train
+    env = DummyVecEnv(envs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 91, in _init
+    env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
+TypeError: load_environment() got an unexpected keyword argument 'env_logger_path'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: ERROR Error while calling W&B API: An internal error occurred. Please contact support. (<Response [500]>)
+wandb: ERROR Error while calling W&B API: An internal error occurred. Please contact support. (<Response [500]>)
+wandb: 🚀 View run classic-forest-109 at: https://wandb.ai/ecrl/PPO%2BPPOL/runs/lyav4zf0
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240111_192114-lyav4zf0/logs
+wandb: ERROR Error while calling W&B API: An internal error occurred. Please contact support. (<Response [500]>)
+wandb: 🚀 View run good-tree-108 at: https://wandb.ai/ecrl/PPO%2BPPOL/runs/ru8xv8ec
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240112_032114-ru8xv8ec/logs
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+wandb: 🚀 View run dark-smoke-107 at: https://wandb.ai/ecrl/PPO%2BPPOL/runs/gpl5mp7p
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240111_192114-gpl5mp7p/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 116067 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=116067.3
+srun: Job 116067 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=116067.4
+srun: Job 116067 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=116067.5
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240112_032317-hsdhgl4e
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run swift-thunder-110
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL/runs/hsdhgl4e
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 141, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 98, in train
+    env = DummyVecEnv(envs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 91, in _init
+    env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
+TypeError: load_environment() got an unexpected keyword argument 'env_logger_path'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+srun: Job 116067 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 116067 step creation temporarily disabled, retrying (Requested nodes are busy)
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240111_192319-zz2n9vte
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run worldly-sound-111
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL/runs/zz2n9vte
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 141, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 98, in train
+    env = DummyVecEnv(envs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 91, in _init
+    env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
+TypeError: load_environment() got an unexpected keyword argument 'env_logger_path'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240111_192320-1k0jg7a5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run fiery-water-112
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PPO%2BPPOL
+wandb: 🚀 View run at https://wandb.ai/ecrl/PPO%2BPPOL/runs/1k0jg7a5
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 141, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 98, in train
+    env = DummyVecEnv(envs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 91, in _init
+    env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
+TypeError: load_environment() got an unexpected keyword argument 'env_logger_path'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run swift-thunder-110 at: https://wandb.ai/ecrl/PPO%2BPPOL/runs/hsdhgl4e
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240112_032317-hsdhgl4e/logs
+wandb: 🚀 View run worldly-sound-111 at: https://wandb.ai/ecrl/PPO%2BPPOL/runs/zz2n9vte
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240111_192319-zz2n9vte/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+wandb: 🚀 View run fiery-water-112 at: https://wandb.ai/ecrl/PPO%2BPPOL/runs/1k0jg7a5
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240111_192320-1k0jg7a5/logs
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 116067 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=116067.6
+srun: Job 116067 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=116067.7
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 16, in <module>
+    from utils import load_environment
+ModuleNotFoundError: No module named 'utils'
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py", line 16, in <module>
+    from utils import load_environment
+ModuleNotFoundError: No module named 'utils'
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
