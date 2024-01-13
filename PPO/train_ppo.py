@@ -90,7 +90,7 @@ def train(args: Cfg):
     env = DummyVecEnv(envs) 
 
     # Initialize the PPO agent with an MLP policy
-    agent = PPO("MlpPolicy", # TODO: Double check that this needs to be a string
+    agent = PPO("MlpPolicy",
                  env,
                  batch_size=args.batch_size,
                  verbose=1,
