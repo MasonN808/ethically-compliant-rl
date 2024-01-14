@@ -7,3 +7,4 @@ class TrainCfg:
     epochs: int = 150
     total_timesteps: int = 100000
     batch_size: int = 256
+    seed: int = 10

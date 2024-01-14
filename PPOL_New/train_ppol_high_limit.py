@@ -62,10 +62,10 @@ class Cfg(TrainCfg):
     env_logger_path: str = f"PPOL_New/logs/{run_dscrip}/env_logger.txt"
 
     # Lagrangian Parameters
-    # constraint_type: list[str] = field(default_factory=lambda: ["speed"])
-    # cost_threshold: list[float] = field(default_factory=lambda: [8])
-    constraint_type: list[str] = field(default_factory=lambda: [])
-    cost_threshold: list[float] = field(default_factory=lambda: [])
+    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
+    cost_threshold: list[float] = field(default_factory=lambda: [8])
+    # constraint_type: list[str] = field(default_factory=lambda: [])
+    # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = True
     K_P: float = 1
     K_I: float = 1

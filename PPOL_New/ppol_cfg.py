@@ -6,6 +6,7 @@ class TrainCfg:
     # general task params
     batch_size: int = 512
     num_envs: int = 1
+    seed: int = 10
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
