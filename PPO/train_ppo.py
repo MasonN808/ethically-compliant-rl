@@ -58,7 +58,7 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    set_random_seed(args.seed)
+    # set_random_seed(args.seed)
     # Initialize wandb
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
