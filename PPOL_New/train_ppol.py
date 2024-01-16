@@ -51,11 +51,11 @@ class WandbLoggingCallback(BaseCallback):
 
 @dataclass
 class Cfg(TrainCfg):
-    speed_limit: float = 2
+    speed_limit: float = 3
     # wandb_project_name: str = "New-PPOL-NoMultipiler-SpeedLimit=" + str(speed_limit)
     wandb_project_name: str = "QUALITATIVE-TEST"
     # wandb_project_name: str = "PPO+PPOL"
-    run_dscrip: str = "NoMultipiler"
+    run_dscrip: str = "SpeedLimit=" + str(speed_limit)
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 300
@@ -71,7 +71,7 @@ class Cfg(TrainCfg):
     cost_threshold: list[float] = field(default_factory=lambda: [8])
     # constraint_type: list[str] = field(default_factory=lambda: [])
     # cost_threshold: list[float] = field(default_factory=lambda: [])
-    lagrange_multiplier: bool = False
+    lagrange_multiplier: bool = True
     K_P: float = 1
     K_I: float = 1
     K_D: float = 2
@@ -108,7 +108,7 @@ def train(args: Cfg):
     # Initialize the PPO agent with an MLP policy
     agent = PPOL("MlpPolicy",
                  env,
-                 n_costs=len(args.constraint_type), 
+                 n_costs=len(args.constraint_type),
                  cost_threshold=args.cost_threshold,
                  lagrange_multiplier=args.lagrange_multiplier,
                  K_P=args.K_P,
