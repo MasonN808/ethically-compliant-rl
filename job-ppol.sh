@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=noLagrange           # Name of the job
+#SBATCH --job-name=ppol-vanilla           # Name of the job
 #SBATCH --cpus-per-task=3         # Number of CPUs per task
 #SBATCH --mem=10gb                # Memory allocated
 #SBATCH --nodes=3                 # Number of nodes
