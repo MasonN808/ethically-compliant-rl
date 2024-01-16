@@ -1,0 +1,91 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240116_135924-11dv4icy
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run glad-waterfall-4
+wandb: ⭐️ View project at https://wandb.ai/ecrl/QUALITATIVE-TEST
+wandb: 🚀 View run at https://wandb.ai/ecrl/QUALITATIVE-TEST/runs/11dv4icy
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py", line 149, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py", line 106, in train
+    env = DummyVecEnv(envs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py", line 99, in _init
+    env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/utils.py", line 26, in load_environment
+    with open(env_logger_path, "w") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'PPOL_New/logs/SpeedLimit=3/env_logger.txt'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240116_215924-fcxjk6oa
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run rosy-firebrand-5
+wandb: ⭐️ View project at https://wandb.ai/ecrl/QUALITATIVE-TEST
+wandb: 🚀 View run at https://wandb.ai/ecrl/QUALITATIVE-TEST/runs/fcxjk6oa
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py", line 149, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py", line 106, in train
+    env = DummyVecEnv(envs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py", line 99, in _init
+    env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/utils.py", line 26, in load_environment
+    with open(env_logger_path, "w") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'PPOL_New/logs/SpeedLimit=3/env_logger.txt'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240116_135924-k2bhuguw
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run devout-durian-6
+wandb: ⭐️ View project at https://wandb.ai/ecrl/QUALITATIVE-TEST
+wandb: 🚀 View run at https://wandb.ai/ecrl/QUALITATIVE-TEST/runs/k2bhuguw
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py", line 149, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py", line 106, in train
+    env = DummyVecEnv(envs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol.py", line 99, in _init
+    env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
+  File "/nas/ucb/mason/ethically-compliant-rl/PPOL_New/utils.py", line 26, in load_environment
+    with open(env_logger_path, "w") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'PPOL_New/logs/SpeedLimit=3/env_logger.txt'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: ERROR Error while calling W&B API: An internal error occurred. Please contact support. (<Response [500]>)
+wandb: 🚀 View run glad-waterfall-4 at: https://wandb.ai/ecrl/QUALITATIVE-TEST/runs/11dv4icy
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240116_135924-11dv4icy/logs
+wandb: 🚀 View run devout-durian-6 at: https://wandb.ai/ecrl/QUALITATIVE-TEST/runs/k2bhuguw
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240116_135924-k2bhuguw/logs
+wandb: 🚀 View run rosy-firebrand-5 at: https://wandb.ai/ecrl/QUALITATIVE-TEST/runs/fcxjk6oa
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240116_215924-fcxjk6oa/logs
+srun: error: ppo.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: sac.ist.berkeley.edu: task 0: Exited with exit code 1
