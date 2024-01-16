@@ -49,16 +49,17 @@ class WandbLoggingCallback(BaseCallback):
 class Cfg(TrainCfg):
     speed_limit: float = 10
     # wandb_project_name: str = "New-PPOL-SpeedLimit=" + str(speed_limit)
-    wandb_project_name: str = "PPO+PPOL"
+    wandb_project_name: str = "QUALITATIVE-TEST"
+    # wandb_project_name: str = "PPO+PPOL"
     run_dscrip: str = "HighSpeedLimit"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 2
-    total_timesteps: int = 10
-    batch_size: int = 1024
+    epochs: int = 300
+    total_timesteps: int = 10000
+    batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 5
-    seed: int = 10
+    seed: int = None
     env_logger_path: str = f"PPOL_New/logs/{run_dscrip}/env_logger.txt"
 
     # Lagrangian Parameters

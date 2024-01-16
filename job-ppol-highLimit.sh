@@ -3,7 +3,7 @@
 # SLURM settings for the job submission
 #SBATCH --job-name=highLimit           # Name of the job
 #SBATCH --cpus-per-task=3         # Number of CPUs per task
-#SBATCH --mem=8gb                # Memory allocated
+#SBATCH --mem=10gb                # Memory allocated
 #SBATCH --nodes=3                 # Number of nodes
 #SBATCH --ntasks=3                # Number of tasks
 #SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
@@ -18,7 +18,7 @@ ARGS="$@"
 BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py"
 
 # Run the script four times in parallel
-for i in {1..1}; do
+for i in {1..3}; do
     srun -N1 -n1 python3 $BASE_SCRIPT $ARGS &
 done
 
