@@ -26,7 +26,7 @@ def load_environment(env_config, render_mode=None, env_logger_path=None):
             # Empty the file
             with open(env_logger_path, "w") as file:
                 pass
-            env = gym.make(env_config['id'], render_mode=render_mode, env_logger_path=env_logger_path)
+        env = gym.make(env_config['id'], render_mode=render_mode, env_logger_path=env_logger_path)
         # Save env module in order to be able to import it again
         env.import_module = env_config.get("import_module", None)
     except KeyError:
