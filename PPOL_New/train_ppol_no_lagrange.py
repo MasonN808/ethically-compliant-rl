@@ -73,9 +73,9 @@ class Cfg(TrainCfg):
     # constraint_type: list[str] = field(default_factory=lambda: [])
     # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = False
-    K_P: float = 1
-    K_I: float = 1
-    K_D: float = 2
+    K_P: float = .1
+    K_I: float = .1
+    K_D: float = .2
 
 @pyrallis.wrap()
 def train(args: Cfg):

@@ -53,7 +53,7 @@ class WandbLoggingCallback(BaseCallback):
 class Cfg(TrainCfg):
     speed_limit: float = 3
     # wandb_project_name: str = "New-PPOL-NoMultipiler-SpeedLimit=" + str(speed_limit)
-    wandb_project_name: str = "QUALITATIVE-TEST"
+    wandb_project_name: str = "PPOL-DEBUG"
     # wandb_project_name: str = "PPO+PPOL"
     run_dscrip: str = "SpeedLimit=" + str(speed_limit)
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
