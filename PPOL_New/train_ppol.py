@@ -59,14 +59,14 @@ class Cfg(TrainCfg):
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 300
-    total_timesteps: int = 10000
+    total_timesteps: int = 100000
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 5
     seed: int = None
     # env_logger_path: str = f"PPOL_New/logs/{run_dscrip}/env_logger.txt"
     env_logger_path: str = None
-    
+
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
     cost_threshold: list[float] = field(default_factory=lambda: [8])

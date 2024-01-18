@@ -50,7 +50,7 @@ class Cfg(TrainCfg):
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 300
-    total_timesteps: int = 10000
+    total_timesteps: int = 100000
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 5
