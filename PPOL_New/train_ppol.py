@@ -64,8 +64,9 @@ class Cfg(TrainCfg):
     num_envs: int = 1
     model_save_interval: int = 5
     seed: int = None
-    env_logger_path: str = f"PPOL_New/logs/{run_dscrip}/env_logger.txt"
-
+    # env_logger_path: str = f"PPOL_New/logs/{run_dscrip}/env_logger.txt"
+    env_logger_path: str = None
+    
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["speed"])
     cost_threshold: list[float] = field(default_factory=lambda: [8])
