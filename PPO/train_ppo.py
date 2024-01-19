@@ -55,6 +55,7 @@ class Cfg(TrainCfg):
     num_envs: int = 1
     model_save_interval: int = 5
     seed: int = None
+    ent_coef: float = 0.5
     # env_logger_path: str = "PPO/env_logger.txt"
     env_logger_path: str = None
 
@@ -96,6 +97,7 @@ def train(args: Cfg):
                  env,
                  batch_size=args.batch_size,
                  verbose=1,
+                 ent_coef=args.ent_coef,
                  seed=args.seed)
     
     # Create WandbLoggingCallback
