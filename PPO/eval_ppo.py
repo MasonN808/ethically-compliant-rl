@@ -17,7 +17,7 @@ from ppo_cfg import TrainCfg
 def evaluate(args: TrainCfg):
     for i in range(0, 1000, 5):
         # Path to your saved model
-        model_path = f"PPO/models/PPO/n2elupkg/model_epoch({i}).zip"
+        model_path = f"PPO/models/QUALITATIVE-TEST/pizes8yn/model_epoch({i}).zip"
         # Parsing path for gif path
         parsed_gif_file = model_path.split("/models/")[-1][:-4]
         
@@ -34,21 +34,21 @@ def evaluate(args: TrainCfg):
             os.makedirs(gif_dir)
 
 
-        with open('configs/HighwayEnv/default.txt') as f:
+        with open('configs/ParkingEnv/default.txt') as f:
             data = f.read()
 
         # Reconstructing the data as a dictionary
         ENV_CONFIG = ast.literal_eval(data)
         # Overriding certain keys in the environment config
-        # ENV_CONFIG.update({
-        #     "start_angle": -np.math.pi/2, # This is radians
-        #     "duration": 60,
-        # })
         ENV_CONFIG.update({
-            "simulation_frequency": 10,
-            "lanes_count": 4,
-            "vehicles_count": 40,
+            "start_angle": -np.math.pi/2, # This is radians
+            "duration": 60,
         })
+        # ENV_CONFIG.update({
+        #     "simulation_frequency": 10,
+        #     "lanes_count": 4,
+        #     "vehicles_count": 40,
+        # })
 
         # Load the Highway env from the config file
         env = FlattenObservation(load_environment(ENV_CONFIG, render_mode="rgb_array"))
