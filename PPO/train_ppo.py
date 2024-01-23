@@ -57,8 +57,8 @@ class Cfg(TrainCfg):
     model_save_interval: int = 5
     seed: int = 7
     ent_coef: float = 0
-    env_logger_path: str = "PPO/env_logger.txt"
-    # env_logger_path: str = None
+    # env_logger_path: str = "PPO/env_logger.txt"
+    env_logger_path: str = None
 
 @pyrallis.wrap()
 def train(args: Cfg):
