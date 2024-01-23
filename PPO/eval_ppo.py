@@ -33,7 +33,6 @@ def evaluate(args: TrainCfg):
         if not os.path.exists(gif_dir):
             os.makedirs(gif_dir)
 
-
         with open('configs/ParkingEnv/default.txt') as f:
             data = f.read()
 
