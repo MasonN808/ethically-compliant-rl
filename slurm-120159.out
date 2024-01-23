@@ -1,0 +1,1020 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240123_015929-mm71nzk5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gentle-silence-46
+wandb: ⭐️ View project at https://wandb.ai/ecrl/seed-testing
+wandb: 🚀 View run at https://wandb.ai/ecrl/seed-testing/runs/mm71nzk5
+Using cpu device
+------------------------------------
+| avg_speed          | 0.897       |
+| cost               | 0           |
+| is_success         | 0           |
+| max_speed          | 0.897       |
+| reward             | -0.48690677 |
+| rollout/           |             |
+|    ep_len_mean     | 1e+03       |
+|    ep_rew_mean     | -3.89e+03   |
+| time/              |             |
+|    fps             | 92          |
+|    iterations      | 1           |
+|    time_elapsed    | 22          |
+|    total_timesteps | 2048        |
+------------------------------------
+-----------------------------------------
+| avg_speed                | 2.56       |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 2.56       |
+| reward                   | -1.0404055 |
+| rollout/                 |            |
+|    ep_len_mean           | 1e+03      |
+|    ep_rew_mean           | -3.89e+03  |
+| time/                    |            |
+|    fps                   | 91         |
+|    iterations            | 2          |
+|    time_elapsed          | 44         |
+|    total_timesteps       | 4096       |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 15.4       |
+|    cost_value_loss       | 257        |
+|    cost_values           | 0.084      |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.00125    |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.18e+03   |
+|    n_updates             | 10         |
+|    policy_gradient_loss  | 1.45e-08   |
+|    std                   | 1          |
+|    value_loss            | 4.62e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 5.04       |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 5.04       |
+| reward                   | -1.5816702 |
+| rollout/                 |            |
+|    ep_len_mean           | 1e+03      |
+|    ep_rew_mean           | -3.84e+03  |
+| time/                    |            |
+|    fps                   | 91         |
+|    iterations            | 3          |
+|    time_elapsed          | 67         |
+|    total_timesteps       | 6144       |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 15.1       |
+|    cost_value_loss       | 259        |
+|    cost_values           | -0.389     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0516     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.25e+03   |
+|    n_updates             | 20         |
+|    policy_gradient_loss  | -7.83e-09  |
+|    std                   | 1          |
+|    value_loss            | 4.59e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 4.47       |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 4.47       |
+| reward                   | -1.6150597 |
+| rollout/                 |            |
+|    ep_len_mean           | 1e+03      |
+|    ep_rew_mean           | -3.85e+03  |
+| time/                    |            |
+|    fps                   | 91         |
+|    iterations            | 4          |
+|    time_elapsed          | 89         |
+|    total_timesteps       | 8192       |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 15         |
+|    cost_value_loss       | 259        |
+|    cost_values           | -0.608     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.077      |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.08e+03   |
+|    n_updates             | 30         |
+|    policy_gradient_loss  | 1.82e-08   |
+|    std                   | 1          |
+|    value_loss            | 4.26e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -2.2563522 |
+| rollout/                 |            |
+|    ep_len_mean           | 915        |
+|    ep_rew_mean           | -3.47e+03  |
+| time/                    |            |
+|    fps                   | 91         |
+|    iterations            | 5          |
+|    time_elapsed          | 112        |
+|    total_timesteps       | 10240      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.2       |
+|    cost_value_loss       | 248        |
+|    cost_values           | -0.696     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0848     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.25e+03   |
+|    n_updates             | 40         |
+|    policy_gradient_loss  | 9.51e-09   |
+|    std                   | 1          |
+|    value_loss            | 4.55e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 5.17       |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 5.17       |
+| reward                   | -1.6514374 |
+| rollout/                 |            |
+|    ep_len_mean           | 928        |
+|    ep_rew_mean           | -3.54e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 6          |
+|    time_elapsed          | 135        |
+|    total_timesteps       | 12288      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.1       |
+|    cost_value_loss       | 246        |
+|    cost_values           | -0.727     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0848     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.17e+03   |
+|    n_updates             | 50         |
+|    policy_gradient_loss  | 8.96e-09   |
+|    std                   | 1          |
+|    value_loss            | 4.31e+03   |
+-----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -3.440216 |
+| rollout/                 |           |
+|    ep_len_mean           | 938       |
+|    ep_rew_mean           | -3.57e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 7         |
+|    time_elapsed          | 157       |
+|    total_timesteps       | 14336     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.5      |
+|    cost_value_loss       | 252       |
+|    cost_values           | -0.766    |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0807    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.29e+03  |
+|    n_updates             | 60        |
+|    policy_gradient_loss  | 3.92e-09  |
+|    std                   | 1         |
+|    value_loss            | 4.61e+03  |
+----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -3.9154818 |
+| rollout/                 |            |
+|    ep_len_mean           | 945        |
+|    ep_rew_mean           | -3.59e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 8          |
+|    time_elapsed          | 180        |
+|    total_timesteps       | 16384      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.5       |
+|    cost_value_loss       | 254        |
+|    cost_values           | -0.795     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0635     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.24e+03   |
+|    n_updates             | 70         |
+|    policy_gradient_loss  | 4.41e-08   |
+|    std                   | 1          |
+|    value_loss            | 4.31e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -3.9184875 |
+| rollout/                 |            |
+|    ep_len_mean           | 951        |
+|    ep_rew_mean           | -3.62e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 9          |
+|    time_elapsed          | 203        |
+|    total_timesteps       | 18432      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.5       |
+|    cost_value_loss       | 253        |
+|    cost_values           | -0.795     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0657     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.21e+03   |
+|    n_updates             | 80         |
+|    policy_gradient_loss  | 1.82e-09   |
+|    std                   | 1          |
+|    value_loss            | 4.44e+03   |
+-----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -4.393128 |
+| rollout/                 |           |
+|    ep_len_mean           | 956       |
+|    ep_rew_mean           | -3.64e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 10        |
+|    time_elapsed          | 225       |
+|    total_timesteps       | 20480     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.2      |
+|    cost_value_loss       | 248       |
+|    cost_values           | -0.8      |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0611    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.1e+03   |
+|    n_updates             | 90        |
+|    policy_gradient_loss  | -1.15e-08 |
+|    std                   | 1         |
+|    value_loss            | 4.36e+03  |
+----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -4.4281783 |
+| rollout/                 |            |
+|    ep_len_mean           | 922        |
+|    ep_rew_mean           | -3.5e+03   |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 11         |
+|    time_elapsed          | 248        |
+|    total_timesteps       | 22528      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.5       |
+|    cost_value_loss       | 253        |
+|    cost_values           | -0.822     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.052      |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.24e+03   |
+|    n_updates             | 100        |
+|    policy_gradient_loss  | -1.54e-08  |
+|    std                   | 1          |
+|    value_loss            | 4.45e+03   |
+-----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -4.553076 |
+| rollout/                 |           |
+|    ep_len_mean           | 928       |
+|    ep_rew_mean           | -3.52e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 12        |
+|    time_elapsed          | 271       |
+|    total_timesteps       | 24576     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14        |
+|    cost_value_loss       | 246       |
+|    cost_values           | -0.809    |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0605    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.02e+03  |
+|    n_updates             | 110       |
+|    policy_gradient_loss  | 2.51e-08  |
+|    std                   | 1         |
+|    value_loss            | 4.22e+03  |
+----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -4.768664 |
+| rollout/                 |           |
+|    ep_len_mean           | 933       |
+|    ep_rew_mean           | -3.54e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 13        |
+|    time_elapsed          | 293       |
+|    total_timesteps       | 26624     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.5      |
+|    cost_value_loss       | 253       |
+|    cost_values           | -0.83     |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0447    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.2e+03   |
+|    n_updates             | 120       |
+|    policy_gradient_loss  | -2.78e-09 |
+|    std                   | 1         |
+|    value_loss            | 4.48e+03  |
+----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -4.81026  |
+| rollout/                 |           |
+|    ep_len_mean           | 938       |
+|    ep_rew_mean           | -3.55e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 14        |
+|    time_elapsed          | 316       |
+|    total_timesteps       | 28672     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.2      |
+|    cost_value_loss       | 249       |
+|    cost_values           | -0.832    |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.04      |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.17e+03  |
+|    n_updates             | 130       |
+|    policy_gradient_loss  | 3.19e-08  |
+|    std                   | 1         |
+|    value_loss            | 4.28e+03  |
+----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -4.668126 |
+| rollout/                 |           |
+|    ep_len_mean           | 942       |
+|    ep_rew_mean           | -3.57e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 15        |
+|    time_elapsed          | 339       |
+|    total_timesteps       | 30720     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.5      |
+|    cost_value_loss       | 253       |
+|    cost_values           | -0.826    |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0491    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.11e+03  |
+|    n_updates             | 140       |
+|    policy_gradient_loss  | 2.01e-09  |
+|    std                   | 1         |
+|    value_loss            | 4.25e+03  |
+----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -4.8458743 |
+| rollout/                 |            |
+|    ep_len_mean           | 945        |
+|    ep_rew_mean           | -3.59e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 16         |
+|    time_elapsed          | 362        |
+|    total_timesteps       | 32768      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.5       |
+|    cost_value_loss       | 253        |
+|    cost_values           | -0.83      |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0446     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.06e+03   |
+|    n_updates             | 150        |
+|    policy_gradient_loss  | -8.13e-09  |
+|    std                   | 1          |
+|    value_loss            | 4.34e+03   |
+-----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -4.927449 |
+| rollout/                 |           |
+|    ep_len_mean           | 948       |
+|    ep_rew_mean           | -3.61e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 17        |
+|    time_elapsed          | 384       |
+|    total_timesteps       | 34816     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.7      |
+|    cost_value_loss       | 258       |
+|    cost_values           | -0.843    |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0311    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.3e+03   |
+|    n_updates             | 160       |
+|    policy_gradient_loss  | -1.46e-08 |
+|    std                   | 1         |
+|    value_loss            | 4.48e+03  |
+----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -4.8275285 |
+| rollout/                 |            |
+|    ep_len_mean           | 951        |
+|    ep_rew_mean           | -3.62e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 18         |
+|    time_elapsed          | 407        |
+|    total_timesteps       | 36864      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.7       |
+|    cost_value_loss       | 258        |
+|    cost_values           | -0.84      |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0334     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.21e+03   |
+|    n_updates             | 170        |
+|    policy_gradient_loss  | 3.82e-09   |
+|    std                   | 1          |
+|    value_loss            | 4.44e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -4.9172525 |
+| rollout/                 |            |
+|    ep_len_mean           | 954        |
+|    ep_rew_mean           | -3.63e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 19         |
+|    time_elapsed          | 430        |
+|    total_timesteps       | 38912      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.4       |
+|    cost_value_loss       | 253        |
+|    cost_values           | -0.839     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0343     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.11e+03   |
+|    n_updates             | 180        |
+|    policy_gradient_loss  | 7.68e-09   |
+|    std                   | 1          |
+|    value_loss            | 4.28e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -5.0104356 |
+| rollout/                 |            |
+|    ep_len_mean           | 956        |
+|    ep_rew_mean           | -3.64e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 20         |
+|    time_elapsed          | 452        |
+|    total_timesteps       | 40960      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.5       |
+|    cost_value_loss       | 254        |
+|    cost_values           | -0.844     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0276     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.08e+03   |
+|    n_updates             | 190        |
+|    policy_gradient_loss  | -4.98e-09  |
+|    std                   | 1          |
+|    value_loss            | 4.32e+03   |
+-----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -5.058602 |
+| rollout/                 |           |
+|    ep_len_mean           | 958       |
+|    ep_rew_mean           | -3.64e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 21        |
+|    time_elapsed          | 475       |
+|    total_timesteps       | 43008     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.4      |
+|    cost_value_loss       | 253       |
+|    cost_values           | -0.846    |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0244    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.15e+03  |
+|    n_updates             | 200       |
+|    policy_gradient_loss  | 9.88e-09  |
+|    std                   | 1         |
+|    value_loss            | 4.38e+03  |
+----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -5.273572 |
+| rollout/                 |           |
+|    ep_len_mean           | 960       |
+|    ep_rew_mean           | -3.65e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 22        |
+|    time_elapsed          | 498       |
+|    total_timesteps       | 45056     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.4      |
+|    cost_value_loss       | 253       |
+|    cost_values           | -0.846    |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0231    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.03e+03  |
+|    n_updates             | 210       |
+|    policy_gradient_loss  | -2.69e-08 |
+|    std                   | 1         |
+|    value_loss            | 4.16e+03  |
+----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -5.235861 |
+| rollout/                 |           |
+|    ep_len_mean           | 962       |
+|    ep_rew_mean           | -3.65e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 23        |
+|    time_elapsed          | 521       |
+|    total_timesteps       | 47104     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.4      |
+|    cost_value_loss       | 253       |
+|    cost_values           | -0.843    |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0272    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.05e+03  |
+|    n_updates             | 220       |
+|    policy_gradient_loss  | -1.78e-09 |
+|    std                   | 1         |
+|    value_loss            | 4.15e+03  |
+----------------------------------------
+----------------------------------------
+| avg_speed                | 8         |
+| cost                     | 1         |
+| is_success               | 0         |
+| max_speed                | 8         |
+| reward                   | -5.393215 |
+| rollout/                 |           |
+|    ep_len_mean           | 963       |
+|    ep_rew_mean           | -3.66e+03 |
+| time/                    |           |
+|    fps                   | 90        |
+|    iterations            | 24        |
+|    time_elapsed          | 543       |
+|    total_timesteps       | 49152     |
+| train/                   |           |
+|    approx_kl             | 0.0       |
+|    clip_fraction         | 0         |
+|    clip_range            | 0.2       |
+|    cost_returns          | 14.1      |
+|    cost_value_loss       | 248       |
+|    cost_values           | -0.845    |
+|    entropy               | -2.84     |
+|    entropy_loss          | -2.84     |
+|    explained_variance    | 0.0243    |
+|    lagrangian_multiplier | 0         |
+|    learning_rate         | 0.0003    |
+|    loss                  | 2.05e+03  |
+|    n_updates             | 230       |
+|    policy_gradient_loss  | 3.05e-08  |
+|    std                   | 1         |
+|    value_loss            | 4.08e+03  |
+----------------------------------------
+------------------------------------------
+| avg_speed                | 0.476       |
+| cost                     | 0           |
+| is_success               | 0           |
+| max_speed                | 0.476       |
+| reward                   | -0.48226663 |
+| rollout/                 |             |
+|    ep_len_mean           | 965         |
+|    ep_rew_mean           | -3.66e+03   |
+| time/                    |             |
+|    fps                   | 90          |
+|    iterations            | 25          |
+|    time_elapsed          | 566         |
+|    total_timesteps       | 51200       |
+| train/                   |             |
+|    approx_kl             | 0.0         |
+|    clip_fraction         | 0           |
+|    clip_range            | 0.2         |
+|    cost_returns          | 14.1        |
+|    cost_value_loss       | 247         |
+|    cost_values           | -0.845      |
+|    entropy               | -2.84       |
+|    entropy_loss          | -2.84       |
+|    explained_variance    | 0.0217      |
+|    lagrangian_multiplier | 0           |
+|    learning_rate         | 0.0003      |
+|    loss                  | 2.04e+03    |
+|    n_updates             | 240         |
+|    policy_gradient_loss  | -1.37e-08   |
+|    std                   | 1           |
+|    value_loss            | 4.03e+03    |
+------------------------------------------
+------------------------------------------
+| avg_speed                | 2.63        |
+| cost                     | 1           |
+| is_success               | 0           |
+| max_speed                | 2.63        |
+| reward                   | -0.80882096 |
+| rollout/                 |             |
+|    ep_len_mean           | 967         |
+|    ep_rew_mean           | -3.67e+03   |
+| time/                    |             |
+|    fps                   | 90          |
+|    iterations            | 26          |
+|    time_elapsed          | 589         |
+|    total_timesteps       | 53248       |
+| train/                   |             |
+|    approx_kl             | 0.0         |
+|    clip_fraction         | 0           |
+|    clip_range            | 0.2         |
+|    cost_returns          | 14.2        |
+|    cost_value_loss       | 251         |
+|    cost_values           | -0.848      |
+|    entropy               | -2.84       |
+|    entropy_loss          | -2.84       |
+|    explained_variance    | 0.0193      |
+|    lagrangian_multiplier | 0           |
+|    learning_rate         | 0.0003      |
+|    loss                  | 1.91e+03    |
+|    n_updates             | 250         |
+|    policy_gradient_loss  | -2.56e-08   |
+|    std                   | 1           |
+|    value_loss            | 4.14e+03    |
+------------------------------------------
+-----------------------------------------
+| avg_speed                | 4.34       |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 4.34       |
+| reward                   | -1.4453217 |
+| rollout/                 |            |
+|    ep_len_mean           | 968        |
+|    ep_rew_mean           | -3.68e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 27         |
+|    time_elapsed          | 611        |
+|    total_timesteps       | 55296      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.3       |
+|    cost_value_loss       | 251        |
+|    cost_values           | -0.85      |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0144     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.05e+03   |
+|    n_updates             | 260        |
+|    policy_gradient_loss  | 1.67e-08   |
+|    std                   | 1          |
+|    value_loss            | 4.15e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 6.11       |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 6.11       |
+| reward                   | -1.7427349 |
+| rollout/                 |            |
+|    ep_len_mean           | 969        |
+|    ep_rew_mean           | -3.68e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 28         |
+|    time_elapsed          | 634        |
+|    total_timesteps       | 57344      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.7       |
+|    cost_value_loss       | 258        |
+|    cost_values           | -0.851     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.012      |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.09e+03   |
+|    n_updates             | 270        |
+|    policy_gradient_loss  | -8.48e-09  |
+|    std                   | 1          |
+|    value_loss            | 4.29e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 5.42       |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 5.42       |
+| reward                   | -1.6589807 |
+| rollout/                 |            |
+|    ep_len_mean           | 955        |
+|    ep_rew_mean           | -3.63e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 29         |
+|    time_elapsed          | 656        |
+|    total_timesteps       | 59392      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.2       |
+|    cost_value_loss       | 249        |
+|    cost_values           | -0.849     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.015      |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.09e+03   |
+|    n_updates             | 280        |
+|    policy_gradient_loss  | -1.87e-08  |
+|    std                   | 1          |
+|    value_loss            | 4.05e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -2.8677053 |
+| rollout/                 |            |
+|    ep_len_mean           | 957        |
+|    ep_rew_mean           | -3.63e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 30         |
+|    time_elapsed          | 679        |
+|    total_timesteps       | 61440      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 13.8       |
+|    cost_value_loss       | 242        |
+|    cost_values           | -0.85      |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0143     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 1.9e+03    |
+|    n_updates             | 290        |
+|    policy_gradient_loss  | -1.96e-08  |
+|    std                   | 1          |
+|    value_loss            | 3.92e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -2.3643968 |
+| rollout/                 |            |
+|    ep_len_mean           | 958        |
+|    ep_rew_mean           | -3.64e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 31         |
+|    time_elapsed          | 702        |
+|    total_timesteps       | 63488      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.4       |
+|    cost_value_loss       | 253        |
+|    cost_values           | -0.852     |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0106     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 2.02e+03   |
+|    n_updates             | 300        |
+|    policy_gradient_loss  | 8.77e-09   |
+|    std                   | 1          |
+|    value_loss            | 4.03e+03   |
+-----------------------------------------
+-----------------------------------------
+| avg_speed                | 8          |
+| cost                     | 1          |
+| is_success               | 0          |
+| max_speed                | 8          |
+| reward                   | -3.9094179 |
+| rollout/                 |            |
+|    ep_len_mean           | 959        |
+|    ep_rew_mean           | -3.64e+03  |
+| time/                    |            |
+|    fps                   | 90         |
+|    iterations            | 32         |
+|    time_elapsed          | 724        |
+|    total_timesteps       | 65536      |
+| train/                   |            |
+|    approx_kl             | 0.0        |
+|    clip_fraction         | 0          |
+|    clip_range            | 0.2        |
+|    cost_returns          | 14.1       |
+|    cost_value_loss       | 247        |
+|    cost_values           | -0.85      |
+|    entropy               | -2.84      |
+|    entropy_loss          | -2.84      |
+|    explained_variance    | 0.0138     |
+|    lagrangian_multiplier | 0          |
+|    learning_rate         | 0.0003     |
+|    loss                  | 1.99e+03   |
+|    n_updates             | 310        |
+|    policy_gradient_loss  | 7.03e-09   |
+|    std                   | 1          |
+|    value_loss            | 3.99e+03   |
+-----------------------------------------
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 120159 ON ppo.ist.berkeley.edu CANCELLED AT 2024-01-23T02:11:36 ***
+slurmstepd: error: *** STEP 120159.0 ON ppo.ist.berkeley.edu CANCELLED AT 2024-01-23T02:11:36 ***
