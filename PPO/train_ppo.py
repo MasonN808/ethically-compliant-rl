@@ -45,17 +45,18 @@ class WandbLoggingCallback(BaseCallback):
 @dataclass
 class Cfg(TrainCfg):
     # wandb_project_name: str = "PPO+PPOL"
-    wandb_project_name: str = "QUALITATIVE-TEST"
+    # wandb_project_name: str = "QUALITATIVE-TEST"
+    wandb_project_name: str = "seed-testing"
     run_dscrip: str = "PPO"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 300
-    total_timesteps: int = 100000
+    epochs: int = 2
+    total_timesteps: int = 1000
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 5
-    seed: int = None
-    ent_coef: float = 0.5
+    seed: int = 10
+    ent_coef: float = 0
     # env_logger_path: str = "PPO/env_logger.txt"
     env_logger_path: str = None
 
