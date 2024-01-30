@@ -50,9 +50,9 @@ class Cfg(TrainCfg):
     run_dscrip: str = "PPO"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 30
+    epochs: int = 10
     total_timesteps: int = 100000
-    batch_size: int = 512
+    batch_size: int = 10
     num_envs: int = 1
     model_save_interval: int = 5
     seed: int = 7
@@ -62,6 +62,15 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
+    import inspect
+    import torch
+    # Write the state to a text file
+    with open('pytorch_rng_state_ppo.txt', 'w') as file:
+        # file name
+        file.write(f"File: {__file__}\n")
+        # current line number
+        file.write(f"Line: {inspect.currentframe().f_lineno}\n")
+        file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
     # set_random_seed(args.seed)
     # Initialize wandb
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
@@ -127,6 +136,14 @@ def train(args: Cfg):
         print(f"Final reward: {rewards.mean()}")
         env.render()
     env.close()
+
+    # Write the state to a text file
+    with open('pytorch_rng_state_ppo.txt', 'a') as file:
+        # file name
+        file.write(f"File: {__file__}\n")
+        # current line number
+        file.write(f"Line: {inspect.currentframe().f_lineno}\n")
+        file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
 
 if __name__ == "__main__":
     train()

@@ -55,10 +55,10 @@ class Cfg(TrainCfg):
     run_dscrip: str = "HighSpeedLimit"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    # epochs: int = 300
-    # total_timesteps: int = 100000
-    epochs: int = 30
+    epochs: int = 10
     total_timesteps: int = 100000
+    # epochs: int = 3
+    # total_timesteps: int = 100
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 5
@@ -79,6 +79,16 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
+    import inspect
+    import torch
+    # Write the state to a text file
+    with open('pytorch_rng_state_ppol_high_limit.txt', 'w') as file:
+        # file name
+        file.write(f"File: {__file__}\n")
+        # current line number
+        file.write(f"Line: {inspect.currentframe().f_lineno}\n")
+        file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
+
     # set_random_seed(args.seed)
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
@@ -146,6 +156,14 @@ def train(args: Cfg):
         print(f"Final reward: {rewards.mean()}")
         env.render()
     env.close()
+
+    # Write the state to a text file
+    with open('pytorch_rng_state_ppol_high_limit.txt', 'a') as file:
+        # file name
+        file.write(f"File: {__file__}\n")
+        # current line number
+        file.write(f"Line: {inspect.currentframe().f_lineno}\n")
+        file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
 
 if __name__ == "__main__":
     train()

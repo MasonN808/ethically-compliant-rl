@@ -61,12 +61,12 @@ class Cfg(TrainCfg):
     env_config: str = f"configs/{env_name}/default.txt"
     # epochs: int = 300
     # total_timesteps: int = 100000
-    epochs: int = 60
+    epochs: int = 10
     total_timesteps: int = 100000
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 5
-    seed: int = 1
+    seed: int = 7
     ent_coef: float = 0
     # env_logger_path: str = f"PPOL_New/logs/{run_dscrip}/env_logger.txt"
     env_logger_path: str = None
@@ -81,7 +81,16 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    # set_random_seed(args.seed)
+    import inspect
+    import torch
+    # Write the state to a text file
+    with open('pytorch_rng_state_ppol.txt', 'w') as file:
+        # file name
+        file.write(f"File: {__file__}\n")
+        # current line number
+        file.write(f"Line: {inspect.currentframe().f_lineno}\n")
+        file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
+
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
 
@@ -148,6 +157,14 @@ def train(args: Cfg):
         print(f"Final reward: {rewards.mean()}")
         env.render()
     env.close()
+
+    # Write the state to a text file
+    with open('pytorch_rng_state_ppol.txt', 'a') as file:
+        # file name
+        file.write(f"File: {__file__}\n")
+        # current line number
+        file.write(f"Line: {inspect.currentframe().f_lineno}\n")
+        file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
 
 if __name__ == "__main__":
     train()
