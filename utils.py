@@ -64,7 +64,7 @@ def evaluate_policy_and_capture_frames(model, env, n_eval_episodes=10):
             episode_reward += reward
             
             # Capture frame
-            time.sleep(.05)
+            time.sleep(.1)
             frame = env.render(mode='rgb_array')
             frames.append(frame)
 
