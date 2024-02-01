@@ -1,6 +1,4 @@
 import gymnasium as gym
-import highway_env
-import numpy as np
 
 env = gym.make("parking-v0", render_mode="human")
 env.configure({
