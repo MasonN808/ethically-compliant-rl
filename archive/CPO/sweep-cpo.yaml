@@ -1,0 +1,16 @@
+name: cpo-700-determ
+program: /nas/ucb/mason/ethically-compliant-rl/CPO/train_cpo.py
+method: bayes
+metric:
+  goal: maximize
+  name: train/reward
+parameters:
+  lr:
+    values:
+      - 0.001
+      - 0.0005
+  gamma:
+    values:
+      - 0.095
+      - 0.099
+
