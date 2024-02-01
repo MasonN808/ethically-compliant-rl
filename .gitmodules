@@ -14,3 +14,7 @@
 	path = stable_baselines3
 	url = https://github.com/MasonN808/stable-baselines3.git
 	branch = master
+[submodule "pytorch"]
+	path = pytorch
+	url = https://github.com/MasonN808/pytorch.git
+	branch = ecrl
