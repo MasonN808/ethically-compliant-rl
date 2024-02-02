@@ -15,7 +15,7 @@ source .venv/bin/activate
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPO/train_ppo.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/tests/PPO/train_ppo.py"
 
 for i in {1..1}; do
     srun -N1 -n1 python3 $BASE_SCRIPT $ARGS &
