@@ -1,12 +1,8 @@
 import ast
 import os
-import sys
-import gym
-import numpy as np
-import torch
 import pyrallis
 from utils import load_environment, evaluate_policy_and_capture_frames, save_frames_as_gif
-sys.path.append("stable_baselines3")
+
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.save_util import load_from_zip_file
