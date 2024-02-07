@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import ast
 import os
+from typing import Optional
 # Enables WandB cloud syncing
 os.environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
@@ -10,12 +11,11 @@ import wandb
 from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import BaseCallback
-from stable_baselines3.common.utils import set_random_seed
 
-from utils import load_environment
+from utils import load_environment, verify_and_solve_path
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import TrainCfg
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 
@@ -50,30 +50,32 @@ class WandbLoggingCallback(BaseCallback):
 
 @dataclass
 class Cfg(TrainCfg):
-    speed_limit: float = 3
+    speed_limit: Optional[float] = None
     # wandb_project_name: str = "New-PPOL-NoMultipiler-SpeedLimit=" + str(speed_limit)
     # wandb_project_name: str = "QUALITATIVE-TEST"
     # wandb_project_name: str = "PPOL-DEBUG"
-    wandb_project_name: str = "seed-testing"
-    run_dscrip: str = "SpeedLimit=" + str(speed_limit)
+    # wandb_project_name: str = "seed-testing"
+    wandb_project_name: str = "ent-coefficient-ppol"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    # epochs: int = 300
-    # total_timesteps: int = 100000
-    epochs: int = 5
-    total_timesteps: int = 100
+    epochs: int = 10
+    total_timesteps: int = 100000
+    # epochs: int = 5
+    # total_timesteps: int = 100
     # batch_size: int = 512
     batch_size: int = 64
     num_envs: int = 1
-    model_save_interval: int = 5
+    model_save_interval: int = 2
     seed: int = 7
-    ent_coef: float = 0
-    env_logger_path: str = f"PPOL_New/logs/{run_dscrip}/env_logger.txt"
-    # env_logger_path: str = None
+    ent_coef: float = .001
+    # env_logger_path: str = f"tests/PPOL_New/logs/{run_dscrip}/env_logger.txt"
+    env_logger_path: str = None
+    # run_dscrip: str = f"SpeedLimit={speed_limit}-Seed={seed}"
+    run_dscrip: str = f"Lines-Seed={seed}"
 
     # Lagrangian Parameters
-    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
-    cost_threshold: list[float] = field(default_factory=lambda: [8])
+    constraint_type: list[str] = field(default_factory=lambda: ["lines"])
+    cost_threshold: list[float] = field(default_factory=lambda: [4])
     lagrange_multiplier: bool = True
     K_P: float = 1
     K_I: float = 1
@@ -93,17 +95,31 @@ def train(args: Cfg):
 
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
+    
+    # Log all the config params to wandb
+    # Instance of config
+    cfg = Cfg()
+    # Convert the dataclass instance to a dictionary
+    params_dict = asdict(cfg)
+    # Log the parameters to wandb
+    wandb.config.update(params_dict)
 
     with open(args.env_config) as f:
         config = f.read()
     # Reconstructing the data as a dictionary
     env_config = ast.literal_eval(config)
     # Overriding certain keys in the environment config
-    env_config.update({
-        "start_angle": -np.math.pi/2, # This is radians
-        "constraint_type": args.constraint_type,
-        "speed_limit": args.speed_limit
-    })
+    if args.speed_limit:
+        env_config.update({
+            "start_angle": -np.math.pi/2, # This is radians
+            "constraint_type": args.constraint_type,
+            "speed_limit": args.speed_limit
+        })
+    else:
+        env_config.update({
+            "start_angle": -np.math.pi/2, # This is radians
+            "constraint_type": args.constraint_type,
+        })
 
     def make_env(env_config):
         def _init():
@@ -138,15 +154,8 @@ def train(args: Cfg):
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
         if i % args.model_save_interval == 0:
-            path = f"PPOL_New/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
-            # Check if the directory already exists
-            if not os.path.exists(path):
-                # If it doesn't exist, create it
-                os.makedirs(path)
-                print(f"Directory created: {path}")
-            else:
-                print(f"Directory already exists: {path}")
-
+            path = f"tests/PPOL_New/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
+            verify_and_solve_path(f"tests/PPOL_New/models/{args.wandb_project_name}/{run.id}")
             agent.save(path)
 
     # Test the trained agent
