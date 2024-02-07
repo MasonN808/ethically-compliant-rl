@@ -15,3 +15,8 @@ class TrainCfg:
     K_P: float = 1
     K_I: float = 1
     K_D: float = 2
+
+@dataclass
+class EvalCfg:
+    n_eval_episodes: int = 5
+    seed: int = 7
