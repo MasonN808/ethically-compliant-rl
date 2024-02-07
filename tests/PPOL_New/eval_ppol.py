@@ -1,18 +1,11 @@
 import ast
-import os
-import sys
-import gym
 import numpy as np
 import pyrallis
-import torch as th
 from utils import load_environment, evaluate_policy_and_capture_frames, save_frames_as_gif, verify_and_solve_path, verify_path
-sys.path.append("stable_baselines3")
+
 from stable_baselines3 import PPOL
 from stable_baselines3.common.save_util import load_from_zip_file
 from stable_baselines3.common.vec_env import DummyVecEnv
-from stable_baselines3.ppo import MlpPolicy
-from stable_baselines3.common.evaluation import evaluate_policy
-from stable_baselines3.common.callbacks import BaseCallback
 from gymnasium.wrappers import FlattenObservation
 from ppol_cfg import EvalCfg
 from dataclasses import dataclass, field
@@ -21,10 +14,10 @@ from dataclasses import dataclass, field
 class Cfg(EvalCfg):
     n_eval_episodes: int = 6
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ent-coefficient-ppol/797ofrdf"
+    model_directory: str = "tests/PPOL_New/models/ent-coefficient-ppol/csco6a5k"
 
     model_epoch: int = 8
-    model_save_interval: int = 5
+    model_save_interval: int = 2
     loop_over_epochs: bool = False
 
     # PID Lagrangian Params
