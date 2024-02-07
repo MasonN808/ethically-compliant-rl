@@ -1,0 +1,6 @@
+/var/spool/slurm/slurmd/job126280/slurm_script: line 13: .venv/bin/activate: No such file or directory
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPO/train_ppo.py", line 11, in <module>
+    from stable_baselines3 import PPO
+ModuleNotFoundError: No module named 'stable_baselines3'
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
