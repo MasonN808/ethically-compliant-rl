@@ -78,3 +78,4 @@ def evaluate_policy_and_capture_frames(model, env, n_eval_episodes=10):
 # Duration is same as fpss
 def save_frames_as_gif(frames, path='./gym_animation.gif', duration=30):
     imageio.mimsave(path, frames, duration=duration)
+    print(f"GIF created at {path}")
