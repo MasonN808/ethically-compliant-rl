@@ -14,19 +14,23 @@ from dataclasses import dataclass, field
 class Cfg(EvalCfg):
     n_eval_episodes: int = 6
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ent-coefficient-ppol/csco6a5k"
+    model_directory: str = "tests/PPOL_New/models/ent-coefficient-ppol/aw3abbpn"
 
     model_epoch: int = 8
     model_save_interval: int = 2
     loop_over_epochs: bool = False
 
     # PID Lagrangian Params
-    constraint_type: list[str] = field(default_factory=lambda: ["speed"])
-    cost_threshold: list[float] = field(default_factory=lambda: [8])
+    constraint_type: list[str] = field(default_factory=lambda: ["lines"])
+    cost_threshold: list[float] = field(default_factory=lambda: [4])
     K_P: float = 1
     K_I: float = 1
     K_D: float = 2
- 
+
+    # Env Params
+    # start_location: list = field(default_factory=lambda: [40, 30])
+    start_location: list = field(default_factory=lambda: [0, 0])
+    
 @pyrallis.wrap()
 def evaluate(args: Cfg):
     model_epoch = args.model_epoch
@@ -60,6 +64,8 @@ def evaluate(args: Cfg):
             "duration": 60,
             "simulation_frequency": 30,
             "policy_frequency": 30,
+            "start_location": args.start_location,
+            "constraint_type": args.constraint_type,
         })
 
         # Load the Highway env from the config file
