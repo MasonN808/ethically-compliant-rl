@@ -15,7 +15,7 @@ source .venv/bin/activate
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/PPOL_New/train_ppol_high_limit.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_high_limit.py"
 
 # Run the script four times in parallel
 for i in {1..1}; do
