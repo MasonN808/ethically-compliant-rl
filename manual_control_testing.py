@@ -20,7 +20,7 @@ env.configure({
     "collision_reward": -5,
     "simulation_frequency": 15,
     "policy_frequency": 5,
-    "duration": 200, # seconds
+    "duration": 20, # seconds
     "screen_width": 600,
     "screen_height": 300,
     "centering_position": [0.5, 0.5],
@@ -28,11 +28,13 @@ env.configure({
     "controlled_vehicles": 1,
     "vehicles_count": 0,
     "add_walls": False,
-    "start_location": [0, 0],
+    "start_location": [40, 30],
+    "manual_control": True,
+    "extra_lines": True,
 
     # Costs
-    # Cost-speed
-    "speed_limit": 3,
+    "constraint_type":["lines"],
+    # "speed_limit": 3,
 })
 
 env.reset()
@@ -47,9 +49,9 @@ while not done:
     # print(f'achieved_goal: {achieved_goal}')
     # print(f'desired_goal: {desired_goal}')
     # print(info)
-    # cost = info['cost']
-    # print(f'cost: {cost}')
-    print(f'reward: {rew}')
+    cost = info['cost']
+    print(f'cost: {cost}')
+    # print(f'reward: {rew}')
     # print(rew)
     # print(len(obs))
 
