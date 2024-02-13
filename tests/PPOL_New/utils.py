@@ -60,7 +60,9 @@ def evaluate_policy_and_capture_frames(model, env, n_eval_episodes=10):
         frames = []
         while not done:
             action, _ = model.predict(obs, deterministic=True)
-            obs, reward, done, _ = env.step(action)
+            obs, reward, done, info = env.step(action)
+            print(info)
+            print(info[0]["cost"])
             episode_reward += reward
             
             # Capture frame
