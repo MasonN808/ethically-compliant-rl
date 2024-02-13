@@ -58,14 +58,15 @@ class Cfg(TrainCfg):
     total_timesteps: int = 100000
     batch_size: int = 512
     num_envs: int = 1
-    model_save_interval: int = 5
+    model_save_interval: int = 2
     seed: int = 7
-    ent_coef: float = .002
+    ent_coef: float = .001
     # env_logger_path: str = f"tests/PPOL_New/logs/{run_dscrip}/env_logger.txt"
     env_logger_path: str = None
     # run_dscrip: str = f"SpeedLimit={speed_limit}-Seed={seed}"
     run_dscrip: str = f"Lines-Seed={seed}"
     start_location: list = field(default_factory=lambda: [40, 30])
+    extra_lines: bool = True
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
@@ -103,20 +104,13 @@ def train(args: Cfg):
     # Reconstructing the data as a dictionary
     env_config = ast.literal_eval(config)
     # Overriding certain keys in the environment config
-    if args.speed_limit:
-        env_config.update({
-            "start_angle": -np.math.pi/2, # This is radians
-            "constraint_type": args.constraint_type,
-            "speed_limit": args.speed_limit,
-        })
-    # Line constraints
-    else:
-        env_config.update({
-            "start_angle": -np.math.pi/2, # This is radians
-            "constraint_type": args.constraint_type,
-            "start_location": args.start_location,
-            "extra_lines": True,
-        })
+    env_config.update({
+        "start_angle": -np.math.pi/2, # This is radians
+        "constraint_type": args.constraint_type,
+        "speed_limit": args.speed_limit,
+        "start_location": args.start_location,
+        "extra_lines": args.extra_lines,
+    })
 
     def make_env(env_config):
         def _init():
