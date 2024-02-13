@@ -51,31 +51,25 @@ class WandbLoggingCallback(BaseCallback):
 @dataclass
 class Cfg(TrainCfg):
     speed_limit: Optional[float] = None
-    # wandb_project_name: str = "New-PPOL-NoMultipiler-SpeedLimit=" + str(speed_limit)
-    # wandb_project_name: str = "QUALITATIVE-TEST"
-    # wandb_project_name: str = "PPOL-DEBUG"
-    # wandb_project_name: str = "seed-testing"
     wandb_project_name: str = "ent-coefficient-ppol"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 10
+    epochs: int = 30
     total_timesteps: int = 100000
-    # epochs: int = 5
-    # total_timesteps: int = 100
-    # batch_size: int = 512
-    batch_size: int = 64
-    num_envs: int = 1
-    model_save_interval: int = 2
+    batch_size: int = 512
+    num_envs: int = 3
+    model_save_interval: int = 5
     seed: int = 7
-    ent_coef: float = .001
+    ent_coef: float = .002
     # env_logger_path: str = f"tests/PPOL_New/logs/{run_dscrip}/env_logger.txt"
     env_logger_path: str = None
     # run_dscrip: str = f"SpeedLimit={speed_limit}-Seed={seed}"
     run_dscrip: str = f"Lines-Seed={seed}"
+    start_location: list = field(default_factory=lambda: [40, 30])
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
-    cost_threshold: list[float] = field(default_factory=lambda: [4])
+    cost_threshold: list[float] = field(default_factory=lambda: [3])
     lagrange_multiplier: bool = True
     K_P: float = 1
     K_I: float = 1
@@ -113,12 +107,14 @@ def train(args: Cfg):
         env_config.update({
             "start_angle": -np.math.pi/2, # This is radians
             "constraint_type": args.constraint_type,
-            "speed_limit": args.speed_limit
+            "speed_limit": args.speed_limit,
+            "extra_lines": True,
         })
     else:
         env_config.update({
             "start_angle": -np.math.pi/2, # This is radians
             "constraint_type": args.constraint_type,
+            "start_location": args.start_location,
         })
 
     def make_env(env_config):
