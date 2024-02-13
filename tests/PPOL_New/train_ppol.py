@@ -108,13 +108,14 @@ def train(args: Cfg):
             "start_angle": -np.math.pi/2, # This is radians
             "constraint_type": args.constraint_type,
             "speed_limit": args.speed_limit,
-            "extra_lines": True,
         })
+    # Line constraints
     else:
         env_config.update({
             "start_angle": -np.math.pi/2, # This is radians
             "constraint_type": args.constraint_type,
             "start_location": args.start_location,
+            "extra_lines": True,
         })
 
     def make_env(env_config):
