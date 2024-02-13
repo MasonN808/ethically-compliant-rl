@@ -57,7 +57,7 @@ class Cfg(TrainCfg):
     epochs: int = 30
     total_timesteps: int = 100000
     batch_size: int = 512
-    num_envs: int = 3
+    num_envs: int = 1
     model_save_interval: int = 5
     seed: int = 7
     ent_coef: float = .002
