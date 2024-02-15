@@ -12,12 +12,12 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Cfg(EvalCfg):
-    n_eval_episodes: int = 6
+    n_eval_episodes: int = 2
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ent-coefficient-ppol/aw3abbpn"
+    model_directory: str = "tests/PPOL_New/models/ent-coefficient-ppol/1vjpjg9h"
 
-    model_epoch: int = 8
-    model_save_interval: int = 2
+    model_epoch: int = 28
+    model_save_interval: int = 5
     loop_over_epochs: bool = False
 
     # PID Lagrangian Params
@@ -28,8 +28,8 @@ class Cfg(EvalCfg):
     K_D: float = 2
 
     # Env Params
-    # start_location: list = field(default_factory=lambda: [40, 30])
-    start_location: list = field(default_factory=lambda: [0, 0])
+    start_location: list = field(default_factory=lambda: [40, 30])
+    # start_location: list = field(default_factory=lambda: [0, 0])
     
 @pyrallis.wrap()
 def evaluate(args: Cfg):
