@@ -51,7 +51,7 @@ class WandbLoggingCallback(BaseCallback):
 @dataclass
 class Cfg(TrainCfg):
     speed_limit: Optional[float] = None
-    wandb_project_name: str = "ent-coefficient-ppol"
+    wandb_project_name: str = "ppol-extra-obs"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 30
