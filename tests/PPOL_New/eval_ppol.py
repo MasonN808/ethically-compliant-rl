@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 class Cfg(EvalCfg):
     n_eval_episodes: int = 2
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ppol-extra-obs/knrahchi"
+    model_directory: str = "tests/PPOL_New/models/ppol-extra-obs/cvnfd1ju"
 
     model_epoch: int = 22
     model_save_interval: int = 5
