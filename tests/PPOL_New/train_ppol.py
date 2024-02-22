@@ -66,7 +66,8 @@ class Cfg(TrainCfg):
     # run_dscrip: str = f"SpeedLimit={speed_limit}-Seed={seed}"
     run_dscrip: str = f"Lines-Seed={seed}"
     start_location: list = field(default_factory=lambda: [40, 30])
-    extra_lines: bool = True
+    extra_lines: bool = True # Adds additional horizonatal lines in the parking environment 
+    additional_features: bool = True # Adds the quantized points of the lines to the observation
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
@@ -110,6 +111,7 @@ def train(args: Cfg):
         "speed_limit": args.speed_limit,
         "start_location": args.start_location,
         "extra_lines": args.extra_lines,
+        "additional_features": args.additional_features,
     })
 
     def make_env(env_config):
