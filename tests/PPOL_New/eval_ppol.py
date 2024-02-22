@@ -14,9 +14,9 @@ from dataclasses import dataclass, field
 class Cfg(EvalCfg):
     n_eval_episodes: int = 2
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ent-coefficient-ppol/1vjpjg9h"
+    model_directory: str = "tests/PPOL_New/models/ppol-extra-obs/knrahchi"
 
-    model_epoch: int = 28
+    model_epoch: int = 22
     model_save_interval: int = 5
     loop_over_epochs: bool = False
 
@@ -29,8 +29,9 @@ class Cfg(EvalCfg):
 
     # Env Params
     start_location: list = field(default_factory=lambda: [40, 30])
-    # start_location: list = field(default_factory=lambda: [0, 0])
-    
+    extra_lines: bool = True # Adds additional horizonatal lines in the parking environment 
+    additional_features: bool = True # Adds the quantized points of the lines to the observation
+
 @pyrallis.wrap()
 def evaluate(args: Cfg):
     model_epoch = args.model_epoch
@@ -66,6 +67,8 @@ def evaluate(args: Cfg):
             "policy_frequency": 30,
             "start_location": args.start_location,
             "constraint_type": args.constraint_type,
+            "extra_lines": args.extra_lines,
+            "additional_features": args.additional_features,
         })
 
         # Load the Highway env from the config file
