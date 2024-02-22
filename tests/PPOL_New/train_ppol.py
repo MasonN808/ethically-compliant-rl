@@ -59,13 +59,13 @@ class Cfg(TrainCfg):
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 2
-    seed: int = 2
-    ent_coef: float = .001
+    seed: int = 1
+    ent_coef: float = .0015
     # env_logger_path: str = f"tests/PPOL_New/logs/{run_dscrip}/env_logger.txt"
     env_logger_path: str = None
     # run_dscrip: str = f"SpeedLimit={speed_limit}-Seed={seed}"
     run_dscrip: str = f"Lines-Seed={seed}"
-    start_location: list = field(default_factory=lambda: [40, 30])
+    start_location: list = field(default_factory=lambda: [0, 0])
     extra_lines: bool = True # Adds additional horizonatal lines in the parking environment 
     additional_features: bool = True # Adds the quantized points of the lines to the observation
 
