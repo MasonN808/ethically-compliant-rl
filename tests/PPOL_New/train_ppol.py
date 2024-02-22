@@ -59,7 +59,7 @@ class Cfg(TrainCfg):
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 2
-    seed: int = 7
+    seed: int = 1
     ent_coef: float = .001
     # env_logger_path: str = f"tests/PPOL_New/logs/{run_dscrip}/env_logger.txt"
     env_logger_path: str = None
