@@ -9,7 +9,6 @@ env.configure({
         "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
         "scales": [100, 100, 5, 5, 1, 1],
         "normalize": False,
-        "additional_features": [], # To add line coordinates
     },
     "action": {
         "type": "ContinuousAction"
