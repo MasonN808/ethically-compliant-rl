@@ -32,7 +32,7 @@ env.configure({
     "start_location": [40, 30],
     "manual_control": True,
     "extra_lines": True,
-    "additional_features": True,
+    "use_closest_line_distance_in_obs": True,
 
     # Costs
     "constraint_type":["lines"],
@@ -46,8 +46,8 @@ while not done:
     i+=1
     # print(i)
     obs, rew, done, _, info = env.step(env.action_space.sample())  # with manual control, these actions are ignored
-    achieved_goal = obs['achieved_goal'][5]
-    desired_goal = obs['desired_goal'][5]
+    # achieved_goal = obs['achieved_goal'][5]
+    # desired_goal = obs['desired_goal'][5]
     # print(f'achieved_goal: {achieved_goal}')
     # print(f'desired_goal: {desired_goal}')
     # print(info)
