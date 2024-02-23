@@ -60,14 +60,14 @@ class Cfg(TrainCfg):
     num_envs: int = 1
     model_save_interval: int = 2
     seed: int = 1
-    ent_coef: float = .0015
+    ent_coef: float = .001
     # env_logger_path: str = f"tests/PPOL_New/logs/{run_dscrip}/env_logger.txt"
     env_logger_path: str = None
     # run_dscrip: str = f"SpeedLimit={speed_limit}-Seed={seed}"
     run_dscrip: str = f"Lines-Seed={seed}"
     start_location: list = field(default_factory=lambda: [0, 0])
     extra_lines: bool = True # Adds additional horizonatal lines in the parking environment 
-    additional_features: bool = True # Adds the quantized points of the lines to the observation
+    use_closest_line_distance_in_obs: bool = True # Adds the minimum distance from the car to all lines in the observation
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
@@ -111,7 +111,7 @@ def train(args: Cfg):
         "speed_limit": args.speed_limit,
         "start_location": args.start_location,
         "extra_lines": args.extra_lines,
-        "additional_features": args.additional_features,
+        "use_closest_line_distance_in_obs": args.use_closest_line_distance_in_obs,
     })
 
     def make_env(env_config):
