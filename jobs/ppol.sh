@@ -6,7 +6,7 @@
 #SBATCH --mem=7gb                # Memory allocated
 #SBATCH --nodes=6                 # Number of nodes
 #SBATCH --ntasks=6                # Number of tasks
-#SBATCH --time=4-00:00:00           # Maximum run time of the job (set to 3 days)
+#SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
 # Activate python environment, if you use one (e.g., conda or virtualenv)
