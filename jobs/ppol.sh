@@ -4,8 +4,8 @@
 #SBATCH --job-name=ppol-lines-large-net           # Name of the job
 #SBATCH --cpus-per-task=6         # Number of CPUs per task
 #SBATCH --mem=7gb                # Memory allocated
-#SBATCH --nodes=1                 # Number of nodes
-#SBATCH --ntasks=2                # Number of tasks
+#SBATCH --nodes=2                 # Number of nodes
+#SBATCH --ntasks=4                # Number of tasks
 #SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
@@ -19,8 +19,8 @@ BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol.py"
 
 # srun -N1 -n1 python3 $BASE_SCRIPT $ARGS
 
-SEEDS=("1" "2")  # Vary seeds
-ENT_COEFS=(".001")  # Vary entropy coefficents
+SEEDS=("1")  # Vary seeds
+ENT_COEFS=(".002" ".004" ".008" ".016")  # Vary entropy coefficents
 
 # Run the script as many times as the number of nodes in parallel
 for SEED in "${SEEDS[@]}"; do

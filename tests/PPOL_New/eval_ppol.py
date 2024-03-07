@@ -14,9 +14,9 @@ from dataclasses import dataclass, field
 class Cfg(EvalCfg):
     n_eval_episodes: int = 5
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ppol-extra-obs/4ts77xgw"
+    model_directory: str = "tests/PPOL_New/models/ppol-extra-obs/gcskytqy"
 
-    model_epoch: int = 8
+    model_epoch: int = 18
     model_save_interval: int = 5
     loop_over_epochs: bool = False
 
@@ -81,6 +81,8 @@ def evaluate(args: Cfg):
         # Load the saved data
         data, params, _ = load_from_zip_file(model_zip_file)
 
+        policy_kwargs = dict(net_arch=[128, 128, 128, 128, 128, 128, 128])
+
         # Load the trained agent
         agent = PPOL(
                     policy=data["policy_class"], 
@@ -91,6 +93,7 @@ def evaluate(args: Cfg):
                     K_P=args.K_P,
                     K_I=args.K_I,
                     K_D=args.K_D,
+                    policy_kwargs=policy_kwargs,
                     seed=args.seed
                 )
         
