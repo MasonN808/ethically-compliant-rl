@@ -50,10 +50,10 @@ while not done:
     # print(f'achieved_goal: {achieved_goal}')
     # print(f'desired_goal: {desired_goal}')
     # print(info)
-    # cost = info['cost']
-    # print(f'cost: {cost}')
+    cost = info['cost']
+    print(f'cost: {cost}')
     # print(f'reward: {rew}')
     # print(rew)
-    print(obs)
+    # print(obs)
 
     env.render()

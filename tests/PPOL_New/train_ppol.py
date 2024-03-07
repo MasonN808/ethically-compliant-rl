@@ -54,12 +54,12 @@ class Cfg(TrainCfg):
     wandb_project_name: str = "ppol-extra-obs"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 30
+    epochs: int = 20
     total_timesteps: int = 100000
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 2
-    seed: int = 3
+    seed: int = 1
     ent_coef: float = .001
     # env_logger_path: str = f"tests/PPOL_New/logs/{run_dscrip}/env_logger.txt"
     env_logger_path: str = None
@@ -67,7 +67,7 @@ class Cfg(TrainCfg):
     run_dscrip: str = f"Lines-Seed={seed}"
     start_location: list = field(default_factory=lambda: [0, 0])
     extra_lines: bool = True # Adds additional horizonatal lines in the parking environment 
-    use_closest_line_distance_in_obs: bool = True # Adds the minimum distance from the car to all lines in the observation
+    use_closest_line_distance_in_obs: bool = False # Adds the minimum distance from the car to all lines in the observation
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
@@ -79,24 +79,23 @@ class Cfg(TrainCfg):
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    import inspect
-    import torch
-    # Write the state to a text file
-    with open('pytorch_rng_state_ppol.txt', 'w') as file:
-        # file name
-        file.write(f"File: {__file__}\n")
-        # current line number
-        file.write(f"Line: {inspect.currentframe().f_lineno}\n")
-        file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
+    # import inspect
+    # import torch
+    # # Write the state to a text file
+    # with open('pytorch_rng_state_ppol.txt', 'w') as file:
+    #     # file name
+    #     file.write(f"File: {__file__}\n")
+    #     # current line number
+    #     file.write(f"Line: {inspect.currentframe().f_lineno}\n")
+    #     file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
 
     run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
     
     # Log all the config params to wandb
     # Instance of config
-    cfg = Cfg()
     # Convert the dataclass instance to a dictionary
-    params_dict = asdict(cfg)
+    params_dict = asdict(args)
     # Log the parameters to wandb
     wandb.config.update(params_dict)
 
@@ -126,6 +125,8 @@ def train(args: Cfg):
     envs = [make_env(env_config) for _ in range(args.num_envs)]
     env = DummyVecEnv(envs) 
 
+    policy_kwargs = dict(net_arch=[128, 128, 128, 128, 128, 128, 128])
+
     # Initialize the PPO agent with an MLP policy
     agent = PPOL("MlpPolicy",
                  env,
@@ -138,6 +139,7 @@ def train(args: Cfg):
                  batch_size=args.batch_size,
                  verbose=1,
                  ent_coef=args.ent_coef,
+                 policy_kwargs=policy_kwargs,
                  seed=args.seed)
 
     # Create WandbLoggingCallback
@@ -161,12 +163,12 @@ def train(args: Cfg):
     env.close()
 
     # Write the state to a text file
-    with open('pytorch_rng_state_ppol.txt', 'a') as file:
-        # file name
-        file.write(f"File: {__file__}\n")
-        # current line number
-        file.write(f"Line: {inspect.currentframe().f_lineno}\n")
-        file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
+    # with open('pytorch_rng_state_ppol.txt', 'a') as file:
+    #     # file name
+    #     file.write(f"File: {__file__}\n")
+    #     # current line number
+    #     file.write(f"Line: {inspect.currentframe().f_lineno}\n")
+    #     file.write(torch.get_rng_state().numpy().tobytes().hex() + "\n")
 
 if __name__ == "__main__":
     train()
