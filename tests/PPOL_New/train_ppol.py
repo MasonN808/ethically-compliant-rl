@@ -51,7 +51,7 @@ class WandbLoggingCallback(BaseCallback):
 @dataclass
 class Cfg(TrainCfg):
     speed_limit: Optional[float] = None
-    wandb_project_name: str = "ppol-extra-obs"
+    wandb_project_name: str = "ppol-large-MLP-lines"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 20
@@ -137,7 +137,7 @@ def train(args: Cfg):
                  K_I=args.K_I,
                  K_D=args.K_D,
                  batch_size=args.batch_size,
-                 verbose=1,
+                 verbose=0,
                  ent_coef=args.ent_coef,
                  policy_kwargs=policy_kwargs,
                  seed=args.seed)
