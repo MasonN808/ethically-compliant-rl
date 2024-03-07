@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=ppol-lines           # Name of the job
-#SBATCH --cpus-per-task=2         # Number of CPUs per task
+#SBATCH --job-name=ppol-lines-large-net           # Name of the job
+#SBATCH --cpus-per-task=6         # Number of CPUs per task
 #SBATCH --mem=7gb                # Memory allocated
-#SBATCH --nodes=6                 # Number of nodes
-#SBATCH --ntasks=6                # Number of tasks
+#SBATCH --nodes=1                 # Number of nodes
+#SBATCH --ntasks=2                # Number of tasks
 #SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
 #SBATCH --qos=scavenger           # Quality of Service of the job
 
@@ -19,14 +19,12 @@ BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol.py"
 
 # srun -N1 -n1 python3 $BASE_SCRIPT $ARGS
 
-SEEDS=("1" "2" "3")  # Vary seeds
-ENT_COEFS=(".001" ".002")  # Vary entropy coefficents
+SEEDS=("1" "2")  # Vary seeds
+ENT_COEFS=(".001")  # Vary entropy coefficents
 
 # Run the script as many times as the number of nodes in parallel
 for SEED in "${SEEDS[@]}"; do
     for ENT_COEF in "${ENT_COEFS[@]}"; do
-        echo "Running script with Seed: $SEED"
-        echo "Running script with ent coef: $ENT_COEF"
         srun -N1 -n1 python3 $BASE_SCRIPT --seed $SEED --ent_coef $ENT_COEF &
     done
 done
