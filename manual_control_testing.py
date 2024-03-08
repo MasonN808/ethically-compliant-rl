@@ -4,12 +4,26 @@ env = gym.make("parking-v0", render_mode="human")
 env.configure({
     "id": "parking-v0",
     "import_module": "highway_env",
+    # "observation": {
+    #     "type": "KinematicsLidarObservation",
+    #     "cells": 8,
+    #     "maximum_range": 60,
+    #     "normalize": True,
+    #     "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
+    #     "scales": [100, 100, 5, 5, 1, 1],
+    # },
     "observation": {
-        "type": "KinematicsGoal",
-        "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
-        "scales": [100, 100, 5, 5, 1, 1],
-        "normalize": False,
+        "type": "LidarObservation",
+        "cells": 50,
+        "maximum_range": 60,
+        "normalize": True,
     },
+    # "observation": {
+    #     "type": "KinematicsGoal",
+    #     "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
+    #     "scales": [100, 100, 5, 5, 1, 1],
+    #     "normalize": False,
+    # },
     "action": {
         "type": "ContinuousAction"
     },
@@ -31,7 +45,7 @@ env.configure({
     "start_location": [40, 30],
     "manual_control": True,
     "extra_lines": True,
-    "use_closest_line_distance_in_obs": True,
+    "use_closest_line_distance_in_obs": False,
 
     # Costs
     "constraint_type":["lines"],
@@ -50,10 +64,10 @@ while not done:
     # print(f'achieved_goal: {achieved_goal}')
     # print(f'desired_goal: {desired_goal}')
     # print(info)
-    cost = info['cost']
-    print(f'cost: {cost}')
+    # cost = info['cost']
+    # print(f'cost: {cost}')
     # print(f'reward: {rew}')
     # print(rew)
-    # print(obs)
+    print(obs)
 
     env.render()
