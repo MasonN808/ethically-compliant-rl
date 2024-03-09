@@ -1,0 +1,260 @@
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:164: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64[0m
+  logger.warn(
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:188: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:164: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64[0m
+  logger.warn(
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:188: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:164: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64[0m
+  logger.warn(
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:188: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:164: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64[0m
+  logger.warn(
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:188: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:164: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64[0m
+  logger.warn(
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:188: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:164: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64[0m
+  logger.warn(
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:188: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:164: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64[0m
+  logger.warn(
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:188: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:164: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64[0m
+  logger.warn(
+/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:188: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+srun: error: eio_message_socket_accept: slurm_receive_msg[35.203.210.190:57738]: Insane message length
+Directory created: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/dgf4ef7l
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:                   avg_speed ▇▆▆▁▁▃██▄███▅███▂█████████▇███████▆█▇▆█▆
+wandb:                        cost ▁▁▁▁▁▁▁▁▁▁████▁▁▁▁▁█▁▁▁▁▁▁▁██▁▁█▁▁█▁▁█▁█
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                   max_speed ▇▆▆▁▁▃██▄███▅███▂█████████▇███████▆█▇▆█▆
+wandb:                      reward ▁▅▆▆▆▇▅▆▆▇█▆▇▇▇█▆▇▇█▇▇▇▇▇▇██▇▇▇█▄▇▇▇▇██▇
+wandb:             train/approx_kl ▁▁▁▁▁▁▁▁▁▁▂▁▁▂▂▁▁▂▂▂▂▃▂▂▂▃▅▂▁▄▄▄▂█▃▂▂▇▃▂
+wandb:         train/clip_fraction ▁▁▁▂▁▂▂▁▂▂▂▂▂▂▂▂▂▃▃▃▂▄▄▄▃▅▅▃▃▄▄▃▃▅▅▄▄█▄▄
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▁▁▄▅▅▅▄▆▇▇█▇███▇▆▇▇▆▆▆▆▆▆▆▅▅▅▆▅▅▃▅▅▆▅▃▅▁
+wandb:       train/cost_value_loss ▁▁▄▄▃▃▂▄▆▅█▆███▆▅▆▅▄▄▃▄▅▄▄▃▃▃▄▃▃▂▃▃▄▄▃▃▂
+wandb:           train/cost_values ▃▃▆█████████████▇█████████████▇▆▄███▆▃▇▁
+wandb:               train/entropy ▁▁▁▁▁▁▂▂▂▂▂▃▃▃▃▄▄▄▄▅▅▅▆▆▆▆▇▇▇▇▇▇▇▇██████
+wandb:          train/entropy_loss ▁▁▁▁▁▁▂▂▂▂▂▃▃▃▃▄▄▄▄▅▅▅▆▆▆▆▇▇▇▇▇▇▇▇██████
+wandb:    train/explained_variance ▁▁▆▃▅▅▃▃▇▇█████▇▆▄▅▄▄▆▅▅▅▅▅▆▅▅▅▅█▅▆▆▃█▆█
+wandb: train/lagrangian_multiplier ▁▁▂▄▂▃▁▃▄▆█▄▂▃▆▂▄▄▄▆▄▃▂▃▆▂▂▂▂▃▂▁▁▃▃▃▁▅▂▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss ▆▂▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▂▂▁▃▂▁▂▂▂▁▂▂▂▁▁█▂▂
+wandb:                   train/std ▇███▇▇▆▆▆▆▅▅▄▄▄▃▃▃▃▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            train/value_loss ▅▂▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂
+wandb: 
+wandb: Run summary:
+wandb:                   avg_speed 8.0
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                   max_speed 8.0
+wandb:                      reward -1.14266
+wandb:             train/approx_kl 0.0268
+wandb:         train/clip_fraction 0.2689
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 1.47473
+wandb:       train/cost_value_loss 5.43732
+wandb:           train/cost_values 0.39425
+wandb:               train/entropy 2.12044
+wandb:          train/entropy_loss 2.11519
+wandb:    train/explained_variance 0.99248
+wandb: train/lagrangian_multiplier 0.0
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss 22.57265
+wandb:             train/n_updates 19590
+wandb:  train/policy_gradient_loss 0.01018
+wandb:                   train/std 0.08497
+wandb:            train/value_loss 46.52106
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /nas/ucb/mason/ethically-compliant-rl/wandb/offline-run-20240308_211950-dgf4ef7l
+wandb: Find logs at: ./wandb/offline-run-20240308_211950-dgf4ef7l/logs
+Directory created: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/8luusdcj
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:                   avg_speed ▅▁██▅█▄████▁███▆▅▄▁▆█▁▅█▆▅███▆▆▃▂█████▂█
+wandb:                        cost ▁▁▁██▁██▁▁▁▁▁█▁▁▁█▁█▁▁▁▁██▁▁▁▁▁█▁▁▁███▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                   max_speed ▅▁██▅█▄████▁███▆▅▄▁▆█▁▅█▆▅███▆▆▃▂█████▂█
+wandb:                      reward ▁▄▂▄▃▄▅▅▆▆▅▄▇▆▇▆▇▆▃▆█▃▇▇▇▆▆▇▇▇▆▆▄▆▅▇▇▇▃▆
+wandb:             train/approx_kl ▁▁▁▁▁▁▁▁▁▁▂▁▂▂▂▂▂▂▃▂▃▂▂▃▆▃▇▄▃▄▃▂▅▇█▄▄▄▅▄
+wandb:         train/clip_fraction ▁▁▂▁▂▂▂▃▂▂▅▄▅▄▄▅▄▄█▆▆▇▄▇▇▅▇▆▇▅▆▅██▆▇▇█▇█
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▁▃▄▇▇▇▇▇▇▅▇█▇▆▇█▇▇▇▇█▇▇▆▆▇▆▇▆▇▇▇▆▇▇▇▆▇▆▆
+wandb:       train/cost_value_loss ▁▃▂▅▅▆▆▆▆▅▆▇▅▅▅█▆▇▇▆█▆▅▅▄▅▄▅▄▆▆▇▅▇▆▆▄▅▅▄
+wandb:           train/cost_values ▁▇▅██████▇██████████████████████████████
+wandb:               train/entropy ▁▁▁▁▂▂▂▃▃▃▄▄▄▄▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇███████
+wandb:          train/entropy_loss ▁▁▁▁▂▂▂▃▃▃▄▄▄▄▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇███████
+wandb:    train/explained_variance ▁▁█▄▁▄▁▄▄█▄▄▅▃▄▄▄▃▄▅▄▆▆▅▆▅▆▆▇▄▄▅█▅▇▆█▇▅▇
+wandb: train/lagrangian_multiplier ▁▁▂▄▄▄▄▂▄▂▁█▅▄▆▄▅▅▁▅▄▅▁▃▂▅▂▂▃▇▄▃▄▅▁▅▄▂▁▄
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss ▆█▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▃▃▂▂▂▂▂▃▂▃▄▁▃▁▁▅▂▂█▅▃▅▁▆▅▃▄▄▅▃▃▂▅▆▅▃▄▆▃▅
+wandb:                   train/std ██▇▇▆▆▅▄▄▃▃▃▃▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            train/value_loss ▇█▁▁▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:                   avg_speed 0.2
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                   max_speed 0.2
+wandb:                      reward -0.61464
+wandb:             train/approx_kl 0.06966
+wandb:         train/clip_fraction 0.38008
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 7.31901
+wandb:       train/cost_value_loss 26.27221
+wandb:           train/cost_values 3.00046
+wandb:               train/entropy 3.19228
+wandb:          train/entropy_loss 3.19206
+wandb:    train/explained_variance 0.61981
+wandb: train/lagrangian_multiplier 0.01142
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss 5.07053
+wandb:             train/n_updates 19590
+wandb:  train/policy_gradient_loss 0.00616
+wandb:                   train/std 0.04919
+wandb:            train/value_loss 7.96065
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /nas/ucb/mason/ethically-compliant-rl/wandb/offline-run-20240308_131950-8luusdcj
+wandb: Find logs at: ./wandb/offline-run-20240308_131950-8luusdcj/logs
+Directory created: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-lines/lxh2yqa9
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:                   avg_speed ██▇▇█████▇███▆▇█▁▃████▅▅▂▅▆█▃▆▃█▅▄▅▆▄▇██
+wandb:                        cost ▁▁▁█▁▁▁█▁▁███▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                   max_speed ██▇▇█████▇███▆▇█▁▃████▅▅▂▅▆█▃▆▃█▅▄▅▆▄▇██
+wandb:                      reward ▁▃▆▇▆▆▇██▇█████▇▇▇██▇█▇█▇██▇█▇█▇██▇███▇▇
+wandb:             train/approx_kl ▁▁▁▁▁▂▁▁█▂▄▁▂▂▃▁▁▂▄▂▂▁▁█▁▃▃▃▄▇▆▃▂▃▂▃▃▂▃▃
+wandb:         train/clip_fraction ▁▂▂▁▃▃▃▂▇▃▅▂▃▄▃▃▂▅▆▅▅▃▃▇▄▆▅▅▇█▆▅▃▅▃▅▆▆▆▄
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▁▂▄▆▆▆▆▇▆▆▇▇▆▇▆▇▇▆▆▆▇▇▇▇█▇▇██▆▇▆██▇▇▇▅▇▇
+wandb:       train/cost_value_loss ▁▄▂▃▄▄▅▆▄▄▇▆▅▇▅▆▆▅▅▅▅▅▆▇▇▆▆██▅▇▅█▇▇▇▆▅▇▆
+wandb:           train/cost_values ▁▁▇█████████████████████████████████████
+wandb:               train/entropy ▂▁▁▁▂▂▂▃▃▃▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇█████
+wandb:          train/entropy_loss ▂▁▁▁▂▂▂▃▃▃▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇█████
+wandb:    train/explained_variance ▂▂▁▆▄▂▃▃▁▄▅▃▄▄▃▃▄▇▄▃▄▅▄▄▆▆▅▆▃▂▄▅▅█▅▄▄█▅█
+wandb: train/lagrangian_multiplier ▁▁▂▃▃▂▃▃▂▂▂▁▁▅▂▁▁▄▁▃▁▃▃▃▅▅▁▁█▄▄▄▆▁▂▅▂▂▄▄
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss █▆▁▁▁▁▁▁▁▁▁▁▂▁▁▂▁▁▂▁▂▁▁▁▁▁▂▂▁▁▁▁▁▂▁▁▁▁▁▁
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▃▂▂▃▁▂▁▂▅▂▄▂▂▂▃▂▂▃▇▄▃▁▂▆▃▄▄▂▄█▄▃▁▃▁▃▄▅▄▂
+wandb:                   train/std ▇██▇▇▆▆▅▅▄▄▄▄▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁
+wandb:            train/value_loss █▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:                   avg_speed 7.62569
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                   max_speed 7.62569
+wandb:                      reward -0.33016
+wandb:             train/approx_kl 0.02976
+wandb:         train/clip_fraction 0.16606
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 9.16608
+wandb:       train/cost_value_loss 45.32296
+wandb:           train/cost_values 2.99794
+wandb:               train/entropy 0.38228
+wandb:          train/entropy_loss 0.37746
+wandb:    train/explained_variance 0.80939
+wandb: train/lagrangian_multiplier 0.0148
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss 5.71149
+wandb:             train/n_updates 19590
+wandb:  train/policy_gradient_loss -0.00935
+wandb:                   train/std 0.22389
+wandb:            train/value_loss 8.71068
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /nas/ucb/mason/ethically-compliant-rl/wandb/offline-run-20240308_131952-lxh2yqa9
+wandb: Find logs at: ./wandb/offline-run-20240308_131952-lxh2yqa9/logs
+slurmstepd: error: *** JOB 148885 ON airl.ist.berkeley.edu CANCELLED AT 2024-03-09T21:16:36 ***
+slurmstepd: error: *** STEP 148885.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2024-03-09T13:16:36 ***
