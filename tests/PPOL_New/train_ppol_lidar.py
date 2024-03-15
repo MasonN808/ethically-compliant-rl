@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import ast
 import os
-from typing import Optional
+from typing import Optional, Dict, List
 # Enables WandB cloud syncing
 os.environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
@@ -60,7 +60,7 @@ class Cfg(TrainCfg):
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 2
-    policy_kwargs: dict = dict(net_arch=[256, 256, 256])
+    policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [256, 256, 256]})
     seed: int = 1
     ent_coef: float = .001
     env_logger_path: str = None
