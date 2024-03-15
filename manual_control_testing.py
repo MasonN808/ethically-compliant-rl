@@ -1,4 +1,6 @@
 import gymnasium as gym
+import numpy as np
+np.seterr(divide='ignore', invalid='ignore') # Useful for lidar observation
 
 env = gym.make("parking-v0", render_mode="human")
 env.configure({
@@ -14,7 +16,7 @@ env.configure({
     # },
     "observation": {
         "type": "LidarObservation",
-        "cells": 50,
+        "cells": 100,
         "maximum_range": 60,
         "normalize": True,
     },
@@ -64,10 +66,10 @@ while not done:
     # print(f'achieved_goal: {achieved_goal}')
     # print(f'desired_goal: {desired_goal}')
     # print(info)
-    # cost = info['cost']
-    # print(f'cost: {cost}')
+    cost = info['cost']
+    print(f'cost: {cost}')
     # print(f'reward: {rew}')
     # print(rew)
-    print(obs)
+    # print(obs)
 
     env.render()

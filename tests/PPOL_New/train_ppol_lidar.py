@@ -60,12 +60,13 @@ class Cfg(TrainCfg):
     batch_size: int = 512
     num_envs: int = 1
     model_save_interval: int = 2
+    policy_kwargs: dict = dict(net_arch=[256, 256, 256])
     seed: int = 1
     ent_coef: float = .001
     env_logger_path: str = None
     run_dscrip: str = f"Lines-Seed={seed}"
     start_location: list = field(default_factory=lambda: [0, 0])
-    extra_lines: bool = True # Adds additional horizonatal lines in the parking environment 
+    extra_lines: bool = True # Adds additional horizonatal lines in the parking environment
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
@@ -92,7 +93,7 @@ def train(args: Cfg):
     env_config.update({
         "observation": {
             "type": "KinematicsLidarObservation",
-            "cells": 50,
+            "cells": 100,
             "maximum_range": 60,
             "normalize": True,
             "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
@@ -129,6 +130,7 @@ def train(args: Cfg):
                  batch_size=args.batch_size,
                  verbose=0,
                  ent_coef=args.ent_coef,
+                 policy_kwargs=args.policy_kwargs,
                  seed=args.seed)
 
     # Create WandbLoggingCallback

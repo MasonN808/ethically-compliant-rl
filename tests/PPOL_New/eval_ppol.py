@@ -12,11 +12,11 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Cfg(EvalCfg):
-    n_eval_episodes: int = 5
+    n_eval_episodes: int = 3
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ppol-large-MLP-lines/12v1ddrt"
+    model_directory: str = "tests/PPOL_New/models/ppol-LIDAR-lines/dqlinzic"
 
-    model_epoch: int = 18
+    model_epoch: int = 38
     model_save_interval: int = 5
     loop_over_epochs: bool = False
 
@@ -30,7 +30,6 @@ class Cfg(EvalCfg):
     # Env Params
     start_location: list = field(default_factory=lambda: [0, 0])
     extra_lines: bool = True # Adds additional horizonatal lines in the parking environment 
-    use_closest_line_distance_in_obs: bool = True # Adds the quantized points of the lines to the observation
 
 @pyrallis.wrap()
 def evaluate(args: Cfg):
@@ -61,6 +60,14 @@ def evaluate(args: Cfg):
         ENV_CONFIG = ast.literal_eval(data)
         # Overriding certain keys in the environment config
         ENV_CONFIG.update({
+            "observation": {
+                "type": "KinematicsLidarObservation",
+                "cells": 50,
+                "maximum_range": 60,
+                "normalize": True,
+                "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
+                "scales": [100, 100, 5, 5, 1, 1],
+            },
             "start_angle": -np.math.pi/2, # This is radians
             "duration": 60,
             "simulation_frequency": 30,
@@ -68,7 +75,6 @@ def evaluate(args: Cfg):
             "start_location": args.start_location,
             "constraint_type": args.constraint_type,
             "extra_lines": args.extra_lines,
-            "use_closest_line_distance_in_obs": args.use_closest_line_distance_in_obs,
         })
 
         # Load the Highway env from the config file
@@ -81,7 +87,7 @@ def evaluate(args: Cfg):
         # Load the saved data
         data, params, _ = load_from_zip_file(model_zip_file)
 
-        policy_kwargs = dict(net_arch=[128, 128, 128, 128, 128, 128, 128])
+        # policy_kwargs = dict(net_arch=[128, 128, 128, 128, 128, 128, 128])
 
         # Load the trained agent
         agent = PPOL(
@@ -93,7 +99,7 @@ def evaluate(args: Cfg):
                     K_P=args.K_P,
                     K_I=args.K_I,
                     K_D=args.K_D,
-                    policy_kwargs=policy_kwargs,
+                    # policy_kwargs=policy_kwargs,
                     seed=args.seed
                 )
         
