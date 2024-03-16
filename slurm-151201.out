@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar.py", line 53, in <module>
+    class Cfg(TrainCfg):
+  File "/usr/lib/python3.9/dataclasses.py", line 1021, in dataclass
+    return wrap(cls)
+  File "/usr/lib/python3.9/dataclasses.py", line 1013, in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash, frozen)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in _process_class
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in <listcomp>
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 747, in _get_field
+    raise ValueError(f'mutable default {type(f.default)} for field '
+ValueError: mutable default <class 'dict'> for field policy_kwargs is not allowed: use default_factory
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar.py", line 53, in <module>
+    class Cfg(TrainCfg):
+  File "/usr/lib/python3.9/dataclasses.py", line 1021, in dataclass
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar.py", line 53, in <module>
+    class Cfg(TrainCfg):
+  File "/usr/lib/python3.9/dataclasses.py", line 1021, in dataclass
+    return wrap(cls)
+  File "/usr/lib/python3.9/dataclasses.py", line 1013, in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash, frozen)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in _process_class
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in <listcomp>
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 747, in _get_field
+    raise ValueError(f'mutable default {type(f.default)} for field '
+ValueError: mutable default <class 'dict'> for field policy_kwargs is not allowed: use default_factory
+    return wrap(cls)
+  File "/usr/lib/python3.9/dataclasses.py", line 1013, in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash, frozen)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in _process_class
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in <listcomp>
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 747, in _get_field
+    raise ValueError(f'mutable default {type(f.default)} for field '
+ValueError: mutable default <class 'dict'> for field policy_kwargs is not allowed: use default_factory
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar.py", line 53, in <module>
+    class Cfg(TrainCfg):
+  File "/usr/lib/python3.9/dataclasses.py", line 1021, in dataclass
+    return wrap(cls)
+  File "/usr/lib/python3.9/dataclasses.py", line 1013, in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash, frozen)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in _process_class
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 863, in <listcomp>
+    cls_fields = [_get_field(cls, name, type)
+  File "/usr/lib/python3.9/dataclasses.py", line 747, in _get_field
+    raise ValueError(f'mutable default {type(f.default)} for field '
+ValueError: mutable default <class 'dict'> for field policy_kwargs is not allowed: use default_factory
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1
