@@ -12,9 +12,9 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Cfg(EvalCfg):
-    n_eval_episodes: int = 3
+    n_eval_episodes: int = 2
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ppol-LIDAR-lines/dqlinzic"
+    model_directory: str = "tests/PPOL_New/models/ppol-LIDAR-lines/0tscgbvu"
 
     model_epoch: int = 38
     model_save_interval: int = 5
@@ -62,7 +62,7 @@ def evaluate(args: Cfg):
         ENV_CONFIG.update({
             "observation": {
                 "type": "KinematicsLidarObservation",
-                "cells": 50,
+                "cells": 100,
                 "maximum_range": 60,
                 "normalize": True,
                 "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
@@ -92,6 +92,7 @@ def evaluate(args: Cfg):
         # Load the trained agent
         agent = PPOL(
                     policy=data["policy_class"], 
+                    policy_kwargs=data["policy_kwargs"], 
                     env=env, 
                     device='auto',
                     n_costs=len(args.constraint_type),
