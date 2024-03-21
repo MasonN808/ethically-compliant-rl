@@ -13,7 +13,7 @@ import torch.nn as nn
 from stable_baselines3 import PPOL
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import BaseCallback
-from stable_baselines3.common.policies import ActorManyCriticPolicy
+from stable_baselines3.common.policies import ActorCriticPolicy, ActorManyCriticPolicy
 from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
 
 from utils import load_environment, verify_and_solve_path
@@ -26,10 +26,9 @@ import gymnasium as gym
 
 
 class CustomCNN(nn.Module):
-    def __init__(self, observation_space: gym.Space, n_additional_features, out_features_dim):
+    def __init__(self, observation_space: gym.spaces.Dict, kinematics_obs, features_dim=512):
         super(CustomCNN, self).__init__()
-        # Define the CNN part
-        n_input_channels = observation_space.shape[0]
+        n_input_channels = observation_space['lidar'].shape[0]
         self.cnn = nn.Sequential(
             nn.Conv2d(n_input_channels, 32, kernel_size=8, stride=4, padding=0),
             nn.ReLU(),
@@ -40,54 +39,39 @@ class CustomCNN(nn.Module):
             nn.Flatten(),
         )
 
-        # Compute shape by doing one forward pass
+        # Compute shape by doing one forward pass of a sample image
         with th.no_grad():
-            n_flatten = self.cnn(th.as_tensor(observation_space.sample()[None]).float()).shape[1]
+            n_flatten = self.cnn(th.as_tensor(observation_space['image'].sample()[None]).float()).shape[1]
 
-        # Define the part that processes additional features
-        self.additional_feature_layers = nn.Linear(n_additional_features, 64)
-
-        self.linear = nn.Sequential(nn.Linear(n_flatten, out_features_dim), nn.ReLU())
-
-        # Define the final fully connected layers
-        self.fc_layers = nn.Sequential(
-            nn.Linear(64 + , 512),
+        self.additional_features_layer = nn.Linear(kinematics_obs, 64)
+        self.features_dim = features_dim
+        self.post_cnn = nn.Sequential(
+            nn.Linear(n_flatten + 64, n_flatten + 64),
+            nn.Linear(n_flatten + 64, self.features_dim),
             nn.ReLU(),
-            # More layers as needed
-            nn.Linear(512, n_actions) # Assuming a discrete action space
         )
 
-    def forward(self, image_obs, additional_features):
-        # Process the image observation through CNN
-        cnn_out = self.cnn_layers(image_obs)
-        cnn_out = cnn_out.view(cnn_out.size(0), -1) # Flatten the output
-        
-        # Process additional features
-        additional_features_out = self.additional_feature_layers(additional_features)
-        
-        # Concatenate the outputs
-        combined_out = th.cat((cnn_out, additional_features_out), dim=1)
-        
-        # Pass the combined output through the final layers
-        return self.fc_layers(combined_out)
+    def forward(self, observations):
+        lidar_obs = observations['lidar'].flatten()
+        kinematics_obs = (observations['desired_goal'] + observations['observation']).flatten()
+        cnn_out = self.cnn(lidar_obs)
+        additional_out = self.additional_features_layer(kinematics_obs)
+        combined_out = th.cat((cnn_out, additional_out), dim=1)
+        return self.post_cnn(combined_out)
 
 class CustomFeatureExtractor(BaseFeaturesExtractor):
-    def __init__(self, observation_space, features_dim=512):
-        super(CustomFeatureExtractor, self).__init__(observation_space, features_dim)
-        self.extractor = CustomCNN(n_additional_features=18)
+    def __init__(self, observation_space: gym.spaces.Space, features_dim: int = 512):
+        super(CustomFeatureExtractor, self).__init__(observation_space, features_dim=features_dim)
+        self.extractor = CustomCNN(observation_space=observation_space.spaces, kinematics_obs=12, features_dim=features_dim)
 
     def forward(self, observations):
-        image_obs = observations["image"]
-        additional_features = observations["additional_features"]
-        return self.extractor(image_obs, additional_features)
+        return self.extractor(observations)
 
 class CustomPolicy(ActorManyCriticPolicy):
     def __init__(self, *args, **kwargs):
-        super(CustomPolicy, self).__init__(*args, **kwargs,
-                                           features_extractor_class=CustomFeatureExtractor,
-                                           features_extractor_kwargs={"features_dim": 512},
-                                           net_arch=[],
-                                           )
+        kwargs['features_extractor_class'] = CustomFeatureExtractor
+        kwargs['features_extractor_kwargs'] = {'features_dim': 512}
+        super(CustomPolicy, self).__init__(*args, **kwargs)
 
 class WandbLoggingCallback(BaseCallback):
     def __init__(self, verbose=0):
