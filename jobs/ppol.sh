@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=ppol-lines-lidar          # Name of the job
-#SBATCH --cpus-per-task=3         # Number of CPUs per task
-#SBATCH --mem=3gb                # Memory allocated
+#SBATCH --job-name=ppol-lines-lidar-cnn          # Name of the job
+#SBATCH --cpus-per-task=2         # Number of CPUs per task
+#SBATCH --mem=2gb                # Memory allocated
 #SBATCH --nodes=4                 # Number of nodes
 #SBATCH --ntasks=4                # Number of tasks
 #SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
