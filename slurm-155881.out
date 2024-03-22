@@ -1,0 +1,171 @@
+/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/cuda/__init__.py:209: UserWarning: 
+    Found GPU0 NVIDIA A100 80GB PCIe which is of cuda capability 8.0.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 8.6.
+    
+  warnings.warn(
+/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/cuda/__init__.py:209: UserWarning: 
+    Found GPU1 NVIDIA A100 80GB PCIe which is of cuda capability 8.0.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 8.6.
+    
+  warnings.warn(
+/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/cuda/__init__.py:209: UserWarning: 
+    Found GPU2 NVIDIA A100 80GB PCIe which is of cuda capability 8.0.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 8.6.
+    
+  warnings.warn(
+/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/cuda/__init__.py:209: UserWarning: 
+    Found GPU0 NVIDIA A100-SXM4-80GB which is of cuda capability 8.0.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 8.6.
+    
+  warnings.warn(
+/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/cuda/__init__.py:209: UserWarning: 
+    Found GPU1 NVIDIA A100-SXM4-80GB which is of cuda capability 8.0.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 8.6.
+    
+  warnings.warn(
+/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/cuda/__init__.py:209: UserWarning: 
+    Found GPU2 NVIDIA A100-SXM4-80GB which is of cuda capability 8.0.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 8.6.
+    
+  warnings.warn(
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240321_085756-vzxooed2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run peachy-dawn-8
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-LIDAR-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/vzxooed2
+wandb: wandb version 0.16.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240321_155757-93489el6
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cool-plasma-9
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-LIDAR-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/93489el6
+True
+0
+NVIDIA RTX A6000
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 208, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 182, in train
+    agent = PPOL("MlpPolicy",
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 192, in __init__
+    self._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 195, in _setup_model
+    super()._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 438, in _setup_model
+    self.policy = self.policy_class(  # type: ignore[assignment]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1118, in __init__
+    self._build(lr_schedule) # THIS IS IT
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1216, in _build
+    module.apply(partial(self.init_weights, gain=gain))
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 891, in apply
+    fn(self)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 307, in init_weights
+    nn.init.orthogonal_(module.weight, gain=gain)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/init.py", line 543, in orthogonal_
+    q, r = torch.linalg.qr(flattened)
+RuntimeError: Calling torch.geqrf on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+wandb: wandb version 0.16.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240321_155757-xc0im7c3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: Syncing run jolly-jazz-10
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-LIDAR-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/xc0im7c3
+True
+0
+NVIDIA A100 80GB PCIe
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 208, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 182, in train
+    agent = PPOL("MlpPolicy",
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 192, in __init__
+    self._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 195, in _setup_model
+    super()._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 438, in _setup_model
+    self.policy = self.policy_class(  # type: ignore[assignment]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1118, in __init__
+    self._build(lr_schedule) # THIS IS IT
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1216, in _build
+    module.apply(partial(self.init_weights, gain=gain))
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 891, in apply
+    fn(self)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 307, in init_weights
+    nn.init.orthogonal_(module.weight, gain=gain)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/init.py", line 543, in orthogonal_
+    q, r = torch.linalg.qr(flattened)
+RuntimeError: Calling torch.geqrf on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+True
+0
+NVIDIA A100-SXM4-80GB
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 208, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 182, in train
+    agent = PPOL("MlpPolicy",
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 192, in __init__
+    self._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 195, in _setup_model
+    super()._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 438, in _setup_model
+    self.policy = self.policy_class(  # type: ignore[assignment]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1118, in __init__
+    self._build(lr_schedule) # THIS IS IT
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1216, in _build
+    module.apply(partial(self.init_weights, gain=gain))
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 891, in apply
+    fn(self)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 307, in init_weights
+    nn.init.orthogonal_(module.weight, gain=gain)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/init.py", line 543, in orthogonal_
+    q, r = torch.linalg.qr(flattened)
+RuntimeError: Calling torch.geqrf on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run peachy-dawn-8 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/vzxooed2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240321_085756-vzxooed2/logs
+wandb: 🚀 View run jolly-jazz-10 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/xc0im7c3
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240321_155757-xc0im7c3/logs
+wandb: 🚀 View run cool-plasma-9 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/93489el6
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240321_155757-93489el6/logs
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1

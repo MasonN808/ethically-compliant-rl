@@ -1,0 +1,150 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.16.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240321_160403-79raf120
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run silvery-star-14
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-LIDAR-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/79raf120
+wandb: wandb version 0.16.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240321_090405-lrlc2yw7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run vague-sky-15
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-LIDAR-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/lrlc2yw7
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: wandb version 0.16.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240321_160404-kcy2m8ux
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run swift-water-16
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-LIDAR-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/kcy2m8ux
+True
+0
+NVIDIA A100 80GB PCIe
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 209, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 202, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 445, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 646, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 248, in train
+    for rollout_data in self.rollout_buffer.get(self.batch_size):
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 903, in get
+    yield self._get_samples(indices[start_idx : start_idx + batch_size])
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 911, in _get_samples
+    return DictRolloutBufferSamples(
+TypeError: <lambda>() got an unexpected keyword argument 'costs'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+True
+0
+NVIDIA A100-SXM4-80GB
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 209, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 202, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 445, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 646, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 248, in train
+    for rollout_data in self.rollout_buffer.get(self.batch_size):
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 903, in get
+    yield self._get_samples(indices[start_idx : start_idx + batch_size])
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 911, in _get_samples
+    return DictRolloutBufferSamples(
+TypeError: <lambda>() got an unexpected keyword argument 'costs'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+True
+0
+NVIDIA RTX A6000
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 209, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 202, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 445, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 646, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 248, in train
+    for rollout_data in self.rollout_buffer.get(self.batch_size):
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 903, in get
+    yield self._get_samples(indices[start_idx : start_idx + batch_size])
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/buffers.py", line 911, in _get_samples
+    return DictRolloutBufferSamples(
+TypeError: <lambda>() got an unexpected keyword argument 'costs'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:  avg_speed ▂▁▁▁▂▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▃▄▄▃▄▆▄▃▃▂▅▆▆▇█▇▁
+wandb:       cost █▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  max_speed ▂▁▁▁▂▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▃▄▄▃▄▆▄▃▃▂▅▆▆▇█▇▁
+wandb:     reward ▆▆▆▆▅▃▃▃▄▅▆▆▇▅▄▄▄▅▄▄▆▅▄▄▄▅▄▅▅▄▄▄▃▃▄▄▃▂▁█
+wandb: 
+wandb: Run summary:
+wandb:  avg_speed 0.45703
+wandb:       cost 0
+wandb: is_success 0
+wandb:  max_speed 0.45703
+wandb:     reward -0.15879
+wandb: 
+wandb: 🚀 View run silvery-star-14 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/79raf120
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240321_160403-79raf120/logs
+wandb: 
+wandb: Run history:
+wandb:  avg_speed ▂▁▁▁▂▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▃▄▄▃▄▆▄▃▃▂▅▆▆▇█▇▁
+wandb:       cost █▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  max_speed ▂▁▁▁▂▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▃▄▄▃▄▆▄▃▃▂▅▆▆▇█▇▁
+wandb:     reward ▆▆▆▆▅▃▃▃▄▅▆▆▇▅▄▄▄▅▄▄▆▅▄▄▄▅▄▅▅▄▄▄▃▃▄▄▃▂▁█
+wandb: 
+wandb: Run summary:
+wandb:  avg_speed 0.45703
+wandb:       cost 0
+wandb: is_success 0
+wandb:  max_speed 0.45703
+wandb:     reward -0.15879
+wandb: 
+wandb: 🚀 View run swift-water-16 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/kcy2m8ux
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240321_160404-kcy2m8ux/logs
+wandb: 
+wandb: Run history:
+wandb:  avg_speed ▂▁▁▁▂▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▃▄▄▃▄▆▄▃▃▂▅▆▆▇█▇▁
+wandb:       cost █▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  max_speed ▂▁▁▁▂▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▃▄▄▃▄▆▄▃▃▂▅▆▆▇█▇▁
+wandb:     reward ▆▆▆▆▅▃▃▃▄▅▆▆▇▅▄▄▄▅▄▄▆▅▄▄▄▅▄▅▅▄▄▄▃▃▄▄▃▂▁█
+wandb: 
+wandb: Run summary:
+wandb:  avg_speed 0.45703
+wandb:       cost 0
+wandb: is_success 0
+wandb:  max_speed 0.45703
+wandb:     reward -0.15879
+wandb: 
+wandb: 🚀 View run vague-sky-15 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/lrlc2yw7
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240321_090405-lrlc2yw7/logs
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 1

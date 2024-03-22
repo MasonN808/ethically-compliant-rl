@@ -3,7 +3,7 @@ import ast
 import os
 from typing import Optional, Dict, List
 # Enables WandB cloud syncing
-os.environ['WANDB_DISABLED'] = 'True'
+os.environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 import numpy as np
 import wandb
@@ -71,7 +71,9 @@ np.seterr(divide='ignore', invalid='ignore') # Useful for lidar observation
 #         kwargs['features_extractor_class'] = CustomFeatureExtractor
 #         kwargs['features_extractor_kwargs'] = {'features_dim': 512}
 #         super(CustomPolicy, self).__init__(*args, **kwargs)
-
+print(th.cuda.is_available())  # Should print True if CUDA is available
+print(th.cuda.current_device())  # Prints the index of the current CUDA device
+print(th.cuda.get_device_name(0))  # Prints the name of the first CUDA device
 
 class WandbLoggingCallback(BaseCallback):
     def __init__(self, verbose=0):
@@ -189,7 +191,8 @@ def train(args: Cfg):
                  verbose=0,
                  ent_coef=args.ent_coef,
                  policy_kwargs=args.policy_kwargs,
-                 seed=args.seed)
+                 seed=args.seed,
+                 device="cuda")
 
     # Create WandbLoggingCallback
     callback = WandbLoggingCallback(env)

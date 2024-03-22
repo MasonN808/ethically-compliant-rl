@@ -1,0 +1,113 @@
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 206, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 180, in train
+    agent = PPOL("MlpPolicy",
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 192, in __init__
+    self._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 195, in _setup_model
+    super()._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 438, in _setup_model
+    self.policy = self.policy_class(  # type: ignore[assignment]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1118, in __init__
+    self._build(lr_schedule) # THIS IS IT
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1216, in _build
+    module.apply(partial(self.init_weights, gain=gain))
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 891, in apply
+    fn(self)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 307, in init_weights
+    nn.init.orthogonal_(module.weight, gain=gain)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/init.py", line 543, in orthogonal_
+    q, r = torch.linalg.qr(flattened)
+RuntimeError: Calling torch.geqrf on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+wandb: Waiting for W&B process to finish... (failed 1).
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 206, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 180, in train
+    agent = PPOL("MlpPolicy",
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 192, in __init__
+    self._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 195, in _setup_model
+    super()._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 438, in _setup_model
+    self.policy = self.policy_class(  # type: ignore[assignment]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1118, in __init__
+    self._build(lr_schedule) # THIS IS IT
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1216, in _build
+    module.apply(partial(self.init_weights, gain=gain))
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 891, in apply
+    fn(self)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 307, in init_weights
+    nn.init.orthogonal_(module.weight, gain=gain)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/init.py", line 543, in orthogonal_
+    q, r = torch.linalg.qr(flattened)
+RuntimeError: Calling torch.geqrf on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+wandb: Waiting for W&B process to finish... (failed 1).
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /nas/ucb/mason/ethically-compliant-rl/wandb/offline-run-20240321_155249-ctst6fgv
+wandb: Find logs at: ./wandb/offline-run-20240321_155249-ctst6fgv/logs
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /nas/ucb/mason/ethically-compliant-rl/wandb/offline-run-20240321_085249-fbcj6119
+wandb: Find logs at: ./wandb/offline-run-20240321_085249-fbcj6119/logs
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 206, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 180, in train
+    agent = PPOL("MlpPolicy",
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 192, in __init__
+    self._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 195, in _setup_model
+    super()._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 438, in _setup_model
+    self.policy = self.policy_class(  # type: ignore[assignment]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1118, in __init__
+    self._build(lr_schedule) # THIS IS IT
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1216, in _build
+    module.apply(partial(self.init_weights, gain=gain))
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 890, in apply
+    module.apply(fn)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/modules/module.py", line 891, in apply
+    fn(self)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 307, in init_weights
+    nn.init.orthogonal_(module.weight, gain=gain)
+  File "/nas/ucb/mason/ethically-compliant-rl/pytorch/torch/nn/init.py", line 543, in orthogonal_
+    q, r = torch.linalg.qr(flattened)
+RuntimeError: Calling torch.geqrf on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+wandb: Waiting for W&B process to finish... (failed 1).
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /nas/ucb/mason/ethically-compliant-rl/wandb/offline-run-20240321_085250-u5hd8wi8
+wandb: Find logs at: ./wandb/offline-run-20240321_085250-u5hd8wi8/logs
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+slurmstepd: error: *** STEP 155878.2 ON rlhf.ist.berkeley.edu CANCELLED AT 2024-03-21T15:52:51 ***
+slurmstepd: error: *** STEP 155878.1 ON ppo.ist.berkeley.edu CANCELLED AT 2024-03-21T08:52:51 ***
+slurmstepd: error: *** STEP 155878.3 ON sac.ist.berkeley.edu CANCELLED AT 2024-03-21T15:52:51 ***
+slurmstepd: error: *** STEP 155878.0 ON gan.ist.berkeley.edu CANCELLED AT 2024-03-21T08:52:51 ***
+slurmstepd: error: *** JOB 155878 ON gan.ist.berkeley.edu CANCELLED AT 2024-03-21T08:52:51 ***
