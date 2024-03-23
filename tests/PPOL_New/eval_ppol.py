@@ -14,18 +14,18 @@ from dataclasses import dataclass, field
 class Cfg(EvalCfg):
     n_eval_episodes: int = 2
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ppol-LIDAR-lines/0tscgbvu"
+    model_directory: str = "tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4"
 
-    model_epoch: int = 38
-    model_save_interval: int = 5
-    loop_over_epochs: bool = False
+    model_epoch: int = 0
+    model_save_interval: int = 2
+    loop_over_epochs: bool = True
 
     # PID Lagrangian Params
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
     cost_threshold: list[float] = field(default_factory=lambda: [4])
-    K_P: float = 1
+    K_P: float = 2
     K_I: float = 1
-    K_D: float = 2
+    K_D: float = 1
 
     # Env Params
     start_location: list = field(default_factory=lambda: [0, 0])
@@ -78,7 +78,8 @@ def evaluate(args: Cfg):
         })
 
         # Load the Highway env from the config file
-        env = FlattenObservation(load_environment(ENV_CONFIG, render_mode="rgb_array"))
+        # env = FlattenObservation(load_environment(ENV_CONFIG, render_mode="rgb_array"))
+        env = load_environment(ENV_CONFIG, render_mode="rgb_array")
 
         # Stable baselines usually works with vectorized environments, 
         # so even though CartPole is a single environment, we wrap it in a DummyVecEnv
@@ -86,8 +87,6 @@ def evaluate(args: Cfg):
 
         # Load the saved data
         data, params, _ = load_from_zip_file(model_zip_file)
-
-        # policy_kwargs = dict(net_arch=[128, 128, 128, 128, 128, 128, 128])
 
         # Load the trained agent
         agent = PPOL(
@@ -100,7 +99,6 @@ def evaluate(args: Cfg):
                     K_P=args.K_P,
                     K_I=args.K_I,
                     K_D=args.K_D,
-                    # policy_kwargs=policy_kwargs,
                     seed=args.seed
                 )
         
