@@ -14,11 +14,11 @@ from dataclasses import dataclass, field
 class Cfg(EvalCfg):
     n_eval_episodes: int = 2
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4"
+    model_directory: str = "tests/PPOL_New/models/ppol-LIDAR-CNN/yowwkwj8"
 
-    model_epoch: int = 0
+    model_epoch: int = 38
     model_save_interval: int = 2
-    loop_over_epochs: bool = True
+    loop_over_epochs: bool = False
 
     # PID Lagrangian Params
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
