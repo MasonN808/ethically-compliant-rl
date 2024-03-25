@@ -24,53 +24,6 @@ import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 np.seterr(divide='ignore', invalid='ignore') # Useful for lidar observation
 
-
-# class CustomCNN(nn.Module):
-#     def __init__(self, observation_space: gym.spaces.Dict, n_additional_features, features_dim=512):
-#         super(CustomCNN, self).__init__()
-#         n_input_channels = observation_space['image'].shape[0]
-#         self.cnn = nn.Sequential(
-#             nn.Conv2d(n_input_channels, 32, kernel_size=8, stride=4, padding=0),
-#             nn.ReLU(),
-#             nn.Conv2d(32, 64, kernel_size=4, stride=2, padding=0),
-#             nn.ReLU(),
-#             nn.Conv2d(64, 64, kernel_size=3, stride=1, padding=0),
-#             nn.ReLU(),
-#             nn.Flatten(),
-#         )
-
-#         # Compute shape by doing one forward pass of a sample image
-#         with th.no_grad():
-#             n_flatten = self.cnn(th.as_tensor(observation_space['image'].sample()[None]).float()).shape[1]
-
-#         self.additional_features_layer = nn.Linear(n_additional_features, 64)
-#         self.features_dim = features_dim
-#         self.post_cnn = nn.Sequential(
-#             nn.Linear(n_flatten + 64, self.features_dim),
-#             nn.ReLU(),
-#         )
-
-#     def forward(self, observations):
-#         image_obs = observations['image']
-#         additional_features = observations['additional_features']
-#         cnn_out = self.cnn(image_obs)
-#         additional_out = self.additional_features_layer(additional_features)
-#         combined_out = th.cat((cnn_out, additional_out), dim=1)
-#         return self.post_cnn(combined_out)
-
-# class CustomFeatureExtractor(BaseFeaturesExtractor):
-#     def __init__(self, observation_space: gym.spaces.Space, features_dim: int = 512):
-#         super(CustomFeatureExtractor, self).__init__(observation_space, features_dim=features_dim)
-#         self.extractor = CustomCNN(observation_space=observation_space.spaces, n_additional_features=18, features_dim=features_dim)
-
-#     def forward(self, observations):
-#         return self.extractor(observations)
-
-# class CustomPolicy(ActorManyCriticPolicy):
-#     def __init__(self, *args, **kwargs):
-#         kwargs['features_extractor_class'] = CustomFeatureExtractor
-#         kwargs['features_extractor_kwargs'] = {'features_dim': 512}
-#         super(CustomPolicy, self).__init__(*args, **kwargs)
 print(th.cuda.is_available())  # Should print True if CUDA is available
 print(th.cuda.current_device())  # Prints the index of the current CUDA device
 print(th.cuda.get_device_name(0))  # Prints the name of the first CUDA device
@@ -111,7 +64,8 @@ class Cfg(TrainCfg):
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 40
     total_timesteps: int = 100000
-    batch_size: int = 512
+    lr: float = .003
+    batch_size: int = 2048
     num_envs: int = 1
     model_save_interval: int = 2
     policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [140, 140], 'features_extractor_class': LiDARCNN})
@@ -124,11 +78,11 @@ class Cfg(TrainCfg):
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
-    cost_threshold: list[float] = field(default_factory=lambda: [3])
+    cost_threshold: list[float] = field(default_factory=lambda: [6])
     lagrange_multiplier: bool = True
-    K_P: float = 2
-    K_I: float = 1
-    K_D: float = 1
+    K_P: float = .5
+    K_I: float = .2
+    K_D: float = .2
 
 @pyrallis.wrap()
 def train(args: Cfg):
@@ -181,6 +135,7 @@ def train(args: Cfg):
     # Initialize the PPO agent with an MLP policy
     agent = PPOL("MlpPolicy",
                  env,
+                 learning_rate=args.lr,
                  n_costs=len(args.constraint_type),
                  cost_threshold=args.cost_threshold,
                  lagrange_multiplier=args.lagrange_multiplier,
