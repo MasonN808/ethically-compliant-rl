@@ -1,0 +1,138 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240325_182946-08or7nfd
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run mild-bush-30
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-LIDAR-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/08or7nfd
+wandb: wandb version 0.16.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240325_182946-ezg4uult
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run scarlet-firebrand-29
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-LIDAR-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/ezg4uult
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240325_112946-dlkwcl37
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run tough-snow-31
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-LIDAR-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/dlkwcl37
+True
+0
+NVIDIA A100 80GB PCIe
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 164, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 157, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 446, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 646, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 246, in train
+    d = th.full(cost_values.size(), self.cost_threshold[0], requires_grad=False, device=self.device) # TODO: make more general later if more costs present
+UnboundLocalError: local variable 'cost_values' referenced before assignment
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+True
+0
+NVIDIA A100-SXM4-80GB
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 164, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 157, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 446, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 646, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 246, in train
+    d = th.full(cost_values.size(), self.cost_threshold[0], requires_grad=False, device=self.device) # TODO: make more general later if more costs present
+UnboundLocalError: local variable 'cost_values' referenced before assignment
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:  avg_speed ▁▁▁▁▁▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▂▄▄▃▄▅▄▂▂▂▅▆▆▇█▇▁
+wandb:       cost █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  max_speed ▁▁▁▁▁▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▂▄▄▃▄▅▄▂▂▂▅▆▆▇█▇▁
+wandb:     reward ▆▆▆▆▅▃▃▃▄▅▅▆▆▆▅▅▅▆▅▆▆▅▄▄▄▅▄▅▅▄▄▄▄▄▅▃▃▂▁█
+wandb: 
+wandb: Run summary:
+wandb:  avg_speed 0.46181
+wandb:       cost 0
+wandb: is_success 0
+wandb:  max_speed 0.46181
+wandb:     reward -0.1577
+wandb: 
+wandb: 🚀 View run scarlet-firebrand-29 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/ezg4uult
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240325_182946-ezg4uult/logs
+wandb: 
+wandb: Run history:
+wandb:  avg_speed ▁▁▁▁▁▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▂▄▄▃▄▅▄▂▂▂▅▆▆▇█▇▁
+wandb:       cost █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  max_speed ▁▁▁▁▁▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▂▄▄▃▄▅▄▂▂▂▅▆▆▇█▇▁
+wandb:     reward ▆▆▆▆▅▃▃▃▄▅▅▆▆▆▅▅▅▆▅▆▆▅▄▄▄▅▄▅▅▄▄▄▄▄▅▃▃▂▁█
+wandb: 
+wandb: Run summary:
+wandb:  avg_speed 0.46181
+wandb:       cost 0
+wandb: is_success 0
+wandb:  max_speed 0.46181
+wandb:     reward -0.1577
+wandb: 
+wandb: 🚀 View run mild-bush-30 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/08or7nfd
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240325_182946-08or7nfd/logs
+True
+0
+NVIDIA RTX A6000
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 164, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py", line 157, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 446, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 646, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 246, in train
+    d = th.full(cost_values.size(), self.cost_threshold[0], requires_grad=False, device=self.device) # TODO: make more general later if more costs present
+UnboundLocalError: local variable 'cost_values' referenced before assignment
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1
+wandb: 
+wandb: Run history:
+wandb:  avg_speed ▁▁▁▁▁▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▂▄▄▃▄▅▄▂▂▂▅▆▆▇█▇▁
+wandb:       cost █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  max_speed ▁▁▁▁▁▃▁▂▃▃▃▃▅▄▄▄▄▇▆▆▂▁▄▂▄▄▃▄▅▄▂▂▂▅▆▆▇█▇▁
+wandb:     reward ▆▆▆▆▅▃▃▃▄▅▅▆▆▆▅▅▅▆▅▆▆▅▄▄▄▅▄▅▅▄▄▄▄▄▅▃▃▂▁█
+wandb: 
+wandb: Run summary:
+wandb:  avg_speed 0.46181
+wandb:       cost 0
+wandb: is_success 0
+wandb:  max_speed 0.46181
+wandb:     reward -0.1577
+wandb: 
+wandb: 🚀 View run tough-snow-31 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/dlkwcl37
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240325_112946-dlkwcl37/logs
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1

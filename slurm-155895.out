@@ -102,3 +102,151 @@ wandb:
 wandb: 🚀 View run snowy-fire-25 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/4bs7lv3c
 wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
 wandb: Find logs at: ./wandb/run-20240321_161354-4bs7lv3c/logs
+True
+0
+NVIDIA A100 80GB PCIe
+Directory created: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/1ynh9okj
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.028 MB of 0.028 MB uploaded (0.000 MB deduped)wandb: \ 0.028 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: | 0.034 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                   avg_speed ██▇▁▅▃▄▃█▁▄▇▂█▄▆▅▄▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                        cost ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                   max_speed ██▇▁▅▃▄▃█▁▄▇▂█▄▆▅▄▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                      reward ▁▂▆▆▆▆▆▇▆▇▆▇▇▆▆▆▇▇█▇▇▇▇▇▇▆▇▆▇▆█▇▇█▆▆▇▇▇▆
+wandb:             train/approx_kl ▂▃▃▁▄▄▂▃▃▃▄▃▆▃▄█▇▇▅▃▂▃▄▃▂▃▃▁▃▂▁▄▁▂▆▂▅▂▂▂
+wandb:         train/clip_fraction ▁▂▂█▄▂▁▂▂▃▃▃▃▃▃▅▆▄▅▂▂▂▂▂▂▂▃▂▂▃▃▂▃▁▂▂▃▂▂▂
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▃▃▅█▄▇▄▇█▆▃▃▂▆▂▄▃▆▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       train/cost_value_loss ▁▂▂█▁▅▂▅▆▄▁▁▁▄▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           train/cost_values ▅▅▇█▇▇▆▇▇▇▅▅▃▅▄▆▅█▅▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:               train/entropy ▁▁▁▂▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▇▇▇▇███
+wandb:          train/entropy_loss ▁▁▁▂▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▇▇▇▇███
+wandb:    train/explained_variance ▄▇▄▄▄█▄▇██▇▅▄▄▃▆▄▁▃▄▄▂▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+wandb: train/lagrangian_multiplier ▁▁▃▂▁▁▂▄▇▄▁▁▁▃▁▃▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss █▂▁▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▂▂▃█▃▂▃▁▁▂▂▃▂▂▂▃▂▁▂▃▂▃▃▂▃▂▃▃▄▃▄▃▄▃▄▂▄▃▄▄
+wandb:                   train/std ██▇▇▇▇▆▆▆▆▅▅▅▄▄▄▄▄▄▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁
+wandb:            train/value_loss █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:                   avg_speed 0.05544
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                   max_speed 0.05544
+wandb:                      reward -0.66015
+wandb:             train/approx_kl 0.00576
+wandb:         train/clip_fraction 0.04736
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns -0.00014
+wandb:       train/cost_value_loss 0.0
+wandb:           train/cost_values -0.00013
+wandb:               train/entropy 0.78597
+wandb:          train/entropy_loss 0.78304
+wandb:    train/explained_variance 1e-05
+wandb: train/lagrangian_multiplier 0.0
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss 1.20653
+wandb:             train/n_updates 19590
+wandb:  train/policy_gradient_loss 0.0019
+wandb:                   train/std 0.16364
+wandb:            train/value_loss 2.85126
+wandb: 
+wandb: 🚀 View run treasured-sea-24 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/1ynh9okj
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240321_161354-1ynh9okj/logs
+True
+0
+NVIDIA A100 80GB PCIe
+Directory created: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+Directory already exists: tests/PPOL_New/models/ppol-LIDAR-CNN/fromxar4
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:                   avg_speed ▇█▄▂██▂▄▃▁▁█▁▁▂▁▁█▆▇▄▁██▁██████▄▁███████
+wandb:                        cost ▁▁▁█▁▁▁█▁▁█▁█▁▁▁▁▁▁█▁▁▁█▁██▁▁██▁▁█▁█▁█▁█
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                   max_speed ▇█▄▂██▂▄▃▁▁█▁▁▂▁▁█▆▇▄▁██▁██████▄▁███████
+wandb:                      reward ▂▁▇▇▆▅▇▅▇▇▆▇▆▆▇▇▆▆▇▆▇▆▆▇▆▆▇▆▅▇▇▆▇▆▆█▇▇▆█
+wandb:             train/approx_kl ▁▁▂▁▂▁▁▂▂▁▃▂▂▂▃▂▁▂▂▂▁▆▂▄▂▂▂▃▁▂▄▂█▃▄▃▃▃▃▂
+wandb:         train/clip_fraction ▁▁▂▁▂▄▁▂▂▁█▂▂▂▂▄▆▂▂▂▁▆▂▄▄▇▃▃▂▂▂▂▄▃▄▃▃▃▃▂
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▂▂▄▅▃▄▅▆▅▆▆▄▃▂▄▁▂▅▇▆█▃▅▅▂▂▆▆▅▅█▅▆▆▂▄▄▅▄▅
+wandb:       train/cost_value_loss ▂▁▂▄▂▃▃▄▃▄▆▂▁▂▂▁▁▄▇▄█▂▃▄▁▁▆▅▄▃█▃▅▄▁▃▂▄▂▃
+wandb:           train/cost_values ▅▃██▆██████▇█▃▇▁▅████▇██▇▅████████▇██▇██
+wandb:               train/entropy ▁▂▂▂▂▂▃▃▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▆▆▆▆▆▆▆▇▇▇▇▇█████
+wandb:          train/entropy_loss ▁▂▂▂▂▂▃▃▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▆▆▆▆▆▆▆▇▇▇▇▇█████
+wandb:    train/explained_variance ▅▇▅▆█▅▅▇▅▅▅▇▇██▁█▅▅▅▅▇▅▅▁▅▆▆▅▅▅▅▄▅▅▇▅█▅▅
+wandb: train/lagrangian_multiplier ▁▁▂▆▂▁▃▁▁▆▆▂▁▁▂▁▁▁▂▃█▁▁▂▁▁▃▂▁▁▇▁▁▁▁▂▄▂▂▂
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss █▂▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▂▂▁▁▂▂▁▁▁▁▁▁
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▂▂▂▂▂▄▃▂▂▂▅▂▂▂▂▃▄▂▂▂▂▄▂▂▃█▂▂▂▂▂▂▃▁▂▂▂▁▃▁
+wandb:                   train/std █▇▇▇▆▆▆▆▆▆▅▅▅▅▅▄▄▄▄▄▃▃▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁
+wandb:            train/value_loss █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:                   avg_speed 7.98032
+wandb:                        cost 1
+wandb:                  is_success 0
+wandb:                   max_speed 7.98032
+wandb:                      reward -0.70331
+wandb:             train/approx_kl 0.01017
+wandb:         train/clip_fraction 0.0748
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 7.29207
+wandb:       train/cost_value_loss 26.82327
+wandb:           train/cost_values 2.98953
+wandb:               train/entropy -0.9398
+wandb:          train/entropy_loss -0.94093
+wandb:    train/explained_variance -0.03765
+wandb: train/lagrangian_multiplier 0.01119
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss 4.89452
+wandb:             train/n_updates 19590
+wandb:  train/policy_gradient_loss -0.01299
+wandb:                   train/std 0.39507
+wandb:            train/value_loss 3.34331
+wandb: 
+wandb: 🚀 View run classic-wave-23 at: https://wandb.ai/ecrl/ppol-LIDAR-CNN/runs/fromxar4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240321_161354-fromxar4/logs
