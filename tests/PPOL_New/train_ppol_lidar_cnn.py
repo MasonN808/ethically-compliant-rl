@@ -64,11 +64,11 @@ class Cfg(TrainCfg):
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 40
     total_timesteps: int = 100000
-    lr: float = .003
+    lr: float = .0003
     batch_size: int = 2048
     num_envs: int = 1
-    model_save_interval: int = 2
-    policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [140, 140], 'features_extractor_class': LiDARCNN})
+    model_save_interval: int = 5
+    policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [400, 300], 'features_extractor_class': LiDARCNN})
     seed: int = 1
     ent_coef: float = .001
     env_logger_path: str = None
@@ -84,9 +84,11 @@ class Cfg(TrainCfg):
     K_I: float = .2
     K_D: float = .2
 
+    notes: str = ""
+
 @pyrallis.wrap()
 def train(args: Cfg):
-    run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
+    run = wandb.init(project=args.wandb_project_name, notes=args.notes, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
     
     # Log all the config params to wandb
