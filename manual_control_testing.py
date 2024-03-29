@@ -6,14 +6,14 @@ env = gym.make("parking-v0", render_mode="human")
 env.configure({
     "id": "parking-v0",
     "import_module": "highway_env",
-    "observation": {
-        "type": "KinematicsLidarObservation",
-        "cells": 8,
-        "maximum_range": 60,
-        "normalize": True,
-        "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
-        "scales": [100, 100, 5, 5, 1, 1],
-    },
+    # "observation": {
+    #     "type": "KinematicsLidarObservation",
+    #     "cells": 8,
+    #     "maximum_range": 60,
+    #     "normalize": True,
+    #     "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
+    #     "scales": [100, 100, 5, 5, 1, 1],
+    # },
     # "observation": {
     #     "type": "LidarObservation",
     #     "cells": 100,
@@ -26,6 +26,15 @@ env.configure({
     #     "scales": [100, 100, 5, 5, 1, 1],
     #     "normalize": False,
     # },
+    "observation": {
+        "type": "KinematicsGrayScaleObservation",
+        "observation_shape": (128, 64),
+        "stack_size": 4,
+        "weights": [0.2989, 0.5870, 0.1140],  # weights for RGB conversion
+        "scaling": 1.75,
+        "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
+        "scales": [100, 100, 5, 5, 1, 1],
+    },
     "action": {
         "type": "ContinuousAction"
     },
