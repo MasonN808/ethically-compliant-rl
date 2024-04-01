@@ -14,9 +14,9 @@ from dataclasses import dataclass, field
 class Cfg(EvalCfg):
     n_eval_episodes: int = 2
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ppol-LIDAR-CNN/j19ru7oa"
+    model_directory: str = "tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c"
 
-    model_epoch: int = 32
+    model_epoch: int = 5
     model_save_interval: int = 2
     loop_over_epochs: bool = False
 
@@ -60,11 +60,21 @@ def evaluate(args: Cfg):
         ENV_CONFIG = ast.literal_eval(data)
         # Overriding certain keys in the environment config
         ENV_CONFIG.update({
+            # "observation": {
+            #     "type": "KinematicsLidarObservation",
+            #     "cells": 100,
+            #     "maximum_range": 60,
+            #     "normalize": True,
+            #     "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
+            #     "scales": [100, 100, 5, 5, 1, 1],
+            # },
+
             "observation": {
-                "type": "KinematicsLidarObservation",
-                "cells": 100,
-                "maximum_range": 60,
-                "normalize": True,
+                "type": "KinematicsGrayScaleObservation",
+                "observation_shape": (128, 64),
+                "stack_size": 4,
+                "weights": [0.2989, 0.5870, 0.1140],  # weights for RGB conversion
+                "scaling": 1.75,
                 "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
                 "scales": [100, 100, 5, 5, 1, 1],
             },
