@@ -21,9 +21,9 @@ import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 np.seterr(divide='ignore', invalid='ignore') # Useful for lidar observation
 
-print(th.cuda.is_available())  # Should print True if CUDA is available
-print(th.cuda.current_device())  # Prints the index of the current CUDA device
-print(th.cuda.get_device_name(0))  # Prints the name of the first CUDA device
+# print(th.cuda.is_available())  # Should print True if CUDA is available
+# print(th.cuda.current_device())  # Prints the index of the current CUDA device
+# print(th.cuda.get_device_name(0))  # Prints the name of the first CUDA device
 
 class WandbLoggingCallback(BaseCallback):
     def __init__(self, verbose=0):

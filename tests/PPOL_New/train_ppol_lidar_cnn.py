@@ -24,9 +24,9 @@ import pyrallis
 from gymnasium.wrappers import RecordEpisodeStatistics
 np.seterr(divide='ignore', invalid='ignore') # Useful for lidar observation
 
-print(th.cuda.is_available())  # Should print True if CUDA is available
-print(th.cuda.current_device())  # Prints the index of the current CUDA device
-print(th.cuda.get_device_name(0))  # Prints the name of the first CUDA device
+# print(th.cuda.is_available())  # Should print True if CUDA is available
+# print(th.cuda.current_device())  # Prints the index of the current CUDA device
+# print(th.cuda.get_device_name(0))  # Prints the name of the first CUDA device
 
 class WandbLoggingCallback(BaseCallback):
     def __init__(self, verbose=0):
@@ -78,13 +78,13 @@ class Cfg(TrainCfg):
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
-    cost_threshold: list[float] = field(default_factory=lambda: [6])
+    cost_threshold: list[float] = field(default_factory=lambda: [4])
     lagrange_multiplier: bool = True
     K_P: float = .5
     K_I: float = .2
     K_D: float = .2
 
-    notes: str = ""
+    notes: str = "Desired goal observation was not included in the observation space! Fixed problem, and rerunning cnn lidar experiments."
 
 @pyrallis.wrap()
 def train(args: Cfg):
@@ -116,14 +116,6 @@ def train(args: Cfg):
         "extra_lines": args.extra_lines,
     })
 
-    # def make_env(env_config):
-    #     def _init():
-    #         # Load the Highway env from the config file
-    #         env = FlattenObservation(load_environment(env_config, env_logger_path=args.env_logger_path))
-    #         # Add Wrapper to record stats in env
-    #         env = RecordEpisodeStatistics(env)
-    #         return env
-    #     return _init
     def make_env(env_config):
         def _init():
             # Add Wrapper to record stats in env

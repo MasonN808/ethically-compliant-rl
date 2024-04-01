@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=ppol-lines-lidar-cnn          # Name of the job
-#SBATCH --gres=gpu:3             # Request one GPU
-#SBATCH --mem=10gb                # Memory allocated
+#SBATCH --job-name=images          # Name of the job
+#SBATCH --cpus-per-task=7         # Number of CPUs per task
+#SBATCH --mem=5gb                # Memory allocated
 #SBATCH --nodes=3                 # Number of nodes
 #SBATCH --ntasks=3                # Number of tasks
 #SBATCH --time=3-00:00:00           # Maximum run time of the job (set to 3 days)
@@ -15,7 +15,7 @@ source .venv/bin/activate
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_lidar_cnn.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py"
 
 # srun -N1 -n1 python3 $BASE_SCRIPT $ARGS
 

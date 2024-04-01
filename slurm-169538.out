@@ -1,0 +1,108 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240329_184426-0rqrlro3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run peach-gorge-46
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/0rqrlro3
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240329_184427-v85aqxtx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run curious-plasma-47
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/v85aqxtx
+torch.Size([3072])
+torch.Size([6, 1])
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 156, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 128, in train
+    agent = PPOL("MlpPolicy",
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 192, in __init__
+    self._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 195, in _setup_model
+    super()._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 438, in _setup_model
+    self.policy = self.policy_class(  # type: ignore[assignment]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1088, in __init__
+    self.features_extractor = self.make_features_extractor()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 121, in make_features_extractor
+    return self.features_extractor_class(self.observation_space, **self.features_extractor_kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/torch_layers.py", line 223, in __init__
+    print(n_flatten.shape)
+AttributeError: 'torch.Size' object has no attribute 'shape'
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240329_184427-ratpv3kd
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run stellar-valley-48
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/ratpv3kd
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+torch.Size([3072])
+torch.Size([6, 1])
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 156, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 128, in train
+    agent = PPOL("MlpPolicy",
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 192, in __init__
+    self._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 195, in _setup_model
+    super()._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 438, in _setup_model
+    self.policy = self.policy_class(  # type: ignore[assignment]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1088, in __init__
+    self.features_extractor = self.make_features_extractor()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 121, in make_features_extractor
+    return self.features_extractor_class(self.observation_space, **self.features_extractor_kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/torch_layers.py", line 223, in __init__
+    print(n_flatten.shape)
+AttributeError: 'torch.Size' object has no attribute 'shape'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+torch.Size([3072])
+torch.Size([6, 1])
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 156, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 128, in train
+    agent = PPOL("MlpPolicy",
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 192, in __init__
+    self._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 195, in _setup_model
+    super()._setup_model()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 438, in _setup_model
+    self.policy = self.policy_class(  # type: ignore[assignment]
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 1088, in __init__
+    self.features_extractor = self.make_features_extractor()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/policies.py", line 121, in make_features_extractor
+    return self.features_extractor_class(self.observation_space, **self.features_extractor_kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/torch_layers.py", line 223, in __init__
+    print(n_flatten.shape)
+AttributeError: 'torch.Size' object has no attribute 'shape'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: | 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: 🚀 View run curious-plasma-47 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/v85aqxtx
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240329_184427-v85aqxtx/logs
+wandb: 🚀 View run peach-gorge-46 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/0rqrlro3
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240329_184426-0rqrlro3/logs
+wandb: 🚀 View run stellar-valley-48 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/ratpv3kd
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240329_184427-ratpv3kd/logs
+srun: error: ppo.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: gail.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: gan.ist.berkeley.edu: task 0: Exited with exit code 1

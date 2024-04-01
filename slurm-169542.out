@@ -1,0 +1,42 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240329_185430-xoky669l
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run apricot-sun-55
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/xoky669l
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240329_185430-df7z74nn
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run morning-feather-57
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/df7z74nn
+3084
+wandb: Waiting for W&B process to finish... (success).
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240329_185430-neqhgxuj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run mild-oath-59
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/neqhgxuj
+3084
+wandb: Waiting for W&B process to finish... (success).
+3084
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: | 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: 🚀 View run apricot-sun-55 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/xoky669l
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240329_185430-xoky669l/logs
+wandb: 🚀 View run morning-feather-57 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/df7z74nn
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240329_185430-df7z74nn/logs
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: | 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: 🚀 View run mild-oath-59 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/neqhgxuj
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240329_185430-neqhgxuj/logs

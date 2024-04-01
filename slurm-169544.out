@@ -1,0 +1,204 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240329_185530-u8ziod1c
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run kind-bird-61
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/u8ziod1c
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240329_185530-mfnq06cv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run chocolate-bird-62
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/mfnq06cv
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240329_185531-edy02xzu
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run fresh-gorge-63
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/edy02xzu
+Directory created: tests/PPOL_New/models/ppol-GrayScale-CNN/edy02xzu
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/edy02xzu
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/edy02xzu
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/edy02xzu
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/edy02xzu
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/edy02xzu
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/edy02xzu
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/edy02xzu
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: | 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: / 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                   avg_speed ▂█▁█████▇█▅███████▆█████████████████████
+wandb:                        cost ▁▁█▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                   max_speed ▂█▁█████▇█▅███████▆█████████████████████
+wandb:                      reward ▄▂▆▅▄▂▆▂▆▁▆█▆▆▄▄▇▇▇▇█▇▆▇▇▇▇▆▆▆▄▆▅▃▂▆█▇▆▇
+wandb:             train/approx_kl ▆▆▁▃▃▁▂▆▃▃▂█▁▁▃▄▇▄▁▁▄▅▃▄▇▃▃▄▄▁▄▆▆▂▁▁▂▅▁▂
+wandb:         train/clip_fraction ▂▄▁▁▁▁▁▂▁▁▁▃▁▁▁▁▃▁▁▁▁▃▁▂▄▂▁▁▁▁▁▂▇▁▁▁▁█▁▁
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▅▄▄▄▅▄▄▃▄▄▄▆▅█▆▄▅▆▆█▇▅▇▃▃▄▆▅▅▅▅▅▄▃▅▆▄▂▁▁
+wandb:       train/cost_value_loss ▃▂▂▁▂▂▁▁▁▂▂▃▂█▄▂▃▅▄▇▅▂▆▁▁▁▄▃▂▂▂▃▂▁▂▃▂▁▁▁
+wandb:           train/cost_values ███████▇████████████████▆████████▇██▇▂▁▁
+wandb:               train/entropy ▁▁▂▂▂▂▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▄▄▅▅▅▅▅▅▆▆▆▆▇▇▇███
+wandb:          train/entropy_loss ▁▁▂▂▂▂▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▄▄▅▅▅▅▅▅▆▆▆▆▇▇▇███
+wandb:    train/explained_variance ▆▅▅▅▅▅▅▅▅▅▅▅█▁▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅
+wandb: train/lagrangian_multiplier ▁▁▁▁▄▁▁▁▁▁▁▁▁▅▁▁▂▁▁▁▁▂▂▁▁▁▃▁█▁▁▁▁▁▁▁▁▁▁▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss ▄█▂▃▁▂▂▂▂▂▃▂▁▁▂▁▁▁▂▁▁▁▁▁▁▁▁▂▁▂▁▁▁▂▂▂▁▁▁▁
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▂▃▄▃▄▄▄▁▄▃▄▁▄▄▄▃▃▂▄▄▃▂▃▃▂▃▂▃▃▄▂▂▃▃▄▃▃█▄▃
+wandb:                   train/std ██▆▇▆▇▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▅▅▅▄▃▃▃▃▃▃▃▃▃▂▂▂▁▁▁
+wandb:            train/value_loss ▄█▂▃▁▂▂▂▂▂▃▂▁▁▂▁▂▂▁▁▁▁▁▁▁▁▁▁▂▂▁▁▁▂▁▂▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:                   avg_speed 8.0
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                   max_speed 8.0
+wandb:                      reward -0.24861
+wandb:             train/approx_kl 0.00146
+wandb:         train/clip_fraction 0.0
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 0.02797
+wandb:       train/cost_value_loss 3e-05
+wandb:           train/cost_values 0.03293
+wandb:               train/entropy -2.26695
+wandb:          train/entropy_loss -2.26691
+wandb:    train/explained_variance 0.0
+wandb: train/lagrangian_multiplier 0.0
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss 1.09192
+wandb:             train/n_updates 19590
+wandb:  train/policy_gradient_loss -0.00078
+wandb:                   train/std 0.7523
+wandb:            train/value_loss 2.59766
+wandb: 
+wandb: 🚀 View run fresh-gorge-63 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/edy02xzu
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240329_185531-edy02xzu/logs
+Directory created: tests/PPOL_New/models/ppol-GrayScale-CNN/mfnq06cv
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/mfnq06cv
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/mfnq06cv
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/mfnq06cv
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/mfnq06cv
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/mfnq06cv
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/mfnq06cv
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/mfnq06cv
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.032 MB uploaded (0.000 MB deduped)wandb: \ 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                   avg_speed ▁██▄██▇▇▇▂█████▄███████████▄██████████▅█
+wandb:                        cost ▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                   max_speed ▁██▄██▇▇▇▂█████▄███████████▄██████████▅█
+wandb:                      reward ▄▂▂▇▄▃▃▂▃▅▆▃█▅▄▅▆▁▃▃▇▇▃▃▃▃▂▂▄▄▃▆▂▃▃▆▃▃▅▄
+wandb:             train/approx_kl ▇▂▆▅▄▇▁▂▄▇▂▄▁▃▃▁█▂▆▆▂▅▃▄▁▂▄▇▅▅▂▇▄▂▆▄▅▇▇▆
+wandb:         train/clip_fraction ▃▁█▁▁▂▁▁▂▃▁▄▁▂▂▁▄▁▂▂▄▂▃▁▁▃▁▃▂▃▁▄▃▄▃▂▁▄▂▂
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▅▇▇▅▇█▇▆▄▇▆▃▂▃▃▅▂▆▅▃▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       train/cost_value_loss ▃▆▅▃▆██▄▂▆▄▁▁▁▁▂▁▆▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           train/cost_values ███████████▇▂▆▇█▅▇█▆▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:               train/entropy ▁▂▂▂▂▂▃▃▃▃▃▃▃▃▄▄▄▄▄▄▅▅▆▆▆▆▆▆▆▆▇▆▇▇▇▇▇▇██
+wandb:          train/entropy_loss ▁▂▂▂▂▂▃▃▃▃▃▃▃▃▄▄▄▄▄▄▅▅▆▆▆▆▆▆▆▆▇▆▇▇▇▇▇▇██
+wandb:    train/explained_variance ▁▆▇▇▆█▆▆▆▆▆▅█▆▅▆▇▇▅▆▆▅▆▅▇▅▇▆▆▆▅▆▇▆▆▆▇▆▆▆
+wandb: train/lagrangian_multiplier █▂▂▃▁▂▃▃▂▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss ▂▂▂▂█▂▂▂▂▂▆▂▂▂▃▂▁▆▃▂▁▁▁▁▂▁▁▂▁▁▁▂▁▁▁▁▂▂▁▂
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▃▄▇▄▃▃▄▃▄▂▅▃▆▃▄▅▂█▂▂▂▃▂▄▄▃▃▃▄▂▃█▂▄▃▄▄▁▃▃
+wandb:                   train/std █▇▆▇▆▆▆▆▆▆▅▅▅▅▅▅▅▅▅▄▄▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁
+wandb:            train/value_loss █▃▂▃▂▁▁▂▁▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:                   avg_speed 8.0
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                   max_speed 8.0
+wandb:                      reward -0.4495
+wandb:             train/approx_kl 0.00595
+wandb:         train/clip_fraction 0.02515
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 4e-05
+wandb:       train/cost_value_loss 0.0
+wandb:           train/cost_values 4e-05
+wandb:               train/entropy -1.75397
+wandb:          train/entropy_loss -1.75378
+wandb:    train/explained_variance 0.0
+wandb: train/lagrangian_multiplier 0.0
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss 3.18276
+wandb:             train/n_updates 19590
+wandb:  train/policy_gradient_loss -0.0008
+wandb:                   train/std 0.58643
+wandb:            train/value_loss 6.43803
+wandb: 
+wandb: 🚀 View run chocolate-bird-62 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/mfnq06cv
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240329_185530-mfnq06cv/logs
+Directory created: tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c
+Directory already exists: tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.030 MB uploaded (0.000 MB deduped)wandb: | 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                   avg_speed █▁██▇▇▇▅████████████████████████████████
+wandb:                        cost ▁▁▁▁▁█▁▁▁█▁█▁▁▁██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                   max_speed █▁██▇▇▇▅████████████████████████████████
+wandb:                      reward ▃▇▁▄▃█▇▇▇▇▆▅▆▆█▆▆▆▆▆▆▇▆▆▇▆▆▇▇▆▇▇▆▆▆▆▇▆▆▆
+wandb:             train/approx_kl ▆▆▃▂▃▂▃▇▁▄▁▂█▇▁▆▁▂▂▆▂▂▁▃▃▁▃▂▄▂▅▂▁▁▆▁▂▂▁▁
+wandb:         train/clip_fraction ▃▃▁█▁▁▁▃▁▁▁▁▃▃▁▃▁▁▁▂▁▁▁▁▁▁▁▃▁▁▂▁▁▁▃▁▁▁▁▁
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▄▅▄▅▄▆▅▄▆▇█▇▄▂▃▄▃▃▂▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       train/cost_value_loss ▂▃▁▂▂▃▃▂▄▅█▅▁▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           train/cost_values ▇████████████▅▃█▅▆▃▇▄▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁
+wandb:               train/entropy ██▇▇▇▆▆▆▆▅▅▅▅▅▅▄▄▄▄▄▄▄▃▄▃▃▃▃▂▂▃▂▂▂▂▁▁▁▁▁
+wandb:          train/entropy_loss ██▇▇▇▆▆▆▆▅▅▅▅▅▄▄▄▄▄▄▄▄▃▄▃▃▃▃▂▂▃▂▂▂▂▁▁▁▁▁
+wandb:    train/explained_variance ▆████████▁██████████████████████████████
+wandb: train/lagrangian_multiplier ▁▁▁▂▁▁█▁▁▅▃▄▁▁▁▇▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss █▂▃▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▄▅▄█▄▆▆▂▆▅▆▆▅▅▇▄█▄▇▃▆▆▇▅▆▆▄▅▅▇▁▆▇▇▆▆▆▄▇▆
+wandb:                   train/std ▁▁▂▂▂▂▃▃▃▃▃▄▃▄▄▅▅▅▅▅▅▅▅▅▅▅▆▆▆▇▆▆▇▇▇█████
+wandb:            train/value_loss █▂▃▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:                   avg_speed 8.0
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                   max_speed 8.0
+wandb:                      reward -0.43728
+wandb:             train/approx_kl 0.00057
+wandb:         train/clip_fraction 0.0
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 0.04504
+wandb:       train/cost_value_loss 6e-05
+wandb:           train/cost_values 0.04891
+wandb:               train/entropy -3.5166
+wandb:          train/entropy_loss -3.51672
+wandb:    train/explained_variance 0.0
+wandb: train/lagrangian_multiplier 0.0
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss 0.3702
+wandb:             train/n_updates 19590
+wandb:  train/policy_gradient_loss -0.00033
+wandb:                   train/std 1.40682
+wandb:            train/value_loss 1.02025
+wandb: 
+wandb: 🚀 View run kind-bird-61 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/u8ziod1c
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240329_185530-u8ziod1c/logs
