@@ -59,7 +59,7 @@ class Cfg(TrainCfg):
     wandb_project_name: str = "ppol-GrayScale-CNN"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 40
+    epochs: int = 30
     total_timesteps: int = 100000
     lr: float = .0009
     batch_size: int = 2048
@@ -81,7 +81,7 @@ class Cfg(TrainCfg):
     K_I: float = .1
     K_D: float = .1
 
-    notes: str = "Increased lr from .0003 to .0009 to speed up training convergence, increased policy from [128, 128] to [512, 256, 128], and decreased PID params"
+    notes: str = "Changed objective function from ppo_loss + lag -> ppo_loss - lag which is proper theoretically"
 
 @pyrallis.wrap()
 def train(args: Cfg):

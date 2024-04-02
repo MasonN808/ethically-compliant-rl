@@ -80,9 +80,9 @@ class Cfg(TrainCfg):
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
     cost_threshold: list[float] = field(default_factory=lambda: [4])
     lagrange_multiplier: bool = True
-    K_P: float = .5
-    K_I: float = .2
-    K_D: float = .2
+    K_P: float = .05
+    K_I: float = .02
+    K_D: float = .02
 
     notes: str = "Desired goal observation was not included in the observation space! Fixed problem, and rerunning cnn lidar experiments."
 
