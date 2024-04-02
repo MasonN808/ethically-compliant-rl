@@ -61,11 +61,11 @@ class Cfg(TrainCfg):
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 40
     total_timesteps: int = 100000
-    lr: float = .0003
+    lr: float = .0009
     batch_size: int = 2048
     num_envs: int = 1
     model_save_interval: int = 5
-    policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [128, 128], 'features_extractor_class': ConcatenatedNatureCNN})
+    policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [512, 256, 128], 'features_extractor_class': ConcatenatedNatureCNN})
     seed: int = 1
     ent_coef: float = .001
     env_logger_path: str = None
@@ -77,11 +77,11 @@ class Cfg(TrainCfg):
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
     cost_threshold: list[float] = field(default_factory=lambda: [6])
     lagrange_multiplier: bool = True
-    K_P: float = 2
-    K_I: float = 1
-    K_D: float = 1
+    K_P: float = .2
+    K_I: float = .1
+    K_D: float = .1
 
-    notes: str = "Trying out a new observation type that combines image with kinematics and using a modified version of NatureCNN to accomodate for added kinematics observation"
+    notes: str = "Increased lr from .0003 to .0009 to speed up training convergence, increased policy from [128, 128] to [512, 256, 128], and decreased PID params"
 
 @pyrallis.wrap()
 def train(args: Cfg):
