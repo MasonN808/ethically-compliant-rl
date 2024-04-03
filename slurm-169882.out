@@ -7,3 +7,5 @@ wandb: Run `wandb offline` to turn off syncing.
 wandb: Syncing run clean-forest-76
 wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
 wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/eb2hrqtd
+slurmstepd: error: *** STEP 169882.0 ON vae.ist.berkeley.edu CANCELLED AT 2024-04-02T16:12:15 ***
+slurmstepd: error: *** JOB 169882 ON vae.ist.berkeley.edu CANCELLED AT 2024-04-02T16:12:15 ***

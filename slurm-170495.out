@@ -1,0 +1,42 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240402_194056-5m96joyq
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run stellar-wind-78
+wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
+wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/5m96joyq
+LOSS: 177.37742614746094
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 159, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 152, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 431, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 646, in learn
+    self.train()
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 347, in train
+    print(f"PPO-LOSS: {ppo_loss}")
+UnboundLocalError: local variable 'ppo_loss' referenced before assignment
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:  avg_speed ▂▂▂▁▂▄▂▂▃▂▂▃▄▃▃▃▄▆▆▅▂▂▅▃▅▅▄▅▆▄▃▃▃▅▆▆▇█▇▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  max_speed ▂▂▂▁▂▄▂▂▃▂▂▃▄▃▃▃▄▆▆▅▂▂▅▃▅▅▄▅▆▄▃▃▃▅▆▆▇█▇▁
+wandb:     reward ▆▆▅▅▄▂▂▂▂▄▅▆▅▃▄▄▃▃▁▁▅▅▄▃▄▄▃▅▄▆▅▃▃▄▂▂▂▄▅█
+wandb: 
+wandb: Run summary:
+wandb:  avg_speed 0.41512
+wandb: is_success 0
+wandb:  max_speed 0.41512
+wandb:     reward -0.17639
+wandb: 
+wandb: 🚀 View run stellar-wind-78 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/5m96joyq
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240402_194056-5m96joyq/logs
+srun: error: sac.ist.berkeley.edu: task 0: Exited with exit code 1

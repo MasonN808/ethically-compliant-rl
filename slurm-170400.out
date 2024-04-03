@@ -1,0 +1,25 @@
+wandb: Tracking run with wandb version 0.14.2
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+tensor(165.1614, device='cuda:0', grad_fn=<MulBackward0>)
+tensor(165.1614, device='cuda:0', grad_fn=<AddBackward0>)
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:  avg_speed ▂▁▁▁▁▃▁▂▃▃▃▃▅▄▄▄▄▇▇▆▂▁▄▃▄▄▃▄▅▄▃▃▂▅▆▆▇█▇▁
+wandb:       cost █▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  max_speed ▂▁▁▁▁▃▁▂▃▃▃▃▅▄▄▄▄▇▇▆▂▁▄▃▄▄▃▄▅▄▃▃▂▅▆▆▇█▇▁
+wandb:     reward ▆▅▅▅▄▂▂▂▃▅▇▅▆▄▃▃▃▅▄▄▅▄▃▃▄▃▃▅▅▃▃▃▃▃▃▁▂▂▁█
+wandb: 
+wandb: Run summary:
+wandb:  avg_speed 0.44529
+wandb:       cost 0
+wandb: is_success 0
+wandb:  max_speed 0.44529
+wandb:     reward -0.16489
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /nas/ucb/mason/ethically-compliant-rl/wandb/offline-run-20240402_164951-40awekht
+wandb: Find logs at: ./wandb/offline-run-20240402_164951-40awekht/logs

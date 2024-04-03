@@ -81,7 +81,7 @@ class Cfg(TrainCfg):
     K_I: float = .1
     K_D: float = .1
 
-    notes: str = "Changed objective function from ppo_loss + lag -> ppo_loss - lag which is proper theoretically"
+    notes: str = "Testing if adding a x10 coefficient to the ppo_loss will off-set the conservative behavior"
 
 @pyrallis.wrap()
 def train(args: Cfg):

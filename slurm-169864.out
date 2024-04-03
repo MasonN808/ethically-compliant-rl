@@ -7,3 +7,5 @@ wandb: Run `wandb offline` to turn off syncing.
 wandb: Syncing run celestial-lion-73
 wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
 wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/xvyk03mg
+slurmstepd: error: *** STEP 169864.0 ON vae.ist.berkeley.edu CANCELLED AT 2024-04-02T16:11:43 ***
+slurmstepd: error: *** JOB 169864 ON vae.ist.berkeley.edu CANCELLED AT 2024-04-02T16:11:43 ***

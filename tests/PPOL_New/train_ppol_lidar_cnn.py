@@ -62,13 +62,13 @@ class Cfg(TrainCfg):
     wandb_project_name: str = "ppol-LIDAR-CNN"
     env_name: str = "ParkingEnv" # Following are permissible: HighwayEnv, ParkingEnv
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 40
+    epochs: int = 30
     total_timesteps: int = 100000
-    lr: float = .0003
+    lr: float = .0009
     batch_size: int = 2048
     num_envs: int = 1
     model_save_interval: int = 5
-    policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [400, 300], 'features_extractor_class': LiDARCNN})
+    policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [512, 256, 128], 'features_extractor_class': LiDARCNN})
     seed: int = 1
     ent_coef: float = .001
     env_logger_path: str = None
@@ -78,13 +78,12 @@ class Cfg(TrainCfg):
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["lines"])
-    cost_threshold: list[float] = field(default_factory=lambda: [4])
+    cost_threshold: list[float] = field(default_factory=lambda: [6])
     lagrange_multiplier: bool = True
-    K_P: float = .05
-    K_I: float = .02
-    K_D: float = .02
-
-    notes: str = "Desired goal observation was not included in the observation space! Fixed problem, and rerunning cnn lidar experiments."
+    K_P: float = .2
+    K_I: float = .1
+    K_D: float = .1
+    notes: str = "No lagrangian applied (Just PPO)"
 
 @pyrallis.wrap()
 def train(args: Cfg):

@@ -7,3 +7,5 @@ wandb: Run `wandb offline` to turn off syncing.
 wandb: Syncing run laced-armadillo-74
 wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
 wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/2exq1t3u
+slurmstepd: error: *** JOB 169867 ON vae.ist.berkeley.edu CANCELLED AT 2024-04-02T16:11:47 ***
+slurmstepd: error: *** STEP 169867.0 ON vae.ist.berkeley.edu CANCELLED AT 2024-04-02T16:11:47 ***
