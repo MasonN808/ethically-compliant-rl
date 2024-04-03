@@ -20,7 +20,7 @@ BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_ima
 # srun -N1 -n1 python3 $BASE_SCRIPT $ARGS
 
 SEEDS=("1")  # Vary seeds
-ENT_COEFS=(".002")  # Vary entropy coefficents
+ENT_COEFS=(".001")  # Vary entropy coefficents
 
 # Run the script as many times as the number of nodes in parallel
 for SEED in "${SEEDS[@]}"; do

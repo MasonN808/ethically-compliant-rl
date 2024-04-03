@@ -12,17 +12,19 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Cfg(EvalCfg):
-    n_eval_episodes: int = 2
+    n_eval_episodes: int = 5
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL_New/models/ppol-GrayScale-CNN/u8ziod1c"
+    model_directory: str = "tests/PPOL_New/models/ppol-GrayScale-CNN/ssy2etr8"
 
-    model_epoch: int = 5
+    model_epoch: int = 25
     model_save_interval: int = 2
     loop_over_epochs: bool = False
 
     # PID Lagrangian Params
-    constraint_type: list[str] = field(default_factory=lambda: ["lines"])
-    cost_threshold: list[float] = field(default_factory=lambda: [4])
+    # constraint_type: list[str] = field(default_factory=lambda: ["lines"])
+    # cost_threshold: list[float] = field(default_factory=lambda: [4])
+    constraint_type: list[str] = field(default_factory=lambda: [])
+    cost_threshold: list[float] = field(default_factory=lambda: [])
     K_P: float = 2
     K_I: float = 1
     K_D: float = 1
@@ -103,7 +105,7 @@ def evaluate(args: Cfg):
                     policy=data["policy_class"], 
                     policy_kwargs=data["policy_kwargs"], 
                     env=env, 
-                    device='auto',
+                    device='cpu',
                     n_costs=len(args.constraint_type),
                     cost_threshold=args.cost_threshold,
                     K_P=args.K_P,

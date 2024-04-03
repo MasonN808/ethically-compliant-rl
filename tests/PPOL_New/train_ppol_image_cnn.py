@@ -67,21 +67,24 @@ class Cfg(TrainCfg):
     model_save_interval: int = 5
     policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [512, 256, 128], 'features_extractor_class': ConcatenatedNatureCNN})
     seed: int = 1
-    ent_coef: float = .001
+    ent_coef: float = .005
     env_logger_path: str = None
     run_dscrip: str = f"Lines-Seed={seed}"
     start_location: list = field(default_factory=lambda: [0, 0])
     extra_lines: bool = True # Adds additional horizonatal lines in the parking environment
 
     # Lagrangian Parameters
-    constraint_type: list[str] = field(default_factory=lambda: ["lines"])
-    cost_threshold: list[float] = field(default_factory=lambda: [6])
-    lagrange_multiplier: bool = True
+    # constraint_type: list[str] = field(default_factory=lambda: ["lines"])
+    # cost_threshold: list[float] = field(default_factory=lambda: [6])
+    # lagrange_multiplier: bool = True
+    constraint_type: list[str] = field(default_factory=lambda: [])
+    cost_threshold: list[float] = field(default_factory=lambda: [])
+    lagrange_multiplier: bool = False
     K_P: float = .2
     K_I: float = .1
     K_D: float = .1
 
-    notes: str = "Testing if adding a x10 coefficient to the ppo_loss will off-set the conservative behavior"
+    notes: str = "Retesting PPO (no constraints) on larger features dimension 2x increase, added padding 1, and kept entropy coefficient at .001"
 
 @pyrallis.wrap()
 def train(args: Cfg):
