@@ -61,15 +61,15 @@ class MyCfg(TrainCfg):
     task: str = "parking-v0"
     # Use the parsed argument to set the speed_limit in MyCfg
     speed_limit: int = args.speed_limit
-    project: str = "PPOL-SpeedConstraint-200sDuration-Speed=" + str(speed_limit)
-    epoch: int = 500
-    step_per_epoch: int = 3000
-    lr: float = .00003
+    project: str = "PPOL-experiment-0-Lagrangian-Speed=" + str(speed_limit)
+    epoch: int = 400
+    step_per_epoch: int = 2048
+    lr: float = 5e-4
     render: float = None # The rate at which it renders (e.g., .001)
     render_mode: str = None # "rgb_array" or "human" or None
     thread: int = 100 # If use CPU to train
     target_kl: float = .01
-    gamma: float = 1
+    gamma: float = .99
     worker: str = "ShmemVectorEnv"
     save_interval: int = 25 # The frequency of saving model per number of epochs
     # Decide which device to use based on availability

@@ -1,100 +1,0 @@
-Running script with speed limit: 2
-Running script with speed limit: 4
-Running script with speed limit: 8
-Running script with speed limit: 16
-Running script with speed limit: 2
-Running script with speed limit: 4
-Running script with speed limit: 8
-Running script with speed limit: 16
-Running script with speed limit: 2
-Running script with speed limit: 4
-Running script with speed limit: 8
-Running script with speed limit: 16
-wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
-wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
-wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
-wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.16.0 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.14.2
-wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231201_035226-d7d4e782-3362-47f9-ae09-1d3b2c90ef69
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cpo_constraint_typespeed_cost2_rew_normTrue-dd8c
-wandb: ⭐️ View project at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2
-wandb: 🚀 View run at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2/runs/d7d4e782-3362-47f9-ae09-1d3b2c90ef69
-wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.16.0 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.14.2
-wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231130_195226-1fec86b1-1bd2-4a15-b129-d2020fff36e2
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cpo_constraint_typespeed_cost2_rew_normTrue-515a
-wandb: ⭐️ View project at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2
-wandb: 🚀 View run at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2/runs/1fec86b1-1bd2-4a15-b129-d2020fff36e2
-wandb: wandb version 0.16.0 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.14.2
-wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231130_195226-c1064472-55d8-4449-9d91-8ca491928a56
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cpo_constraint_typespeed_cost2_rew_normTrue-9978
-wandb: ⭐️ View project at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2
-wandb: 🚀 View run at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2/runs/c1064472-55d8-4449-9d91-8ca491928a56
-wandb: wandb version 0.16.0 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.14.2
-wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231130_195226-b47edcb9-80a3-4a86-90ae-0e78b9924633
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cpo_constraint_typespeed_cost2_rew_normTrue-f94f
-wandb: ⭐️ View project at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2
-wandb: 🚀 View run at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2/runs/b47edcb9-80a3-4a86-90ae-0e78b9924633
-wandb: wandb version 0.16.0 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.14.2
-wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20231130_195227-32d5feea-99a5-46eb-ac9f-04a2c6eab403
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cpo_constraint_typespeed_cost2_rew_normTrue-648e
-wandb: ⭐️ View project at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2
-wandb: 🚀 View run at https://wandb.ai/ecrl/CPO-SpeedConstraint-Speed%3D2/runs/32d5feea-99a5-46eb-ac9f-04a2c6eab403
-[32;1mLogging data to logs/CPO-SpeedConstraint-Speed=2/parking-v0-cost-[2]/cpo_constraint_typespeed_cost2_rew_normTrue-dd8c/progress.txt[0m
-[32;1mLogging data to logs/CPO-SpeedConstraint-Speed=2/parking-v0-cost-[2]/cpo_constraint_typespeed_cost2_rew_normTrue-9978/progress.txt[0m
-[32;1mLogging data to logs/CPO-SpeedConstraint-Speed=2/parking-v0-cost-[2]/cpo_constraint_typespeed_cost2_rew_normTrue-f94f/progress.txt[0m
-[32;1mLogging data to logs/CPO-SpeedConstraint-Speed=2/parking-v0-cost-[2]/cpo_constraint_typespeed_cost2_rew_normTrue-648e/progress.txt[0m
-[32;1mLogging data to logs/CPO-SpeedConstraint-Speed=2/parking-v0-cost-[2]/cpo_constraint_typespeed_cost2_rew_normTrue-515a/progress.txt[0m
-Epoch #1:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #1: 48020it [01:04, 741.39it/s]              Epoch #1: 48020it [01:20, 741.39it/s]Epoch #1: 48020it [01:23, 741.39it/s, cost=0, length=2401.0, rew=-2.74e+3]Epoch #1: 48020it [01:23, 577.61it/s, cost=0, length=2401.0, rew=-2.74e+3]
-srun: Job 103214 step creation temporarily disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation temporarily disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation temporarily disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation temporarily disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation temporarily disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation temporarily disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation temporarily disabled, retrying (Requested nodes are busy)
-Epoch #1:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #1: 48020it [02:05, 381.84it/s]              Epoch #1: 48020it [02:20, 381.84it/s]Epoch #1: 48020it [02:44, 381.84it/s, cost=0, length=2401.0, rew=-2.89e+3]Epoch #1: 48020it [02:44, 292.10it/s, cost=0, length=2401.0, rew=-2.89e+3]
-Epoch #1:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #1: 48020it [02:09, 371.36it/s]              Epoch #1: 48020it [02:20, 371.36it/s]Epoch #1: 48020it [02:48, 371.36it/s, cost=217, length=2401.0, rew=-2.57e+3]Epoch #1: 48020it [02:48, 284.50it/s, cost=217, length=2401.0, rew=-2.57e+3]
-Epoch #1:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #1: 48020it [02:10, 369.04it/s]              Epoch #1: 48020it [02:30, 369.04it/s]Epoch #1: 48020it [02:56, 369.04it/s, cost=278, length=2401.0, rew=-2.69e+3]Epoch #1: 48020it [02:56, 272.13it/s, cost=278, length=2401.0, rew=-2.69e+3]
-Epoch #1:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #1: 48020it [02:16, 351.99it/s]              Epoch #1: 48020it [02:30, 351.99it/s]Epoch #1: 48020it [03:00, 351.99it/s, cost=1571.4, length=2401.0, rew=-3.12e+3]Epoch #1: 48020it [03:00, 265.49it/s, cost=1571.4, length=2401.0, rew=-3.12e+3]
-Epoch #2:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #2: 48020it [01:09, 688.12it/s]              Epoch #2: 48020it [01:25, 688.12it/s, cost=0, length=2401.0, rew=-2.62e+3]Epoch #2: 48020it [01:25, 562.33it/s, cost=0, length=2401.0, rew=-2.62e+3]
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-Epoch #3:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #3: 48020it [01:10, 684.50it/s]              Epoch #3: 48020it [01:20, 684.50it/s]Epoch #3: 48020it [01:28, 684.50it/s, cost=0, length=2401.0, rew=-2.37e+3]Epoch #3: 48020it [01:28, 543.06it/s, cost=0, length=2401.0, rew=-2.37e+3]
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-Epoch #2:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #2: 48020it [02:08, 372.52it/s]              Epoch #2: 48020it [02:25, 372.52it/s]Epoch #2: 48020it [02:47, 372.52it/s, cost=0, length=2401.0, rew=-2.56e+3]Epoch #2: 48020it [02:47, 286.46it/s, cost=0, length=2401.0, rew=-2.56e+3]
-Epoch #2:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #2: 48020it [02:07, 376.09it/s]              Epoch #2: 48020it [02:21, 376.09it/s]Epoch #2: 48020it [02:45, 376.09it/s, cost=280, length=2401.0, rew=-3.08e+3]Epoch #2: 48020it [02:45, 290.13it/s, cost=280, length=2401.0, rew=-3.08e+3]
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-srun: Job 103214 step creation still disabled, retrying (Requested nodes are busy)
-Epoch #2:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #2: 48020it [02:10, 367.78it/s]              Epoch #2: 48020it [02:27, 367.78it/s]Epoch #2: 48020it [02:52, 367.78it/s, cost=1308.0, length=2401.0, rew=-3.1e+3]Epoch #2: 48020it [02:52, 279.00it/s, cost=1308.0, length=2401.0, rew=-3.1e+3]
-Epoch #2:   0%|          | 0/10000 [00:00<?, ?it/s]Epoch #2: 48020it [02:13, 359.28it/s]              Epoch #2: 48020it [02:32, 359.28it/s]Epoch #2: 48020it [02:59, 359.28it/s, cost=476, length=2401.0, rew=-3.57e+3]Epoch #2: 48020it [02:59, 267.88it/s, cost=476, length=2401.0, rew=-3.57e+3]
-slurmstepd: error: *** JOB 103214 ON airl.ist.berkeley.edu CANCELLED AT 2023-12-01T03:59:04 ***
-Epoch #3:   0%|          | 0/10000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 103214.4 ON gan.ist.berkeley.edu CANCELLED AT 2023-11-30T19:59:04 ***
-slurmstepd: error: *** STEP 103214.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2023-11-30T19:59:04 ***
-slurmstepd: error: *** STEP 103214.3 ON gail.ist.berkeley.edu CANCELLED AT 2023-11-30T19:59:04 ***
-Epoch #4:   0%|          | 0/10000 [00:00<?, ?it/s]slurmstepd: error: *** STEP 103214.0 ON airl.ist.berkeley.edu CANCELLED AT 2023-12-01T03:59:04 ***
-slurmstepd: error: *** STEP 103214.2 ON dqn.ist.berkeley.edu CANCELLED AT 2023-11-30T19:59:04 ***
