@@ -1,42 +1,0 @@
-wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.16.5 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.14.2
-wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240401_194940-czre5cj0
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run clear-butterfly-71
-wandb: ⭐️ View project at https://wandb.ai/ecrl/ppol-GrayScale-CNN
-wandb: 🚀 View run at https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/czre5cj0
-Traceback (most recent call last):
-  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 156, in <module>
-    train()
-  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
-    response = fn(cfg, *args, **kwargs)
-  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py", line 128, in train
-    agent = PPOL("MlpPolicy",
-  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 193, in __init__
-    self._setup_model()
-  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 196, in _setup_model
-    super()._setup_model()
-  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 441, in _setup_model
-    self.policy = self.policy.to(self.device)
-  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1152, in to
-    return self._apply(convert)
-  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 802, in _apply
-    module._apply(fn)
-  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 802, in _apply
-    module._apply(fn)
-  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 802, in _apply
-    module._apply(fn)
-  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 825, in _apply
-    param_applied = fn(param)
-  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1150, in convert
-    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
-  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/cuda/__init__.py", line 302, in _lazy_init
-    torch._C._cuda_init()
-RuntimeError: No CUDA GPUs are available
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: | 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: / 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 🚀 View run clear-butterfly-71 at: https://wandb.ai/ecrl/ppol-GrayScale-CNN/runs/czre5cj0
-wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20240401_194940-czre5cj0/logs
-srun: error: sac.ist.berkeley.edu: task 0: Exited with exit code 1
