@@ -1,26 +1,51 @@
 import gymnasium as gym
-import highway_env
 import numpy as np
+np.seterr(divide='ignore', invalid='ignore') # Useful for lidar observation
 
 env = gym.make("parking-v0", render_mode="human")
 env.configure({
+    "id": "parking-v0",
+    "import_module": "highway_env",
+    # "observation": {
+    #     "type": "KinematicsLidarObservation",
+    #     "cells": 8,
+    #     "maximum_range": 60,
+    #     "normalize": True,
+    #     "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
+    #     "scales": [100, 100, 5, 5, 1, 1],
+    # },
+    # "observation": {
+    #     "type": "LidarObservation",
+    #     "cells": 100,
+    #     "maximum_range": 60,
+    #     "normalize": True,
+    # },
+    # "observation": {
+    #     "type": "KinematicsGoal",
+    #     "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
+    #     "scales": [100, 100, 5, 5, 1, 1],
+    #     "normalize": False,
+    # },
     "observation": {
-        "type": "KinematicsGoal",
-        "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
+        "type": "KinematicsGrayScaleObservation",
+        "observation_shape": (128, 64),
+        "stack_size": 4,
+        "weights": [0.2989, 0.5870, 0.1140],  # weights for RGB conversion
+        "scaling": 1.75,
+        "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
         "scales": [100, 100, 5, 5, 1, 1],
-        "normalize": True
     },
     "action": {
         "type": "ContinuousAction"
     },
     # This determines the weights to the difference between the desired_goal and achieved_goal
-    "reward_weights": [1, .3, .02, .02, 0.02, 0],
+    "reward_weights": [1.2, 0.3, 0.06, 0.06, 0.02, 0],
     "show_trajectories": False,
-    "success_goal_reward": -0.12, # set to negative if using alternative reward function
+    "success_goal_reward": 0.12, # TODO: Change this to positive when using constant negative reward
     "collision_reward": -5,
-    "simulation_frequency": 100,
-    "policy_frequency": 30,
-    "duration": 200, # seconds
+    "simulation_frequency": 15,
+    "policy_frequency": 5,
+    "duration": 20, # seconds
     "screen_width": 600,
     "screen_height": 300,
     "centering_position": [0.5, 0.5],
@@ -28,14 +53,14 @@ env.configure({
     "controlled_vehicles": 1,
     "vehicles_count": 0,
     "add_walls": False,
-    "start_location": [0, 32],
-    "start_angle": -np.math.pi/2, # This is radians
-
+    "start_location": [40, 30],
     "manual_control": True,
+    "extra_lines": True,
+    "use_closest_line_distance_in_obs": False,
 
-    # Cost-speed
-    "constraint_type": ["speed"],
-    "speed_limit": 2,
+    # Costs
+    "constraint_type":["lines"],
+    # "speed_limit": 3,
 })
 
 env.reset()
@@ -43,17 +68,18 @@ done = False
 i=0
 while not done:
     i+=1
-    print(i)
+    # print(i)
     obs, rew, done, _, info = env.step(env.action_space.sample())  # with manual control, these actions are ignored
-    achieved_goal = obs['achieved_goal'][5]
-    desired_goal = obs['desired_goal'][5]
+    # achieved_goal = obs['achieved_goal'][5]
+    # desired_goal = obs['desired_goal'][5]
     # print(f'achieved_goal: {achieved_goal}')
     # print(f'desired_goal: {desired_goal}')
     # print(info)
     # cost = info['cost']
     # print(f'cost: {cost}')
-    print(f'reward: {rew}')
+    # print(f'reward: {rew}')
     # print(rew)
-    # print(len(obs))
+    print(obs)
+    print(len(obs))
 
     env.render()

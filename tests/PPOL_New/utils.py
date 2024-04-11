@@ -1,0 +1,108 @@
+import json
+import os
+import imageio.v3 as iio
+import gymnasium as gym
+import logging
+import numpy as np
+logger = logging.getLogger(__name__)
+
+def load_environment(env_config, render_mode=None, env_logger_path=None):
+    """
+        Load an environment from a configuration file.
+
+    :param env_config: the configuration, or path to the environment configuration file
+    :return: the environment
+    """
+    # Load the environment config from file
+    if not isinstance(env_config, dict):
+        with open(env_config) as f:
+            env_config = json.loads(f.read())
+
+    # Make the environment
+    if env_config.get("import_module", None):
+        __import__(env_config["import_module"])
+    try:
+        if env_logger_path:
+            # Empty the file
+            with open(env_logger_path, "w") as file:
+                pass
+        env = gym.make(env_config['id'], render_mode=render_mode, env_logger_path=env_logger_path)
+        # Save env module in order to be able to import it again
+        env.import_module = env_config.get("import_module", None)
+    except KeyError:
+        raise ValueError("The gym register-id of the environment must be provided")
+    except gym.error.UnregisteredEnv:
+        # The environment is unregistered.
+        print("import_module", env_config["import_module"])
+        raise gym.error.UnregisteredEnv('Environment {} not registered. The environment module should be specified by '
+                                        'the "import_module" key of the environment configuration'.format(
+                                            env_config['id']))
+
+    # Configure the environment, if supported
+    try:
+        env.unwrapped.configure(env_config)
+        # Reset the environment to ensure configuration is applied
+        env.reset()
+    except AttributeError as e:
+        logger.info("This environment does not support configuration. {}".format(e))
+    return env
+
+
+# Replaces evaluate_policy() from stable_baselines3 with a version that outputs frames to be transformed into a gif
+def evaluate_policy_and_capture_frames(model, env, n_eval_episodes=10):
+    episode_rewards = []
+    full_frames = []
+
+    for _ in range(n_eval_episodes):
+        obs = env.reset()
+        done = False
+        episode_reward = 0
+        frames = []
+        while not done:
+            action, _ = model.predict(obs, deterministic=True)
+            obs, reward, done, info = env.step(action)
+            print(info)
+            print(info[0]["cost"])
+            episode_reward += reward
+            
+            # Capture frame
+            frame = env.render(mode='rgb_array')
+            frames.append(frame)
+
+        full_frames.append(frames)
+        episode_rewards.append(episode_reward)
+    
+    mean_reward = np.mean(episode_rewards)
+    std_reward = np.std(episode_rewards)
+    
+    return mean_reward, std_reward, full_frames
+
+# Duration is same as fpss
+def save_frames_as_gif(path, frames, duration=50):
+    iio.imwrite(path, frames, duration=duration, loop=0)
+    print(f"GIF created at {path}")
+
+
+def verify_and_solve_path(path: str):
+    # Check if the directory already exists
+    if not os.path.exists(path):
+        # If it doesn't exist, create it
+        os.makedirs(path)
+        print(f"Directory created: {path}")
+    else:
+        print(f"Directory already exists: {path}")
+
+    
+def verify_path(path: str, is_directory: bool) -> bool:
+    # Check if the directory exists
+    if is_directory:
+        if os.path.exists(path) and os.path.isdir(path):
+            return True
+        else:
+            return False
+    else:
+        if os.path.exists(path):
+            return True
+        else:
+            return False
+
