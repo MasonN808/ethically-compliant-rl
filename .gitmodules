@@ -18,3 +18,7 @@
 	path = pytorch
 	url = https://github.com/MasonN808/pytorch.git
 	branch = ecrl
+[submodule "ai-safety-gridworlds"]
+	path = ai-safety-gridworlds
+	url = https://github.com/MasonN808/ai-safety-gridworlds
+	branch = master
