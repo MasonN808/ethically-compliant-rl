@@ -2,67 +2,7 @@ import gymnasium as gym
 import numpy as np
 np.seterr(divide='ignore', invalid='ignore') # Useful for lidar observation
 
-env = gym.make("parking-v0", render_mode="human")
-env.configure({
-    "id": "parking-v0",
-    "import_module": "highway_env",
-    # "observation": {
-    #     "type": "KinematicsLidarObservation",
-    #     "cells": 8,
-    #     "maximum_range": 60,
-    #     "normalize": True,
-    #     "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
-    #     "scales": [100, 100, 5, 5, 1, 1],
-    # },
-    # "observation": {
-    #     "type": "LidarObservation",
-    #     "cells": 100,
-    #     "maximum_range": 60,
-    #     "normalize": True,
-    # },
-    # "observation": {
-    #     "type": "KinematicsGoal",
-    #     "features": ["x", "y", "vx", "vy", "cos_h", "sin_h"],
-    #     "scales": [100, 100, 5, 5, 1, 1],
-    #     "normalize": False,
-    # },
-    "observation": {
-        "type": "KinematicsGrayScaleObservation",
-        "observation_shape": (128, 64),
-        "stack_size": 4,
-        "weights": [0.2989, 0.5870, 0.1140],  # weights for RGB conversion
-        "scaling": 1.75,
-        "features": ['x', 'y', 'vx', 'vy', 'cos_h', 'sin_h'],
-        "scales": [100, 100, 5, 5, 1, 1],
-    },
-    "action": {
-        "type": "ContinuousAction"
-    },
-    # This determines the weights to the difference between the desired_goal and achieved_goal
-    "reward_weights": [1.2, 0.3, 0.06, 0.06, 0.02, 0],
-    "show_trajectories": False,
-    "success_goal_reward": 0.12, # TODO: Change this to positive when using constant negative reward
-    "collision_reward": -5,
-    "simulation_frequency": 15,
-    "policy_frequency": 5,
-    "duration": 20, # seconds
-    "screen_width": 600,
-    "screen_height": 300,
-    "centering_position": [0.5, 0.5],
-    "scaling": 7,
-    "controlled_vehicles": 1,
-    "vehicles_count": 0,
-    "add_walls": False,
-    "start_location": [40, 30],
-    "manual_control": True,
-    "extra_lines": True,
-    "use_closest_line_distance_in_obs": False,
-
-    # Costs
-    "constraint_type":["lines"],
-    # "speed_limit": 3,
-})
-
+env = gym.make("MiniGrid-Empty-16x16-v0", render_mode="human")
 env.reset()
 done = False
 i=0
