@@ -15,15 +15,15 @@ import gymnasium as gym
 class Cfg(EvalCfg):
     n_eval_episodes: int = 5
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL/models/mini-grid/qfgkmstx"
+    model_directory: str = "tests/PPOL/models/mini-grid/hhbyn35m"
 
     model_epoch: int = 10
     model_save_interval: int = 2
     loop_over_epochs: bool = False
 
     # PID Lagrangian Params
-    # constraint_type: list[str] = field(default_factory=lambda: ["lines"])
-    # cost_threshold: list[float] = field(default_factory=lambda: [4])
+    # constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
+    # cost_threshold: list[float] = field(default_factory=lambda: [0])
     constraint_type: list[str] = field(default_factory=lambda: [])
     cost_threshold: list[float] = field(default_factory=lambda: [])
     K_P: float = 2

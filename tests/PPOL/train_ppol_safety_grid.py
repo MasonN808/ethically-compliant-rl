@@ -38,7 +38,8 @@ class WandbLoggingCallback(BaseCallback):
             reward = self.locals['rewards']
 
         if self.locals['infos'][0].get('cost'):
-            cost = self.locals['infos'][0].get('cost')[0]
+            cost = self.locals['infos'][0].get('cost')[0] # TODO: For more one constraint
+            # cost = self.locals['infos'][0].get('cost')
             self.logger.record('cost', cost)
 
         is_success = int(self.locals['infos'][0].get('is_success') == True)
@@ -58,12 +59,12 @@ class WandbLoggingCallback(BaseCallback):
 class Cfg(TrainCfg):
     speed_limit: Optional[float] = None
     wandb_project_name: str = "mini-grid"
-    env_name: str = "MiniGrid-Empty-16x16-v0"
+    env_name: str = "MiniGrid-Empty-16x16-v1"
     # env_name: str = "ParkingEnv"
     env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 5
     total_timesteps: int = 100000
-    batch_size: int = 4096
+    batch_size: int = 2048
     num_envs: int = 1
     model_save_interval: int = 2
     policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [64, 64], 'features_extractor_class': CombinedExtractor})
