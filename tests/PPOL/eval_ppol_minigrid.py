@@ -13,23 +13,23 @@ import gymnasium as gym
 
 @dataclass
 class Cfg(EvalCfg):
-    n_eval_episodes: int = 5
+    n_eval_episodes: int = 2
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL/models/mini-grid/hhbyn35m"
+    model_directory: str = "tests/PPOL/models/mini-grid/y9dq3hie"
 
-    model_epoch: int = 10
+    model_epoch: int = 2
     model_save_interval: int = 2
     loop_over_epochs: bool = False
 
     # PID Lagrangian Params
-    # constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
-    # cost_threshold: list[float] = field(default_factory=lambda: [0])
-    constraint_type: list[str] = field(default_factory=lambda: [])
-    cost_threshold: list[float] = field(default_factory=lambda: [])
+    constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
+    cost_threshold: list[float] = field(default_factory=lambda: [1])
+    # constraint_type: list[str] = field(default_factory=lambda: [])
+    # cost_threshold: list[float] = field(default_factory=lambda: [])
     K_P: float = 2
     K_I: float = 1
     K_D: float = 1
-    lagrange_multiplier: bool = False
+    lagrange_multiplier: bool = True
 
 @pyrallis.wrap()
 def evaluate(args: Cfg):
@@ -52,7 +52,7 @@ def evaluate(args: Cfg):
         # Create the path if it does not exist
         verify_and_solve_path(gif_dir)
 
-        env = gym.make("MiniGrid-Empty-16x16-v0", render_mode="rgb_array")
+        env = gym.make("MiniGrid-Empty-16x16-v1", render_mode="rgb_array")
         env = DummyVecEnv([lambda: env])
 
         # Load the saved data

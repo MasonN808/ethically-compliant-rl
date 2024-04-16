@@ -73,7 +73,7 @@ class Cfg(TrainCfg):
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
-    cost_threshold: list[float] = field(default_factory=lambda: [10])
+    cost_threshold: list[float] = field(default_factory=lambda: [0])
     # constraint_type: list[str] = field(default_factory=lambda: [])
     # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = True
@@ -81,7 +81,7 @@ class Cfg(TrainCfg):
     K_I: float = 1
     K_D: float = 2
 
-    notes: str = "PPOL on the custom hazard minigrid - cost threshold 1"
+    notes: str = "Changed cost_values-d to cost_values in Loss function since this may be causing issues with the cost prediction."
 
 @pyrallis.wrap()
 def train(args: Cfg):
