@@ -70,15 +70,15 @@ class Cfg(TrainCfg):
     seed: int = 1
     ent_coef: float = .002
     env_logger_path: str = None
-    run_dscrip: str = "NoConstraints"
+    run_dscrip: str = "Hazards"
     device: str = "cuda"
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
-    cost_threshold: list[float] = field(default_factory=lambda: [0])
+    cost_threshold: list[float] = field(default_factory=lambda: [1])
     # constraint_type: list[str] = field(default_factory=lambda: [])
     # cost_threshold: list[float] = field(default_factory=lambda: [])
-    lagrange_multiplier: bool = False
+    lagrange_multiplier: bool = True
     K_P: float = 1
     K_I: float = 1
     K_D: float = 2
