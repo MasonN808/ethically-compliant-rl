@@ -61,29 +61,29 @@ class Cfg(TrainCfg):
     env_name: str = "MiniGrid-Empty-16x16-v0"
     # env_name: str = "ParkingEnv"
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 20
+    epochs: int = 5
     total_timesteps: int = 100000
     batch_size: int = 4096
     num_envs: int = 1
     model_save_interval: int = 2
     policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [64, 64], 'features_extractor_class': CombinedExtractor})
     seed: int = 1
-    ent_coef: float = .001
+    ent_coef: float = .002
     env_logger_path: str = None
     run_dscrip: str = "NoConstraints"
     device: str = "cuda"
 
     # Lagrangian Parameters
-    # constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
-    # cost_threshold: list[float] = field(default_factory=lambda: [3])
-    constraint_type: list[str] = field(default_factory=lambda: [])
-    cost_threshold: list[float] = field(default_factory=lambda: [])
+    constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
+    cost_threshold: list[float] = field(default_factory=lambda: [0])
+    # constraint_type: list[str] = field(default_factory=lambda: [])
+    # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = False
     K_P: float = 1
     K_I: float = 1
     K_D: float = 2
 
-    notes: str = "Testing PPO from PPOL implementation on minigrid."
+    notes: str = "PPOL on the custom hazard minigrid"
 
 @pyrallis.wrap()
 def train(args: Cfg):
