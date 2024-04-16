@@ -76,6 +76,8 @@ class Cfg(TrainCfg):
     # Lagrangian Parameters
     # constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
     # cost_threshold: list[float] = field(default_factory=lambda: [3])
+    constraint_type: list[str] = field(default_factory=lambda: [])
+    cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = False
     K_P: float = 1
     K_I: float = 1

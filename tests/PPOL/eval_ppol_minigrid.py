@@ -15,9 +15,9 @@ import gymnasium as gym
 class Cfg(EvalCfg):
     n_eval_episodes: int = 5
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL/models/mini-grid/qfgkmstx/model_epoch(10).zip"
+    model_directory: str = "tests/PPOL/models/mini-grid/qfgkmstx"
 
-    model_epoch: int = 25
+    model_epoch: int = 10
     model_save_interval: int = 2
     loop_over_epochs: bool = False
 
@@ -29,10 +29,7 @@ class Cfg(EvalCfg):
     K_P: float = 2
     K_I: float = 1
     K_D: float = 1
-
-    # Env Params
-    start_location: list = field(default_factory=lambda: [0, 0])
-    extra_lines: bool = True # Adds additional horizonatal lines in the parking environment 
+    lagrange_multiplier: bool = False
 
 @pyrallis.wrap()
 def evaluate(args: Cfg):
@@ -72,6 +69,7 @@ def evaluate(args: Cfg):
                     K_P=args.K_P,
                     K_I=args.K_I,
                     K_D=args.K_D,
+                    lagrange_multiplier=args.lagrange_multiplier,
                     seed=args.seed
                 )
         
