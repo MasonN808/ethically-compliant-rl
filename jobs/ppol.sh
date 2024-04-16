@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SLURM settings for the job submission
-#SBATCH --job-name=images          # Name of the job
+#SBATCH --job-name=minigrid          # Name of the job
 #SBATCH --gres=gpu:1             # Request one GPU
 #SBATCH --mem=5gb                # Memory allocated
 #SBATCH --nodes=1                 # Number of nodes
@@ -15,7 +15,7 @@ source .venv/bin/activate
 # Get all arguments passed to the script
 ARGS="$@"
 
-BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/tests/PPOL_New/train_ppol_image_cnn.py"
+BASE_SCRIPT="/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py"
 
 # srun -N1 -n1 python3 $BASE_SCRIPT $ARGS
 

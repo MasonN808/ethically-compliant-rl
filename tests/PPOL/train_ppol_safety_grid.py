@@ -57,13 +57,13 @@ class WandbLoggingCallback(BaseCallback):
 @dataclass
 class Cfg(TrainCfg):
     speed_limit: Optional[float] = None
-    wandb_project_name: str = "grid-world"
+    wandb_project_name: str = "mini-grid"
     env_name: str = "MiniGrid-Empty-16x16-v0"
     # env_name: str = "ParkingEnv"
     env_config: str = f"configs/{env_name}/default.txt"
-    epochs: int = 5
-    total_timesteps: int = 10000
-    batch_size: int = 512
+    epochs: int = 20
+    total_timesteps: int = 100000
+    batch_size: int = 4096
     num_envs: int = 1
     model_save_interval: int = 2
     policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [64, 64], 'features_extractor_class': CombinedExtractor})
@@ -71,7 +71,7 @@ class Cfg(TrainCfg):
     ent_coef: float = .001
     env_logger_path: str = None
     run_dscrip: str = "NoConstraints"
-    device: str = "auto"
+    device: str = "cuda"
 
     # Lagrangian Parameters
     # constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
@@ -81,9 +81,11 @@ class Cfg(TrainCfg):
     K_I: float = 1
     K_D: float = 2
 
+    notes: str = "Testing PPO from PPOL implementation on minigrid."
+
 @pyrallis.wrap()
 def train(args: Cfg):
-    run = wandb.init(project=args.wandb_project_name, sync_tensorboard=True)
+    run = wandb.init(project=args.wandb_project_name, notes=args.notes, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
     
     # Log all the config params to wandb
@@ -126,8 +128,8 @@ def train(args: Cfg):
     for i in range(args.epochs):
         agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
         if i % args.model_save_interval == 0:
-            path = f"tests/PPOL_New/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
-            verify_and_solve_path(f"tests/PPOL_New/models/{args.wandb_project_name}/{run.id}")
+            path = f"tests/PPOL/models/{args.wandb_project_name}/{run.id}/model_epoch({i})"
+            verify_and_solve_path(f"tests/PPOL/models/{args.wandb_project_name}/{run.id}")
             agent.save(path)
 
 if __name__ == "__main__":
