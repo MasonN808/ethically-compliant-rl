@@ -57,11 +57,8 @@ class WandbLoggingCallback(BaseCallback):
 
 @dataclass
 class Cfg(TrainCfg):
-    speed_limit: Optional[float] = None
     wandb_project_name: str = "mini-grid"
     env_name: str = "MiniGrid-Empty-16x16-v1"
-    # env_name: str = "ParkingEnv"
-    env_config: str = f"configs/{env_name}/default.txt"
     epochs: int = 5
     total_timesteps: int = 100000
     batch_size: int = 2048
@@ -76,7 +73,7 @@ class Cfg(TrainCfg):
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
-    cost_threshold: list[float] = field(default_factory=lambda: [1])
+    cost_threshold: list[float] = field(default_factory=lambda: [10])
     # constraint_type: list[str] = field(default_factory=lambda: [])
     # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = True
@@ -84,7 +81,7 @@ class Cfg(TrainCfg):
     K_I: float = 1
     K_D: float = 2
 
-    notes: str = "PPOL on the custom hazard minigrid"
+    notes: str = "PPOL on the custom hazard minigrid - cost threshold 1"
 
 @pyrallis.wrap()
 def train(args: Cfg):
