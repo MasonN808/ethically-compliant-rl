@@ -59,14 +59,15 @@ class WandbLoggingCallback(BaseCallback):
 class Cfg(TrainCfg):
     wandb_project_name: str = "mini-grid"
     env_name: str = "MiniGrid-Empty-16x16-v1"
-    epochs: int = 5
+    epochs: int = 20
     total_timesteps: int = 100000
     batch_size: int = 2048
     num_envs: int = 1
     model_save_interval: int = 2
     policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [64, 64], 'features_extractor_class': CombinedExtractor})
     seed: int = 1
-    ent_coef: float = .002
+    ent_coef: float = .001
+    vf_coef: float = .5
     env_logger_path: str = None
     run_dscrip: str = "Hazards"
     device: str = "cuda"
@@ -77,11 +78,11 @@ class Cfg(TrainCfg):
     # constraint_type: list[str] = field(default_factory=lambda: [])
     # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = True
-    K_P: float = 1
-    K_I: float = 1
-    K_D: float = 2
+    K_P: float = .1
+    K_I: float = .1
+    K_D: float = .1
 
-    notes: str = "Changed cost_values-d to cost_values in Loss function since this may be causing issues with the cost prediction."
+    notes: str = "Replaced cost_values with cost returns from rollout buffer in lag loss. Increasing number of time steps to decrease entropy."
 
 @pyrallis.wrap()
 def train(args: Cfg):
@@ -117,6 +118,7 @@ def train(args: Cfg):
                  batch_size=args.batch_size,
                  verbose=0,
                  ent_coef=args.ent_coef,
+                 vf_coef=args.vf_coef,
                  policy_kwargs=args.policy_kwargs,
                  seed=args.seed,
                  device=args.device)

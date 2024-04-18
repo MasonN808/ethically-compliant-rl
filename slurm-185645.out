@@ -1,0 +1,11 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240416_204138-mlm93nfv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run revived-serenity-19
+wandb: ⭐️ View project at https://wandb.ai/ecrl/mini-grid
+wandb: 🚀 View run at https://wandb.ai/ecrl/mini-grid/runs/mlm93nfv
+slurmstepd: error: *** STEP 185645.0 ON vae.ist.berkeley.edu CANCELLED AT 2024-04-16T20:42:13 ***
+slurmstepd: error: *** JOB 185645 ON vae.ist.berkeley.edu CANCELLED AT 2024-04-16T20:42:13 ***
