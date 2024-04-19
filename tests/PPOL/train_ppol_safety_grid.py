@@ -57,9 +57,9 @@ class WandbLoggingCallback(BaseCallback):
 
 @dataclass
 class Cfg(TrainCfg):
-    wandb_project_name: str = "mini-grid"
+    wandb_project_name: str = "PID-tests"
     env_name: str = "MiniGrid-Empty-16x16-v1"
-    epochs: int = 20
+    epochs: int = 10
     total_timesteps: int = 100000
     batch_size: int = 2048
     num_envs: int = 1
@@ -69,12 +69,12 @@ class Cfg(TrainCfg):
     ent_coef: float = .001
     vf_coef: float = .5
     env_logger_path: str = None
-    run_dscrip: str = "Hazards"
+    run_dscrip: str = "Hazards-.1"
     device: str = "cuda"
 
     # Lagrangian Parameters
     constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
-    cost_threshold: list[float] = field(default_factory=lambda: [0])
+    cost_threshold: list[float] = field(default_factory=lambda: [5])
     # constraint_type: list[str] = field(default_factory=lambda: [])
     # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = True
@@ -82,7 +82,7 @@ class Cfg(TrainCfg):
     K_I: float = .1
     K_D: float = .1
 
-    notes: str = "Replaced cost_values with cost returns from rollout buffer in lag loss. Increasing number of time steps to decrease entropy."
+    notes: str = "Testing various PID coefficients to fix cost value loss bug"
 
 @pyrallis.wrap()
 def train(args: Cfg):
@@ -95,10 +95,7 @@ def train(args: Cfg):
 
     def make_env(env_name):
         def _init():
-            # Load the Highway env from the config file
-            # env = FlattenObservation()
             env = gym.make(env_name)
-            # Add Wrapper to record stats in env
             env = RecordEpisodeStatistics(env)
             return env
         return _init
