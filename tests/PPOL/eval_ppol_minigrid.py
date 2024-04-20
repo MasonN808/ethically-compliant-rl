@@ -15,9 +15,9 @@ import gymnasium as gym
 class Cfg(EvalCfg):
     n_eval_episodes: int = 2
     seed: int = 7 # Use seed 7 for all evaluations
-    model_directory: str = "tests/PPOL/models/mini-grid/y9dq3hie"
+    model_directory: str = "tests/PPOL/models/mini-grid/y04q4ysp"
 
-    model_epoch: int = 2
+    model_epoch: int = 8
     model_save_interval: int = 2
     loop_over_epochs: bool = False
 
