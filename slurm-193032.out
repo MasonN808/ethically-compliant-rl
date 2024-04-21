@@ -1,0 +1,690 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240420_170932-vvf90zm2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run clear-moon-22
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/vvf90zm2
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240420_100932-cytp3y7v
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run vague-lake-23
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/cytp3y7v
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240420_100933-b3yum580
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run fearless-river-24
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/b3yum580
+LOSS: 0.10163819789886475
+PPO-LOSS: 0.0816711038351059
+tensor(0.0676, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.09393565356731415
+PPO-LOSS: 0.08340302109718323
+tensor(0.0437, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08934058994054794
+PPO-LOSS: 0.08511931449174881
+tensor(0.0266, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08672887831926346
+PPO-LOSS: 0.08625959604978561
+tensor(0.0155, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08470316231250763
+PPO-LOSS: 0.08614601194858551
+tensor(0.0092, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08189380913972855
+PPO-LOSS: 0.08467479795217514
+tensor(0.0059, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07816055417060852
+PPO-LOSS: 0.08227569609880447
+tensor(0.0044, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07421259582042694
+PPO-LOSS: 0.07939639687538147
+tensor(0.0043, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07088163495063782
+PPO-LOSS: 0.07637123018503189
+tensor(0.0054, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06830216944217682
+PPO-LOSS: 0.07342801988124847
+tensor(0.0070, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.09096865355968475
+PPO-LOSS: 0.1000136286020279
+tensor(0.0087, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08823316544294357
+PPO-LOSS: 0.09690888971090317
+tensor(0.0102, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0848432406783104
+PPO-LOSS: 0.09412473440170288
+tensor(0.0117, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0823274701833725
+PPO-LOSS: 0.0918039083480835
+tensor(0.0132, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08076176792383194
+PPO-LOSS: 0.09002739936113358
+tensor(0.0141, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07986131310462952
+PPO-LOSS: 0.08879514783620834
+tensor(0.0142, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07946061342954636
+PPO-LOSS: 0.0880487933754921
+tensor(0.0135, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07949110865592957
+PPO-LOSS: 0.08769840002059937
+tensor(0.0123, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07989832758903503
+PPO-LOSS: 0.08763563632965088
+tensor(0.0108, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08056037873029709
+PPO-LOSS: 0.08772283792495728
+tensor(0.0093, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05951584875583649
+PPO-LOSS: 0.0627252459526062
+tensor(0.0073, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05952288582921028
+PPO-LOSS: 0.06269826740026474
+tensor(0.0060, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.059310201555490494
+PPO-LOSS: 0.0625373125076294
+tensor(0.0050, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.058830104768276215
+PPO-LOSS: 0.06217362359166145
+tensor(0.0043, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.058023128658533096
+PPO-LOSS: 0.061575405299663544
+tensor(0.0040, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05692707747220993
+PPO-LOSS: 0.06077227741479874
+tensor(0.0040, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05577734485268593
+PPO-LOSS: 0.059832144528627396
+tensor(0.0045, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05476708710193634
+PPO-LOSS: 0.058848410844802856
+tensor(0.0053, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.054010771214962006
+PPO-LOSS: 0.05793359503149986
+tensor(0.0063, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.053495243191719055
+PPO-LOSS: 0.057166554033756256
+tensor(0.0072, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04571365937590599
+PPO-LOSS: 0.04795896261930466
+tensor(0.0068, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04561838135123253
+PPO-LOSS: 0.04783286154270172
+tensor(0.0067, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04560167342424393
+PPO-LOSS: 0.04790879413485527
+tensor(0.0060, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.045703478157520294
+PPO-LOSS: 0.04811457544565201
+tensor(0.0052, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04592182859778404
+PPO-LOSS: 0.048362087458372116
+tensor(0.0043, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04614295810461044
+PPO-LOSS: 0.048550792038440704
+tensor(0.0036, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04621056839823723
+PPO-LOSS: 0.04858887568116188
+tensor(0.0033, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04605576768517494
+PPO-LOSS: 0.04843480885028839
+tensor(0.0032, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.045649126172065735
+PPO-LOSS: 0.048102136701345444
+tensor(0.0034, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04514971375465393
+PPO-LOSS: 0.04765591025352478
+tensor(0.0038, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0568394660949707
+PPO-LOSS: 0.06116126477718353
+tensor(0.0055, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.056479889899492264
+PPO-LOSS: 0.06077158451080322
+tensor(0.0062, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05618951842188835
+PPO-LOSS: 0.06044197827577591
+tensor(0.0067, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05598924681544304
+PPO-LOSS: 0.060241714119911194
+tensor(0.0070, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05587266758084297
+PPO-LOSS: 0.06019194424152374
+tensor(0.0068, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05584187060594559
+PPO-LOSS: 0.060277439653873444
+tensor(0.0063, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05590027570724487
+PPO-LOSS: 0.0604514554142952
+tensor(0.0056, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05601860210299492
+PPO-LOSS: 0.060639671981334686
+tensor(0.0049, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.056121956557035446
+PPO-LOSS: 0.06075474992394447
+tensor(0.0044, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05611807107925415
+PPO-LOSS: 0.060728371143341064
+tensor(0.0041, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.03340999037027359
+PPO-LOSS: 0.03452752158045769
+tensor(0.0040, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.03337599337100983
+PPO-LOSS: 0.034626733511686325
+tensor(0.0035, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.033369679003953934
+PPO-LOSS: 0.03477739170193672
+tensor(0.0028, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0334218367934227
+PPO-LOSS: 0.03490918129682541
+tensor(0.0022, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.03346598148345947
+PPO-LOSS: 0.034933507442474365
+tensor(0.0017, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.03336085379123688
+PPO-LOSS: 0.03477151691913605
+tensor(0.0015, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.03303542360663414
+PPO-LOSS: 0.03440136834979057
+tensor(0.0017, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.03255516290664673
+PPO-LOSS: 0.033864181488752365
+tensor(0.0020, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.03205244988203049
+PPO-LOSS: 0.033243827521800995
+tensor(0.0025, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.03161364793777466
+PPO-LOSS: 0.03263062238693237
+tensor(0.0031, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07087714970111847
+PPO-LOSS: 0.07728716731071472
+tensor(0.0039, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06932998448610306
+PPO-LOSS: 0.07603789865970612
+tensor(0.0054, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0677703320980072
+PPO-LOSS: 0.0744229406118393
+tensor(0.0078, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06673409789800644
+PPO-LOSS: 0.07287920266389847
+tensor(0.0106, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06620452553033829
+PPO-LOSS: 0.07175110280513763
+tensor(0.0127, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06593018025159836
+PPO-LOSS: 0.07121240347623825
+tensor(0.0135, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06577697396278381
+PPO-LOSS: 0.07124684005975723
+tensor(0.0127, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06580519676208496
+PPO-LOSS: 0.0717182382941246
+tensor(0.0108, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0661090761423111
+PPO-LOSS: 0.07241585105657578
+tensor(0.0086, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06661379337310791
+PPO-LOSS: 0.07307318598031998
+tensor(0.0068, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08865334838628769
+PPO-LOSS: 0.09927304089069366
+tensor(0.0063, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08839717507362366
+PPO-LOSS: 0.09903106093406677
+tensor(0.0065, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0871460884809494
+PPO-LOSS: 0.09797338396310806
+tensor(0.0078, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.14412374794483185
+PPO-LOSS: 0.0816711038351059
+tensor(67.5850, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.1245514526963234
+PPO-LOSS: 0.08533990383148193
+tensor(42.7270, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.10724198818206787
+PPO-LOSS: 0.08945030719041824
+tensor(24.9009, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08632048964500427
+PPO-LOSS: 0.09398771822452545
+tensor(12.5592, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05936410278081894
+PPO-LOSS: 0.09892944246530533
+tensor(4.8450, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.027701426297426224
+PPO-LOSS: 0.10425670444965363
+tensor(0.8119, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.09285861998796463
+PPO-LOSS: 0.11001929640769958
+tensor(0.0011, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.11343345791101456
+PPO-LOSS: 0.11343345791101456
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.11430984735488892
+PPO-LOSS: 0.11430984735488892
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.11333867162466049
+PPO-LOSS: 0.11333867162466049
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.1377630978822708
+PPO-LOSS: 0.1377630978822708
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.1341676265001297
+PPO-LOSS: 0.1341676265001297
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.12994037568569183
+PPO-LOSS: 0.12994037568569183
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.12531627714633942
+PPO-LOSS: 0.12531627714633942
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.039828334003686905
+PPO-LOSS: 0.12046676129102707
+tensor(0.0150, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.021798869594931602
+PPO-LOSS: 0.11701945215463638
+tensor(0.0571, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.017724154517054558
+PPO-LOSS: 0.11474786698818207
+tensor(0.1023, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.01914895698428154
+PPO-LOSS: 0.11344790458679199
+tensor(0.0859, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.030517984181642532
+PPO-LOSS: 0.11289570480585098
+tensor(0.0258, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.09221542626619339
+PPO-LOSS: 0.11291497945785522
+tensor(0.0009, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06811261922121048
+PPO-LOSS: 0.06811261922121048
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06699229031801224
+PPO-LOSS: 0.06699229031801224
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06545852869749069
+PPO-LOSS: 0.06545852869749069
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06362186372280121
+PPO-LOSS: 0.06362186372280121
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0615869015455246
+PPO-LOSS: 0.0615869015455246
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05289348214864731
+PPO-LOSS: 0.0594363659620285
+tensor(0.0004, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.01561412587761879
+PPO-LOSS: 0.05747108533978462
+tensor(0.0220, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.011573274619877338
+PPO-LOSS: 0.056037213653326035
+tensor(0.0520, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.01156448945403099
+PPO-LOSS: 0.05504242330789566
+tensor(0.0333, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.023117754608392715
+PPO-LOSS: 0.054425302892923355
+tensor(0.0050, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.061600878834724426
+PPO-LOSS: 0.06451116502285004
+tensor(8.3543e-05, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06402375549077988
+PPO-LOSS: 0.06406932324171066
+tensor(1.7015e-07, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.029919782653450966
+PPO-LOSS: 0.06321016699075699
+tensor(0.0038, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.020986871793866158
+PPO-LOSS: 0.06275638192892075
+tensor(0.0092, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.042934536933898926
+PPO-LOSS: 0.06266764551401138
+tensor(0.0012, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06281401962041855
+PPO-LOSS: 0.06281401962041855
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.062468476593494415
+PPO-LOSS: 0.062468476593494415
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0616859570145607
+PPO-LOSS: 0.0616859570145607
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06053565815091133
+PPO-LOSS: 0.06053565815091133
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.058769650757312775
+PPO-LOSS: 0.05909150466322899
+tensor(8.3754e-07, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.013409574516117573
+PPO-LOSS: 0.04511705040931702
+tensor(0.0147, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.00933502335101366
+PPO-LOSS: 0.04425521194934845
+tensor(0.0566, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.006980692036449909
+PPO-LOSS: 0.04377983510494232
+tensor(0.0810, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0065887197852134705
+PPO-LOSS: 0.04367674142122269
+tensor(0.0645, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.009418165311217308
+PPO-LOSS: 0.043909408152103424
+tensor(0.0179, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.032348789274692535
+PPO-LOSS: 0.04444565996527672
+tensor(0.0004, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0451444573700428
+PPO-LOSS: 0.0451444573700428
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04545171558856964
+PPO-LOSS: 0.04545171558856964
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.045387182384729385
+PPO-LOSS: 0.045387182384729385
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.044983215630054474
+PPO-LOSS: 0.044983215630054474
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06053861603140831
+PPO-LOSS: 0.06053861603140831
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.058603882789611816
+PPO-LOSS: 0.05950441583991051
+tensor(2.7887e-05, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.021668296307325363
+PPO-LOSS: 0.058188844472169876
+tensor(0.0042, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.008401209488511086
+PPO-LOSS: 0.057343434542417526
+tensor(0.0333, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.007825307548046112
+PPO-LOSS: 0.05699826776981354
+tensor(0.0608, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.009155941195786
+PPO-LOSS: 0.05708838626742363
+tensor(0.0318, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.026424666866660118
+PPO-LOSS: 0.05756073072552681
+tensor(0.0027, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05828012153506279
+PPO-LOSS: 0.05828012153506279
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0585002601146698
+PPO-LOSS: 0.0585002601146698
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.058253899216651917
+PPO-LOSS: 0.058253899216651917
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.09062515944242477
+PPO-LOSS: 0.09062515944242477
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.024526044726371765
+PPO-LOSS: 0.08959797024726868
+tensor(0.0084, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.01266372948884964
+PPO-LOSS: 0.08904610574245453
+tensor(0.0234, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.013188844546675682
+PPO-LOSS: 0.08896929025650024
+tensor(0.0217, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04119773581624031
+PPO-LOSS: 0.08930406719446182
+tensor(0.0023, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08996804803609848
+PPO-LOSS: 0.08996804803609848
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.09006062150001526
+PPO-LOSS: 0.09006062150001526
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08963511139154434
+PPO-LOSS: 0.08963511139154434
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07284782826900482
+PPO-LOSS: 0.08875202387571335
+tensor(0.0003, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.024651067331433296
+PPO-LOSS: 0.08791633695363998
+tensor(0.0068, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.016371911391615868
+PPO-LOSS: 0.04317954182624817
+tensor(0.0051, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.029393775388598442
+PPO-LOSS: 0.043419696390628815
+tensor(0.0009, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04101299121975899
+PPO-LOSS: 0.04379759728908539
+tensor(6.4328e-05, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.042071204632520676
+PPO-LOSS: 0.0439724326133728
+LOSS: 0.13324809074401855
+PPO-LOSS: 0.08167081326246262
+tensor(0.6758, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.1154913604259491
+PPO-LOSS: 0.08460813760757446
+tensor(0.4274, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.10143124312162399
+PPO-LOSS: 0.08797380328178406
+tensor(0.2490, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08845405280590057
+PPO-LOSS: 0.09171776473522186
+tensor(0.1258, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07915830612182617
+PPO-LOSS: 0.09578050673007965
+tensor(0.0488, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08167678117752075
+PPO-LOSS: 0.1000516414642334
+tensor(0.0085, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.10343331098556519
+PPO-LOSS: 0.10382595658302307
+tensor(2.7980e-05, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.10467681288719177
+PPO-LOSS: 0.10467681288719177
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.10360755026340485
+PPO-LOSS: 0.10360755026340485
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.10122359544038773
+PPO-LOSS: 0.10122359544038773
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.10933829098939896
+PPO-LOSS: 0.10933829098939896
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.10567691922187805
+PPO-LOSS: 0.10567691922187805
+tensor(0., device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.10082497447729111
+PPO-LOSS: 0.10177096724510193
+tensor(4.1908e-05, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08787263184785843
+PPO-LOSS: 0.0977943018078804
+tensor(0.0013, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07137563824653625
+PPO-LOSS: 0.09407326579093933
+tensor(0.0065, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06603070348501205
+PPO-LOSS: 0.09120552986860275
+tensor(0.0106, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06505891680717468
+PPO-LOSS: 0.08904815465211868
+tensor(0.0101, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06735850870609283
+PPO-LOSS: 0.08744435757398605
+tensor(0.0063, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07413103431463242
+PPO-LOSS: 0.08624722063541412
+tensor(0.0022, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.08058195561170578
+PPO-LOSS: 0.08513575047254562
+tensor(0.0004, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07273992896080017
+PPO-LOSS: 0.07721859961748123
+tensor(0.0006, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06594119220972061
+PPO-LOSS: 0.075719453394413
+tensor(0.0029, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06168233975768089
+PPO-LOSS: 0.07434237003326416
+tensor(0.0059, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.060173340141773224
+PPO-LOSS: 0.07333594560623169
+tensor(0.0063, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06003532558679581
+PPO-LOSS: 0.07266588509082794
+tensor(0.0044, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.062140922993421555
+PPO-LOSS: 0.07221924513578415
+tensor(0.0024, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06357154250144958
+PPO-LOSS: 0.07175393402576447
+tensor(0.0016, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06351178884506226
+PPO-LOSS: 0.07112433761358261
+tensor(0.0016, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06239747256040573
+PPO-LOSS: 0.0703120306134224
+tensor(0.0016, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.060418497771024704
+PPO-LOSS: 0.06936785578727722
+tensor(0.0019, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05634787678718567
+PPO-LOSS: 0.06338529288768768
+tensor(0.0014, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0534585639834404
+PPO-LOSS: 0.06258358806371689
+tensor(0.0022, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05167822912335396
+PPO-LOSS: 0.06193059682846069
+tensor(0.0025, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05120116472244263
+PPO-LOSS: 0.06148194894194603
+tensor(0.0022, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.052529916167259216
+PPO-LOSS: 0.06119823455810547
+tensor(0.0019, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.053229693323373795
+PPO-LOSS: 0.06094896048307419
+tensor(0.0016, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.054072316735982895
+PPO-LOSS: 0.06066814064979553
+tensor(0.0011, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05432772636413574
+PPO-LOSS: 0.060282185673713684
+tensor(0.0008, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05292786285281181
+PPO-LOSS: 0.059762142598629
+tensor(0.0010, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.050620224326848984
+PPO-LOSS: 0.05919644609093666
+tensor(0.0017, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04276444390416145
+PPO-LOSS: 0.053507402539253235
+tensor(0.0031, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0446084663271904
+PPO-LOSS: 0.05356254056096077
+tensor(0.0020, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.048170074820518494
+PPO-LOSS: 0.05377138406038284
+tensor(0.0008, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.050496239215135574
+PPO-LOSS: 0.05385734140872955
+tensor(0.0004, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.050597287714481354
+PPO-LOSS: 0.053643085062503815
+tensor(0.0003, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04851711168885231
+PPO-LOSS: 0.05313728749752045
+tensor(0.0006, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.044893648475408554
+PPO-LOSS: 0.05248579382896423
+tensor(0.0013, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0425700843334198
+PPO-LOSS: 0.0519372820854187
+tensor(0.0020, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.04232779145240784
+PPO-LOSS: 0.051638249307870865
+tensor(0.0020, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.043878961354494095
+PPO-LOSS: 0.051561079919338226
+tensor(0.0014, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06987705826759338
+PPO-LOSS: 0.07899271696805954
+tensor(0.0008, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.07079864293336868
+PPO-LOSS: 0.07905147969722748
+tensor(0.0006, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06749632954597473
+PPO-LOSS: 0.07872161269187927
+tensor(0.0010, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06319945305585861
+PPO-LOSS: 0.07826774567365646
+tensor(0.0018, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06155235692858696
+PPO-LOSS: 0.07799956202507019
+tensor(0.0022, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06325584650039673
+PPO-LOSS: 0.07800979912281036
+tensor(0.0017, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06676208227872849
+PPO-LOSS: 0.07814677804708481
+tensor(0.0009, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06883076578378677
+PPO-LOSS: 0.07814078032970428
+tensor(0.0006, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06745486706495285
+PPO-LOSS: 0.07784535735845566
+tensor(0.0008, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.06405820697546005
+PPO-LOSS: 0.07736046612262726
+tensor(0.0013, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05535796657204628
+PPO-LOSS: 0.0677189975976944
+tensor(0.0017, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.055205415934324265
+PPO-LOSS: 0.06767493486404419
+tensor(0.0016, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05697938799858093
+PPO-LOSS: 0.06775883585214615
+tensor(0.0011, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05934245511889458
+PPO-LOSS: 0.06784961372613907
+tensor(0.0007, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05997488275170326
+PPO-LOSS: 0.06779967993497849
+tensor(0.0007, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05895068496465683
+PPO-LOSS: 0.06758488714694977
+tensor(0.0008, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05744997411966324
+PPO-LOSS: 0.06728769093751907
+tensor(0.0010, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05652530491352081
+PPO-LOSS: 0.06700779497623444
+tensor(0.0012, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05656558647751808
+PPO-LOSS: 0.0667937844991684
+tensor(0.0011, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05707455798983574
+PPO-LOSS: 0.06661343574523926
+tensor(0.0010, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05227138102054596
+PPO-LOSS: 0.061805739998817444
+tensor(0.0011, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.05294584855437279
+PPO-LOSS: 0.06171683222055435
+tensor(0.0009, device='cuda:0', grad_fn=<SumBackward0>)
+LOSS: 0.0534827746450901
+PPO-LOSS: 0.061588261276483536
+tensor(0.0008, device='cuda:0', grad_fn=<SumBackward0>)
+slurmstepd: error: *** STEP 193032.0 ON cirl.ist.berkeley.edu CANCELLED AT 2024-04-20T17:10:31 ***
+slurmstepd: error: *** STEP 193032.2 ON dqn.ist.berkeley.edu CANCELLED AT 2024-04-20T10:10:31 ***
+slurmstepd: error: *** JOB 193032 ON cirl.ist.berkeley.edu CANCELLED AT 2024-04-20T17:10:31 ***
+slurmstepd: error: *** STEP 193032.1 ON ddpg.ist.berkeley.edu CANCELLED AT 2024-04-20T10:10:31 ***

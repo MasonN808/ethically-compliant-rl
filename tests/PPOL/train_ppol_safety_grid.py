@@ -69,12 +69,11 @@ class Cfg(TrainCfg):
     ent_coef: float = .001
     vf_coef: float = .5
     env_logger_path: str = None
-    run_dscrip: str = "Hazards-.1"
     device: str = "cuda"
 
     # Lagrangian Parameters
-    constraint_type: list[str] = field(default_factory=lambda: ["hazards"])
-    cost_threshold: list[float] = field(default_factory=lambda: [5])
+    constraint_type: List[str] = field(default_factory=lambda: ["hazards"])
+    cost_threshold: List[float] = field(default_factory=lambda: [.5])
     # constraint_type: list[str] = field(default_factory=lambda: [])
     # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = True
@@ -82,12 +81,13 @@ class Cfg(TrainCfg):
     K_I: float = .1
     K_D: float = .1
 
-    notes: str = "Testing various PID coefficients to fix cost value loss bug"
+    notes: str = "Testing various PID coefficients to fix cost value loss bug. Reduced CNN output from 248 to 64"
 
 @pyrallis.wrap()
 def train(args: Cfg):
+    run_dscrip: str = f"Hazards-PID={args.K_P}-thresh=.5"
     run = wandb.init(project=args.wandb_project_name, notes=args.notes, sync_tensorboard=True)
-    run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
+    run.name = run.id + "-" + str(args.env_name) + "-" + run_dscrip
     
     # Log all the config params to wandb
     params_dict = asdict(args)

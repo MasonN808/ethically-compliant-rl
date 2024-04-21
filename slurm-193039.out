@@ -1,0 +1,67 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240420_191700-7l9l44d9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run effortless-resonance-44
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/7l9l44d9
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240420_121700-vyvxxdn8
+wandb: Run `wandb offline` to turn off syncing.
+Traceback (most recent call last):
+wandb: Syncing run stoic-planet-43
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 90, in train
+    run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
+AttributeError: 'Cfg' object has no attribute 'run_dscrip'
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/vyvxxdn8
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 90, in train
+    run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
+AttributeError: 'Cfg' object has no attribute 'run_dscrip'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240420_191701-2h6c9s5u
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run devout-donkey-45
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/2h6c9s5u
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 90, in train
+    run.name = run.id + "-" + str(args.env_name) + "-" + args.run_dscrip
+AttributeError: 'Cfg' object has no attribute 'run_dscrip'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run effortless-resonance-44 at: https://wandb.ai/ecrl/PID-tests/runs/7l9l44d9
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240420_191700-7l9l44d9/logs
+wandb: 🚀 View run devout-donkey-45 at: https://wandb.ai/ecrl/PID-tests/runs/2h6c9s5u
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240420_191701-2h6c9s5u/logs
+wandb: 🚀 View run stoic-planet-43 at: https://wandb.ai/ecrl/PID-tests/runs/vyvxxdn8
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240420_121700-vyvxxdn8/logs
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+slurmstepd: error: *** JOB 193039 ON airl.ist.berkeley.edu CANCELLED AT 2024-04-20T19:17:28 ***

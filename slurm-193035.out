@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 59, in <module>
+    class Cfg(TrainCfg):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 84, in Cfg
+    run_dscrip: str = f"Hazards-PID={K_P}-thresh={cost_threshold[0]}"
+TypeError: 'Field' object is not subscriptable
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 59, in <module>
+    class Cfg(TrainCfg):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 84, in Cfg
+    run_dscrip: str = f"Hazards-PID={K_P}-thresh={cost_threshold[0]}"
+TypeError: 'Field' object is not subscriptable
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 59, in <module>
+    class Cfg(TrainCfg):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 84, in Cfg
+    run_dscrip: str = f"Hazards-PID={K_P}-thresh={cost_threshold[0]}"
+TypeError: 'Field' object is not subscriptable
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 193035 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=193035.3
+srun: Job 193035 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=193035.4
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 59, in <module>
+    class Cfg(TrainCfg):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 84, in Cfg
+    run_dscrip: str = f"Hazards-PID={K_P}-thresh={cost_threshold[0]}"
+TypeError: 'Field' object is not subscriptable
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 193035 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=193035.5
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 59, in <module>
+    class Cfg(TrainCfg):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 84, in Cfg
+    run_dscrip: str = f"Hazards-PID={K_P}-thresh={cost_threshold[0]}"
+TypeError: 'Field' object is not subscriptable
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 59, in <module>
+    class Cfg(TrainCfg):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 84, in Cfg
+    run_dscrip: str = f"Hazards-PID={K_P}-thresh={cost_threshold[0]}"
+TypeError: 'Field' object is not subscriptable
+srun: error: airl.ist.berkeley.edu: task 0: Exited with exit code 1
