@@ -1,0 +1,11 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_022919-b4utkry6
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run major-microwave-63
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/b4utkry6
+slurmstepd: error: *** JOB 194387 ON airl.ist.berkeley.edu CANCELLED AT 2024-04-21T02:29:25 ***
+slurmstepd: error: *** STEP 194387.0 ON airl.ist.berkeley.edu CANCELLED AT 2024-04-21T02:29:25 ***

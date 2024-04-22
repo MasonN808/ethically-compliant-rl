@@ -66,26 +66,26 @@ class Cfg(TrainCfg):
     model_save_interval: int = 2
     policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [64, 64], 'features_extractor_class': CombinedExtractor})
     seed: int = 1
-    ent_coef: float = .001
+    ent_coef: float = .003
     vf_coef: float = .5
     env_logger_path: str = None
     device: str = "cuda"
 
     # Lagrangian Parameters
     constraint_type: List[str] = field(default_factory=lambda: ["hazards"])
-    cost_threshold: List[float] = field(default_factory=lambda: [.5])
+    cost_threshold: List[float] = field(default_factory=lambda: [0])
     # constraint_type: list[str] = field(default_factory=lambda: [])
     # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = True
-    K_P: float = .1
-    K_I: float = .1
-    K_D: float = .1
+    K_P: float = .5
+    K_I: float = .5
+    K_D: float = .5
 
-    notes: str = "Testing various PID coefficients to fix cost value loss bug. Reduced CNN output from 248 to 64"
+    notes: str = "Trying FSRL implementation that uses the advantage*ratio to calculate values"
 
 @pyrallis.wrap()
 def train(args: Cfg):
-    run_dscrip: str = f"Hazards-PID={args.K_P}-thresh=.5"
+    run_dscrip: str = f"Hazards-PID={args.K_P}-{args.K_I}-{args.K_D}"
     run = wandb.init(project=args.wandb_project_name, notes=args.notes, sync_tensorboard=True)
     run.name = run.id + "-" + str(args.env_name) + "-" + run_dscrip
     
