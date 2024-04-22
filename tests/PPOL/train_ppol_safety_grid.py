@@ -3,7 +3,7 @@ import ast
 import os
 from typing import Optional, Dict, List
 # Enables WandB cloud syncing
-os.environ['WANDB_DISABLED'] = 'False'
+os.environ['WANDB_DISABLED'] = 'True'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 import numpy as np
 import wandb
@@ -69,7 +69,7 @@ class Cfg(TrainCfg):
     ent_coef: float = .003
     vf_coef: float = .5
     env_logger_path: str = None
-    device: str = "cuda"
+    device: str = "cpu"
 
     # Lagrangian Parameters
     constraint_type: List[str] = field(default_factory=lambda: ["hazards"])
