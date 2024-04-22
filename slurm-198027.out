@@ -1,0 +1,490 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_193754-z0klug5x
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run deep-lion-82
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/z0klug5x
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_193754-a3zg8ojf
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run confused-glitter-83
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/a3zg8ojf
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_193754-t3q7upup
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run colorful-lake-84
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/t3q7upup
+srun: Job 198027 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+Directory created: tests/PPOL/models/PID-tests/z0klug5x
+Directory already exists: tests/PPOL/models/PID-tests/z0klug5x
+Directory already exists: tests/PPOL/models/PID-tests/z0klug5x
+Directory already exists: tests/PPOL/models/PID-tests/z0klug5x
+Directory already exists: tests/PPOL/models/PID-tests/z0klug5x
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: | 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: / 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                        cost ▁▁▁▁▁▁█▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                      reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             train/approx_kl ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         train/clip_fraction ▁▁▁▅▁▂▂▁▂▁▁▁▁▁▁▂▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▁▃█▇▅▅▃▃▃▃▂▃▄▂▃▄▃▂▂▂▂▃▂▂▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+wandb:       train/cost_value_loss ▃▃▇█▇█▃▃▁▂▁▂▂▁▁▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           train/cost_values ▁▃█▇▅▅▃▃▃▃▃▃▄▃▃▄▃▃▃▂▃▃▃▃▃▃▃▃▃▂▃▃▃▃▃▃▃▃▃▃
+wandb:               train/entropy ▁▁▂▃▅▆▇████████████▆████████████████████
+wandb:          train/entropy_loss ▁▁▂▃▅▆▇████████████▇████████████████████
+wandb:    train/explained_variance ▁▇▇▇████████████████████████████████████
+wandb:              train/lag_loss ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: train/lagrangian_multiplier ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss ▃▄██▇█▃▃▂▃▂▃▃▂▂▄▂▂▂▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ██▇▆█▇▇▇▇██████████▁████████████████████
+wandb:              train/ppo_loss ▃▄██▇█▃▃▂▃▂▃▃▂▂▄▂▂▂▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+wandb:               train/returns ▁▁▂▆▇██████████████▇████████████████████
+wandb:            train/value_loss ▁▁▅█▅▃▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                train/values ▁▁▂▆▇███████████████████████████████████
+wandb: 
+wandb: Run summary:
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                      reward 0.0
+wandb:             train/approx_kl 0.0
+wandb:         train/clip_fraction 0.0
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 0.85254
+wandb:       train/cost_value_loss 2e-05
+wandb:           train/cost_values 0.85242
+wandb:               train/entropy -0.00017
+wandb:          train/entropy_loss -0.00017
+wandb:    train/explained_variance 0.99993
+wandb:              train/lag_loss 0.0
+wandb: train/lagrangian_multiplier 0.0
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss 2e-05
+wandb:             train/n_updates 4890
+wandb:  train/policy_gradient_loss -0.0
+wandb:              train/ppo_loss 2e-05
+wandb:               train/returns 0.8594
+wandb:            train/value_loss 0.0
+wandb:                train/values 0.8594
+wandb: 
+wandb: 🚀 View run deep-lion-82 at: https://wandb.ai/ecrl/PID-tests/runs/z0klug5x
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_193754-z0klug5x/logs
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=198027.3
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_203424-vt0ov5l2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run stellar-aardvark-88
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/vt0ov5l2
+Directory created: tests/PPOL/models/PID-tests/t3q7upup
+Directory already exists: tests/PPOL/models/PID-tests/t3q7upup
+Directory already exists: tests/PPOL/models/PID-tests/t3q7upup
+Directory already exists: tests/PPOL/models/PID-tests/t3q7upup
+Directory already exists: tests/PPOL/models/PID-tests/t3q7upup
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: \ 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                        cost ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                      reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             train/approx_kl ▁▃▄▆▃▄▆▃▂▅▂▃▇▂▄▂▅▂▄█▁▂▁▅▁▄▂▂▃▅▂▄▂▅▂▃▂▃▁▂
+wandb:         train/clip_fraction ▁▁▁▁▁▁▁▄▁▁▁▃▆▁▁▁▁▂▁▃▁▁▁▄▁█▁▂▁▄▁▁▂▃▂▁▂▁▁▁
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns █▅▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       train/cost_value_loss █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           train/cost_values █▆▂▂▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:               train/entropy ▁▂▃▃▄▃▃▇▆▆█▅▃▄▄▅█▇▄▅▄▃▄▃▅▆▆▅▇▇▆▅▄▆▆▃▃▅▄▇
+wandb:          train/entropy_loss ▁▂▃▃▄▄▃▇▆▆█▆▃▄▄▅█▇▄▅▄▃▄▃▅▆▆▆█▇▆▅▅▆▆▃▃▅▅▇
+wandb:    train/explained_variance ▇████▇██████▇▇▅▅▁█▇▇█▇▇█▆▆▆▆▄▆▄▆▆▇▇██▇▇█
+wandb:              train/lag_loss █▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+wandb: train/lagrangian_multiplier █▅▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss █▁▂▃▂▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▆▆▃▃█▅▃▅▆▃▅▅▁▄▄▄▄▅▃▁▅▅▆▁▅▃▅▄▅▂▅▄▅▄▅▄▆▄▆▅
+wandb:              train/ppo_loss █▂▁▁▂▁▁▂▂▁▂▂▁▁▁▁▂▂▁▁▂▁▂▁▂▁▂▁▂▁▂▁▂▂▂▁▂▁▂▂
+wandb:               train/returns ▁▅▆▆█▆▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆
+wandb:            train/value_loss █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                train/values ▁▅▆▆█▆▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆
+wandb: 
+wandb: Run summary:
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                      reward 0.0
+wandb:             train/approx_kl 0.00149
+wandb:         train/clip_fraction 0.0
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns -0.00699
+wandb:       train/cost_value_loss 0.00018
+wandb:           train/cost_values -0.0048
+wandb:               train/entropy -1.08855
+wandb:          train/entropy_loss -1.06308
+wandb:    train/explained_variance -1.13353
+wandb:              train/lag_loss 0.00058
+wandb: train/lagrangian_multiplier 0.00021
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss -0.00246
+wandb:             train/n_updates 4890
+wandb:  train/policy_gradient_loss -0.00029
+wandb:              train/ppo_loss -0.00408
+wandb:               train/returns -0.00361
+wandb:            train/value_loss 2e-05
+wandb:                train/values -0.00278
+wandb: 
+wandb: 🚀 View run colorful-lake-84 at: https://wandb.ai/ecrl/PID-tests/runs/t3q7upup
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_193754-t3q7upup/logs
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=198027.4
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_203521-b5wxm9wh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run wild-plasma-89
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/b5wxm9wh
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+Directory created: tests/PPOL/models/PID-tests/a3zg8ojf
+Directory already exists: tests/PPOL/models/PID-tests/a3zg8ojf
+Directory already exists: tests/PPOL/models/PID-tests/a3zg8ojf
+Directory already exists: tests/PPOL/models/PID-tests/a3zg8ojf
+Directory already exists: tests/PPOL/models/PID-tests/a3zg8ojf
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: | 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: / 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                        cost ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                      reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             train/approx_kl ▂▇▂▁▁▁▁▁▁▁▁▄▁▂▁▁▁▇▁▁██▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▂▁
+wandb:         train/clip_fraction ▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▄▂▁▁▁▁▁▁▁▁▁█▆▃▂▁▁▃▂▁▁▆▄▃▁▁▁▆▄▂▁▁▄▂▁▁▁▁▄▂
+wandb:       train/cost_value_loss █▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           train/cost_values ▂▂▁▁▁▁▁▁▁▁▁█▆▃▂▁▁▄▂▁▁▆▄▃▁▁▁▆▄▂▁▁▄▂▁▁▁▁▄▂
+wandb:               train/entropy ▁▃▆▆▇▇▇▇▇▇▇▇▇███▇▇▆▆▆▆▇▇▇▇████▇▇████████
+wandb:          train/entropy_loss ▁▃▅▆▇▇▇▇▇▇▇▇▇███▇▇▆▆▆▆▇▇▇▇████▇▇████████
+wandb:    train/explained_variance █▇▆▆▄▄▆▁▅▅▇██▇▇█▇████████████▇█▇█▇▇▁▇███
+wandb:              train/lag_loss █▇▇▇▇▇▇▇▇▇▇▁▄▆▇▇▇▆▇▇▇▄▆▆▇▇▇▄▆▇▇▇▆▇▇▇▇▇▆▇
+wandb: train/lagrangian_multiplier ▂▂▁▁▁▁▁▁▁▁▁█▆▃▁▁▁▄▂▁▁▆▄▃▁▁▁▆▄▂▁▁▄▂▁▁▁▁▄▂
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss █▄▄▄▄▄▄▄▄▄▄▁▂▃▄▄▄▃▄▄▄▂▃▃▄▄▄▂▃▄▄▄▃▄▄▄▄▄▃▄
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▄▃▄▄▄▄▄▄▄▄▄▄▃▃▄▄▄█▄▄▁▃▄▄▄▄▃▃▄▄▄▄▄▄▄▄▄▄▄▄
+wandb:              train/ppo_loss █▂▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▄▁▁▁▂▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:               train/returns ▆▅▇▇▇▇▇▇▇▇▇▆▆▆▇▇▇▃▅▆▇▁▃▄▆▇▇█▇▇▇▇▇▇▇▇▇▇█▇
+wandb:            train/value_loss █▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▆▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                train/values ▆▅▇▇▇▇▇▇▇▇▇▆▆▆▇▇▇▃▅▆▇▁▃▄▆▇▇█▇▇▇▇▇▇▇▇▇▇█▇
+wandb: 
+wandb: Run summary:
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                      reward 0.0
+wandb:             train/approx_kl 0.0
+wandb:         train/clip_fraction 0.0
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 0.0598
+wandb:       train/cost_value_loss 5e-05
+wandb:           train/cost_values 0.06547
+wandb:               train/entropy -0.15009
+wandb:          train/entropy_loss -0.14951
+wandb:    train/explained_variance -4.05638
+wandb:              train/lag_loss -43.4092
+wandb: train/lagrangian_multiplier 1.78672
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss -0.01186
+wandb:             train/n_updates 4890
+wandb:  train/policy_gradient_loss -1e-05
+wandb:              train/ppo_loss -0.00046
+wandb:               train/returns 0.04256
+wandb:            train/value_loss 3e-05
+wandb:                train/values 0.04677
+wandb: 
+wandb: 🚀 View run confused-glitter-83 at: https://wandb.ai/ecrl/PID-tests/runs/a3zg8ojf
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_193754-a3zg8ojf/logs
+srun: Job 198027 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=198027.5
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_203753-k8f4f1vo
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run lilac-deluge-90
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/k8f4f1vo
+Directory created: tests/PPOL/models/PID-tests/vt0ov5l2
+Directory already exists: tests/PPOL/models/PID-tests/vt0ov5l2
+Directory already exists: tests/PPOL/models/PID-tests/vt0ov5l2
+Directory already exists: tests/PPOL/models/PID-tests/vt0ov5l2
+Directory already exists: tests/PPOL/models/PID-tests/vt0ov5l2
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: | 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                        cost ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                      reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             train/approx_kl ▁▃▅█▆▅▂▂▂▃▃▂▃▇▄▁▄▅▁▁▁▁▃▁▂▂▂▂▁▂██▃▁▂▇▃▂▁▂
+wandb:         train/clip_fraction ▁▂▂█▂▃▁▁▁▂▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▂▁▁▁▁
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns █▇▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       train/cost_value_loss █▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           train/cost_values █▇▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:               train/entropy ▁▂▃▄▃▃▃▄▄▂▂▂▃▅▄▃▃▃▅▄▃▃▃▃▃▄▆█▄▄▄▇▆█▅▅▅▅▄▅
+wandb:          train/entropy_loss ▁▂▃▄▄▃▃▄▄▂▂▂▃▅▄▃▃▄▅▄▃▃▃▃▃▄▅█▄▄▅▇▆█▅▅▅▅▄▅
+wandb:    train/explained_variance ▇███▇▇▇█▇▇█▇▇▆▇▇▇▆▇▇▇▇▇▆▇▇▅▁█▇█▅▆▆▆▆█▅██
+wandb:              train/lag_loss █▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+wandb: train/lagrangian_multiplier █▇▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss █▁▁▁▁▁▂▂▂▂▂▂▁▁▂▂▁▁▂▂▂▂▁▂▂▂▂▂▂▂▁▂▁▂▂▂▂▂▂▂
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▆▅▄▃▃▂▆▇▅▄▄▄▃▃▆▇▃▂▆▆▇▆▃▅▄▆▆▆▆▆▁▃▃▆█▄▅▅▅▆
+wandb:              train/ppo_loss █▃▁▁▁▁▂▂▁▁▁▁▁▁▂▂▁▁▂▂▂▁▁▁▁▁▂▂▂▂▁▁▁▂▂▁▁▁▁▂
+wandb:               train/returns ▁▇██████████████████████████████████████
+wandb:            train/value_loss █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                train/values ▁▇██████████████████████████████████████
+wandb: 
+wandb: Run summary:
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                      reward 0.0
+wandb:             train/approx_kl 0.00076
+wandb:         train/clip_fraction 0.00078
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 0.00061
+wandb:       train/cost_value_loss 1e-05
+wandb:           train/cost_values 0.00059
+wandb:               train/entropy -1.49783
+wandb:          train/entropy_loss -1.49075
+wandb:    train/explained_variance -2.29227
+wandb:              train/lag_loss -1e-05
+wandb: train/lagrangian_multiplier 0.0
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss -0.00575
+wandb:             train/n_updates 4890
+wandb:  train/policy_gradient_loss -0.00063
+wandb:              train/ppo_loss -0.00578
+wandb:               train/returns 0.00046
+wandb:            train/value_loss 0.0
+wandb:                train/values 0.00044
+wandb: 
+wandb: 🚀 View run stellar-aardvark-88 at: https://wandb.ai/ecrl/PID-tests/runs/vt0ov5l2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_203424-vt0ov5l2/logs
+Directory created: tests/PPOL/models/PID-tests/b5wxm9wh
+Directory already exists: tests/PPOL/models/PID-tests/b5wxm9wh
+Directory already exists: tests/PPOL/models/PID-tests/b5wxm9wh
+Directory already exists: tests/PPOL/models/PID-tests/b5wxm9wh
+Directory already exists: tests/PPOL/models/PID-tests/b5wxm9wh
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.027 MB uploaded (0.000 MB deduped)wandb: \ 0.027 MB of 0.032 MB uploaded (0.000 MB deduped)wandb: | 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: / 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                        cost ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                      reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             train/approx_kl ▁▄▃▃▁▆█▁▄▁▂▁▂▂▄▃▁▂▁▁▁▃▃▃▁▂▃▁▂▁▁▁▂▂▁▁▂▂▂▁
+wandb:         train/clip_fraction ▁▁▁▁▁▂█▁▃▁▁▁▁▁▂▁▁▁▁▁▁▃▁▁▁▁▄▁▁▁▁▁▁▂▁▁▁▁▁▁
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns █▆▂▁▂▁▁▂▁▂▁▁▁▁▁▁▁▁▄▁▁▁▁▁▂▁▁▁▁▁▁▂▁▁▂▁▁▁▁▁
+wandb:       train/cost_value_loss █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           train/cost_values █▆▂▁▂▁▁▂▁▂▁▁▁▁▁▁▁▁▅▁▁▁▁▁▂▁▁▁▁▁▁▂▁▁▂▁▁▂▁▁
+wandb:               train/entropy ▁▂▃▃▄▃▆▅▄▅▇▇▆▅▄▄▄▃▄▄▃▆▅▃▄▄▅█▇▇▇▇█▅▆▆▆▅▅▅
+wandb:          train/entropy_loss ▁▂▃▃▄▃▅▅▄▅▇▇▆▅▅▄▄▃▄▄▃▆▅▃▄▄▆█▇▇▇▇█▅▆▆▆▅▅▅
+wandb:    train/explained_variance ▃▃▆▇█▁▇█▆▇▇▇▇▇▇▄▆▅▇▇▇▇▇▂▆▄▆▇▇█▇▇▇▆███▇██
+wandb:              train/lag_loss █▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+wandb: train/lagrangian_multiplier █▆▂▁▂▁▁▂▁▂▁▁▁▁▁▁▁▁▄▁▁▁▁▁▂▁▁▁▁▁▁▂▁▁▂▁▁▁▁▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss █▁▃▃▂▃▃▂▃▃▃▃▃▃▃▃▃▃▁▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▇█▇▆▇▄▁▇▅▆▇▇▅▆▅▆▆▆▇▇▆▅▆▄▇▆▇▆▅▇▆▆▆▆▇▇▅▆▆▆
+wandb:              train/ppo_loss █▃▂▂▂▁▁▂▁▂▂▂▁▂▁▁▁▁▂▂▁▂▂▁▂▁▂▂▁▂▂▂▂▂▂▂▁▂▁▂
+wandb:               train/returns ▁▂▃▃▅▄▃▄▃▃▃▅▄▃▃▃▃▃▆▄▃▃▃▃▃▃▄▄▃▄▃▃▃▃█▄▃▃▃▃
+wandb:            train/value_loss █▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁
+wandb:                train/values ▁▂▃▄▅▄▃▄▄▃▄▆▄▄▄▄▄▄▆▄▃▄▄▄▃▄▄▄▄▄▄▄▄▄█▄▄▄▄▄
+wandb: 
+wandb: Run summary:
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                      reward 0.0
+wandb:             train/approx_kl 0.00079
+wandb:         train/clip_fraction 0.00137
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 0.00283
+wandb:       train/cost_value_loss 0.0
+wandb:           train/cost_values 0.00287
+wandb:               train/entropy -1.21078
+wandb:          train/entropy_loss -1.21515
+wandb:    train/explained_variance 0.56059
+wandb:              train/lag_loss -0.00088
+wandb: train/lagrangian_multiplier 0.00074
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss -0.00239
+wandb:             train/n_updates 4890
+wandb:  train/policy_gradient_loss -0.00089
+wandb:              train/ppo_loss -0.00514
+wandb:               train/returns -0.00047
+wandb:            train/value_loss 0.0
+wandb:                train/values -0.00051
+wandb: 
+wandb: 🚀 View run wild-plasma-89 at: https://wandb.ai/ecrl/PID-tests/runs/b5wxm9wh
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_203521-b5wxm9wh/logs
+Directory created: tests/PPOL/models/PID-tests/k8f4f1vo
+Directory already exists: tests/PPOL/models/PID-tests/k8f4f1vo
+Directory already exists: tests/PPOL/models/PID-tests/k8f4f1vo
+Directory already exists: tests/PPOL/models/PID-tests/k8f4f1vo
+Directory already exists: tests/PPOL/models/PID-tests/k8f4f1vo
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.027 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: \ 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: | 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                        cost ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                      reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             train/approx_kl ▁▃▂▂▁▁▁▃▄▁▂▁▁▁▁▁▁▁▁▁█▁▁▅▆▁▃▁▁▁▁▁▁▁▂▁▁▁▄▁
+wandb:         train/clip_fraction ▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▄▁▃▁▁▁▁▁▁▁▂▁▁▁▅▁
+wandb:            train/clip_range ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/cost_returns ▆▅▂▁▁▂▁▁▄▁▁▅▂▁▂▁▁▅▂▁▆▂▁▅▄▁▁▁▁▁▁█▃▁▁▁▂▁▂▁
+wandb:       train/cost_value_loss █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▁▁▆▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁
+wandb:           train/cost_values ▄▄▂▁▁▂▁▁▄▁▁▅▂▁▂▁▁▆▂▁▆▂▁▇▄▁▁▁▁▁▁█▂▁▁▁▂▁▂▁
+wandb:               train/entropy ▁▂▃▃▃▃▃▃▄▄▅▇█████▇▅▅▄▅▅▅▄▄▆▇▇▆▆▇▆▇█▇▆▆▅▅
+wandb:          train/entropy_loss ▁▂▃▃▃▃▃▃▄▄▅▇█████▇▅▅▄▅▅▅▃▄▆▇▇▆▆▇▆▇█▇▆▆▅▅
+wandb:    train/explained_variance ██████████████▇█████████▇▇██▇█▇▆▇▆▁███▇▇
+wandb:              train/lag_loss █▅▅▆▅▅▅▆▅▅▅▄▅▅▅▅▅▃▅▅▃▅▅▃▅▅▅▅▅▅▅▁▅▅▅▅▅▅▅▅
+wandb: train/lagrangian_multiplier ▅▄▂▁▁▂▁▁▄▁▂▅▂▁▂▁▁▇▂▁▆▁▁█▄▁▁▁▁▁▁█▂▁▁▁▂▁▂▁
+wandb:         train/learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  train/loss █▃▄▄▄▄▄▄▃▄▄▂▄▄▄▄▄▃▄▄▂▄▄▃▃▄▄▄▄▄▄▁▄▄▄▄▄▄▄▄
+wandb:             train/n_updates ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:  train/policy_gradient_loss ▄▄▅▄▄▄▃▂▂▄▂▄▄▄▄▄▄▅▄▄█▄▄▁▄▄▃▄▄▄▃▃▄▄▃▄▄▄▄▄
+wandb:              train/ppo_loss ▆▂▁▁▁▁▁▁▁▁▃▂▁▁▁▁▁▅▁▁▂▁▁█▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁
+wandb:               train/returns ▁▁▂▂▂▂▂▂█▃▂█▃▂▂▂▂▁▂▂▁▂▂▁▂▂▂▂▂▂▂▁▂▂▂▃▃▂▂▂
+wandb:            train/value_loss ▇▃▁▁▁▁▁▁▆▁▂█▁▁▁▁▁▃▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                train/values ▂▁▂▂▂▂▂▂█▃▂█▃▂▂▂▂▁▂▂▁▂▂▁▂▂▂▂▂▂▂▂▂▂▂▃▃▂▂▂
+wandb: 
+wandb: Run summary:
+wandb:                        cost 0
+wandb:                  is_success 0
+wandb:                      reward 0.0
+wandb:             train/approx_kl 0.00068
+wandb:         train/clip_fraction 0.0
+wandb:            train/clip_range 0.2
+wandb:          train/cost_returns 0.00291
+wandb:       train/cost_value_loss 0.0
+wandb:           train/cost_values 0.00309
+wandb:               train/entropy -0.93237
+wandb:          train/entropy_loss -0.92011
+wandb:    train/explained_variance -41.86554
+wandb:              train/lag_loss -0.00738
+wandb: train/lagrangian_multiplier 0.00886
+wandb:         train/learning_rate 0.0003
+wandb:                  train/loss -0.00055
+wandb:             train/n_updates 4890
+wandb:  train/policy_gradient_loss 0.0003
+wandb:              train/ppo_loss -0.00316
+wandb:               train/returns -0.00044
+wandb:            train/value_loss 0.0
+wandb:                train/values -0.00033
+wandb: 
+wandb: 🚀 View run lilac-deluge-90 at: https://wandb.ai/ecrl/PID-tests/runs/k8f4f1vo
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_203753-k8f4f1vo/logs

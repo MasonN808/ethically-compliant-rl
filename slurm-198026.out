@@ -1,0 +1,160 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240422_023553-a1tp9dwd
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run warm-wave-79
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/a1tp9dwd
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_193553-ivcywtcu
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gallant-galaxy-80
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/ivcywtcu
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_193553-8fhk558c
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run usual-smoke-81
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/8fhk558c
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 128, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 425, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 634, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 551, in collect_rollouts
+    cost = np.array(infos[idx].get("cost"))
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/_tensor.py", line 1062, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 128, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 425, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 634, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 551, in collect_rollouts
+    cost = np.array(infos[idx].get("cost"))
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/_tensor.py", line 1062, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 128, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 425, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 634, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 551, in collect_rollouts
+    cost = np.array(infos[idx].get("cost"))
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/_tensor.py", line 1062, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:       cost ▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:       cost 0
+wandb: is_success 0
+wandb:     reward 0.0
+wandb: 
+wandb: 🚀 View run warm-wave-79 at: https://wandb.ai/ecrl/PID-tests/runs/a1tp9dwd
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240422_023553-a1tp9dwd/logs
+wandb: 
+wandb: Run history:
+wandb:       cost ▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:       cost 0
+wandb: is_success 0
+wandb:     reward 0.0
+wandb: 
+wandb: 🚀 View run gallant-galaxy-80 at: https://wandb.ai/ecrl/PID-tests/runs/ivcywtcu
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_193553-ivcywtcu/logs
+wandb: 
+wandb: Run history:
+wandb:       cost ▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:       cost 0
+wandb: is_success 0
+wandb:     reward 0.0
+wandb: 
+wandb: 🚀 View run usual-smoke-81 at: https://wandb.ai/ecrl/PID-tests/runs/8fhk558c
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_193553-8fhk558c/logs
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 198026 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=198026.3
+srun: Job 198026 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=198026.4
+srun: Job 198026 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=198026.5
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240422_023757-h727bf6d
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run good-sound-85
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/h727bf6d
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_193758-7buyg4bi
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run vital-snow-86
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/7buyg4bi
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_193759-om1yvvv9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run royal-river-87
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/om1yvvv9
+slurmstepd: error: *** STEP 198026.5 ON dqn.ist.berkeley.edu CANCELLED AT 2024-04-21T19:38:02 ***
+slurmstepd: error: *** STEP 198026.4 ON ddpg.ist.berkeley.edu CANCELLED AT 2024-04-21T19:38:02 ***
+slurmstepd: error: *** JOB 198026 ON cirl.ist.berkeley.edu CANCELLED AT 2024-04-22T02:38:02 ***
+slurmstepd: error: *** STEP 198026.3 ON cirl.ist.berkeley.edu CANCELLED AT 2024-04-22T02:38:02 ***

@@ -1,0 +1,117 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240422_085855-hvqzpj6p
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run desert-spaceship-1
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests-FSRL-loss
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests-FSRL-loss/runs/hvqzpj6p
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240422_155856-vy300e9h
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run smart-pine-3
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests-FSRL-loss
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests-FSRL-loss/runs/vy300e9h
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240422_155856-aus5dm89
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ancient-blaze-2
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests-FSRL-loss
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests-FSRL-loss/runs/aus5dm89
+srun: Job 202854 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 202854 step creation still disabled, retrying (Requested nodes are busy)

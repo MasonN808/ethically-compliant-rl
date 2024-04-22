@@ -1,0 +1,252 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_192620-ybeta12e
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run true-leaf-70
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/ybeta12e
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_192620-r66k3f3q
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run comfy-water-73
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/r66k3f3q
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240422_022621-f2epc0vn
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run vocal-wind-75
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/f2epc0vn
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 128, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 425, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 634, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 543, in collect_rollouts
+    infos[idx]["cost"] += self.gamma * terminal_cost
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/_tensor.py", line 1022, in __iter__
+    raise TypeError("iteration over a 0-d tensor")
+TypeError: iteration over a 0-d tensor
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 128, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 425, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 634, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 543, in collect_rollouts
+    infos[idx]["cost"] += self.gamma * terminal_cost
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/_tensor.py", line 1022, in __iter__
+    raise TypeError("iteration over a 0-d tensor")
+TypeError: iteration over a 0-d tensor
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 128, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 425, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 634, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 543, in collect_rollouts
+    infos[idx]["cost"] += self.gamma * terminal_cost
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/_tensor.py", line 1022, in __iter__
+    raise TypeError("iteration over a 0-d tensor")
+TypeError: iteration over a 0-d tensor
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:       cost ▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:       cost 0
+wandb: is_success 0
+wandb:     reward 0.0
+wandb: 
+wandb: 🚀 View run true-leaf-70 at: https://wandb.ai/ecrl/PID-tests/runs/ybeta12e
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_192620-ybeta12e/logs
+wandb: 
+wandb: Run history:
+wandb:       cost ▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:       cost 0
+wandb: is_success 0
+wandb:     reward 0.0
+wandb: 
+wandb: 🚀 View run vocal-wind-75 at: https://wandb.ai/ecrl/PID-tests/runs/f2epc0vn
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240422_022621-f2epc0vn/logs
+wandb: 
+wandb: Run history:
+wandb:       cost ▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:       cost 0
+wandb: is_success 0
+wandb:     reward 0.0
+wandb: 
+wandb: 🚀 View run comfy-water-73 at: https://wandb.ai/ecrl/PID-tests/runs/r66k3f3q
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_192620-r66k3f3q/logs
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1
+srun: Job 198024 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=198024.3
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240422_022820-yyel0ea8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run misty-bush-76
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/yyel0ea8
+srun: Job 198024 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=198024.4
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 128, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 425, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 634, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 543, in collect_rollouts
+    infos[idx]["cost"] += self.gamma * terminal_cost
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/_tensor.py", line 1022, in __iter__
+    raise TypeError("iteration over a 0-d tensor")
+TypeError: iteration over a 0-d tensor
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+srun: Job 198024 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=198024.5
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_192826-8ol9efuh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run olive-cherry-77
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/8ol9efuh
+wandb: 
+wandb: Run history:
+wandb:       cost ▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:       cost 0
+wandb: is_success 0
+wandb:     reward 0.0
+wandb: 
+wandb: 🚀 View run misty-bush-76 at: https://wandb.ai/ecrl/PID-tests/runs/yyel0ea8
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240422_022820-yyel0ea8/logs
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_192828-nl0m31jt
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run desert-wind-78
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/nl0m31jt
+srun: error: cirl.ist.berkeley.edu: task 0: Exited with exit code 1
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 128, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 425, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 634, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 543, in collect_rollouts
+    infos[idx]["cost"] += self.gamma * terminal_cost
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/_tensor.py", line 1022, in __iter__
+    raise TypeError("iteration over a 0-d tensor")
+TypeError: iteration over a 0-d tensor
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+Traceback (most recent call last):
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 135, in <module>
+    train()
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/pyrallis/argparsing.py", line 158, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/nas/ucb/mason/ethically-compliant-rl/tests/PPOL/train_ppol_safety_grid.py", line 128, in train
+    agent.learn(total_timesteps=args.total_timesteps, callback=callback, reset_num_timesteps=False)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/ppol/ppol.py", line 425, in learn
+    result = super().learn(
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 634, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/nas/ucb/mason/ethically-compliant-rl/stable_baselines3/stable_baselines3/common/on_policy_algorithm.py", line 543, in collect_rollouts
+    infos[idx]["cost"] += self.gamma * terminal_cost
+  File "/nas/ucb/mason/ethically-compliant-rl/.venv/lib/python3.9/site-packages/torch/_tensor.py", line 1022, in __iter__
+    raise TypeError("iteration over a 0-d tensor")
+TypeError: iteration over a 0-d tensor
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:       cost ▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:       cost 0
+wandb: is_success 0
+wandb:     reward 0.0
+wandb: 
+wandb: 🚀 View run olive-cherry-77 at: https://wandb.ai/ecrl/PID-tests/runs/8ol9efuh
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_192826-8ol9efuh/logs
+srun: error: ddpg.ist.berkeley.edu: task 0: Exited with exit code 1
+wandb: 
+wandb: Run history:
+wandb:       cost ▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: is_success ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     reward ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:       cost 0
+wandb: is_success 0
+wandb:     reward 0.0
+wandb: 
+wandb: 🚀 View run desert-wind-78 at: https://wandb.ai/ecrl/PID-tests/runs/nl0m31jt
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240421_192828-nl0m31jt/logs
+srun: error: dqn.ist.berkeley.edu: task 0: Exited with exit code 1

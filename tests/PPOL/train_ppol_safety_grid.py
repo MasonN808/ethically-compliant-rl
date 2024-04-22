@@ -3,7 +3,7 @@ import ast
 import os
 from typing import Optional, Dict, List
 # Enables WandB cloud syncing
-os.environ['WANDB_DISABLED'] = 'True'
+os.environ['WANDB_DISABLED'] = 'False'
 os.environ["WANDB_API_KEY"] = '9762ecfe45a25eda27bb421e664afe503bb42297'
 import numpy as np
 import wandb
@@ -57,19 +57,19 @@ class WandbLoggingCallback(BaseCallback):
 
 @dataclass
 class Cfg(TrainCfg):
-    wandb_project_name: str = "PID-tests"
+    wandb_project_name: str = "PID-tests-FSRL-loss"
     env_name: str = "MiniGrid-Empty-16x16-v1"
-    epochs: int = 10
+    epochs: int = 20
     total_timesteps: int = 100000
     batch_size: int = 2048
     num_envs: int = 1
     model_save_interval: int = 2
     policy_kwargs: Dict[str, List[int]] = field(default_factory=lambda: {'net_arch': [64, 64], 'features_extractor_class': CombinedExtractor})
     seed: int = 1
-    ent_coef: float = .003
+    ent_coef: float = .001
     vf_coef: float = .5
     env_logger_path: str = None
-    device: str = "cpu"
+    device: str = "cuda"
 
     # Lagrangian Parameters
     constraint_type: List[str] = field(default_factory=lambda: ["hazards"])
@@ -81,7 +81,7 @@ class Cfg(TrainCfg):
     K_I: float = .5
     K_D: float = .5
 
-    notes: str = "Trying FSRL implementation that uses the advantage*ratio to calculate values"
+    notes: str = "Trying FSRL implementation. Reducing entropy .003 -> .001 since entropy remained high."
 
 @pyrallis.wrap()
 def train(args: Cfg):

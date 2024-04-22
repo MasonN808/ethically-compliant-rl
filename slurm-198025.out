@@ -1,0 +1,31 @@
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: mason-nakamura1 (ecrl). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_192620-2b9rubk0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run wild-pine-70
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/2b9rubk0
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_192620-f6ywnbkh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run mild-eon-72
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/f6ywnbkh
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /nas/ucb/mason/ethically-compliant-rl/wandb/run-20240421_192620-bkddvlxh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run genial-water-73
+wandb: ⭐️ View project at https://wandb.ai/ecrl/PID-tests
+wandb: 🚀 View run at https://wandb.ai/ecrl/PID-tests/runs/bkddvlxh
+slurmstepd: error: *** STEP 198025.2 ON gail.ist.berkeley.edu CANCELLED AT 2024-04-21T19:26:21 ***
+slurmstepd: error: *** STEP 198025.1 ON dqn.ist.berkeley.edu CANCELLED AT 2024-04-21T19:26:21 ***
+slurmstepd: error: *** STEP 198025.0 ON ddpg.ist.berkeley.edu CANCELLED AT 2024-04-21T19:26:21 ***
+slurmstepd: error: *** JOB 198025 ON ddpg.ist.berkeley.edu CANCELLED AT 2024-04-21T19:26:21 ***
