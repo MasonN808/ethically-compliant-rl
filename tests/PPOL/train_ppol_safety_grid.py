@@ -59,7 +59,7 @@ class WandbLoggingCallback(BaseCallback):
 class Cfg(TrainCfg):
     wandb_project_name: str = "PID-tests-FSRL-loss"
     env_name: str = "MiniGrid-Empty-16x16-v1"
-    epochs: int = 20
+    epochs: int = 10
     total_timesteps: int = 100000
     batch_size: int = 2048
     num_envs: int = 1
@@ -74,8 +74,6 @@ class Cfg(TrainCfg):
     # Lagrangian Parameters
     constraint_type: List[str] = field(default_factory=lambda: ["hazards"])
     cost_threshold: List[float] = field(default_factory=lambda: [0])
-    # constraint_type: list[str] = field(default_factory=lambda: [])
-    # cost_threshold: list[float] = field(default_factory=lambda: [])
     lagrange_multiplier: bool = True
     K_P: float = .5
     K_I: float = .5
